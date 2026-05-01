@@ -21,7 +21,7 @@ Four practices, one outcome — work that thinks for itself.
 
 **How we work:** Listen → Map → Choose → Ship. Slow at the start, sharp at the end.
 
-**Contact:** [hello@whitecane.ai](mailto:consulting@whitecane-ai.com)
+**Contact:** [consulting@whitecane-ai.com](mailto:consulting@whitecane-ai.com)
 
 ---
 
