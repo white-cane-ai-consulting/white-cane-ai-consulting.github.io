@@ -19,7 +19,7 @@ Four practices, one outcome — work that thinks for itself.
 | **C — Integration & Workflow** | Automations, copilots, and review loops your team will actually use. |
 | **D — Governance & Care** | Policies, evals, monitoring, and training — so the system you launch on day one is still the system you trust six months in. |
 
-**How we work:** Listen → Map → Choose → Ship. Slow at the start, sharp at the end.
+**How we work:** Listen → Map → Choose → Ship.
 
 **Contact:** [consulting@whitecane-ai.com](mailto:consulting@whitecane-ai.com)
 
