@@ -20,8 +20,8 @@ const Index = () => {
     <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Nav />
       <Hero />
-      <Who />
       <Offer />
+      <Who />
       <Achievements />
       <Vision />
       <CTA />

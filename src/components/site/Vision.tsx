@@ -2,6 +2,9 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { Play, Pause } from "lucide-react";
 import vision from "@/assets/vision.jpg";
+import teamPhoto from "@/assets/team_photo.jpg";
+import aiPhoto from "@/assets/ai_crop_photo.png";
+import confrencePhoto from "@/assets/confrence_photo.avif";
 
 const ease = [0.6, 0.05, 0.1, 1] as const;
 
@@ -11,6 +14,8 @@ const slides = [
   { k: "03 / Choose", t: "We pick the smallest stack.", d: "From 400+ vetted tools, we recommend the few that fit. No hype, no kickbacks — just what works for your team." },
   { k: "04 / Ship", t: "We build it with you.", d: "Workflows live, copilots tuned, your people trained. We stay until adoption sticks — and then we stay a little longer." },
 ];
+
+const slideImages = [teamPhoto, confrencePhoto, aiPhoto, vision];
 
 export const Vision = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -29,9 +34,20 @@ export const Vision = () => {
 
   return (
     <section id="vision" ref={ref} className="relative py-32 md:py-44 bg-ink overflow-hidden border-t border-border/50">
-      {/* Parallax image */}
+      {/* Per-slide parallax background */}
       <motion.div style={{ y }} className="absolute inset-0">
-        <img src={vision} alt="" loading="lazy" className="w-full h-full object-cover opacity-25" />
+        {slideImages.map((img, i) => (
+          <motion.img
+            key={i}
+            src={img}
+            alt=""
+            loading="lazy"
+            className={`absolute inset-0 w-full h-full object-cover ${i < 3 ? "grayscale" : ""}`}
+            initial={false}
+            animate={{ opacity: i === active ? 0.28 : 0 }}
+            transition={{ duration: 1.4, ease: [0.6, 0.05, 0.1, 1] }}
+          />
+        ))}
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
       </motion.div>
 

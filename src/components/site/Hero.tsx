@@ -1,25 +1,95 @@
+import { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import heroFog from "@/assets/hero-fog.jpg";
 
 const ease = [0.6, 0.05, 0.1, 1] as const;
 
 export const Hero = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const rafRef = useRef<number>(0);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const SPEED = 0.7;
+    const NEAR_END = 0.3;
+    let goingBack = false;
+
+    const goForward = () => {
+      goingBack = false;
+      video.playbackRate = SPEED;
+      // retry play in case of transient AbortError
+      const tryPlay = () => video.play().catch((e) => { if (e?.name === "AbortError") setTimeout(tryPlay, 50); });
+      tryPlay();
+      rafRef.current = requestAnimationFrame(monitor);
+    };
+
+    const goBackward = () => {
+      if (goingBack) return;           // guard against double-trigger
+      goingBack = true;
+      video.pause();
+      let lastTs: number | null = null;
+
+      const backward = (ts: number) => {
+        if (lastTs !== null) {
+          video.currentTime = Math.max(0, video.currentTime - ((ts - lastTs) / 1000) * SPEED);
+        }
+        lastTs = ts;
+
+        if (video.currentTime <= 0) {
+          goForward();
+          return;
+        }
+        rafRef.current = requestAnimationFrame(backward);
+      };
+
+      rafRef.current = requestAnimationFrame(backward);
+    };
+
+    const monitor = (_ts: number) => {
+      if (!video.duration) { rafRef.current = requestAnimationFrame(monitor); return; }
+      if (!goingBack && video.currentTime >= video.duration - NEAR_END) {
+        goBackward();
+        return;
+      }
+      rafRef.current = requestAnimationFrame(monitor);
+    };
+
+    video.addEventListener("ended", goBackward);   // hard failsafe
+    video.playbackRate = SPEED;
+    video.play().catch(() => {});
+    rafRef.current = requestAnimationFrame(monitor);
+
+    return () => {
+      video.removeEventListener("ended", goBackward);
+      cancelAnimationFrame(rafRef.current);
+    };
+  }, []);
+
   return (
     <section id="top" className="relative min-h-screen overflow-hidden grain flex items-end pb-20 pt-32">
-      {/* Background image with parallax */}
+      {/* Background video with ping-pong playback */}
       <motion.div
         initial={{ scale: 1.1, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 2.4, ease }}
         className="absolute inset-0"
       >
-        <img src={heroFog} alt="" className="w-full h-full object-cover opacity-70" />
+        <video
+          ref={videoRef}
+          muted
+          playsInline
+          className="w-full h-full object-cover opacity-70"
+        >
+          <source src="/Interactive-video.mp4" type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-background/60" />
       </motion.div>
 
+
       {/* Vertical side label */}
       <div className="hidden lg:block absolute left-6 top-1/2 -translate-y-1/2 vert-text text-[10px] tracking-[0.4em] text-muted-foreground uppercase">
-        EST. 2025 — Clarity Engineered
+        EST. 2026 — Clarity Engineered
       </div>
 
       {/* Side metric */}
@@ -85,9 +155,9 @@ export const Hero = () => {
           >
             <a
               href="#offer"
-              className="group inline-flex items-center gap-3 bg-bone text-ink px-7 py-4 text-xs uppercase tracking-[0.25em] font-medium hover:bg-signal hover:text-bone transition-colors duration-500"
+              className="group inline-flex items-center gap- bg-bone text-ink px-7 py-4 text-xs uppercase tracking-[0.25em] font-medium hover:bg-signal hover:text-bone transition-colors duration-500"
             >
-              Explore the practice
+              Explore the Services
               <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
             </a>
           </motion.div>

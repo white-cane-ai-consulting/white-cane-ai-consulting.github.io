@@ -4,7 +4,18 @@ import logo from "@/assets/logo.png";
 const ease = [0.6, 0.05, 0.1, 1] as const;
 
 export const CTA = () => (
-  <section id="contact" className="relative py-32 md:py-48 border-t border-border/50">
+  <section id="contact" className="relative py-32 md:py-48 border-t border-border/50 overflow-hidden">
+
+    {/* Background scrolling text */}
+    <div className="pointer-events-none absolute left-0 right-0 overflow-hidden whitespace-nowrap opacity-[0.06] select-none" style={{ top: "60%" }} aria-hidden="true">
+      <div
+        className="marquee-track inline-block font-display font-bold leading-none tracking-tight uppercase"
+        style={{ fontSize: "22vw", animationDuration: "360s" }}
+      >
+        {"WHITE CANE   WHITE CANE   WHITE CANE   WHITE CANE   ".repeat(2)}
+      </div>
+    </div>
+
     <div className="container">
       <div className="grid md:grid-cols-12 gap-10 items-center">
         <motion.div
@@ -37,12 +48,12 @@ export const CTA = () => (
             honestly whether we're the right fit.
           </p>
           <a
-            href="mailto:hello@whitecane.ai"
+            href="mailto:consulting@whitecane-ai.com"
             className="group block bg-bone text-ink p-8 hover:bg-signal hover:text-bone transition-colors duration-500"
           >
             <div className="text-[10px] uppercase tracking-[0.3em] mb-3 opacity-70">Direct line</div>
             <div className="font-display text-2xl flex items-center justify-between">
-              hello@whitecane.ai
+              consulting@whitecane-ai.com
               <span className="transition-transform group-hover:translate-x-1">→</span>
             </div>
           </a>
@@ -53,8 +64,12 @@ export const CTA = () => (
     {/* Footer */}
     <div className="container mt-32 pt-10 border-t border-border/60">
       <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10">
-        <div className="flex items-center gap-4">
-          <img src={logo} alt="" className="h-10 w-10 invert" />
+        <div className="flex items-center gap-5">
+          <img
+            src={logo}
+            alt="White Cane AI Consulting"
+            className="h-20 w-auto rounded-xl"
+          />
           <div>
             <div className="font-display text-sm tracking-wider">WHITE CANE AI CONSULTING</div>
             <div className="text-xs text-muted-foreground mt-1">Clarity in the era of AI.</div>
@@ -87,7 +102,7 @@ export const CTA = () => (
           </div>
         </div>
       </div>
-      <div className="mt-12 flex justify-between text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
+      <div className="mt-8 flex justify-between text-[10px] uppercase tracking-[0.4em] text-muted-foreground">
         <span>© {new Date().getFullYear()} White Cane AI Consulting</span>
         <span><span className="text-signal">●</span> Currently accepting Q3 engagements</span>
       </div>

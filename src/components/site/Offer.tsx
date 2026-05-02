@@ -44,7 +44,7 @@ export const Offer = () => (
         transition={{ duration: 0.8, ease }}
         className="flex items-center gap-3 mb-20"
       >
-        <span className="text-xs uppercase tracking-[0.3em] text-signal">02 —</span>
+        <span className="text-xs uppercase tracking-[0.3em] text-signal">01 —</span>
         <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground">What we offer</span>
       </motion.div>
 
