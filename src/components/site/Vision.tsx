@@ -5,19 +5,15 @@ import vision from "@/assets/vision.jpg";
 import teamPhoto from "@/assets/team_photo.jpg";
 import aiPhoto from "@/assets/ai_crop_photo.png";
 import confrencePhoto from "@/assets/confrence_photo.avif";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ease = [0.6, 0.05, 0.1, 1] as const;
-
-const slides = [
-  { k: "01 / Listen", t: "We start where the work happens.", d: "Two weeks inside your operations — calls, screenshares, shadowing. We measure where the friction actually lives." },
-  { k: "02 / Map", t: "We draw the system as it is.", d: "A single, honest map of your workflows, data and tools. The first deliverable, every time." },
-  { k: "03 / Choose", t: "We pick the smallest stack.", d: "From 400+ vetted tools, we recommend the few that fit. No hype, no kickbacks — just what works for your team." },
-  { k: "04 / Ship", t: "We build it with you.", d: "Workflows live, copilots tuned, your people trained. We stay until adoption sticks — and then we stay a little longer." },
-];
-
 const slideImages = [teamPhoto, confrencePhoto, aiPhoto, vision];
 
 export const Vision = () => {
+  const { t } = useLanguage();
+  const v = t.vision;
+
   const ref = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
   const [playing, setPlaying] = useState(true);
@@ -27,14 +23,13 @@ export const Vision = () => {
   useEffect(() => {
     if (!playing) return;
     const id = setInterval(() => {
-      setActive((a) => (a + 1) % slides.length);
+      setActive((a) => (a + 1) % v.slides.length);
     }, 4500);
     return () => clearInterval(id);
-  }, [playing]);
+  }, [playing, v.slides.length]);
 
   return (
     <section id="vision" ref={ref} className="relative py-32 md:py-44 bg-ink overflow-hidden border-t border-border/50">
-      {/* Per-slide parallax background */}
       <motion.div style={{ y }} className="absolute inset-0">
         {slideImages.map((img, i) => (
           <motion.img
@@ -60,7 +55,7 @@ export const Vision = () => {
           className="flex items-center gap-3 mb-16"
         >
           <span className="text-xs uppercase tracking-[0.3em] text-signal">04 —</span>
-          <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground">How we work</span>
+          <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground">{v.label}</span>
         </motion.div>
 
         <div className="grid md:grid-cols-12 gap-10 items-end">
@@ -72,13 +67,11 @@ export const Vision = () => {
               transition={{ duration: 1, ease }}
               className="font-display font-light text-4xl md:text-6xl leading-[1] mb-8 text-balance"
             >
-              A method,
+              {v.h2a}
               <br />
-              <span className="italic">not a deck.</span>
+              <span className="italic">{v.h2b}</span>
             </motion.h2>
-            <p className="text-muted-foreground leading-relaxed mb-10 max-w-md">
-              Every engagement runs through the same four-step rhythm. Slow at the start, sharp at the end.
-            </p>
+            <p className="text-muted-foreground leading-relaxed mb-10 max-w-md">{v.sub}</p>
 
             <div className="flex items-center gap-4">
               <button
@@ -89,36 +82,32 @@ export const Vision = () => {
                 {playing ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
               </button>
               <div className="flex gap-2">
-                {slides.map((_, i) => (
+                {v.slides.map((_, i) => (
                   <button
                     key={i}
                     onClick={() => setActive(i)}
                     aria-label={`Slide ${i + 1}`}
-                    className={`h-px transition-all duration-500 ${i === active ? "w-12 bg-signal" : "w-6 bg-foreground/20"}`}
-                  />
+                    className="py-3 flex items-center"
+                  >
+                    <span className={`h-px block transition-all duration-500 ${i === active ? "w-12 bg-signal" : "w-6 bg-foreground/20"}`} />
+                  </button>
                 ))}
               </div>
             </div>
           </div>
 
-          <div className="md:col-span-7 md:pl-8 md:border-l border-border/60 min-h-[340px] flex flex-col justify-end">
-            {slides.map((s, i) => (
+          <div className="md:col-span-7 md:pl-8 md:border-l border-border/60 min-h-[340px] relative">
+            {v.slides.map((s, i) => (
               <motion.div
                 key={s.k}
                 initial={false}
-                animate={{
-                  opacity: i === active ? 1 : 0,
-                  y: i === active ? 0 : 20,
-                  pointerEvents: i === active ? "auto" : "none",
-                }}
+                animate={{ opacity: i === active ? 1 : 0, y: i === active ? 0 : 20 }}
                 transition={{ duration: 0.8, ease }}
-                className={`${i === active ? "relative" : "absolute"}`}
-                style={i === active ? {} : { position: "absolute", inset: 0 }}
+                className="absolute inset-0 flex flex-col justify-end"
+                style={{ pointerEvents: i === active ? "auto" : "none" }}
               >
                 <div className="text-xs uppercase tracking-[0.3em] text-signal mb-6">{s.k}</div>
-                <h3 className="font-display font-light text-3xl md:text-5xl leading-[1.05] mb-6 text-balance">
-                  {s.t}
-                </h3>
+                <h3 className="font-display font-light text-3xl md:text-5xl leading-[1.05] mb-6 text-balance">{s.t}</h3>
                 <p className="text-muted-foreground leading-relaxed max-w-lg">{s.d}</p>
               </motion.div>
             ))}
