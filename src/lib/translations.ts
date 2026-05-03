@@ -78,15 +78,15 @@ export const translations = {
       toolsLabel: "AI tools we've set up & tested",
     },
     vision: {
-      label: "How we work",
+      label: "Methodology",
       h2a: "A method,",
       h2b: "not a deck.",
       sub: "Every engagement runs through the same four-step rhythm. Slow at the start, sharp at the end.",
       slides: [
-        { k: "01 / Listen", t: "We start where the work happens.", d: "Two weeks inside your operations — calls, screenshares, shadowing. We measure where the friction actually lives." },
-        { k: "02 / Map", t: "We draw the system as it is.", d: "A single, honest map of your workflows, data and tools. The first deliverable, every time." },
-        { k: "03 / Choose", t: "We pick the smallest stack.", d: "From 400+ vetted tools, we recommend the few that fit. No hype, no kickbacks — just what works for your team." },
-        { k: "04 / Ship", t: "We build it with you.", d: "Workflows live, copilots tuned, your people trained. We stay until adoption sticks — and then we stay a little longer." },
+        { k: "01 / DISCOVER", t: "Find the friction.", d: "Before we recommend a single model, we listen. We sit with your team to identify the bottlenecks, busywork, and real business problems. No tech jargon, just uncovering what actually takes up your time." },
+        { k: "02 / MAP", t: "Draw the system as it is.", d: "A single, honest map of your workflows, data, and tools. We don't map how you wish things worked; we map the reality of your current infrastructure." },
+        { k: "03 / BUILD", t: "Configure for reality.", d: "We select and deploy the exact AI tools your map demands. We write the system instructions, securely connect your data sources, and configure the agents to return answers your team can actually trust." },
+        { k: "04 / ADOPT", t: "Make it stick.", d: "A tool is useless if nobody opens it. We don't just hand over a login; we run the seminars, write the guides, and embed with your employees until the new workflow becomes second nature." },
       ],
     },
     cta: {
@@ -187,15 +187,15 @@ export const translations = {
       toolsLabel: "Εργαλεία ΤΝ που έχουμε εγκαταστήσει & δοκιμάσει",
     },
     vision: {
-      label: "Πώς εργαζόμαστε",
+      label: "Μεθοδολογία",
       h2a: "Μια μέθοδος,",
       h2b: "όχι μια παρουσίαση.",
       sub: "Κάθε συνεργασία ακολουθεί τον ίδιο τετραβήματο ρυθμό. Αργά στην αρχή, ακριβές στο τέλος.",
       slides: [
-        { k: "01 / Ακούμε", t: "Ξεκινάμε από εκεί που γίνεται η δουλειά.", d: "Δύο εβδομάδες μέσα στις λειτουργίες σας — κλήσεις, διαμοιρασμός οθόνης, παρατήρηση. Μετράμε πού βρίσκεται η τριβή." },
-        { k: "02 / Χαρτογραφούμε", t: "Σχεδιάζουμε το σύστημα όπως είναι.", d: "Ένας μοναδικός, ειλικρινής χάρτης των ροών εργασίας, δεδομένων και εργαλείων σας. Το πρώτο παραδοτέο, κάθε φορά." },
-        { k: "03 / Επιλέγουμε", t: "Επιλέγουμε το ελάχιστο σύνολο εργαλείων.", d: "Από 400+ αξιολογημένα εργαλεία, προτείνουμε τα λίγα που ταιριάζουν. Χωρίς υπερβολές, χωρίς κίνητρα — μόνο αυτό που λειτουργεί για την ομάδα σας." },
-        { k: "04 / Υλοποιούμε", t: "Το χτίζουμε μαζί σας.", d: "Ροές εργασίας σε λειτουργία, βοηθοί βελτιστοποιημένοι, ομάδα εκπαιδευμένη. Μένουμε μέχρι να εδραιωθεί η υιοθέτηση — και λίγο παραπάνω." },
+        { k: "01 / ΑΝΑΚΑΛΥΨΗ", t: "Βρίσκουμε τα εμπόδια.", d: "Πριν προτείνουμε ένα μοντέλο, ακούμε. Καθόμαστε με την ομάδα σας για να εντοπίσουμε τα σημεία τριβής, τις επαναλαμβανόμενες εργασίες και τα πραγματικά επιχειρηματικά προβλήματα. Χωρίς τεχνική ορολογία — απλώς ανακαλύπτουμε τι πραγματικά σας τρώει τον χρόνο." },
+        { k: "02 / ΧΑΡΤΟΓΡΑΦΗΣΗ", t: "Σχεδιάζουμε το σύστημα όπως είναι.", d: "Ένας μοναδικός, ειλικρινής χάρτης των ροών εργασίας, δεδομένων και εργαλείων σας. Δεν χαρτογραφούμε πώς θα θέλατε να λειτουργούν τα πράγματα — χαρτογραφούμε την πραγματικότητα της τρέχουσας υποδομής σας." },
+        { k: "03 / ΑΝΑΠΤΥΞΗ", t: "Διαμόρφωση για την πραγματικότητα.", d: "Επιλέγουμε και αναπτύσσουμε τα εργαλεία ΤΝ που απαιτεί ο χάρτης σας. Γράφουμε τις οδηγίες συστήματος, συνδέουμε με ασφάλεια τις πηγές δεδομένων σας και διαμορφώνουμε τους πράκτορες ώστε να επιστρέφουν απαντήσεις που η ομάδα σας μπορεί πραγματικά να εμπιστευτεί." },
+        { k: "04 / ΥΙΟΘΕΤΗΣΗ", t: "Το κάνουμε να μείνει.", d: "Ένα εργαλείο είναι άχρηστο αν κανείς δεν το ανοίγει. Δεν παραδίδουμε απλώς έναν κωδικό πρόσβασης — διοργανώνουμε σεμινάρια, γράφουμε οδηγούς και συνεργαζόμαστε με τους υπαλλήλους σας μέχρι η νέα ροή εργασίας να γίνει δεύτερη φύση." },
       ],
     },
     cta: {

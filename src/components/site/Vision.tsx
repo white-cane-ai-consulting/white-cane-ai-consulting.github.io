@@ -3,8 +3,8 @@ import { useEffect, useRef, useState } from "react";
 import { Play, Pause } from "lucide-react";
 import vision from "@/assets/vision.jpg";
 import teamPhoto from "@/assets/team_photo.jpg";
-import aiPhoto from "@/assets/ai_crop_photo.png";
-import confrencePhoto from "@/assets/confrence_photo.avif";
+import aiPhoto from "@/assets/ai_crop_photo.jpg";
+import confrencePhoto from "@/assets/confrence_photo.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const ease = [0.6, 0.05, 0.1, 1] as const;
@@ -37,7 +37,7 @@ export const Vision = () => {
             src={img}
             alt=""
             loading="lazy"
-            className={`absolute inset-0 w-full h-full object-cover ${i < 3 ? "grayscale" : ""}`}
+            className="absolute inset-0 w-full h-full object-cover grayscale"
             initial={false}
             animate={{ opacity: i === active ? 0.28 : 0 }}
             transition={{ duration: 1.4, ease: [0.6, 0.05, 0.1, 1] }}
