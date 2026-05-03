@@ -22,18 +22,27 @@ export const translations = {
     },
     who: {
       label: "Who we are",
-      h2a: "A small team of practitioners —",
-      h2b: "enterprise-tested,",
-      h2c: "in it from day one.",
-      body1Pre: "White Cane AI Consulting was built on a simple belief — most AI failures aren't model failures, they're ",
-      body1Highlight: "clarity failures",
-      body1Post: ". We sit with your team, map the workflow as it really is, then choose the smallest set of tools that change the outcome.",
-      body2: "We've been in the room since before gen AI was a boardroom priority — building from a blank page inside large organisations, and operating inside teams where the expectations were already high.",
-      values: [
-        { k: "Independent", v: "No vendor kickbacks. Ever." },
-        { k: "Hands-on", v: "We build with you, not for you." },
-        { k: "Outcome-led", v: "Hours saved, not seats sold." },
-        { k: "Honest", v: "If you don't need it, we won't recommend it." },
+      h2a: "Two people who were there",
+      h2b: "before it was obvious —",
+      h2c: "and stayed.",
+      body: "We didn't start White Cane because AI became a buzzword. We started it because we spent years inside large organisations watching good companies make expensive mistakes — choosing the wrong tools, skipping the adoption phase, or buying platforms nobody opened. We've been close enough to the problem to know exactly where it breaks.",
+      team: [
+        {
+          role: "Founder · AI Consultant",
+          credentials: ["Deloitte · 2 yrs", "Satori Analytics · 1 yr", "Azure Certified", "BSc STEM"],
+          bio: "Built Deloitte Greece's internal AI practice from scratch — assembled an 8-person team, designed the workflows, and trained every new hire. Went on to Satori Analytics, one of Greece's highest-seniority AI teams, where he led enterprise gen AI deployments across all 10 of the country's largest corporations. He was implementing chatbots, agents, and AI-driven workflows at enterprise scale before most boardrooms had an agenda item for it. Industries covered: audit, energy, law, real estate, retail, logistics, commercial operations.",
+        },
+        {
+          role: "AI Tools Researcher · Developer",
+          credentials: ["EntersoftOne · 1.5 yrs", "Azure Certified", "BSc STEM"],
+          bio: "Joined ENTERSOFTONE — Greece's largest business software group, serving 90,000+ customers across South-East Europe — as a developer working on ERP, CRM, and compliance automation (myDATA). Outside work, he's been tracking the AI tooling landscape since day one: subscribed to every major newsletter, testing new models and products the week they drop, and building a hands-on intuition for what's genuinely useful versus what's noise.",
+        },
+      ],
+      proof: [
+        { k: "3 yrs", v: "Enterprise AI consulting" },
+        { k: "10", v: "Largest Greek corporations served" },
+        { k: "90k+", v: "Customers on partner platforms" },
+        { k: "Day one", v: "In the Greek AI market" },
       ],
     },
     offer: {
@@ -131,18 +140,27 @@ export const translations = {
     },
     who: {
       label: "Ποιοι είμαστε",
-      h2a: "Μια μικρή ομάδα επαγγελματιών —",
-      h2b: "δοκιμασμένοι σε επιχειρήσεις,",
-      h2c: "από την πρώτη μέρα.",
-      body1Pre: "Η White Cane AI Consulting χτίστηκε πάνω σε μια απλή πεποίθηση — τα περισσότερα αποτυχήματα ΤΝ δεν είναι αποτυχίες μοντέλου, είναι ",
-      body1Highlight: "αποτυχίες σαφήνειας",
-      body1Post: ". Καθόμαστε με την ομάδα σας, χαρτογραφούμε τη ροή εργασίας όπως είναι πραγματικά, και επιλέγουμε το μικρότερο σύνολο εργαλείων που αλλάζουν το αποτέλεσμα.",
-      body2: "Ήμασταν εκεί πριν η γενετική ΤΝ γίνει προτεραιότητα στα διοικητικά συμβούλια — χτίζοντας από μηδενική βάση μέσα σε μεγάλους οργανισμούς, και λειτουργώντας σε ομάδες όπου οι προσδοκίες ήταν ήδη υψηλές.",
-      values: [
-        { k: "Ανεξάρτητοι", v: "Χωρίς κίνητρα από προμηθευτές. Ποτέ." },
-        { k: "Πρακτικοί", v: "Χτίζουμε μαζί σας, όχι για εσάς." },
-        { k: "Αποτελεσματικοί", v: "Ώρες που εξοικονομούνται, όχι άδειες που πωλούνται." },
-        { k: "Ειλικρινείς", v: "Αν δεν το χρειάζεστε, δεν θα το προτείνουμε." },
+      h2a: "Δύο άνθρωποι που ήταν εκεί",
+      h2b: "πριν γίνει προφανές —",
+      h2c: "και έμειναν.",
+      body: "Δεν ιδρύσαμε την White Cane επειδή η ΤΝ έγινε μόδα. Την ιδρύσαμε γιατί περάσαμε χρόνια μέσα σε μεγάλους οργανισμούς βλέποντας καλές εταιρείες να κάνουν ακριβά λάθη — να επιλέγουν λάθος εργαλεία, να παραλείπουν το στάδιο υιοθέτησης ή να αγοράζουν πλατφόρμες που κανείς δεν άνοιγε. Ήμασταν αρκετά κοντά στο πρόβλημα ώστε να ξέρουμε ακριβώς πού σπάει.",
+      team: [
+        {
+          role: "Ιδρυτής · Σύμβουλος ΤΝ",
+          credentials: ["Deloitte · 2 χρόνια", "Satori Analytics · 1 χρόνο", "Azure Certified", "Πτυχίο STEM"],
+          bio: "Έχτισε από μηδενική βάση την εσωτερική ομάδα ΤΝ της Deloitte Ελλάδας — συγκρότησε ομάδα 8 ατόμων, σχεδίασε τις ροές εργασίας και εκπαίδευσε κάθε νέο μέλος. Στη συνέχεια εντάχθηκε στη Satori Analytics, μία από τις ομάδες ΤΝ με τη μεγαλύτερη εμπειρία στην Ελλάδα, όπου ηγήθηκε enterprise αναπτύξεων gen AI στις 10 μεγαλύτερες εταιρείες της χώρας. Υλοποιούσε chatbots, agents και ροές εργασίας βασισμένες σε ΤΝ σε εταιρικό επίπεδο πριν το θέμα μπει καν στην ατζέντα των διοικητικών συμβουλίων. Κλάδοι: ελεγκτική, ενέργεια, νομικά, real estate, λιανικό εμπόριο, logistics, εμπορικές λειτουργίες.",
+        },
+        {
+          role: "Ερευνητής Εργαλείων ΤΝ · Developer",
+          credentials: ["EntersoftOne · 1,5 χρόνο", "Azure Certified", "Πτυχίο STEM"],
+          bio: "Εργάστηκε στην ENTERSOFTONE — το μεγαλύτερο group επιχειρηματικού λογισμικού στην Ελλάδα, με 90.000+ πελάτες στη ΝΑ Ευρώπη — ως developer σε ERP, CRM και αυτοματισμό συμμόρφωσης (myDATA). Εκτός δουλειάς, παρακολουθεί το οικοσύστημα εργαλείων ΤΝ από την πρώτη μέρα: εγγεγραμμένος σε όλα τα μεγάλα newsletters, δοκιμάζει νέα μοντέλα και προϊόντα την εβδομάδα που κυκλοφορούν, και χτίζει πρακτική γνώση για το τι είναι πραγματικά χρήσιμο και τι απλώς θόρυβος.",
+        },
+      ],
+      proof: [
+        { k: "3 χρόνια", v: "Enterprise AI consulting" },
+        { k: "10", v: "Μεγαλύτερες ελληνικές εταιρείες" },
+        { k: "90χιλ+", v: "Πελάτες σε πλατφόρμες συνεργατών" },
+        { k: "Από την αρχή", v: "Στην αγορά ΤΝ της Ελλάδας" },
       ],
     },
     offer: {
