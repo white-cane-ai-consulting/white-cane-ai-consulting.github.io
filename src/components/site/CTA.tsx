@@ -34,8 +34,6 @@ export const CTA = () => {
             <h2 className="font-display font-light text-5xl md:text-7xl lg:text-8xl leading-[0.9] text-balance">
               {c.h2a}
               <br />
-              {c.h2b} <span className="italic">AI.</span>
-              <br />
               <span className="text-muted-foreground">{c.h2c} </span>
               <span className="text-signal italic font-normal">{c.h2d}</span>
             </h2>

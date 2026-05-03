@@ -22,27 +22,23 @@ export const translations = {
     },
     who: {
       label: "Who we are",
-      h2a: "Two people who were there",
+      h2a: "A small team that was there",
       h2b: "before it was obvious —",
       h2c: "and stayed.",
       body: "We didn't start White Cane because AI became a buzzword. We started it because we spent years inside large organisations watching good companies make expensive mistakes — choosing the wrong tools, skipping the adoption phase, or buying platforms nobody opened. We've been close enough to the problem to know exactly where it breaks.",
       team: [
         {
-          role: "Founder · AI Consultant",
-          credentials: ["Deloitte · 2 yrs", "Satori Analytics · 1 yr", "Azure Certified", "BSc STEM"],
-          bio: "Built Deloitte Greece's internal AI practice from scratch — assembled an 8-person team, designed the workflows, and trained every new hire. Went on to Satori Analytics, one of Greece's highest-seniority AI teams, where he led enterprise gen AI deployments across all 10 of the country's largest corporations. He was implementing chatbots, agents, and AI-driven workflows at enterprise scale before most boardrooms had an agenda item for it. Industries covered: audit, energy, law, real estate, retail, logistics, commercial operations.",
-        },
-        {
-          role: "AI Tools Researcher · Developer",
-          credentials: ["EntersoftOne · 1.5 yrs", "Azure Certified", "BSc STEM"],
-          bio: "Joined ENTERSOFTONE — Greece's largest business software group, serving 90,000+ customers across South-East Europe — as a developer working on ERP, CRM, and compliance automation (myDATA). Outside work, he's been tracking the AI tooling landscape since day one: subscribed to every major newsletter, testing new models and products the week they drop, and building a hands-on intuition for what's genuinely useful versus what's noise.",
+          bio: [
+            "Before founding White Cane, we worked at Greece's largest consulting firms — where we built and trained some of the country's first Generative AI teams from scratch. We were among the first in Greece to implement AI at enterprise scale, before most organisations had it on their agenda.",
+            "We also worked inside large, high-seniority AI teams, gaining hands-on experience across every major sector: audit, energy, law, real estate, retail, logistics, and commercial operations. Since day one we've been tracking the AI tooling landscape — testing every new model the week it drops and building intuition for what's genuinely useful versus what's noise.",
+          ],
         },
       ],
       proof: [
-        { k: "3 yrs", v: "Enterprise AI consulting" },
-        { k: "10", v: "Largest Greek corporations served" },
-        { k: "90k+", v: "Customers on partner platforms" },
+        { k: "3 yrs", v: "Prior enterprise AI experience" },
         { k: "Day one", v: "In the Greek AI market" },
+        { k: "EST. 2026", v: "Founded in Athens" },
+        { k: "Q3", v: "Currently onboarding" },
       ],
     },
     offer: {
@@ -140,27 +136,23 @@ export const translations = {
     },
     who: {
       label: "Ποιοι είμαστε",
-      h2a: "Δύο άνθρωποι που ήταν εκεί",
-      h2b: "πριν γίνει προφανές —",
-      h2c: "και έμειναν.",
-      body: "Δεν ιδρύσαμε την White Cane επειδή η ΤΝ έγινε μόδα. Την ιδρύσαμε γιατί περάσαμε χρόνια μέσα σε μεγάλους οργανισμούς βλέποντας καλές εταιρείες να κάνουν ακριβά λάθη — να επιλέγουν λάθος εργαλεία, να παραλείπουν το στάδιο υιοθέτησης ή να αγοράζουν πλατφόρμες που κανείς δεν άνοιγε. Ήμασταν αρκετά κοντά στο πρόβλημα ώστε να ξέρουμε ακριβώς πού σπάει.",
+      h2a: "Χτίσαμε enterprise AI",
+      h2b: "πριν γίνει μόδα —",
+      h2c: "ξέρουμε πού σπάει.",
+      body: "",
       team: [
         {
-          role: "Ιδρυτής · Σύμβουλος ΤΝ",
-          credentials: ["Deloitte · 2 χρόνια", "Satori Analytics · 1 χρόνο", "Azure Certified", "Πτυχίο STEM"],
-          bio: "Έχτισε από μηδενική βάση την εσωτερική ομάδα ΤΝ της Deloitte Ελλάδας — συγκρότησε ομάδα 8 ατόμων, σχεδίασε τις ροές εργασίας και εκπαίδευσε κάθε νέο μέλος. Στη συνέχεια εντάχθηκε στη Satori Analytics, μία από τις ομάδες ΤΝ με τη μεγαλύτερη εμπειρία στην Ελλάδα, όπου ηγήθηκε enterprise αναπτύξεων gen AI στις 10 μεγαλύτερες εταιρείες της χώρας. Υλοποιούσε chatbots, agents και ροές εργασίας βασισμένες σε ΤΝ σε εταιρικό επίπεδο πριν το θέμα μπει καν στην ατζέντα των διοικητικών συμβουλίων. Κλάδοι: ελεγκτική, ενέργεια, νομικά, real estate, λιανικό εμπόριο, logistics, εμπορικές λειτουργίες.",
-        },
-        {
-          role: "Ερευνητής Εργαλείων ΤΝ · Developer",
-          credentials: ["EntersoftOne · 1,5 χρόνο", "Azure Certified", "Πτυχίο STEM"],
-          bio: "Εργάστηκε στην ENTERSOFTONE — το μεγαλύτερο group επιχειρηματικού λογισμικού στην Ελλάδα, με 90.000+ πελάτες στη ΝΑ Ευρώπη — ως developer σε ERP, CRM και αυτοματισμό συμμόρφωσης (myDATA). Εκτός δουλειάς, παρακολουθεί το οικοσύστημα εργαλείων ΤΝ από την πρώτη μέρα: εγγεγραμμένος σε όλα τα μεγάλα newsletters, δοκιμάζει νέα μοντέλα και προϊόντα την εβδομάδα που κυκλοφορούν, και χτίζει πρακτική γνώση για το τι είναι πραγματικά χρήσιμο και τι απλώς θόρυβος.",
+          bio: [
+            "Δουλέψαμε στις μεγαλύτερες συμβουλευτικές της χώρας, χτίσαμε από μηδέν μερικές από τις πρώτες ομάδες Generative AI στην Ελλάδα και υλοποιήσαμε λύσεις στις 10 μεγαλύτερες ελληνικές εταιρείες. Ήμασταν από τους πρώτους που το έκαναν στην πράξη, πριν οι περισσότεροι οργανισμοί ξέρουν καν πού να αρχίσουν.",
+            "Έχουμε δει από μέσα τι πάει λάθος ακόμη και καλύτερες τεχνολογικές ομάδες — λάθος εργαλεία, κανένα adoption, ακριβές πλατφόρμες που κανείς δεν ανοίγει. Παρακολουθούμε εμπράκτως κάθε νέο εργαλείο και μοντέλο AI από την πρώτη μέρα, ώστε να ξέρουμε πάντα τι είναι πραγματικά χρήσιμο — και τι απλώς θόρυβος.",
+          ],
         },
       ],
       proof: [
-        { k: "3 χρόνια", v: "Enterprise AI consulting" },
-        { k: "10", v: "Μεγαλύτερες ελληνικές εταιρείες" },
-        { k: "90χιλ+", v: "Πελάτες σε πλατφόρμες συνεργατών" },
-        { k: "Από την αρχή", v: "Στην αγορά ΤΝ της Ελλάδας" },
+        { k: "3 χρόνια", v: "Εμπειρία enterprise AI" },
+        { k: "Από πρώτη στιγμή", v: "Στην αγορά AI της Ελλάδας" },
+        { k: "2026", v: "Ιδρύθηκε στην Αθήνα" },
+        { k: "Q3", v: "Τώρα δεχόμαστε πελάτες" },
       ],
     },
     offer: {
@@ -193,16 +185,16 @@ export const translations = {
     },
     achievements: {
       label: "Τι έχουμε πετύχει",
-      h2a: "Νούμερα που",
-      h2b: "επέζησαν",
-      h2c: "τον έλεγχο.",
+      h2a: "Αριθμοί",
+      h2b: "από την πράξη —",
+      h2c: "χωρίς υπερβολή.",
       stats: [
-        { value: 47, suffix: "+", label: "Ολοκληρωμένες Συνεργασίες", note: "Σε SaaS, χρηματοοικονομικά, υγεία και δημιουργικούς κλάδους." },
-        { value: 12000, suffix: "h", label: "Ώρες που επιστράφηκαν", note: "Μετρήθηκαν πριν/μετά την υλοποίηση στις ροές εργασίας." },
-        { value: 92, suffix: "%", label: "Υιοθέτηση μετά από 90 ημέρες", note: "Τα εργαλεία που παραδίδουμε χρησιμοποιούνται καθημερινά ένα τρίμηνο μετά." },
-        { value: 3.4, suffix: "×", label: "Διάμεση Απόδοση Επένδυσης", note: "Βάσει τεκμηριωμένης εξοικονόμησης κόστους εντός 6 μηνών." },
+        { value: 150, suffix: "+", label: "Εργαλεία AI αξιολογημένα", note: "Δοκιμάσαμε και τεκμηριώσαμε κάθε σημαντικό εργαλείο — από μοντέλα ως πλατφόρμες αυτοματισμού." },
+        { value: 40, suffix: "%", label: "Μέση εξοικονόμηση χρόνου", note: "Στις ροές εργασίας που αυτοματοποιήσαμε στο πλαίσιο της εμπειρίας μας." },
+        { value: 10, suffix: "+", label: "Κλάδοι εφαρμογής", note: "Χρηματοοικονομικά, ενέργεια, νομικά, real estate, logistics, retail, μάρκετινγκ, τουρισμός, τεχνολογία και εκπαίδευση." },
+        { value: 15, suffix: "+", label: "AI use cases — ελληνική αγορά", note: "Ανάπτυξη κώδικα, web design, social media, δημιουργία περιεχομένου, SEO, εξυπηρέτηση πελατών, μεταφράσεις, νομικά, λογιστικά και άλλα." },
       ],
-      toolsLabel: "Εργαλεία ΤΝ που έχουμε εγκαταστήσει & δοκιμάσει",
+      toolsLabel: "Εργαλεία AI που έχουμε εγκαταστήσει & δοκιμάσει",
     },
     vision: {
       label: "Μεθοδολογία",
@@ -218,8 +210,7 @@ export const translations = {
     },
     cta: {
       eyebrow: "— Ξεκινήστε",
-      h2a: "Σταματήστε να μαντεύετε",
-      h2b: "για την",
+      h2a: "Σταματήστε να ψάχνετε.",
       h2c: "Ξεκινήστε",
       h2d: "να επιλέγετε.",
       sub: "Μια κλήση 30 λεπτών. Χωρίς παρουσίαση, χωρίς διαφάνειες — θα ακούσουμε, θα κάνουμε δύσκολες ερωτήσεις, και θα σας πούμε ειλικρινά αν είμαστε η κατάλληλη επιλογή.",
@@ -237,4 +228,4 @@ export const translations = {
 } as const;
 
 export type Lang = "EN" | "GR";
-export type Translations = typeof translations.EN;
+export type Translations = (typeof translations)[Lang];

@@ -19,28 +19,29 @@ export const Who = () => {
     <section id="who" className="relative py-32 md:py-44 bg-bone text-ink border-t border-border/50">
       <div className="container">
 
+        {/* Eyebrow — above the grid */}
+        <motion.div {...fadeUp(0)} className="flex items-center gap-3 mb-12">
+          <span className="text-xs uppercase tracking-[0.3em] text-signal">02 —</span>
+          <span className="text-xs uppercase tracking-[0.3em] text-ink/50">{w.label}</span>
+        </motion.div>
+
         {/* Header row */}
-        <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-start mb-20">
+        <div className="grid md:grid-cols-12 gap-8 md:gap-16 items-start mb-20">
 
           {/* Logo */}
           <motion.div
-            {...fadeUp(0)}
-            className="md:col-span-4 flex items-start justify-start -ml-24 pt-2"
+            {...fadeUp(0.05)}
+            className="md:col-span-4 flex items-start justify-start pt-2"
           >
             <img
               src={logo}
               alt="White Cane AI Consulting"
-              className="w-80 md:w-[26rem] lg:w-[32rem] mix-blend-multiply"
+              className="w-48 md:w-56 lg:w-64 mix-blend-multiply"
             />
           </motion.div>
 
-          {/* Headline + intro */}
+          {/* Headline + intro + bio */}
           <div className="md:col-span-8 flex flex-col gap-8">
-            <motion.div {...fadeUp(0)} className="flex items-center gap-3">
-              <span className="text-xs uppercase tracking-[0.3em] text-signal">02 —</span>
-              <span className="text-xs uppercase tracking-[0.3em] text-ink/50">{w.label}</span>
-            </motion.div>
-
             <motion.h2
               {...fadeUp(0.1)}
               className="font-display font-light text-4xl md:text-5xl lg:text-[3.5rem] leading-[1.05] text-balance"
@@ -51,53 +52,30 @@ export const Who = () => {
               <span className="italic font-normal">{w.h2c}</span>
             </motion.h2>
 
-            <motion.p
-              {...fadeUp(0.2)}
-              className="text-ink/60 leading-relaxed max-w-2xl border-l-2 border-signal pl-5"
-            >
-              {w.body}
-            </motion.p>
-          </div>
-        </div>
-
-        {/* Team cards */}
-        <div className="grid md:grid-cols-2 gap-px bg-ink/10">
-          {w.team.map((member, i) => (
             <motion.div
-              key={member.role}
-              {...fadeUp(0.1 + i * 0.15)}
-              className="bg-bone p-8 md:p-10 flex flex-col gap-6"
+              {...fadeUp(0.2)}
+              className="flex flex-col gap-6"
             >
-              {/* Role */}
-              <div className="flex flex-col gap-2">
-                <span className="text-xs uppercase tracking-[0.25em] text-signal">{`0${i + 1}`}</span>
-                <span className="font-display text-lg text-ink">{member.role}</span>
-              </div>
-
-              {/* Credential tags */}
-              <div className="flex flex-wrap gap-2">
-                {member.credentials.map((c: string) => (
-                  <span
-                    key={c}
-                    className="text-xs border border-ink/20 text-ink/60 px-3 py-1 tracking-wide"
-                  >
-                    {c}
-                  </span>
-                ))}
-              </div>
-
-              {/* Bio */}
-              <p className="text-sm text-ink/55 leading-relaxed">
-                {member.bio}
-              </p>
+              {w.team[0].bio.map((para: string, i: number) => (
+                <p
+                  key={i}
+                  className={
+                    i === 0
+                      ? "text-ink/60 leading-relaxed max-w-2xl border-l-2 border-signal pl-5"
+                      : "text-sm text-ink/55 leading-relaxed max-w-2xl"
+                  }
+                >
+                  {para}
+                </p>
+              ))}
             </motion.div>
-          ))}
+          </div>
         </div>
 
         {/* Proof strip */}
         <motion.div
-          {...fadeUp(0.3)}
-          className="grid grid-cols-2 md:grid-cols-4 gap-px bg-ink/10 mt-px"
+          {...fadeUp(0.4)}
+          className="grid grid-cols-2 md:grid-cols-4 gap-px bg-ink/10"
         >
           {w.proof.map((p) => (
             <div
