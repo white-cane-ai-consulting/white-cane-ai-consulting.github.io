@@ -16,7 +16,7 @@ export const Nav = () => {
         <a href="#top" className="flex items-center gap-3 group">
           <img src={logo} alt="White Cane AI Consulting" className="h-9 w-9" />
           <span className="font-display text-sm tracking-wider hidden sm:block">
-            WHITE CANE <span className="text-muted-foreground">/ AI</span>
+            WHITE CANE <span className="text-muted-foreground">/ AI Consulting</span>
           </span>
         </a>
         <nav className="hidden md:flex items-center gap-8 text-xs uppercase tracking-[0.2em] text-muted-foreground">
