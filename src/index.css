@@ -90,10 +90,11 @@
 
   .marquee-track {
     animation: marquee 40s linear infinite;
+    will-change: transform;
   }
   @keyframes marquee {
     from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
+    to { transform: translateX(calc(-1 * var(--marquee-w, 50%))); }
   }
 
   .pulse-dot {

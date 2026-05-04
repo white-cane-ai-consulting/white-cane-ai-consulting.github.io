@@ -24,7 +24,7 @@ export const Vision = () => {
     if (!playing) return;
     const id = setInterval(() => {
       setActive((a) => (a + 1) % v.slides.length);
-    }, 4500);
+    }, 5000);
     return () => clearInterval(id);
   }, [playing, v.slides.length]);
 

@@ -14,7 +14,7 @@ export const Nav = () => {
     >
       <div className="container flex items-center justify-between h-16">
         <a href="#top" className="flex items-center gap-3 group">
-          <img src={logo} alt="White Cane AI Consulting" className="h-9 w-9 invert" />
+          <img src={logo} alt="White Cane AI Consulting" className="h-9 w-9" />
           <span className="font-display text-sm tracking-wider hidden sm:block">
             WHITE CANE <span className="text-muted-foreground">/ AI</span>
           </span>

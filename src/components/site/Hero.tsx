@@ -8,6 +8,8 @@ export const Hero = () => {
   const { t, lang } = useLanguage();
   const fwdRef = useRef<HTMLVideoElement>(null);
   const revRef = useRef<HTMLVideoElement>(null);
+  const marqueeTrackRef = useRef<HTMLDivElement>(null);
+  const marqueeCopy1Ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const fwd = fwdRef.current;
@@ -15,33 +17,97 @@ export const Hero = () => {
     if (!fwd || !rev) return;
 
     const SPEED = 0.7;
+    const FADE_MS = 500;
+    const EARLY_S = 0.6;
 
-    const switchTo = (show: HTMLVideoElement, hide: HTMLVideoElement) => {
-      hide.pause();
-      hide.style.opacity = "0";
-      show.currentTime = 0;
-      show.playbackRate = SPEED;
-      show.style.opacity = "1";
-      show.play().catch(() => {});
+    let switching = false;
+    // track which video is currently the visible "top" one
+    let topIsRev = false;
+
+    const preBuffer = (el: HTMLVideoElement) => {
+      el.currentTime = 0;
+      el.play().then(() => el.pause()).catch(() => {});
     };
 
-    const onFwdEnded = () => switchTo(rev, fwd);
-    const onRevEnded = () => switchTo(fwd, rev);
+    // Instead of crossfading both simultaneously (which adds opacity),
+    // we keep the current video at full opacity underneath and only
+    // animate the top video in/out — no additive brightness spike.
+    const switchTo = (next: HTMLVideoElement, prev: HTMLVideoElement) => {
+      if (switching) return;
+      switching = true;
 
-    fwd.addEventListener("ended", onFwdEnded);
-    rev.addEventListener("ended", onRevEnded);
+      next.currentTime = 0;
+      next.playbackRate = SPEED;
+      next.play().catch(() => {});
 
-    rev.style.opacity = "0";
+      // Fade next in on top
+      next.style.transition = `opacity ${FADE_MS}ms ease-in-out`;
+      next.style.opacity = "0.7";
+
+      setTimeout(() => {
+        // Now next is fully visible — hide prev instantly (it's underneath, won't be seen)
+        prev.style.transition = "none";
+        prev.style.opacity = "0";
+        prev.pause();
+        preBuffer(prev);
+        switching = false;
+        topIsRev = !topIsRev;
+      }, FADE_MS);
+    };
+
+    const onFwdTime = () => {
+      if (!topIsRev && fwd.duration && fwd.currentTime >= fwd.duration - EARLY_S) {
+        switchTo(rev, fwd);
+      }
+    };
+    const onRevTime = () => {
+      if (topIsRev && rev.duration && rev.currentTime >= rev.duration - EARLY_S) {
+        switchTo(fwd, rev);
+      }
+    };
+
+    fwd.addEventListener("timeupdate", onFwdTime);
+    rev.addEventListener("timeupdate", onRevTime);
+
+    preBuffer(rev);
     fwd.playbackRate = SPEED;
     fwd.play().catch(() => {});
 
     return () => {
-      fwd.removeEventListener("ended", onFwdEnded);
-      rev.removeEventListener("ended", onRevEnded);
+      fwd.removeEventListener("timeupdate", onFwdTime);
+      rev.removeEventListener("timeupdate", onRevTime);
       fwd.pause();
       rev.pause();
     };
   }, []);
+
+  // Measure copy width; if it's shorter than the viewport, stamp extra copies so
+  // the strip always fills the screen and the -copyWidth snap is invisible.
+  useEffect(() => {
+    const track = marqueeTrackRef.current;
+    const copy1 = marqueeCopy1Ref.current;
+    if (!track || !copy1) return;
+
+    const update = () => {
+      const w = copy1.offsetWidth;
+      // Need at least ceil(viewportWidth / copyWidth) + 1 copies so there's
+      // always content visible while the first copy is off-screen.
+      const needed = Math.ceil(window.innerWidth / w) + 1;
+      const current = track.children.length;
+      for (let i = current; i < needed * 2; i++) {
+        const clone = copy1.cloneNode(true) as HTMLElement;
+        clone.setAttribute("aria-hidden", "true");
+        track.appendChild(clone);
+      }
+      track.style.setProperty("--marquee-w", `${w}px`);
+    };
+    update();
+
+    const ro = new ResizeObserver(update);
+    ro.observe(copy1);
+    window.addEventListener("resize", update);
+    return () => { ro.disconnect(); window.removeEventListener("resize", update); };
+  }, [t]);
 
   return (
     <section id="top" className="relative min-h-screen overflow-hidden grain flex items-end pb-20 pt-32">
@@ -67,12 +133,12 @@ export const Hero = () => {
           playsInline
           preload="auto"
           className="absolute inset-0 w-full h-full object-cover opacity-70"
+          style={{ opacity: 0 }}
         >
           <source src="/Interactive-video-reverse.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-background/60" />
       </motion.div>
-
 
       {/* Vertical side label */}
       <div className="hidden lg:block absolute left-6 top-1/2 -translate-y-1/2 vert-text text-[10px] tracking-[0.4em] text-muted-foreground uppercase">
@@ -151,14 +217,14 @@ export const Hero = () => {
 
       {/* Bottom marquee */}
       <div className="absolute bottom-0 inset-x-0 border-t border-border/60 py-4 overflow-hidden">
-        <div className="marquee-track flex whitespace-nowrap gap-12 text-xs uppercase tracking-[0.3em] text-muted-foreground">
-          {Array.from({ length: 2 }).flatMap((_, k) =>
-            t.hero.marquee.map(
-              (item, i) => (
-                <span key={`${k}-${i}`} className={i % 2 === 1 ? "text-signal" : ""}>{item}</span>
-              )
-            )
-          )}
+        <div ref={marqueeTrackRef} className="marquee-track flex whitespace-nowrap text-xs uppercase tracking-[0.3em] text-muted-foreground">
+          {[0, 1].map((k) => (
+            <div key={k} ref={k === 0 ? marqueeCopy1Ref : undefined} aria-hidden={k > 0 ? true : undefined} className="flex shrink-0 items-center">
+              {t.hero.marquee.map((item, i) => (
+                <span key={i} className={`px-6 ${i % 2 === 1 ? "text-signal" : ""}`}>{item}</span>
+              ))}
+            </div>
+          ))}
         </div>
       </div>
     </section>

@@ -18,7 +18,7 @@ export const translations = {
       sideLabel: "EST. 2026 — Clarity Engineered",
       sideMetricLabel: "Currently",
       sideMetricValue: "● Onboarding Q3",
-      marquee: ["Strategy", "● Tooling Audits", "Implementation", "● Training", "Workflow Design", "● Vendor Selection", "Governance", "● Continuous Care"],
+      marquee: ["Cut through the noise", "● Deploy the right tools", "Build AI that sticks", "● Real adoption, not just access", "Enterprise AI, done right", "● From strategy to live workflows", "Clarity in the era of AI", "● Athens — est. 2026"],
     },
     who: {
       label: "Who we are",
@@ -130,7 +130,7 @@ export const translations = {
       companyLinks: ["Who we are", "Work", "Contact"],
       elsewhere: "Elsewhere",
       elsewhereLinks: ["LinkedIn", "Substack", "X / Twitter"],
-      accepting: "● Currently accepting Q3 engagements",
+      accepting: "Currently accepting Q3 engagements",
     },
   },
 

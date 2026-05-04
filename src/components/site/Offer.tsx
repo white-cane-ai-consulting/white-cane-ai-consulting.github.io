@@ -24,7 +24,7 @@ const FlowDiagram = ({ steps }: { steps: ReadonlyArray<FlowStep> }) => {
     <div className="mb-8">
       <div className="flex flex-col gap-8">
         {rows.map((row, ri) => (
-          <div key={ri} className="flex items-start gap-2">
+          <div key={ri} className="flex items-start justify-center gap-2">
             {row.map((step, i) => (
               <Fragment key={step.n}>
                 <button
@@ -32,21 +32,21 @@ const FlowDiagram = ({ steps }: { steps: ReadonlyArray<FlowStep> }) => {
                   className="group/step flex-1 flex flex-col items-center gap-3 select-none"
                 >
                   <div className={cn(
-                    "w-16 h-16 rounded-full border-2 flex items-center justify-center transition-all duration-300 ease-out group-hover/step:scale-110",
+                    "w-14 h-14 rounded-full border-2 flex items-center justify-center transition-all duration-300 ease-out group-hover/step:scale-110",
                     expanded === step.n
                       ? "border-signal bg-signal scale-110"
                       : "border-border group-hover/step:border-signal group-hover/step:bg-signal"
                   )}>
                     <span className={cn(
-                      "text-xs font-mono transition-colors duration-300",
+                      "text-base font-mono transition-colors duration-300",
                       expanded === step.n ? "text-white" : "text-muted-foreground/60 group-hover/step:text-white"
                     )}>
                       {step.n}
                     </span>
                   </div>
                   <div className="text-center">
-                    <p className="text-sm font-display text-foreground/90 leading-tight">{step.label}</p>
-                    <p className="text-xs text-muted-foreground/45 leading-tight mt-1">{step.sub}</p>
+                    <p className="text-lg font-display text-foreground/90 leading-tight">{step.label}</p>
+                    <p className="text-base text-muted-foreground/45 leading-tight mt-1">{step.sub}</p>
                   </div>
                 </button>
                 {i < row.length - 1 && (
@@ -60,31 +60,31 @@ const FlowDiagram = ({ steps }: { steps: ReadonlyArray<FlowStep> }) => {
         ))}
       </div>
 
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {expandedStep && (
           <motion.div
             key={expandedStep.n}
-            initial={{ opacity: 0, y: -6 }}
+            initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -6 }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
+            exit={{ opacity: 0, y: 8 }}
+            transition={{ duration: 0.18, ease: "easeOut" }}
             className="mt-5 border border-border/60 bg-card/40 p-4"
           >
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
-                <span className="text-xs font-mono text-signal">{expandedStep.n}</span>
-                <span className="text-xs font-display text-foreground/80">{expandedStep.label}</span>
+                <span className="text-base font-mono text-signal">{expandedStep.n}</span>
+                <span className="text-base font-display text-foreground/80">{expandedStep.label}</span>
               </div>
               <button
                 onClick={() => setExpanded(null)}
-                className="text-muted-foreground/40 hover:text-foreground transition-colors duration-200 text-xs leading-none"
+                className="text-muted-foreground/40 hover:text-foreground transition-colors duration-200 text-sm leading-none"
               >
                 ✕
               </button>
             </div>
             <ul className="space-y-1.5">
               {expandedStep.bullets.map((b, bi) => (
-                <li key={bi} className="flex items-start gap-2.5 text-xs text-muted-foreground">
+                <li key={bi} className="flex items-start gap-2.5 text-base text-muted-foreground">
                   <span className="text-signal mt-[3px] leading-none">·</span>
                   <span>{b}</span>
                 </li>
