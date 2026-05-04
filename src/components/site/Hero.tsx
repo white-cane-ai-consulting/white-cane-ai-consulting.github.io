@@ -40,14 +40,14 @@ export const Hero = () => {
       next.playbackRate = SPEED;
       next.play().catch(() => {});
 
-      // Fade next in on top
+      // Fade next in while fading prev out simultaneously so combined opacity stays constant
       next.style.transition = `opacity ${FADE_MS}ms ease-in-out`;
       next.style.opacity = "0.7";
+      prev.style.transition = `opacity ${FADE_MS}ms ease-in-out`;
+      prev.style.opacity = "0";
 
       setTimeout(() => {
-        // Now next is fully visible — hide prev instantly (it's underneath, won't be seen)
         prev.style.transition = "none";
-        prev.style.opacity = "0";
         prev.pause();
         preBuffer(prev);
         switching = false;
@@ -123,7 +123,8 @@ export const Hero = () => {
           muted
           playsInline
           preload="auto"
-          className="absolute inset-0 w-full h-full object-cover opacity-70"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ opacity: 0.7 }}
         >
           <source src="/Interactive-video.mp4" type="video/mp4" />
         </video>
@@ -132,7 +133,7 @@ export const Hero = () => {
           muted
           playsInline
           preload="auto"
-          className="absolute inset-0 w-full h-full object-cover opacity-70"
+          className="absolute inset-0 w-full h-full object-cover"
           style={{ opacity: 0 }}
         >
           <source src="/Interactive-video-reverse.mp4" type="video/mp4" />
