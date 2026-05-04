@@ -5,7 +5,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const ease = [0.6, 0.05, 0.1, 1] as const;
 
 export const Hero = () => {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const fwdRef = useRef<HTMLVideoElement>(null);
   const revRef = useRef<HTMLVideoElement>(null);
 
@@ -102,7 +102,7 @@ export const Hero = () => {
         </motion.div>
 
         {/* Headline */}
-        <h1 className="font-display font-light text-[clamp(3rem,11vw,12rem)] leading-[0.85] tracking-tight max-w-[14ch] text-balance">
+        <h1 className={`font-display font-light leading-[0.95] tracking-tight max-w-[12ch] text-balance ${lang === "GR" ? "text-[clamp(2rem,7vw,6rem)]" : "text-[clamp(3rem,11vw,12rem)]"}`}>
           {t.hero.lines.map((line, i) => {
             const parts = i === 2 ? line.split(t.hero.lineHighlight) : null;
             return (

@@ -29,8 +29,21 @@ export const translations = {
       team: [
         {
           bio: [
-            "Before founding White Cane, we worked at Greece's largest consulting firms — where we built and trained some of the country's first Generative AI teams from scratch. We were among the first in Greece to implement AI at enterprise scale, before most organisations had it on their agenda.",
-            "We also worked inside large, high-seniority AI teams, gaining hands-on experience across every major sector: audit, energy, law, real estate, retail, logistics, and commercial operations. Since day one we've been tracking the AI tooling landscape — testing every new model the week it drops and building intuition for what's genuinely useful versus what's noise.",
+            [
+              [
+                { text: "Before founding White Cane, we worked at Greece's largest consulting firms — where we built and trained " },
+                { text: "some of the country's first Generative AI teams from scratch", b: true, s: true },
+                { text: ". We were among the first in Greece to implement AI at enterprise scale, before most organisations had it on their agenda." },
+              ],
+              [
+                { text: "We also worked inside " },
+                { text: "large, high-seniority AI teams", b: true, s: true },
+                { text: ", gaining hands-on experience across every major sector: audit, energy, law, real estate, retail, logistics, and commercial operations. Since day one we've been tracking the AI tooling landscape — testing every new model the week it drops and building intuition for what's genuinely useful versus what's noise." },
+              ],
+            ],
+            [
+              [{ text: "We've seen from the inside what goes wrong even in the best tech teams — wrong tools, zero adoption, expensive platforms nobody opens. We track every new AI tool and model from day one, so we always know what's genuinely useful — and what's just noise." }],
+            ],
           ],
         },
       ],
@@ -49,6 +62,14 @@ export const translations = {
       serviceA: {
         title: "AI Platform Deployment & Configuration",
         body: "We deploy and configure leading AI platforms — Claude, GPT, and Gemini — for your organization. We initialize agents, author your CLAUDE.md and SKILLS.md files to encode your company's workflows, infrastructure, and data context, then write precise model instructions that produce consistent, reliable results. We select the right MCP servers, built-in features, and integrations so your agents connect to the right data and return answers your teams can actually use — with security as the foundation of every decision.",
+        flowSteps: [
+          { n: "01", label: "Deploy Platforms", sub: "Claude · ChatGPT · Gemini", bullets: ["Claude Sonnet & Opus", "ChatGPT-4o", "Gemini 2.0 Flash", "Platform selected to fit your specific needs"] },
+          { n: "02", label: "Initialize Agents", sub: "Agentic workflows", bullets: ["Define agent roles and permissions", "Configure tool access and capabilities", "Set behavioral boundaries", "Run initial testing cycles"] },
+          { n: "03", label: "Author Context Files", sub: "CLAUDE.md & SKILLS.md", bullets: ["CLAUDE.md encodes company context", "SKILLS.md defines custom workflows", "Infrastructure and data references", "Role-specific instructions per team"] },
+          { n: "04", label: "Write Instructions", sub: "Precise model prompts", bullets: ["System-level prompt engineering", "Consistent output formatting", "Role-based instruction sets", "Iterative quality validation"] },
+          { n: "05", label: "Connect Data", sub: "MCP servers & integrations", bullets: ["Select and configure MCP servers", "Secure API and database connections", "Real-time data access setup", "Permissions and access control"] },
+          { n: "06", label: "Secure by Design", sub: "Security as foundation", bullets: ["Access control and role review", "Data privacy compliance", "Audit trail configuration", "Security-first at every layer"] },
+        ],
         tags: ["Claude", "ChatGPT", "Gemini", "MCP", "Agents", "Security"],
       },
       servicesRow: [
@@ -86,12 +107,12 @@ export const translations = {
       label: "Methodology",
       h2a: "A method,",
       h2b: "not a deck.",
-      sub: "Every engagement runs through the same four-step rhythm. Slow at the start, sharp at the end.",
+      sub: "Every engagement follows the same rhythm. Here's exactly how we work with you.",
       slides: [
-        { k: "01 / DISCOVER", t: "Find the friction.", d: "Before we recommend a single model, we listen. We sit with your team to identify the bottlenecks, busywork, and real business problems. No tech jargon, just uncovering what actually takes up your time." },
-        { k: "02 / MAP", t: "Draw the system as it is.", d: "A single, honest map of your workflows, data, and tools. We don't map how you wish things worked; we map the reality of your current infrastructure." },
-        { k: "03 / BUILD", t: "Configure for reality.", d: "We select and deploy the exact AI tools your map demands. We write the system instructions, securely connect your data sources, and configure the agents to return answers your team can actually trust." },
-        { k: "04 / ADOPT", t: "Make it stick.", d: "A tool is useless if nobody opens it. We don't just hand over a login; we run the seminars, write the guides, and embed with your employees until the new workflow becomes second nature." },
+        { k: "01 / LISTEN", t: "We listen first.", d: "Before we recommend anything, we sit with your team. We identify the bottlenecks, the repetitive tasks, and the real business problems — then research solutions built around the infrastructure you already have." },
+        { k: "02 / DESIGN", t: "We design the solution.", d: "We configure the tools around your specific requirements and integrate them into your workflows. Realistic outcomes, grounded in your reality — we don't promise what we can't deliver." },
+        { k: "03 / TRAIN", t: "We teach you how.", d: "We don't just hand over a tool and walk away. We show you how to use it, how to get real value from it every day — and we point the way to what comes next." },
+        { k: "04 / STAY", t: "We stay in touch.", d: "We keep the line open and let you know about new features, use cases, and better models relevant to your work — so you're always a step ahead." },
       ],
     },
     cta: {
@@ -125,13 +146,13 @@ export const translations = {
     },
     hero: {
       eyebrow: "White Cane / AI Consulting",
-      lines: ["Σαφήνεια", "στην εποχή", "της ΤΝ."],
-      lineHighlight: "ΤΝ",
-      sub: "Βοηθάμε επιχειρήσεις να βρουν τη σωστή κατεύθυνση — επιλέγοντας, ενσωματώνοντας και αξιοποιώντας τα κατάλληλα εργαλεία ΤΝ για τη δουλειά που πραγματικά μετράει.",
+      lines: ["Καθοδηγούμε", "όσους βαδίζουν τυφλά", "στην εποχή του "],
+      lineHighlight: "AI.",
+      sub: "Βοηθάμε επιχειρήσεις να βρουν τη σωστή κατεύθυνση — επιλέγοντας, ενσωματώνοντας και αξιοποιώντας τα κατάλληλα εργαλεία AI για τη δουλειά που πραγματικά μετράει.",
       cta: "Εξερευνήστε τις Υπηρεσίες",
       sideLabel: "ΙΔΡΥΣΗ 2026 — Σαφήνεια με Τεχνολογία",
       sideMetricLabel: "Τρέχον",
-      sideMetricValue: "● Εντάξεις Γ' Τριμήνου",
+      sideMetricValue: "● Q3 Onboarding",
       marquee: ["Στρατηγική", "● Αξιολόγηση Εργαλείων", "Υλοποίηση", "● Εκπαίδευση", "Σχεδιασμός Ροών", "● Επιλογή Προμηθευτών", "Διακυβέρνηση", "● Συνεχής Φροντίδα"],
     },
     who: {
@@ -143,8 +164,30 @@ export const translations = {
       team: [
         {
           bio: [
-            "Δουλέψαμε στις μεγαλύτερες συμβουλευτικές της χώρας, χτίσαμε από μηδέν μερικές από τις πρώτες ομάδες Generative AI στην Ελλάδα και υλοποιήσαμε λύσεις στις 10 μεγαλύτερες ελληνικές εταιρείες. Ήμασταν από τους πρώτους που το έκαναν στην πράξη, πριν οι περισσότεροι οργανισμοί ξέρουν καν πού να αρχίσουν.",
-            "Έχουμε δει από μέσα τι πάει λάθος ακόμη και καλύτερες τεχνολογικές ομάδες — λάθος εργαλεία, κανένα adoption, ακριβές πλατφόρμες που κανείς δεν ανοίγει. Παρακολουθούμε εμπράκτως κάθε νέο εργαλείο και μοντέλο AI από την πρώτη μέρα, ώστε να ξέρουμε πάντα τι είναι πραγματικά χρήσιμο — και τι απλώς θόρυβος.",
+            [
+              [
+                { text: "Έχουμε " },
+                { text: "εργαστεί στις κορυφαίες συμβουλευτικές εταιρείες", b: true, s: true },
+                { text: " της χώρας και έχουμε συμβάλει στη δημιουργία, από το μηδέν, μερικών από τις " },
+                { text: "πρώτες ομάδες Generative AI", b: true, s: true },
+                { text: " στην Ελλάδα, ενώ έχουμε υπάρξει και μέρος μιας από τις μεγαλύτερες και πιο τεχνολογικά προηγμένες ομάδες AI στη χώρα." },
+              ],
+              [
+                { text: "Έχουμε σχεδιάσει και " },
+                { text: "αναπτύξει AI applications και AI tools", b: true, s: true },
+                { text: " για τις μεγαλύτερες ελληνικές επιχειρήσεις, σε διαφορετικούς κλάδους, φέρνοντας το AI στην πράξη — εκεί που δημιουργεί πραγματική αξία, ενώ παράλληλα έχουμε εκπαιδεύσει ομάδες και επαγγελματίες ώστε να αξιοποιούν ουσιαστικά τις δυνατότητές του. Ταυτόχρονα, έχουμε υλοποιήσει λύσεις προσαρμοσμένες σε πραγματικές ανάγκες, συνδυάζοντας τεχνική υλοποίηση με πρακτική κατανόηση του πώς το AI ενσωματώνεται σε έναν οργανισμό." },
+              ],
+              [
+                { text: "Για εμάς, το AI δεν είναι απλώς δουλειά — είναι κάτι που μας ενθουσιάζει πραγματικά, γι' αυτό " },
+                { text: "δοκιμάζουμε κάθε νέο εργαλείο", b: true, s: true },
+                { text: " και μοντέλο από την πρώτη στιγμή. Όλα ξεκίνησαν επειδή θέλαμε να βοηθήσουμε έναν συνάδελφο να κάνει τη δουλειά του πιο εύκολα με το AI και να εξελιχθεί — και κάπως έτσι " },
+                { text: "ήρθε η ιδέα για την White Cane AI", b: true, s: true },
+                { text: "." },
+              ],
+            ],
+            [
+              [{ text: "Έχουμε δει από μέσα τι πάει λάθος ακόμη και στις καλύτερες τεχνολογικές ομάδες — λάθος εργαλεία, κανένα adoption, ακριβές πλατφόρμες που κανείς δεν χρησιμοποιεί. Παρακολουθούμε εμπράκτως κάθε νέο εργαλείο και μοντέλο AI από την πρώτη μέρα, ώστε να ξέρουμε πάντα τι είναι πραγματικά χρήσιμο — και τι απλώς θόρυβος." }],
+            ],
           ],
         },
       ],
@@ -159,25 +202,33 @@ export const translations = {
       label: "Τι προσφέρουμε",
       h2a: "Τέσσερις τομείς.",
       h2b: "Ένα αποτέλεσμα —",
-      h2c: "δουλειά που σκέφτεται μόνη της.",
+      h2c: "ευφυΐα και αυτονομία στην εργασία.",
       serviceA: {
-        title: "Ανάπτυξη & Διαμόρφωση Πλατφορμών ΤΝ",
-        body: "Αναπτύσσουμε και διαμορφώνουμε κορυφαίες πλατφόρμες ΤΝ — Claude, ChatGPT και Gemini — για τον οργανισμό σας. Αρχικοποιούμε πράκτορες, συντάσσουμε τα αρχεία CLAUDE.md και SKILLS.md για να κωδικοποιήσουμε τις ροές εργασίας, την υποδομή και το πλαίσιο δεδομένων της εταιρείας σας, και γράφουμε ακριβείς οδηγίες μοντέλου που παράγουν σταθερά, αξιόπιστα αποτελέσματα. Επιλέγουμε τους κατάλληλους MCP servers και ενσωματώσεις ώστε οι πράκτορές σας να συνδέονται με τα σωστά δεδομένα — με την ασφάλεια ως θεμέλιο κάθε απόφασης.",
-        tags: ["Claude", "ChatGPT", "Gemini", "MCP", "Πράκτορες", "Ασφάλεια"],
+        title: "Set-up & Ρύθμιση AI Εργαλείων",
+        body: "Εγκαθιστούμε και ρυθμίζουμε κορυφαίες πλατφόρμες AI — Claude, ChatGPT και Gemini — για τον οργανισμό σας. Αρχικοποιούμε agents, συντάσσουμε τα αρχεία CLAUDE.md και SKILLS.md για να κωδικοποιήσουμε τις ροές εργασίας, την υποδομή και το πλαίσιο δεδομένων της εταιρείας σας, και γράφουμε ακριβείς οδηγίες μοντέλου που παράγουν σταθερά, αξιόπιστα αποτελέσματα. Επιλέγουμε τους κατάλληλους MCP servers και ενσωματώσεις ώστε οι agents σας να συνδέονται με τα σωστά δεδομένα — με την ασφάλεια ως θεμέλιο κάθε απόφασης.",
+        flowSteps: [
+          { n: "01", label: "Set-up περιβαλλον AI", sub: "AI Platforms & Environments", bullets: ["Claude  Sonnet, ChatGPT-5.5 & Gemini 3.0 Pro, Mistral", "Cursor & Claude Code για AI-assisted development", "v0 & Lovable για UI/UX & web generation", "Διαμόρφωση περιβάλλοντος πολλαπλών AI εργαλείων"] },
+          { n: "02", label: "Instructions & Prompts", sub: "System Prompts & Roles", bullets: ["Custom instructions για Claude, ChatGPT και Gemini", "Καθορισμός ρόλων και ορίων συμπεριφοράς (behavioral limits)", "Σταθερή μορφή αποτελεσμάτων (JSON, Markdown)", "Επαναληπτικός έλεγχος οδηγιών"] },
+          { n: "03", label: "Skills & Actions", sub: "Custom Tools & Skills", bullets: ["Δημιουργία αρχείου SKILLS.md", "Ορισμός συγκεκριμένων δεξιοτήτων (capabilities, reference, connector)", "Οδηγίες εκτέλεσης βημάτων (workflows)", "Δοκιμή, κοινή χρήση και βελτιστοποίηση ικανοτήτων"] },
+          { n: "04", label: "Data & Context (RAG)", sub: "Knowledge Base & Context", bullets: ["Ενσωμάτωση αρχείων CLAUDE.md και RAG contexts", "Φόρτωση δεδομένων υποδομής, αναφορών και εγγράφων", "Data ingestion για ακριβές context σε πολλαπλά μοντέλα", "Ενημέρωση context για βελτιωμένη μνήμη"] },
+          { n: "05", label: "MCP & Connections", sub: "MCP Servers & APIs", bullets: ["Επιλογή και ρύθμιση Model Context Protocol (MCP) servers", "Σύνδεση με βάσεις δεδομένων, APIs και πλατφόρμες (Slack, M365)", "Πρόσβαση σε real-time δεδομένα με ασφάλεια", "Έλεγχος δικαιωμάτων πρόσβασης και συνδέσεων"] },
+          { n: "06", label: "Review, Compliance & Security", sub: "Enterprise Security & Governance", bullets: ["Single Sign-On (SSO) & SCIM για διαχείριση ταυτοτήτων", "Audit logs & Compliance API για παρακολούθηση", "Έλεγχος πολιτικών: No model training, IP allowlisting", "GDPR compliance, custom data retention & ρόλοι πρόσβασης"] },
+        ],
+        tags: ["Claude", "ChatGPT", "Gemini", "MCP", "Agents", "Security"],
       },
       servicesRow: [
         {
-          title: "Εκπαίδευση & Ενδυνάμωση",
-          body: "Δομημένα σεμινάρια, πρακτικά μαθήματα και οδηγοί που βοηθούν τους υπαλλήλους σας να υιοθετήσουν πραγματικά τα εργαλεία ΤΝ — και να τα χρησιμοποιούν σωστά.",
+          title: "Εκπαίδευση & Upskilling",
+          body: "Δομημένα σεμινάρια, πρακτικά μαθήματα και οδηγοί που βοηθούν τους υπαλλήλους σας να υιοθετήσουν πραγματικά τα εργαλεία AI — και να τα χρησιμοποιούν σωστά.",
           tags: ["Σεμινάρια", "Μαθήματα", "Οδηγοί"],
         },
         {
-          title: "Έρευνα ΤΝ & Επιλογή Εργαλείων",
-          body: "Ερευνούμε και αξιολογούμε εργαλεία ΤΝ σε διαφορετικούς τομείς και κλάδους για να βρούμε αυτά που ταιριάζουν πραγματικά στις ανάγκες σας — όχι απλώς αυτά που συζητάει ο κόσμος.",
+          title: "Έρευνα AI & Επιλογή Κατάλληλων Εργαλείων",
+          body: "Ερευνούμε και αξιολογούμε εργαλεία AI σε διαφορετικούς τομείς και κλάδους για να βρούμε αυτά που ταιριάζουν πραγματικά στις ανάγκες σας — όχι απλώς αυτά που συζητάει ο κόσμος.",
           tags: ["Έρευνα", "Αξιολόγηση", "Ανάλυση Συμβατότητας"],
         },
         {
-          title: "Παραμένουμε Ενημερωμένοι",
+          title: "Συνεχή Ενημέρωση",
           body: "Όταν εμφανίζονται νέα εργαλεία, μοντέλα ή δυνατότητες που σχετίζονται με την επιχείρησή σας, θα επικοινωνήσουμε και θα σας ενημερώσουμε.",
           tags: ["Ενημερώσεις", "Νέα Μοντέλα", "Νέα Εργαλεία"],
         },
@@ -200,12 +251,12 @@ export const translations = {
       label: "Μεθοδολογία",
       h2a: "Μια μέθοδος,",
       h2b: "όχι μια παρουσίαση.",
-      sub: "Κάθε συνεργασία ακολουθεί τον ίδιο τετραβήματο ρυθμό. Αργά στην αρχή, ακριβές στο τέλος.",
+      sub: "Κάθε συνεργασία ακολουθεί τον ίδιο ρυθμό. Σας δείχνουμε ακριβώς πώς θα δουλέψουμε μαζί σας.",
       slides: [
-        { k: "01 / ΑΝΑΚΑΛΥΨΗ", t: "Βρίσκουμε τα εμπόδια.", d: "Πριν προτείνουμε ένα μοντέλο, ακούμε. Καθόμαστε με την ομάδα σας για να εντοπίσουμε τα σημεία τριβής, τις επαναλαμβανόμενες εργασίες και τα πραγματικά επιχειρηματικά προβλήματα. Χωρίς τεχνική ορολογία — απλώς ανακαλύπτουμε τι πραγματικά σας τρώει τον χρόνο." },
-        { k: "02 / ΧΑΡΤΟΓΡΑΦΗΣΗ", t: "Σχεδιάζουμε το σύστημα όπως είναι.", d: "Ένας μοναδικός, ειλικρινής χάρτης των ροών εργασίας, δεδομένων και εργαλείων σας. Δεν χαρτογραφούμε πώς θα θέλατε να λειτουργούν τα πράγματα — χαρτογραφούμε την πραγματικότητα της τρέχουσας υποδομής σας." },
-        { k: "03 / ΑΝΑΠΤΥΞΗ", t: "Διαμόρφωση για την πραγματικότητα.", d: "Επιλέγουμε και αναπτύσσουμε τα εργαλεία ΤΝ που απαιτεί ο χάρτης σας. Γράφουμε τις οδηγίες συστήματος, συνδέουμε με ασφάλεια τις πηγές δεδομένων σας και διαμορφώνουμε τους πράκτορες ώστε να επιστρέφουν απαντήσεις που η ομάδα σας μπορεί πραγματικά να εμπιστευτεί." },
-        { k: "04 / ΥΙΟΘΕΤΗΣΗ", t: "Το κάνουμε να μείνει.", d: "Ένα εργαλείο είναι άχρηστο αν κανείς δεν το ανοίγει. Δεν παραδίδουμε απλώς έναν κωδικό πρόσβασης — διοργανώνουμε σεμινάρια, γράφουμε οδηγούς και συνεργαζόμαστε με τους υπαλλήλους σας μέχρι η νέα ροή εργασίας να γίνει δεύτερη φύση." },
+        { k: "01 / ΑΚΟΥΜΕ", t: "Βρίσκουμε τα εμπόδια σας.", d: "Πριν προτείνουμε οτιδήποτε, σας ακούμε. Εντοπίζουμε τα εμπόδια, τις επαναλαμβανόμενες διαδικασίες και τα πραγματικά επιχειρηματικά προβλήματα — και αναζητάμε λύσεις πάνω στην υποδομή που ήδη έχετε." },
+        { k: "02 / ΣΧΕΔΙΑΖΟΥΜΕ", t: "Οργανώνουμε και υλοποιούμε τη λύση.", d: "Ρυθμίζουμε τα εργαλεία με βάση τις δικές σας ανάγκες και τα ενσωματώνουμε στις ροές εργασίας σας. Ρεαλιστικά αποτελέσματα, βασισμένα στην πραγματικότητα — δεν σας πουλάμε ψέματα." },
+        { k: "03 / ΕΚΠΑΙΔΕΥΟΥΜΕ", t: "Βοηθαμε στην υοθέτηση των εργαλείων.", d: "Δεν αφήνουμε ένα εργαλείο και φεύγουμε. Σας δείχνουμε πώς να το χρησιμοποιείτε και πώς να αντλείτε αξία από αυτό στην καθημερινή εργασία — και σας δείχνουμε τον δρόμο για ό,τι έρχεται." },
+        { k: "04 / ΠΑΡΑΜΕΝΟΥΜΕ", t: "Επικοινωνούμε μαζί σας", d: "Κρατάμε επαφή και σας ενημερώνουμε για νέα features, use cases και καλύτερα μοντέλα που μπορούν να σας φανούν χρήσιμα — ώστε να είστε πάντα ένα βήμα μπροστά." },
       ],
     },
     cta: {
@@ -215,7 +266,7 @@ export const translations = {
       h2d: "να επιλέγετε.",
       sub: "Μια κλήση 30 λεπτών. Χωρίς παρουσίαση, χωρίς διαφάνειες — θα ακούσουμε, θα κάνουμε δύσκολες ερωτήσεις, και θα σας πούμε ειλικρινά αν είμαστε η κατάλληλη επιλογή.",
       directLine: "Άμεση επικοινωνία",
-      footerTagline: "Σαφήνεια στην εποχή της ΤΝ.",
+      footerTagline: "Σαφήνεια στην εποχή της AI.",
       practice: "Τομείς",
       practiceLinks: ["Στρατηγική", "Επιλογή", "Ενσωμάτωση"],
       company: "Εταιρεία",

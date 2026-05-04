@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import logo from "@/assets/logo.png";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { cn } from "@/lib/utils";
 
 const ease = [0.6, 0.05, 0.1, 1] as const;
 
@@ -10,6 +11,24 @@ const fadeUp = (delay = 0) => ({
   viewport: { once: true, margin: "-80px" },
   transition: { duration: 0.9, delay, ease },
 });
+
+type Seg = { text: string; b?: boolean; s?: boolean };
+type BioParagraphs = (Seg[])[];
+
+const renderBio = (paragraphs: BioParagraphs, paraClass: string) =>
+  paragraphs.map((segs, i) => (
+    <p key={i} className={paraClass}>
+      {segs.map((seg, j) =>
+        seg.b || seg.s ? (
+          <strong key={j} className={cn("font-semibold", seg.s && "text-signal")}>
+            {seg.text}
+          </strong>
+        ) : (
+          <span key={j}>{seg.text}</span>
+        )
+      )}
+    </p>
+  ));
 
 export const Who = () => {
   const { t } = useLanguage();
@@ -26,12 +45,12 @@ export const Who = () => {
         </motion.div>
 
         {/* Header row */}
-        <div className="grid md:grid-cols-12 gap-8 md:gap-16 items-start mb-20">
+        <div className="grid md:grid-cols-12 gap-8 md:gap-16 items-center mb-20">
 
           {/* Logo */}
           <motion.div
             {...fadeUp(0.05)}
-            className="md:col-span-4 flex items-start justify-start pt-2"
+            className="md:col-span-4 flex items-center justify-start"
           >
             <img
               src={logo}
@@ -52,22 +71,13 @@ export const Who = () => {
               <span className="italic font-normal">{w.h2c}</span>
             </motion.h2>
 
-            <motion.div
-              {...fadeUp(0.2)}
-              className="flex flex-col gap-6"
-            >
-              {w.team[0].bio.map((para: string, i: number) => (
-                <p
-                  key={i}
-                  className={
-                    i === 0
-                      ? "text-ink/60 leading-relaxed max-w-2xl border-l-2 border-signal pl-5"
-                      : "text-sm text-ink/55 leading-relaxed max-w-2xl"
-                  }
-                >
-                  {para}
-                </p>
-              ))}
+            <motion.div {...fadeUp(0.2)}>
+              <div className="flex flex-col gap-4 border-l-2 border-signal pl-5">
+                {renderBio(
+                  w.team[0].bio[0] as unknown as BioParagraphs,
+                  "text-ink/60 leading-relaxed max-w-2xl"
+                )}
+              </div>
             </motion.div>
           </div>
         </div>
@@ -90,6 +100,17 @@ export const Who = () => {
               </div>
             </div>
           ))}
+        </motion.div>
+
+        {/* Closing insight — appears after credentials */}
+        <motion.div
+          {...fadeUp(0.5)}
+          className="mt-12 flex flex-col gap-2 text-sm text-ink/55 leading-relaxed"
+        >
+          {renderBio(
+            w.team[0].bio[1] as unknown as BioParagraphs,
+            ""
+          )}
         </motion.div>
 
       </div>
