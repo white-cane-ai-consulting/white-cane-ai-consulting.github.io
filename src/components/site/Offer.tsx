@@ -22,36 +22,36 @@ const FlowDiagram = ({ steps }: { steps: ReadonlyArray<FlowStep> }) => {
 
   return (
     <div className="mb-8">
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-6 sm:gap-8">
         {rows.map((row, ri) => (
-          <div key={ri} className="flex items-start justify-center gap-2">
+          <div key={ri} className="flex items-start justify-center gap-0.5 sm:gap-2">
             {row.map((step, i) => (
               <Fragment key={step.n}>
                 <button
                   onClick={() => setExpanded(prev => prev === step.n ? null : step.n)}
-                  className="group/step flex-1 flex flex-col items-center gap-3 select-none"
+                  className="group/step flex-1 min-w-0 flex flex-col items-center gap-2 sm:gap-3 select-none"
                 >
                   <div className={cn(
-                    "w-14 h-14 rounded-full border-2 flex items-center justify-center transition-all duration-300 ease-out group-hover/step:scale-110",
+                    "w-10 h-10 sm:w-14 sm:h-14 rounded-full border-2 flex items-center justify-center transition-all duration-300 ease-out group-hover/step:scale-110",
                     expanded === step.n
                       ? "border-signal bg-signal scale-110"
                       : "border-border group-hover/step:border-signal group-hover/step:bg-signal"
                   )}>
                     <span className={cn(
-                      "text-base font-mono transition-colors duration-300",
+                      "text-sm sm:text-base font-mono transition-colors duration-300",
                       expanded === step.n ? "text-white" : "text-muted-foreground/60 group-hover/step:text-white"
                     )}>
                       {step.n}
                     </span>
                   </div>
-                  <div className="text-center">
-                    <p className="text-lg font-display text-foreground/90 leading-tight">{step.label}</p>
-                    <p className="text-base text-muted-foreground/45 leading-tight mt-1">{step.sub}</p>
+                  <div className="text-center px-0.5">
+                    <p className="text-xs sm:text-lg font-display text-foreground/90 leading-tight">{step.label}</p>
+                    <p className="hidden sm:block text-base text-muted-foreground/45 leading-tight mt-1">{step.sub}</p>
                   </div>
                 </button>
                 {i < row.length - 1 && (
-                  <div className="flex items-center pt-7 flex-shrink-0 px-1">
-                    <span className="text-muted-foreground/25 text-sm tracking-tighter">——›</span>
+                  <div className="flex items-center pt-4 sm:pt-7 flex-shrink-0 px-0 sm:px-1">
+                    <span className="text-muted-foreground/25 text-xs sm:text-sm tracking-tighter">——›</span>
                   </div>
                 )}
               </Fragment>
@@ -135,7 +135,7 @@ export const Offer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.9, ease }}
-            className="group/card relative bg-background p-10 md:p-12 hover:bg-card transition-colors duration-500"
+            className="group/card relative bg-background p-6 sm:p-10 md:p-12 hover:bg-card transition-colors duration-500"
           >
             <div className="flex items-start justify-between mb-6">
               <span className="font-display text-5xl text-muted-foreground/40 group-hover/card:text-signal transition-colors duration-500">A</span>
@@ -158,7 +158,7 @@ export const Offer = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.9, delay: i * 0.08, ease }}
-                className="group relative bg-background p-10 md:p-12 hover:bg-card transition-colors duration-500"
+                className="group relative bg-background p-6 sm:p-10 md:p-12 hover:bg-card transition-colors duration-500"
               >
                 <div className="flex items-start justify-between mb-10">
                   <span className="font-display text-5xl text-muted-foreground/40 group-hover:text-signal transition-colors duration-500">

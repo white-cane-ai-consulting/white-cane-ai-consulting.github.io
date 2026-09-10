@@ -96,7 +96,7 @@ export const Vision = () => {
             </div>
           </div>
 
-          <div className="md:col-span-7 md:pl-8 md:border-l border-border/60 min-h-[340px] relative">
+          <div className="md:col-span-7 md:pl-8 md:border-l border-border/60 min-h-[420px] sm:min-h-[320px] md:min-h-[340px] relative">
             {v.slides.map((s, i) => (
               <motion.div
                 key={s.k}
@@ -107,7 +107,7 @@ export const Vision = () => {
                 style={{ pointerEvents: i === active ? "auto" : "none" }}
               >
                 <div className="text-xs uppercase tracking-[0.3em] text-signal mb-6">{s.k}</div>
-                <h3 className="font-display font-light text-3xl md:text-5xl leading-[1.05] mb-6 text-balance">{s.t}</h3>
+                <h3 className="font-display font-light text-2xl sm:text-3xl md:text-5xl leading-[1.05] mb-6 text-balance">{s.t}</h3>
                 <p className="text-muted-foreground leading-relaxed max-w-lg">{s.d}</p>
               </motion.div>
             ))}

@@ -86,7 +86,7 @@ export const CTA = () => {
                 <div className="text-xs text-muted-foreground mt-1">{c.footerTagline}</div>
               </div>
             </div>
-            <div ref={gridRef} className="grid grid-cols-3 gap-10 text-xs">
+            <div ref={gridRef} className="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-8 sm:gap-10 text-xs">
               <div>
                 <div className="text-muted-foreground uppercase tracking-[0.2em] mb-3">{c.practice}</div>
                 <ul className="space-y-2">

@@ -5,7 +5,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const ease = [0.6, 0.05, 0.1, 1] as const;
 
 export const Hero = () => {
-  const { t, lang } = useLanguage();
+  const { t } = useLanguage();
   const fwdRef = useRef<HTMLVideoElement>(null);
   const revRef = useRef<HTMLVideoElement>(null);
   const marqueeTrackRef = useRef<HTMLDivElement>(null);
@@ -110,7 +110,7 @@ export const Hero = () => {
   }, [t]);
 
   return (
-    <section id="top" className="relative min-h-screen overflow-hidden grain flex items-end pb-20 pt-32">
+    <section id="top" className="relative min-h-[100svh] overflow-hidden grain flex items-end pb-24 pt-28 sm:pb-20 sm:pt-32">
       {/* Background video with ping-pong playback */}
       <motion.div
         initial={{ scale: 1.1, opacity: 0 }}
@@ -169,7 +169,7 @@ export const Hero = () => {
         </motion.div>
 
         {/* Headline */}
-        <h1 className={`font-display font-light leading-[0.95] tracking-tight max-w-[12ch] text-balance ${lang === "GR" ? "text-[clamp(2rem,7vw,6rem)]" : "text-[clamp(3rem,11vw,12rem)]"}`}>
+        <h1 className="font-display font-light leading-[0.95] tracking-tight max-w-[12ch] text-balance text-[clamp(2rem,7vw,6rem)]">
           {t.hero.lines.map((line, i) => {
             const parts = i === 2 ? line.split(t.hero.lineHighlight) : null;
             return (
@@ -207,7 +207,7 @@ export const Hero = () => {
           >
             <a
               href="#offer"
-              className="group inline-flex items-center gap- bg-bone text-ink px-7 py-4 text-xs uppercase tracking-[0.25em] font-medium hover:bg-signal hover:text-bone transition-colors duration-500"
+              className="group inline-flex items-center gap-2 bg-bone text-ink px-7 py-4 text-xs uppercase tracking-[0.25em] font-medium hover:bg-signal hover:text-bone transition-colors duration-500"
             >
               {t.hero.cta}
               <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
