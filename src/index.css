@@ -1,4 +1,40 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+@font-face {
+  font-family: 'Lilex';
+  src: url('/fonts/lilex/Lilex-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Lilex';
+  src: url('/fonts/lilex/Lilex-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Lilex';
+  src: url('/fonts/lilex/Lilex-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Lilex';
+  src: url('/fonts/lilex/Lilex-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Lilex';
+  src: url('/fonts/lilex/Lilex-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 @tailwind base;
 @tailwind components;
@@ -6,46 +42,49 @@
 
 @layer base {
   :root {
-    /* White Cane AI — editorial black/white with signal red */
-    --background: 0 0% 4%;
-    --foreground: 40 12% 94%;
+    /* White Cane AI — brand palette (Brand Guidelines.md) */
+    --background: 60 4% 5%;     /* Obsidian Slate, darkened toward the site's original near-black */
+    --foreground: 0 0% 95%;     /* Soft Silver #F1F1F1 */
 
-    --card: 0 0% 6%;
-    --card-foreground: 40 12% 94%;
+    --card: 60 4% 7%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 0 0% 6%;
-    --popover-foreground: 40 12% 94%;
+    --popover: 60 4% 7%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 40 12% 94%;
-    --primary-foreground: 0 0% 4%;
+    --primary: 0 0% 95%;
+    --primary-foreground: 60 4% 5%;
 
-    --secondary: 0 0% 10%;
-    --secondary-foreground: 40 12% 94%;
+    --secondary: 60 4% 10%;
+    --secondary-foreground: 0 0% 95%;
 
-    --muted: 0 0% 12%;
-    --muted-foreground: 40 6% 60%;
+    --muted: 60 4% 12%;
+    --muted-foreground: 203 19% 65%; /* Slate Harbor, lightened for dark-bg contrast */
 
-    --accent: 354 78% 56%;
-    --accent-foreground: 40 12% 94%;
+    --accent: 350 83% 53%;      /* Vivid Crimson #EB2343 */
+    --accent-foreground: 0 0% 95%;
 
-    --destructive: 354 78% 56%;
-    --destructive-foreground: 40 12% 94%;
+    --destructive: 350 83% 53%;
+    --destructive-foreground: 0 0% 95%;
 
-    --border: 0 0% 14%;
-    --input: 0 0% 14%;
-    --ring: 354 78% 56%;
+    --border: 60 4% 14%;
+    --input: 60 4% 14%;
+    --ring: 350 83% 53%;
 
     --radius: 0.25rem;
 
     /* Brand tokens */
-    --ink: 0 0% 4%;
-    --bone: 40 14% 96%;
-    --signal: 354 78% 56%;
-    --signal-deep: 354 70% 42%;
+    --ink: 60 4% 5%;            /* Obsidian Slate — dark bg, body text on light */
+    --bone: 0 0% 95%;           /* Soft Silver — light section bg */
+    --signal: 350 83% 53%;      /* Vivid Crimson — accent */
+    --signal-deep: 347 66% 34%; /* Garnet Wine — accent hover */
+    --sapphire: 217 51% 19%;    /* Midnight Sapphire — H2/H3 on light sections */
+    --harbor: 203 19% 40%;      /* Slate Harbor — secondary text/captions on light */
+    --misty: 199 18% 76%;       /* Misty Blue — dividers on light sections */
 
-    --gradient-fade: linear-gradient(180deg, hsl(0 0% 4% / 0) 0%, hsl(0 0% 4%) 100%);
-    --gradient-signal: linear-gradient(135deg, hsl(354 78% 56%), hsl(354 70% 42%));
-    --shadow-signal: 0 20px 60px -20px hsl(354 78% 56% / 0.45);
+    --gradient-fade: linear-gradient(180deg, hsl(60 4% 5% / 0) 0%, hsl(60 4% 5%) 100%);
+    --gradient-signal: linear-gradient(135deg, hsl(350 83% 53%), hsl(347 66% 34%));
+    --shadow-signal: 0 20px 60px -20px hsl(350 83% 53% / 0.45);
     --shadow-elevated: 0 30px 80px -30px hsl(0 0% 0% / 0.8);
 
     --ease-editorial: cubic-bezier(0.6, 0.05, 0.1, 1);
@@ -62,7 +101,7 @@
 }
 
 @layer utilities {
-  .font-display { font-family: 'Space Grotesk', system-ui, sans-serif; letter-spacing: -0.03em; }
+  .font-display { font-family: 'Lilex', Consolas, 'Courier New', monospace; letter-spacing: -0.02em; }
   .font-body { font-family: 'Inter', system-ui, sans-serif; }
 
   .text-balance { text-wrap: balance; }

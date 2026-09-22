@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo-icon-color.svg";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const ease = [0.6, 0.05, 0.1, 1] as const;
@@ -80,7 +80,9 @@ export const CTA = () => {
           {/* Top footer row */}
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10">
             <div className="flex items-center gap-5">
-              <img src={logo} alt="White Cane AI Consulting" className="h-20 w-auto rounded-xl" />
+              <div className="h-24 aspect-square rounded-xl bg-bone overflow-hidden shrink-0 p-2.5">
+                <img src={logo} alt="White Cane AI Consulting" className="h-full w-full" />
+              </div>
               <div>
                 <div className="font-display text-sm tracking-wider">WHITE CANE AI CONSULTING</div>
                 <div className="text-xs text-muted-foreground mt-1">{c.footerTagline}</div>

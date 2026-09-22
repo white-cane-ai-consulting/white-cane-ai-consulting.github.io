@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo-icon-color.svg";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export const Nav = () => {
@@ -17,7 +17,9 @@ export const Nav = () => {
     >
       <div className="container flex items-center justify-between h-16">
         <a href="#top" className="flex items-center gap-3 group" onClick={() => setOpen(false)}>
-          <img src={logo} alt="White Cane AI Consulting" className="h-9 w-9" />
+          <div className="h-10 w-10 rounded-lg bg-bone overflow-hidden shrink-0 p-1">
+            <img src={logo} alt="White Cane AI Consulting" className="h-full w-full" />
+          </div>
           <span className="font-display text-sm tracking-wider hidden sm:block">
             WHITE CANE <span className="text-muted-foreground">/ AI Consulting</span>
           </span>

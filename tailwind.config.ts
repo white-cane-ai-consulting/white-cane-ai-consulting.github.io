@@ -27,6 +27,9 @@ export default {
         ink: "hsl(var(--ink))",
         bone: "hsl(var(--bone))",
         signal: { DEFAULT: "hsl(var(--signal))", deep: "hsl(var(--signal-deep))" },
+        sapphire: "hsl(var(--sapphire))",
+        harbor: "hsl(var(--harbor))",
+        misty: "hsl(var(--misty))",
       },
       borderRadius: {
         lg: "var(--radius)",
