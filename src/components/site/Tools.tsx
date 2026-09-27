@@ -30,7 +30,7 @@ export const Tools = () => (
         className="flex items-center gap-3 mb-16"
       >
         <span className="h-px w-12 bg-signal" />
-        <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+        <span className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
           AI tools we've set up &amp; tested
         </span>
       </motion.div>
@@ -56,7 +56,7 @@ export const Tools = () => (
               alt={tool.name}
               className="w-8 h-8 object-contain grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
             />
-            <span className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground/60 group-hover:text-muted-foreground transition-colors duration-500 text-center leading-tight">
+            <span className="text-[11px] uppercase tracking-[0.12em] text-muted-foreground/60 group-hover:text-muted-foreground transition-colors duration-500 text-center leading-tight">
               {tool.name}
             </span>
           </motion.div>

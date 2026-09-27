@@ -1,10 +1,16 @@
 import { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import logo from "@/assets/logo-icon-color.svg";
+import { FAQ } from "@/components/site/FAQ";
+import { ContactForm } from "@/components/site/ContactForm";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const ease = [0.6, 0.05, 0.1, 1] as const;
 
+/**
+ * Closing section: the questions people ask, then the way to reach us, then the footer.
+ * The FAQ and the call to action share one section so the page ends on a single beat.
+ */
 export const CTA = () => {
   const { t } = useLanguage();
   const c = t.cta;
@@ -22,46 +28,31 @@ export const CTA = () => {
   }, []);
 
   return (
-    <section id="contact" className="relative pt-32 md:pt-48 pb-0 border-t border-border/50">
-
+    <section id="contact" className="relative pt-32 md:pt-44 pb-0 border-t border-border/50">
       <div className="container">
-        <div className="grid md:grid-cols-12 gap-10 items-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 1, ease }}
-            className="md:col-span-8"
-          >
-            <div className="text-xs uppercase tracking-[0.3em] text-signal mb-8">{c.eyebrow}</div>
-            <h2 className="font-display font-light text-5xl md:text-7xl lg:text-8xl leading-[0.9] text-balance">
-              {c.h2a}
-              <br />
-              <span className="text-muted-foreground">{c.h2c} </span>
-              <span className="text-signal italic font-normal">{c.h2d}</span>
-            </h2>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 1, delay: 0.2, ease }}
-            className="md:col-span-4 space-y-8"
-          >
-            <p className="text-muted-foreground leading-relaxed">{c.sub}</p>
-            <a
-              href="mailto:consulting@whitecane-ai.com"
-              className="group block bg-bone text-ink p-8 hover:bg-signal hover:text-bone transition-colors duration-500"
+        <FAQ
+          aside={
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.9, delay: 0.1, ease }}
+              className="mt-12 pt-12 border-t border-border/60 max-w-xl"
             >
-              <div className="text-[10px] uppercase tracking-[0.3em] mb-3 opacity-70">{c.directLine}</div>
-              <div className="font-display text-2xl flex items-center justify-between">
-                consulting@whitecane-ai.com
-                <span className="transition-transform group-hover:translate-x-1">→</span>
-              </div>
-            </a>
-          </motion.div>
-        </div>
+              <ContactForm />
+              <a
+                href="mailto:consulting@whitecane-ai.com"
+                className="group mt-16 flex items-center justify-between gap-3 rounded-3xl bg-bone text-ink px-6 py-4 transition-colors duration-500 hover:bg-signal hover:text-bone"
+              >
+                <span className="min-w-0">
+                  <span className="block text-[11px] uppercase tracking-[0.14em] opacity-70">{c.directLine}</span>
+                  <span className="block truncate font-display text-base">consulting@whitecane-ai.com</span>
+                </span>
+                <span className="shrink-0 transition-transform group-hover:translate-x-1">→</span>
+              </a>
+            </motion.div>
+          }
+        />
       </div>
 
       {/* Footer */}
@@ -80,36 +71,36 @@ export const CTA = () => {
           {/* Top footer row */}
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10">
             <div className="flex items-center gap-5">
-              <div className="h-24 aspect-square rounded-xl bg-bone overflow-hidden shrink-0 p-2.5">
+              <div className="h-24 aspect-square rounded-2xl bg-bone overflow-hidden shrink-0 p-2.5">
                 <img src={logo} alt="White Cane AI Consulting" className="h-full w-full" />
               </div>
               <div>
                 <div className="font-display text-sm tracking-wider">WHITE CANE AI CONSULTING</div>
-                <div className="text-xs text-muted-foreground mt-1">{c.footerTagline}</div>
+                <div className="text-sm text-muted-foreground mt-1 leading-relaxed">{c.footerTagline}</div>
               </div>
             </div>
-            <div ref={gridRef} className="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-8 sm:gap-10 text-xs">
+            <div ref={gridRef} className="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-8 sm:gap-10 text-sm">
               <div>
-                <div className="text-muted-foreground uppercase tracking-[0.2em] mb-3">{c.practice}</div>
+                <div className="text-[11px] text-muted-foreground uppercase tracking-[0.14em] mb-3">{c.practice}</div>
                 <ul className="space-y-2">
                   {c.practiceLinks.map((l) => (
-                    <li key={l}><a href="#offer" className="hover:text-signal transition-colors">{l}</a></li>
+                    <li key={l}><a href="#offer" className="hover:text-signal-bright transition-colors">{l}</a></li>
                   ))}
                 </ul>
               </div>
               <div>
-                <div className="text-muted-foreground uppercase tracking-[0.2em] mb-3">{c.company}</div>
+                <div className="text-[11px] text-muted-foreground uppercase tracking-[0.14em] mb-3">{c.company}</div>
                 <ul className="space-y-2">
                   {c.companyLinks.map((l, i) => (
-                    <li key={l}><a href={["#who","#proof","#contact"][i]} className="hover:text-signal transition-colors">{l}</a></li>
+                    <li key={l}><a href={["#who","#proof","#contact"][i]} className="hover:text-signal-bright transition-colors">{l}</a></li>
                   ))}
                 </ul>
               </div>
               <div>
-                <div className="text-muted-foreground uppercase tracking-[0.2em] mb-3">{c.elsewhere}</div>
+                <div className="text-[11px] text-muted-foreground uppercase tracking-[0.14em] mb-3">{c.elsewhere}</div>
                 <ul className="space-y-2">
                   {c.elsewhereLinks.map((l) => (
-                    <li key={l}><a href="#" className="hover:text-signal transition-colors">{l}</a></li>
+                    <li key={l}><a href="#" className="hover:text-signal-bright transition-colors">{l}</a></li>
                   ))}
                 </ul>
               </div>
@@ -117,13 +108,13 @@ export const CTA = () => {
           </div>
 
           {/* Bottom footer row — accepting text aligned to grid above */}
-          <div className="mt-8 mb-16 flex flex-col md:flex-row md:justify-between md:items-center text-[10px] uppercase tracking-[0.4em] text-muted-foreground">
+          <div className="mt-8 mb-16 flex flex-col md:flex-row md:justify-between md:items-center gap-4 text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
             <div className="flex flex-col gap-1">
               <span>© {new Date().getFullYear()} White Cane AI Consulting</span>
-              <span className="text-muted-foreground/50">v0.2</span>
+              <span className="text-muted-foreground/70">v0.2</span>
             </div>
             <span style={gridWidth ? { width: gridWidth } : undefined} className="flex items-center">
-              <span className="text-signal mr-2 -ml-4">●</span>
+              <span className="text-signal-bright mr-2">●</span>
               <span>{c.accepting}</span>
             </span>
           </div>

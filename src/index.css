@@ -46,7 +46,7 @@
     --background: 60 4% 5%;     /* Obsidian Slate, darkened toward the site's original near-black */
     --foreground: 0 0% 95%;     /* Soft Silver #F1F1F1 */
 
-    --card: 60 4% 7%;
+    --card: 60 4% 9%;
     --card-foreground: 0 0% 95%;
 
     --popover: 60 4% 7%;
@@ -55,11 +55,11 @@
     --primary: 0 0% 95%;
     --primary-foreground: 60 4% 5%;
 
-    --secondary: 60 4% 10%;
+    --secondary: 60 4% 9%;
     --secondary-foreground: 0 0% 95%;
 
     --muted: 60 4% 12%;
-    --muted-foreground: 203 19% 65%; /* Slate Harbor, lightened for dark-bg contrast */
+    --muted-foreground: 205 12% 79%; /* Slate Harbor, lifted well clear of AA on the dark bg */
 
     --accent: 350 83% 53%;      /* Vivid Crimson #EB2343 */
     --accent-foreground: 0 0% 95%;
@@ -67,31 +67,33 @@
     --destructive: 350 83% 53%;
     --destructive-foreground: 0 0% 95%;
 
-    --border: 60 4% 14%;
-    --input: 60 4% 14%;
+    --border: 60 4% 18%;
+    --input: 60 4% 18%;
     --ring: 350 83% 53%;
 
-    --radius: 0.25rem;
+    --radius: 1rem;
 
     /* Brand tokens */
     --ink: 60 4% 5%;            /* Obsidian Slate — dark bg, body text on light */
     --bone: 0 0% 95%;           /* Soft Silver — light section bg */
-    --signal: 350 83% 53%;      /* Vivid Crimson — accent */
+    --signal: 350 83% 53%;      /* Vivid Crimson — accent, for fills */
+    --signal-bright: 350 83% 53%; /* Vivid Crimson — one single red across the whole site */
     --signal-deep: 347 66% 34%; /* Garnet Wine — accent hover */
     --sapphire: 217 51% 19%;    /* Midnight Sapphire — H2/H3 on light sections */
-    --harbor: 203 19% 40%;      /* Slate Harbor — secondary text/captions on light */
+    --harbor: 203 22% 33%;      /* Slate Harbor, deepened for AA on Soft Silver */
     --misty: 199 18% 76%;       /* Misty Blue — dividers on light sections */
 
     --gradient-fade: linear-gradient(180deg, hsl(60 4% 5% / 0) 0%, hsl(60 4% 5%) 100%);
     --gradient-signal: linear-gradient(135deg, hsl(350 83% 53%), hsl(347 66% 34%));
     --shadow-signal: 0 20px 60px -20px hsl(350 83% 53% / 0.45);
     --shadow-elevated: 0 30px 80px -30px hsl(0 0% 0% / 0.8);
+    --shadow-soft: 0 1px 2px hsl(0 0% 0% / 0.3), 0 12px 32px -16px hsl(0 0% 0% / 0.55);
 
     --ease-editorial: cubic-bezier(0.6, 0.05, 0.1, 1);
   }
 
   * { @apply border-border; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter', system-ui, sans-serif;

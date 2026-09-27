@@ -58,8 +58,8 @@ export const Achievements = () => {
           transition={{ duration: 0.8, ease }}
           className="flex items-center gap-3 mb-20"
         >
-          <span className="text-xs uppercase tracking-[0.3em] text-signal">03 —</span>
-          <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground">{a.label}</span>
+          <span className="text-xs uppercase tracking-[0.18em] text-signal-bright">03 —</span>
+          <span className="text-xs uppercase tracking-[0.18em] text-muted-foreground">{a.label}</span>
         </motion.div>
 
         <motion.h2
@@ -67,7 +67,7 @@ export const Achievements = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 1, ease }}
-          className="font-display font-light text-4xl md:text-6xl lg:text-7xl leading-[1] mb-24 max-w-4xl text-balance"
+          className="font-display font-light text-4xl md:text-6xl lg:text-7xl leading-[1.05] mb-20 max-w-4xl text-balance"
         >
           {a.h2a}
           <br />
@@ -75,7 +75,7 @@ export const Achievements = () => {
           <span className="italic font-normal">{a.h2c}</span>
         </motion.h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-border/60 mb-24">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-20">
           {a.stats.map((s, i) => (
             <motion.div
               key={s.label}
@@ -83,20 +83,20 @@ export const Achievements = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.8, delay: i * 0.08, ease }}
-              className="bg-background p-8 md:p-10"
+              className="rounded-3xl border border-border bg-card/40 p-7 md:p-8 transition-all duration-500 hover:bg-card hover:-translate-y-1 hover:shadow-soft"
             >
               <div className="font-display font-light text-6xl md:text-7xl mb-4 tracking-tight">
                 <Counter to={s.value} suffix={s.suffix} />
               </div>
-              <div className="font-display text-sm uppercase tracking-[0.15em] mb-3 text-foreground">{s.label}</div>
-              <div className="text-xs text-muted-foreground leading-relaxed max-w-[28ch]">{s.note}</div>
+              <div className="font-display text-sm uppercase tracking-[0.1em] mb-3 text-foreground">{s.label}</div>
+              <div className="text-sm text-muted-foreground leading-[1.7] max-w-[30ch]">{s.note}</div>
             </motion.div>
           ))}
         </div>
 
         {/* AI tools strip */}
-        <div className="border-t border-b border-border/60 py-10 overflow-hidden">
-          <div className="text-[10px] uppercase tracking-[0.4em] text-muted-foreground mb-6">{a.toolsLabel}</div>
+        <div className="rounded-3xl border border-border bg-card/40 px-7 py-9 overflow-hidden">
+          <div className="text-xs uppercase tracking-[0.14em] text-muted-foreground mb-7">{a.toolsLabel}</div>
           <div className="flex overflow-hidden mask-gradient">
             <div className="marquee-track flex items-center gap-16 whitespace-nowrap">
               {[...aiTools, ...aiTools].map((tool, i) => (
@@ -106,7 +106,7 @@ export const Achievements = () => {
                     alt={tool.name}
                     className="w-9 h-9 shrink-0 object-contain"
                   />
-                  <span className="text-muted-foreground/60 group-hover:text-foreground transition-colors duration-300 font-display text-lg md:text-xl tracking-widest">
+                  <span className="text-muted-foreground/80 group-hover:text-foreground transition-colors duration-300 font-display text-lg md:text-xl tracking-wide">
                     {tool.name}
                   </span>
                 </span>

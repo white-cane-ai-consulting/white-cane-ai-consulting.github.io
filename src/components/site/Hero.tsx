@@ -90,6 +90,9 @@ export const Hero = () => {
 
     const update = () => {
       const w = copy1.offsetWidth;
+      // Before layout settles the copy can measure 0, which would make `needed`
+      // Infinity and clone forever. Wait for a real width.
+      if (!w) return;
       // Need at least ceil(viewportWidth / copyWidth) + 1 copies so there's
       // always content visible while the first copy is off-screen.
       const needed = Math.ceil(window.innerWidth / w) + 1;
@@ -142,13 +145,13 @@ export const Hero = () => {
       </motion.div>
 
       {/* Vertical side label */}
-      <div className="hidden lg:block absolute left-6 top-1/2 -translate-y-1/2 vert-text text-[10px] tracking-[0.4em] text-muted-foreground uppercase">
+      <div className="hidden lg:block absolute left-6 top-1/2 -translate-y-1/2 vert-text text-[11px] tracking-[0.2em] text-muted-foreground uppercase">
         {t.hero.sideLabel}
       </div>
 
       {/* Side metric */}
       <div className="hidden lg:block absolute right-8 top-32 text-right">
-        <div className="text-[10px] tracking-[0.3em] text-muted-foreground uppercase mb-2">{t.hero.sideMetricLabel}</div>
+        <div className="text-[11px] tracking-[0.18em] text-muted-foreground uppercase mb-2">{t.hero.sideMetricLabel}</div>
         <div className="font-display text-2xl">
           {t.hero.sideMetricValue}
         </div>
@@ -163,13 +166,13 @@ export const Hero = () => {
           className="flex items-center gap-3 mb-10"
         >
           <span className="h-px w-12 bg-signal" />
-          <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+          <span className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
             {t.hero.eyebrow}
           </span>
         </motion.div>
 
         {/* Headline */}
-        <h1 className="font-display font-light leading-[0.95] tracking-tight max-w-[12ch] text-balance text-[clamp(2rem,7vw,6rem)]">
+        <h1 className="font-display font-light leading-[0.95] tracking-tight max-w-[12ch] text-balance text-[clamp(1.75rem,6vw,5.25rem)]">
           {t.hero.lines.map((line, i) => {
             const parts = i === 2 ? line.split(t.hero.lineHighlight) : null;
             return (
@@ -181,7 +184,7 @@ export const Hero = () => {
                 className="block"
               >
                 {parts ? (
-                  <>{parts[0]}<em className="not-italic text-signal font-normal">{t.hero.lineHighlight}</em>{parts[1]}</>
+                  <>{parts[0]}<em className="not-italic text-signal-bright font-normal">{t.hero.lineHighlight}</em>{parts[1]}</>
                 ) : line}
               </motion.span>
             );
@@ -194,7 +197,7 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 1.2, ease }}
-            className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-md"
+            className="text-base md:text-lg text-muted-foreground leading-[1.75] max-w-xl"
           >
             {t.hero.sub}
           </motion.p>
@@ -207,7 +210,7 @@ export const Hero = () => {
           >
             <a
               href="#offer"
-              className="group inline-flex items-center gap-2 bg-bone text-ink px-7 py-4 text-xs uppercase tracking-[0.25em] font-medium hover:bg-signal hover:text-bone transition-colors duration-500"
+              className="group inline-flex items-center gap-2 rounded-full bg-bone text-ink px-8 py-4 text-xs uppercase tracking-[0.14em] font-medium hover:bg-signal hover:text-bone transition-colors duration-500"
             >
               {t.hero.cta}
               <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
@@ -218,11 +221,11 @@ export const Hero = () => {
 
       {/* Bottom marquee */}
       <div className="absolute bottom-0 inset-x-0 border-t border-border/60 py-4 overflow-hidden">
-        <div ref={marqueeTrackRef} className="marquee-track flex whitespace-nowrap text-xs uppercase tracking-[0.3em] text-muted-foreground">
+        <div ref={marqueeTrackRef} className="marquee-track flex whitespace-nowrap text-xs uppercase tracking-[0.18em] text-muted-foreground">
           {[0, 1].map((k) => (
             <div key={k} ref={k === 0 ? marqueeCopy1Ref : undefined} aria-hidden={k > 0 ? true : undefined} className="flex shrink-0 items-center">
               {t.hero.marquee.map((item, i) => (
-                <span key={i} className={`px-6 ${i % 2 === 1 ? "text-signal" : ""}`}>{item}</span>
+                <span key={i} className={`px-6 ${i % 2 === 1 ? "text-signal-bright" : ""}`}>{item}</span>
               ))}
             </div>
           ))}

@@ -40,8 +40,8 @@ export const Who = () => {
 
         {/* Eyebrow — above the grid */}
         <motion.div {...fadeUp(0)} className="flex items-center gap-3 mb-12">
-          <span className="text-xs uppercase tracking-[0.3em] text-signal">02 —</span>
-          <span className="text-xs uppercase tracking-[0.3em] text-harbor">{w.label}</span>
+          <span className="text-xs uppercase tracking-[0.18em] text-signal">02 —</span>
+          <span className="text-xs uppercase tracking-[0.18em] text-harbor">{w.label}</span>
         </motion.div>
 
         {/* Header row */}
@@ -72,10 +72,10 @@ export const Who = () => {
             </motion.h2>
 
             <motion.div {...fadeUp(0.2)}>
-              <div className="flex flex-col gap-4 border-l-2 border-signal pl-5">
+              <div className="flex flex-col gap-4 border-l-2 border-signal rounded-l-sm pl-5">
                 {renderBio(
                   w.team[0].bio[0] as unknown as BioParagraphs,
-                  "text-harbor leading-relaxed max-w-2xl"
+                  "text-harbor leading-[1.75] max-w-2xl"
                 )}
               </div>
             </motion.div>
@@ -85,17 +85,17 @@ export const Who = () => {
         {/* Proof strip */}
         <motion.div
           {...fadeUp(0.4)}
-          className="grid grid-cols-2 md:grid-cols-4 gap-px bg-misty/40"
+          className="grid grid-cols-2 md:grid-cols-4 gap-3"
         >
           {w.proof.map((p) => (
             <div
               key={p.k}
-              className="group bg-bone hover:bg-ink transition-colors duration-500 p-6 cursor-default"
+              className="group rounded-3xl border border-misty/60 bg-white/40 hover:bg-ink hover:border-ink transition-colors duration-500 p-6 cursor-default"
             >
               <div className="font-display text-2xl text-signal mb-1 group-hover:text-bone transition-colors duration-500">
                 {p.k}
               </div>
-              <div className="text-xs text-harbor group-hover:text-bone/60 transition-colors duration-500 leading-relaxed">
+              <div className="text-sm text-harbor group-hover:text-bone/80 transition-colors duration-500 leading-[1.65]">
                 {p.v}
               </div>
             </div>
@@ -105,7 +105,7 @@ export const Who = () => {
         {/* Closing insight — appears after credentials */}
         <motion.div
           {...fadeUp(0.5)}
-          className="mt-12 flex flex-col gap-2 text-sm text-harbor leading-relaxed"
+          className="mt-12 flex flex-col gap-2 text-[0.9375rem] text-harbor leading-[1.75]"
         >
           {renderBio(
             w.team[0].bio[1] as unknown as BioParagraphs,

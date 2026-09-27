@@ -4,6 +4,7 @@ import { Who } from "@/components/site/Who";
 import { Offer } from "@/components/site/Offer";
 import { Achievements } from "@/components/site/Achievements";
 import { Vision } from "@/components/site/Vision";
+import { Pricing } from "@/components/site/Pricing";
 import { CTA } from "@/components/site/CTA";
 import { useEffect } from "react";
 
@@ -23,6 +24,7 @@ const Index = () => {
       <Offer />
       <Who />
       <Achievements />
+      <Pricing />
       <Vision />
       <CTA />
     </main>

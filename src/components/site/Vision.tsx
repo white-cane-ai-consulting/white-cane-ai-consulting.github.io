@@ -54,8 +54,8 @@ export const Vision = () => {
           transition={{ duration: 0.8, ease }}
           className="flex items-center gap-3 mb-16"
         >
-          <span className="text-xs uppercase tracking-[0.3em] text-signal">04 —</span>
-          <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground">{v.label}</span>
+          <span className="text-xs uppercase tracking-[0.18em] text-signal-bright">05 —</span>
+          <span className="text-xs uppercase tracking-[0.18em] text-muted-foreground">{v.label}</span>
         </motion.div>
 
         <div className="grid md:grid-cols-12 gap-10 items-end">
@@ -71,13 +71,13 @@ export const Vision = () => {
               <br />
               <span className="italic">{v.h2b}</span>
             </motion.h2>
-            <p className="text-muted-foreground leading-relaxed mb-10 max-w-md">{v.sub}</p>
+            <p className="text-base text-muted-foreground leading-[1.75] mb-10 max-w-md">{v.sub}</p>
 
             <div className="flex items-center gap-4">
               <button
                 onClick={() => setPlaying((p) => !p)}
                 aria-label={playing ? "Pause" : "Play"}
-                className="w-12 h-12 border border-foreground/20 hover:border-signal hover:text-signal transition-colors flex items-center justify-center"
+                className="w-12 h-12 rounded-full bg-card hover:bg-signal hover:text-bone transition-colors grid place-items-center"
               >
                 {playing ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
               </button>
@@ -89,26 +89,26 @@ export const Vision = () => {
                     aria-label={`Slide ${i + 1}`}
                     className="py-3 flex items-center"
                   >
-                    <span className={`h-px block transition-all duration-500 ${i === active ? "w-12 bg-signal" : "w-6 bg-foreground/20"}`} />
+                    <span className={`h-1 rounded-full block transition-all duration-500 ${i === active ? "w-12 bg-signal" : "w-6 bg-foreground/25"}`} />
                   </button>
                 ))}
               </div>
             </div>
           </div>
 
-          <div className="md:col-span-7 md:pl-8 md:border-l border-border/60 min-h-[420px] sm:min-h-[320px] md:min-h-[340px] relative">
+          <div className="md:col-span-7 md:border-l border-border/60 min-h-[420px] sm:min-h-[320px] md:min-h-[340px] relative">
             {v.slides.map((s, i) => (
               <motion.div
                 key={s.k}
                 initial={false}
                 animate={{ opacity: i === active ? 1 : 0, y: i === active ? 0 : 20 }}
                 transition={{ duration: 0.8, ease }}
-                className="absolute inset-0 flex flex-col justify-end"
+                className="absolute inset-0 flex flex-col justify-end md:py-4 md:pl-16 lg:pl-24"
                 style={{ pointerEvents: i === active ? "auto" : "none" }}
               >
-                <div className="text-xs uppercase tracking-[0.3em] text-signal mb-6">{s.k}</div>
+                <div className="text-xs uppercase tracking-[0.18em] text-signal-bright mb-6">{s.k}</div>
                 <h3 className="font-display font-light text-2xl sm:text-3xl md:text-5xl leading-[1.05] mb-6 text-balance">{s.t}</h3>
-                <p className="text-muted-foreground leading-relaxed max-w-lg">{s.d}</p>
+                <p className="text-base text-muted-foreground leading-[1.75] max-w-lg">{s.d}</p>
               </motion.div>
             ))}
           </div>
