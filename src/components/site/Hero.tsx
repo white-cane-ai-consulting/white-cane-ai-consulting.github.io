@@ -149,8 +149,8 @@ export const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-background/60" />
       </motion.div>
 
-      {/* Vertical side label */}
-      <div className="hidden lg:block absolute left-6 top-1/2 -translate-y-1/2 vert-text text-[11px] tracking-[0.2em] text-muted-foreground uppercase">
+      {/* Vertical side label, on the right edge reading top to bottom so it never runs into the headline. */}
+      <div className="hidden lg:block absolute right-6 top-1/2 -translate-y-1/2 [writing-mode:vertical-rl] text-[11px] tracking-[0.2em] text-muted-foreground uppercase">
         {t.hero.sideLabel}
       </div>
 

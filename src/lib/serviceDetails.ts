@@ -295,39 +295,12 @@ const EN: Record<ServiceId, ServiceDetail> = {
   },
   B: {
     code: "B",
-    title: "Training & Adoption",
-    kicker: "So the team actually uses what we built",
-    blocks: [
-      {
-        kind: "para",
-        body: "Structured seminars, hands-on courses and written guides that help your employees genuinely adopt the AI tools — and use them the right way.",
-      },
-      {
-        kind: "bullets",
-        title: "What it includes",
-        items: [
-          "Seminars on the client's real data and real cases, not generic demos.",
-          "Hands-on sessions per role — each person learns what they will actually use.",
-          "Written guides that stay in the company and work for new hires too.",
-        ],
-      },
-      {
-        kind: "note",
-        tone: "good",
-        icon: "✅",
-        title: "Example",
-        body: "A two-hour hands-on seminar, \"Claude for legal counsel\", with real examples worked through the client's own filings — not a generic demo.",
-      },
-    ],
-  },
-  C: {
-    code: "C",
     title: "Research & Tool Evaluation",
     kicker: "Tested on your files, not on a review site",
     blocks: [
       {
         kind: "para",
-        body: "We research and evaluate AI tools across domains and industries to find the ones that genuinely fit — not the ones everyone is talking about.",
+        body: "We research and evaluate AI tools across domains and industries to find the ones that genuinely fit, not the ones everyone is talking about.",
       },
       {
         kind: "bullets",
@@ -352,7 +325,34 @@ const EN: Record<ServiceId, ServiceDetail> = {
         tone: "stop",
         icon: "🚫",
         title: "When it does not fit",
-        body: "When the client already knows which tool they want — then we go straight to Service A.",
+        body: "When the client already knows which tool they want. Then we go straight to Service A.",
+      },
+    ],
+  },
+  C: {
+    code: "C",
+    title: "Training & Adoption",
+    kicker: "So the team actually uses what we built",
+    blocks: [
+      {
+        kind: "para",
+        body: "Structured seminars, hands-on courses and written guides that help your employees genuinely adopt the AI tools, and use them the right way.",
+      },
+      {
+        kind: "bullets",
+        title: "What it includes",
+        items: [
+          "Seminars on the client's real data and real cases, not generic demos.",
+          "Hands-on sessions per role: each person learns what they will actually use.",
+          "Written guides that stay in the company and work for new hires too.",
+        ],
+      },
+      {
+        kind: "note",
+        tone: "good",
+        icon: "✅",
+        title: "Example",
+        body: "A two-hour hands-on seminar, \"Claude for legal counsel\", with real examples worked through the client's own filings, not a generic demo.",
       },
     ],
   },
@@ -386,7 +386,7 @@ const EN: Record<ServiceId, ServiceDetail> = {
         tone: "stop",
         icon: "🚫",
         title: "When it does not fit",
-        body: "Clients with no active stack with us — the service presupposes continuity.",
+        body: "Clients with no active stack with us. The service presupposes continuity.",
       },
     ],
   },
@@ -651,39 +651,12 @@ const GR: Record<ServiceId, ServiceDetail> = {
   },
   B: {
     code: "B",
-    title: "Εκπαίδευση & Υιοθέτηση",
-    kicker: "Για να χρησιμοποιηθεί πραγματικά ό,τι στήσαμε",
-    blocks: [
-      {
-        kind: "para",
-        body: "Δομημένα σεμινάρια, πρακτικά μαθήματα και οδηγοί που βοηθούν τους υπαλλήλους του πελάτη να υιοθετήσουν πραγματικά τα εργαλεία AI — και να τα χρησιμοποιούν σωστά.",
-      },
-      {
-        kind: "bullets",
-        title: "Τι περιλαμβάνει",
-        items: [
-          "Σεμινάρια πάνω στα πραγματικά δεδομένα και τις υποθέσεις του πελάτη, όχι γενικά demos.",
-          "Πρακτικά μαθήματα ανά ρόλο — ο καθένας μαθαίνει αυτό που θα χρησιμοποιεί.",
-          "Γραπτοί οδηγοί που μένουν στην εταιρεία και δουλεύουν και για νέους υπαλλήλους.",
-        ],
-      },
-      {
-        kind: "note",
-        tone: "good",
-        icon: "✅",
-        title: "Παράδειγμα",
-        body: "Δίωρο hands-on σεμινάριο «Claude για νομικούς συμβούλους», με πραγματικά παραδείγματα πάνω σε δικόγραφα του πελάτη — όχι γενικό demo.",
-      },
-    ],
-  },
-  C: {
-    code: "C",
     title: "Έρευνα & Αξιολόγηση Εργαλείων",
     kicker: "Δοκιμασμένα στα δικά σας αρχεία, όχι σε review site",
     blocks: [
       {
         kind: "para",
-        body: "Ερευνούμε και αξιολογούμε εργαλεία AI σε διαφορετικούς τομείς και κλάδους για να βρούμε αυτά που ταιριάζουν πραγματικά — όχι αυτά που συζητάει ο κόσμος.",
+        body: "Ερευνούμε και αξιολογούμε εργαλεία AI σε διαφορετικούς τομείς και κλάδους για να βρούμε αυτά που ταιριάζουν πραγματικά, όχι αυτά που συζητάει ο κόσμος.",
       },
       {
         kind: "bullets",
@@ -708,7 +681,34 @@ const GR: Record<ServiceId, ServiceDetail> = {
         tone: "stop",
         icon: "🚫",
         title: "Πότε δεν ταιριάζει",
-        body: "Όταν ο πελάτης ήδη ξέρει ποιο εργαλείο θέλει — τότε πάμε κατευθείαν στην Υπηρεσία Α.",
+        body: "Όταν ο πελάτης ήδη ξέρει ποιο εργαλείο θέλει. Τότε πάμε κατευθείαν στην Υπηρεσία Α.",
+      },
+    ],
+  },
+  C: {
+    code: "C",
+    title: "Εκπαίδευση & Υιοθέτηση",
+    kicker: "Για να χρησιμοποιηθεί πραγματικά ό,τι στήσαμε",
+    blocks: [
+      {
+        kind: "para",
+        body: "Δομημένα σεμινάρια, πρακτικά μαθήματα και οδηγοί που βοηθούν τους υπαλλήλους του πελάτη να υιοθετήσουν πραγματικά τα εργαλεία AI και να τα χρησιμοποιούν σωστά.",
+      },
+      {
+        kind: "bullets",
+        title: "Τι περιλαμβάνει",
+        items: [
+          "Σεμινάρια πάνω στα πραγματικά δεδομένα και τις υποθέσεις του πελάτη, όχι γενικά demos.",
+          "Πρακτικά μαθήματα ανά ρόλο: ο καθένας μαθαίνει αυτό που θα χρησιμοποιεί.",
+          "Γραπτοί οδηγοί που μένουν στην εταιρεία και δουλεύουν και για νέους υπαλλήλους.",
+        ],
+      },
+      {
+        kind: "note",
+        tone: "good",
+        icon: "✅",
+        title: "Παράδειγμα",
+        body: "Δίωρο hands-on σεμινάριο «Claude για νομικούς συμβούλους», με πραγματικά παραδείγματα πάνω σε δικόγραφα του πελάτη, όχι γενικό demo.",
       },
     ],
   },
@@ -742,7 +742,7 @@ const GR: Record<ServiceId, ServiceDetail> = {
         tone: "stop",
         icon: "🚫",
         title: "Πότε δεν ταιριάζει",
-        body: "Σε πελάτες χωρίς ενεργό stack μαζί μας — η υπηρεσία προϋποθέτει συνέχεια.",
+        body: "Σε πελάτες χωρίς ενεργό stack μαζί μας. Η υπηρεσία προϋποθέτει συνέχεια.",
       },
     ],
   },

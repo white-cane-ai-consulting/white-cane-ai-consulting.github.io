@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import logo from "@/assets/logo-icon-color.svg";
+import logo from "@/assets/logo-icon-white.svg";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { homePath } from "@/lib/seo";
 import type { Lang } from "@/lib/translations";
@@ -27,7 +27,7 @@ export const Nav = () => {
     >
       <div className="container flex items-center justify-between h-16">
         <a href={`${home}#top`} className="flex items-center gap-3 group" onClick={() => setOpen(false)}>
-          <div className="h-10 w-10 rounded-[25%] bg-bone overflow-hidden shrink-0 p-1">
+          <div className="h-10 w-10 shrink-0">
             <img src={logo} alt="White Cane AI Consulting" className="h-full w-full" />
           </div>
           <span className="font-display text-sm tracking-wider hidden sm:block">

@@ -15,52 +15,52 @@ export const translations = {
       eyebrow: "White Cane / AI Consulting",
       lines: ["Guiding", "those who walk blind", "into the era of "],
       lineHighlight: "AI.",
-      sub: "We help businesses find the right direction — selecting, integrating, and operationalizing the right AI tools for the work that actually matters.",
+      sub: "We help businesses find the right direction: selecting, integrating and operationalizing the right AI tools for the work that actually matters.",
       cta: "Explore the Services",
-      sideLabel: "EST. 2026 — Clarity Engineered",
+      sideLabel: "EST. 2026 · Clarity Engineered",
       sideMetricLabel: "Currently",
       sideMetricValue: "● Onboarding Q4",
-      marquee: ["Cut through the noise", "● Deploy the right tools", "Build AI that sticks", "● Real adoption, not just access", "Enterprise AI, done right", "● From strategy to live workflows", "Clarity in the era of AI", "● Athens — est. 2026"],
+      marquee: ["Cut through the noise", "● Deploy the right tools", "Build AI that sticks", "● Real adoption, not just access", "Enterprise AI, done right", "● From strategy to live workflows", "Clarity in the era of AI", "● Athens, est. 2026"],
     },
     who: {
       label: "Who we are",
       h2a: "We built enterprise AI",
-      h2b: "before it was fashionable —",
-      h2c: "we know where it breaks.",
+      h2b: "before it was fashionable.",
+      h2c: "We know where it breaks.",
       body: "",
       team: [
         {
           bio: [
             [
               [
-                { text: "We worked at " },
-                { text: "Greece's top consulting firms", b: true, s: true },
-                { text: " and helped build, from scratch, some of the " },
-                { text: "country's first Generative AI teams", b: true, s: true },
-                { text: " — while also being part of one of the largest and most technically advanced AI teams in the country." },
+                { text: "Our team is made up of " },
+                { text: "AI Developers, Engineers and Consultants", b: true, s: true },
+                { text: " who have led enterprise-level projects at Greece's Big 20. Its members come from " },
+                { text: "the country's top consulting and tech firms", b: true, s: true },
+                { text: " and helped build some of Greece's first Generative AI teams from scratch." },
               ],
               [
                 { text: "We designed and " },
                 { text: "developed AI applications and AI tools", b: true, s: true },
-                { text: " for Greece's largest enterprises across different sectors, bringing AI into practice — where it creates real value. We also trained teams and professionals to meaningfully leverage its capabilities, and delivered solutions tailored to real needs, combining technical implementation with a practical understanding of how AI integrates into an organisation." },
+                { text: " for Greece's largest enterprises across different sectors, bringing AI into practice, where it creates real value. We also trained teams and professionals to meaningfully leverage its capabilities, and delivered solutions tailored to real needs, combining technical implementation with a practical understanding of how AI integrates into an organisation." },
               ],
               [
-                { text: "For us, AI isn't just work — it's something that genuinely excites us, which is why we " },
+                { text: "For us, AI isn't just work. It's something that genuinely excites us, which is why we " },
                 { text: "test every new tool and model from day one", b: true, s: true },
-                { text: ". It all started when we wanted to help a colleague do their job more easily with AI and grow — and that's how " },
+                { text: ". It all started when we wanted to help a colleague do their job more easily with AI and grow, and that's how " },
                 { text: "the idea for White Cane AI was born", b: true, s: true },
                 { text: "." },
               ],
             ],
             [
-              [{ text: "We've seen from the inside what goes wrong even in the best tech teams — wrong tools, zero adoption, expensive platforms nobody opens. We track every new AI tool and model from day one, so we always know what's genuinely useful — and what's just noise. We also know which tools genuinely work in Greek and which don't, since most are built and tested in English only." }],
+              [{ text: "We've seen from the inside what goes wrong even in the best tech teams: wrong tools, zero adoption, expensive platforms nobody opens. We track every new AI tool and model from day one, so we always know what's genuinely useful and what's just noise. We also know which tools genuinely work in Greek and which don't, since most are built and tested in English only." }],
             ],
           ],
         },
       ],
       proof: [
         { k: "3 yrs", v: "Prior enterprise AI experience" },
-        { k: "Day one", v: "In the Greek AI market" },
+        { k: "Before GPT-4", v: "In Generative AI since 2023" },
         { k: "EST. 2026", v: "Founded in Athens" },
         { k: "Q4", v: "Currently onboarding" },
       ],
@@ -71,7 +71,6 @@ export const translations = {
       h2b: "",
       h2c: "set up properly.",
       lead: "Many companies already pay for an AI tool. It is rarely set up: each employee uses their own account, the tool knows nothing about the company, and nobody checks where the data goes. That is what we fix.",
-      more: "Read more",
       serviceA: {
         title: "AI tool set-up",
         body: "We choose the AI tools that fit your company, configure them around your documents and systems, and hand them over ready for work, with the right access rights and security. Usually on three levels:",
@@ -94,16 +93,24 @@ export const translations = {
           },
         ],
       },
+      around: "Around the set-up",
+      more: "Read more",
       servicesRow: [
         {
-          title: "Training & Enablement",
-          body: "Structured seminars, hands-on courses, and practical guides that help your employees actually adopt AI tools, and use them the right way.",
-        },
-        {
+          id: "B",
+          when: "Before the set-up",
           title: "AI Research & Tool Selection",
           body: "We research and evaluate AI tools across domains and industries, including how they perform in Greek, to find the ones that genuinely fit your needs, not just the ones everyone is talking about.",
         },
         {
+          id: "C",
+          when: "After the set-up",
+          title: "Training & Enablement",
+          body: "Structured seminars, hands-on courses, and practical guides that help your employees actually adopt AI tools, and use them the right way.",
+        },
+        {
+          id: "D",
+          when: "Ongoing",
           title: "Staying Current",
           body: "When new tools, models, or capabilities emerge that are relevant to your business, we'll reach out and let you know.",
         },
@@ -128,10 +135,10 @@ export const translations = {
       h2b: "the same process.",
       sub: "From researching the right tools to implementation, hands-on training and two months of free support: every package follows these four steps.",
       slides: [
-        { k: "01 / LISTEN", t: "We listen first.", d: "Before we recommend anything, we sit with your team. We identify the bottlenecks, the repetitive tasks, and the real business problems — then research solutions built around the infrastructure you already have." },
-        { k: "02 / DESIGN", t: "We design the solution.", d: "We configure the tools around your specific requirements and integrate them into your workflows. Realistic outcomes, grounded in your reality — we don't promise what we can't deliver." },
-        { k: "03 / TRAIN", t: "We help with tool adoption.", d: "We don't just hand over a tool and walk away. We show you how to use it, how to get real value from it every day — and we point the way to what comes next." },
-        { k: "04 / STAY", t: "We stay in touch.", d: "We keep the line open and let you know about new features, use cases, and better models relevant to your work — so you're always a step ahead." },
+        { k: "01 / LISTEN", t: "We listen first.", d: "Before we recommend anything, we sit with your team. We identify the bottlenecks, the repetitive tasks, and the real business problems, then research solutions built around the infrastructure you already have." },
+        { k: "02 / DESIGN", t: "We design the solution.", d: "We configure the tools around your specific requirements and integrate them into your workflows. Realistic outcomes, grounded in your reality. We don't promise what we can't deliver." },
+        { k: "03 / TRAIN", t: "We help with tool adoption.", d: "We don't just hand over a tool and walk away. We show you how to use it, how to get real value from it every day, and we point the way to what comes next." },
+        { k: "04 / STAY", t: "We stay in touch.", d: "We keep the line open and let you know about new features, use cases, and better models relevant to your work, so you're always a step ahead." },
       ],
     },
     pricing: {
@@ -147,7 +154,7 @@ export const translations = {
       retainerStartNote: "Starts after the 2 free months of support. Pause any time with 15 days' written notice.",
       retainerCloseLabel: "Close",
       detailsLabel: "Package details",
-      footnote: "The price range depends on the requirements of each project. Every package includes all four of our services — Research, Set-up, Training and Updates — and follows the methodology below.",
+      footnote: "The price range depends on the requirements of each project. Every package includes all four of our services (Research, Set-up, Training and Updates) and follows the methodology below.",
       tiers: [
         {
           code: "01",
@@ -236,7 +243,7 @@ export const translations = {
         },
         {
           q: "Do the tools actually work well in Greek?",
-          a: "Not always. Some models handle Greek grammar and business documents worse than English, even when their English output looks strong. We test candidates on Greek text specifically — contracts, invoices, customer messages — and we know the Greek market, so we can tell you upfront which tools are worth trying and which aren't.",
+          a: "Not always. Some models handle Greek grammar and business documents worse than English, even when their English output looks strong. We test candidates on Greek text specifically (contracts, invoices, customer messages), and we know the Greek market, so we can tell you upfront which tools are worth trying and which aren't.",
         },
         {
           q: "What if we want to stop partway through, or later on?",
@@ -374,9 +381,9 @@ export const translations = {
       eyebrow: "White Cane / Συμβουλευτική AI",
       lines: ["Καθοδηγούμε", "όσους βαδίζουν τυφλά", "στην εποχή του "],
       lineHighlight: "AI.",
-      sub: "Βοηθάμε τις ελληνικές επιχειρήσεις να βρουν τη σωστή κατεύθυνση — επιλέγοντας, ενσωματώνοντας και αξιοποιώντας τα κατάλληλα εργαλεία AI για τη δουλειά που πραγματικά μετράει.",
+      sub: "Βοηθάμε τις ελληνικές επιχειρήσεις να βρουν τη σωστή κατεύθυνση: επιλέγοντας, ενσωματώνοντας και αξιοποιώντας τα κατάλληλα εργαλεία AI για τη δουλειά που πραγματικά μετράει.",
       cta: "Εξερευνήστε τις Υπηρεσίες",
-      sideLabel: "ΙΔΡΥΣΗ 2026 — Σαφήνεια στην εποχή του GenAI",
+      sideLabel: "ΙΔΡΥΣΗ 2026 · Σαφήνεια στην εποχή του GenAI",
       sideMetricLabel: "Τρέχον",
       sideMetricValue: "● Q4 Onboarding",
       marquee: ["Στρατηγική AI", "● Αξιολόγηση Εργαλείων", "Υλοποίηση", "● Εκπαίδευση Ομάδων", "Σχεδιασμός Ροών", "● Επιλογή Εργαλείων AI", "Ενσωμάτωση", "● Συνεχής Ενημέρωση"],
@@ -384,53 +391,52 @@ export const translations = {
     who: {
       label: "Ποιοι είμαστε",
       h2a: "Χτίσαμε enterprise AI",
-      h2b: "πριν γίνει μόδα —",
-      h2c: "ξέρουμε πού σπάει.",
+      h2b: "πριν γίνει μόδα.",
+      h2c: "Ξέρουμε πού σπάει.",
       body: "",
       team: [
         {
           bio: [
             [
               [
-                { text: "Έχουμε " },
-                { text: "εργαστεί στις κορυφαίες συμβουλευτικές εταιρείες", b: true, s: true },
-                { text: " της χώρας και έχουμε συμβάλει στη δημιουργία, από το μηδέν, μερικών από τις " },
-                { text: "πρώτες ομάδες Generative AI", b: true, s: true },
-                { text: " στην Ελλάδα, ενώ έχουμε υπάρξει και μέρος μιας από τις μεγαλύτερες και πιο τεχνολογικά προηγμένες ομάδες AI στη χώρα." },
+                { text: "Η ομάδα μας αποτελείται από " },
+                { text: "AI Developers, Engineers και Consultants", b: true, s: true },
+                { text: " που έχουν κάνει lead σε enterprise level έργα στις Big 20 της Ελλάδας. Τα μέλη της προέρχονται από " },
+                { text: "κορυφαίες συμβουλευτικές και tech εταιρείες της χώρας", b: true, s: true },
+                { text: ", συνέβαλαν από το μηδέν στη δημιουργία μερικών από τις πρώτες ομάδες Generative AI στην Ελλάδα." },
               ],
               [
-                { text: "Έχουμε σχεδιάσει και " },
-                { text: "αναπτύξει AI applications και AI tools", b: true, s: true },
-                { text: " για τις μεγαλύτερες ελληνικές επιχειρήσεις, σε διαφορετικούς κλάδους, φέρνοντας το AI στην πράξη — εκεί που δημιουργεί πραγματική αξία, ενώ παράλληλα έχουμε εκπαιδεύσει ομάδες και επαγγελματίες ώστε να αξιοποιούν ουσιαστικά τις δυνατότητές του. Ταυτόχρονα, έχουμε υλοποιήσει λύσεις προσαρμοσμένες σε πραγματικές ανάγκες, συνδυάζοντας τεχνική υλοποίηση με πρακτική κατανόηση του πώς το AI ενσωματώνεται σε έναν οργανισμό." },
+                { text: "Σχεδιάσαμε και " },
+                { text: "αναπτύξαμε AI applications και AI tools", b: true, s: true },
+                { text: " για τις μεγαλύτερες ελληνικές επιχειρήσεις, σε διαφορετικούς κλάδους, φέρνοντας το AI στην πράξη, εκεί που δημιουργεί πραγματική αξία, ενώ παράλληλα εκπαιδεύσαμε ομάδες και επαγγελματίες ώστε να αξιοποιούν ουσιαστικά τις δυνατότητές του. Ταυτόχρονα, υλοποιήσαμε λύσεις προσαρμοσμένες σε πραγματικές ανάγκες, συνδυάζοντας τεχνική υλοποίηση με πρακτική κατανόηση του πώς το AI ενσωματώνεται σε έναν οργανισμό." },
               ],
               [
-                { text: "Για εμάς, το AI δεν είναι απλώς δουλειά — είναι κάτι που μας ενθουσιάζει πραγματικά, γι' αυτό " },
+                { text: "Για εμάς, το AI δεν είναι απλώς δουλειά. Είναι κάτι που μας ενθουσιάζει πραγματικά, γι' αυτό " },
                 { text: "δοκιμάζουμε κάθε νέο εργαλείο", b: true, s: true },
-                { text: " και μοντέλο από την πρώτη στιγμή. Όλα ξεκίνησαν επειδή θέλαμε να βοηθήσουμε έναν συνάδελφο να κάνει τη δουλειά του πιο εύκολα με το AI και να εξελιχθεί — και κάπως έτσι " },
+                { text: " και μοντέλο από την πρώτη στιγμή. Όλα ξεκίνησαν επειδή θέλαμε να βοηθήσουμε έναν συνάδελφο να κάνει τη δουλειά του πιο εύκολα με το AI και να εξελιχθεί, και κάπως έτσι " },
                 { text: "ήρθε η ιδέα για την White Cane AI", b: true, s: true },
                 { text: "." },
               ],
             ],
             [
-              [{ text: "Έχουμε δει από μέσα τι πάει λάθος ακόμη και στις καλύτερες τεχνολογικές ομάδες — λάθος εργαλεία, κανένα adoption, ακριβές πλατφόρμες που κανείς δεν χρησιμοποιεί. Παρακολουθούμε εμπράκτως κάθε νέο εργαλείο και μοντέλο AI από την πρώτη μέρα, ώστε να ξέρουμε πάντα τι είναι πραγματικά χρήσιμο — και τι απλώς θόρυβος. Ξέρουμε επίσης ποια εργαλεία δουλεύουν πραγματικά στα ελληνικά και ποια όχι, αφού τα περισσότερα είναι φτιαγμένα και δοκιμασμένα μόνο στα αγγλικά." }],
+              [{ text: "Έχουμε δει από μέσα τι πάει λάθος ακόμη και στις καλύτερες τεχνολογικές ομάδες: λάθος εργαλεία, κανένα adoption, ακριβές πλατφόρμες που κανείς δεν χρησιμοποιεί. Παρακολουθούμε εμπράκτως κάθε νέο εργαλείο και μοντέλο AI από την πρώτη μέρα, ώστε να ξέρουμε πάντα τι είναι πραγματικά χρήσιμο και τι απλώς θόρυβος. Ξέρουμε επίσης ποια εργαλεία δουλεύουν πραγματικά στα ελληνικά και ποια όχι, αφού τα περισσότερα είναι φτιαγμένα και δοκιμασμένα μόνο στα αγγλικά." }],
             ],
           ],
         },
       ],
       proof: [
-        { k: "3 χρόνια", v: "Εμπειρία enterprise AI" },
-        { k: "Από πρώτη στιγμή", v: "Στην αγορά AI της Ελλάδας" },
+        { k: "3+ χρόνια", v: "Εμπειρία enterprise AI" },
+        { k: "Πριν το GPT-4", v: "Στο Generative AI από το 2023" },
         { k: "2026", v: "Ιδρύθηκε στην Αθήνα" },
         { k: "Q4", v: "Τώρα δεχόμαστε πελάτες" },
       ],
     },
     offer: {
       label: "Τι προσφέρουμε",
-      h2a: "Το AI της εταιρείας σας,",
+      h2a: "AI infrastructure στην εταιρείας σας,",
       h2b: "",
       h2c: "στημένο σωστά.",
       lead: "Πολλές εταιρείες πληρώνουν ήδη για κάποιο εργαλείο AI. Σπάνια όμως είναι στημένο: κάθε υπάλληλος δουλεύει με δικό του λογαριασμό, το εργαλείο δεν ξέρει τίποτα για την εταιρεία, και κανείς δεν ελέγχει πού πηγαίνουν τα δεδομένα. Αυτό φτιάχνουμε.",
-      more: "Περισσότερα",
       serviceA: {
         title: "Στήσιμο εργαλείων AI",
         body: "Επιλέγουμε τα εργαλεία AI που ταιριάζουν στην εταιρεία σας, τα ρυθμίζουμε πάνω στα έγγραφα και τα συστήματά σας, και τα παραδίδουμε έτοιμα για δουλειά, με σωστά δικαιώματα και ασφάλεια. Συνήθως σε τρία επίπεδα:",
@@ -453,16 +459,24 @@ export const translations = {
           },
         ],
       },
+      around: "Γύρω από το στήσιμο",
+      more: "Περισσότερα",
       servicesRow: [
         {
-          title: "Εκπαίδευση & Upskilling",
-          body: "Δομημένα σεμινάρια, πρακτικά μαθήματα και οδηγοί που βοηθούν τους υπαλλήλους σας να υιοθετήσουν πραγματικά τα εργαλεία AI και να τα χρησιμοποιούν σωστά.",
-        },
-        {
+          id: "B",
+          when: "Πριν από το στήσιμο",
           title: "Έρευνα AI & Επιλογή Κατάλληλων Εργαλείων",
           body: "Ερευνούμε και αξιολογούμε εργαλεία AI σε διαφορετικούς τομείς και κλάδους, μαζί με το πόσο καλά αποδίδουν στα ελληνικά, για να βρούμε αυτά που ταιριάζουν πραγματικά στις ανάγκες σας, όχι απλώς αυτά που συζητάει ο κόσμος.",
         },
         {
+          id: "C",
+          when: "Μετά το στήσιμο",
+          title: "Εκπαίδευση & Upskilling",
+          body: "Δομημένα σεμινάρια, πρακτικά μαθήματα και οδηγοί που βοηθούν τους υπαλλήλους σας να υιοθετήσουν πραγματικά τα εργαλεία AI και να τα χρησιμοποιούν σωστά.",
+        },
+        {
+          id: "D",
+          when: "Σε συνέχεια",
           title: "Συνεχής Ενημέρωση",
           body: "Όταν εμφανίζονται νέα εργαλεία, μοντέλα ή δυνατότητες που σχετίζονται με την επιχείρησή σας, θα επικοινωνήσουμε και θα σας ενημερώσουμε.",
         },
@@ -487,10 +501,10 @@ export const translations = {
       h2b: "η ίδια διαδικασία.",
       sub: "Από την έρευνα των κατάλληλων εργαλείων μέχρι την υλοποίηση, την πρακτική εκπαίδευση και τους δύο μήνες δωρεάν υποστήριξης: κάθε πακέτο ακολουθεί αυτά τα τέσσερα βήματα.",
       slides: [
-        { k: "01 / ΑΚΟΥΜΕ", t: "Βρίσκουμε τα εμπόδια σας.", d: "Πριν προτείνουμε οτιδήποτε, σας ακούμε. Εντοπίζουμε τα εμπόδια, τις επαναλαμβανόμενες διαδικασίες και τα πραγματικά επιχειρηματικά προβλήματα — και αναζητάμε λύσεις πάνω στην υποδομή που ήδη έχετε." },
-        { k: "02 / ΣΧΕΔΙΑΖΟΥΜΕ", t: "Οργανώνουμε και υλοποιούμε τη λύση.", d: "Ρυθμίζουμε τα εργαλεία με βάση τις δικές σας ανάγκες και τα ενσωματώνουμε στις ροές εργασίας σας. Ρεαλιστικά αποτελέσματα, βασισμένα στην πραγματικότητα — δεν σας πουλάμε ψέματα." },
-        { k: "03 / ΕΚΠΑΙΔΕΥΟΥΜΕ", t: "Βοηθάμε στην υιοθέτηση των εργαλείων.", d: "Δεν αφήνουμε ένα εργαλείο και φεύγουμε. Σας δείχνουμε πώς να το χρησιμοποιείτε και πώς να αντλείτε αξία από αυτό στην καθημερινή εργασία — και σας δείχνουμε τον δρόμο για ό,τι έρχεται." },
-        { k: "04 / ΠΑΡΑΜΕΝΟΥΜΕ", t: "Επικοινωνούμε μαζί σας", d: "Κρατάμε επαφή και σας ενημερώνουμε για νέα features, use cases και καλύτερα μοντέλα που μπορούν να σας φανούν χρήσιμα — ώστε να είστε πάντα ένα βήμα μπροστά." },
+        { k: "01 / ΑΚΟΥΜΕ", t: "Βρίσκουμε τα εμπόδια σας.", d: "Πριν προτείνουμε οτιδήποτε, σας ακούμε. Εντοπίζουμε τα εμπόδια, τις επαναλαμβανόμενες διαδικασίες και τα πραγματικά επιχειρηματικά προβλήματα, και αναζητάμε λύσεις πάνω στην υποδομή που ήδη έχετε." },
+        { k: "02 / ΣΧΕΔΙΑΖΟΥΜΕ", t: "Οργανώνουμε και υλοποιούμε τη λύση.", d: "Ρυθμίζουμε τα εργαλεία με βάση τις δικές σας ανάγκες και τα ενσωματώνουμε στις ροές εργασίας σας. Ρεαλιστικά αποτελέσματα, βασισμένα στην πραγματικότητα. Δεν σας πουλάμε ψέματα." },
+        { k: "03 / ΕΚΠΑΙΔΕΥΟΥΜΕ", t: "Βοηθάμε στην υιοθέτηση των εργαλείων.", d: "Δεν αφήνουμε ένα εργαλείο και φεύγουμε. Σας δείχνουμε πώς να το χρησιμοποιείτε και πώς να αντλείτε αξία από αυτό στην καθημερινή εργασία, και σας δείχνουμε τον δρόμο για ό,τι έρχεται." },
+        { k: "04 / ΠΑΡΑΜΕΝΟΥΜΕ", t: "Επικοινωνούμε μαζί σας", d: "Κρατάμε επαφή και σας ενημερώνουμε για νέα features, use cases και καλύτερα μοντέλα που μπορούν να σας φανούν χρήσιμα, ώστε να είστε πάντα ένα βήμα μπροστά." },
       ],
     },
     pricing: {
@@ -506,7 +520,7 @@ export const translations = {
       retainerStartNote: "Ξεκινά μετά τους 2 μήνες δωρεάν υποστήριξης. Διακόπτεται οποτεδήποτε, με έγγραφη ειδοποίηση 15 ημερών.",
       retainerCloseLabel: "Κλείσιμο",
       detailsLabel: "Αναλυτικά το πακέτο",
-      footnote: "Η τιμή έχει εύρος ανάλογα με τις απαιτήσεις του κάθε έργου. Σε κάθε πακέτο παρέχουμε και τις 4 υπηρεσίες μας — Έρευνα, Στήσιμο, Εκπαίδευση και Ενημέρωση — και ακολουθούμε την παρακάτω μεθοδολογία.",
+      footnote: "Η τιμή έχει εύρος ανάλογα με τις απαιτήσεις του κάθε έργου. Σε κάθε πακέτο παρέχουμε και τις 4 υπηρεσίες μας (Έρευνα, Στήσιμο, Εκπαίδευση και Ενημέρωση) και ακολουθούμε την παρακάτω μεθοδολογία.",
       tiers: [
         {
           code: "01",
@@ -595,7 +609,7 @@ export const translations = {
         },
         {
           q: "Δουλεύουν καλά τα εργαλεία στα ελληνικά;",
-          a: "Όχι πάντα. Κάποια μοντέλα τα πάνε χειρότερα με την ελληνική γραμματική και τα επιχειρηματικά έγγραφα απ' ό,τι με τα αγγλικά, ακόμα κι όταν η απόδοσή τους στα αγγλικά φαίνεται καλή. Δοκιμάζουμε τους υποψήφιους ειδικά σε ελληνικό κείμενο — συμβάσεις, τιμολόγια, μηνύματα πελατών — και ξέρουμε την ελληνική αγορά, οπότε μπορούμε να σας πούμε εξαρχής ποια εργαλεία αξίζει να δοκιμάσετε και ποια όχι.",
+          a: "Όχι πάντα. Κάποια μοντέλα τα πάνε χειρότερα με την ελληνική γραμματική και τα επιχειρηματικά έγγραφα απ' ό,τι με τα αγγλικά, ακόμα κι όταν η απόδοσή τους στα αγγλικά φαίνεται καλή. Δοκιμάζουμε τους υποψήφιους ειδικά σε ελληνικό κείμενο (συμβάσεις, τιμολόγια, μηνύματα πελατών) και ξέρουμε την ελληνική αγορά, οπότε μπορούμε να σας πούμε εξαρχής ποια εργαλεία αξίζει να δοκιμάσετε και ποια όχι.",
         },
         {
           q: "Τι γίνεται αν θέλουμε να σταματήσουμε στην πορεία;",

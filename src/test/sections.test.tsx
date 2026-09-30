@@ -80,7 +80,7 @@ describe("Offer", () => {
   it("closes the service window when the backdrop is clicked", async () => {
     renderWithLang(<Offer />);
 
-    fireEvent.click(screen.getByRole("heading", { name: gr.offer.servicesRow[1].title }));
+    fireEvent.click(screen.getByRole("heading", { name: gr.offer.servicesRow.find((s) => s.id === "B")!.title }));
     const dialog = await screen.findByRole("dialog");
 
     expect(within(dialog).queryByText("Παράδειγμα")).not.toBeInTheDocument();
