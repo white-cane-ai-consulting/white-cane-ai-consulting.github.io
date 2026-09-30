@@ -90,10 +90,12 @@ export const RetainerPopover = ({
           it — keeps its floating box (positioned right above the trigger, so it overlaps
           whatever else is there, e.g. the price or the details toggle) from silently
           catching hover and reopening the panel; `inert` drops the close button from the
-          tab order too. */}
+          tab order too. Radix's own positioning wrapper around Content gets the same
+          treatment from a rule in index.css, keyed on `data-retainer-panel`. */}
       <PopoverPrimitive.Portal forceMount>
         <PopoverPrimitive.Content
           forceMount
+          data-retainer-panel=""
           aria-hidden={!open}
           side="top"
           align="center"

@@ -111,7 +111,7 @@ export const CTA = () => {
           <div className="mt-8 mb-16 flex flex-col md:flex-row md:justify-between md:items-center gap-4 text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
             <div className="flex flex-col gap-1">
               <span>© {new Date().getFullYear()} White Cane AI Consulting</span>
-              <span className="text-muted-foreground/70">v0.2</span>
+              <span className="text-muted-foreground/70">v0.4</span>
             </div>
             <span style={gridWidth ? { width: gridWidth } : undefined} className="flex items-center">
               <span className="text-signal-bright mr-2">●</span>

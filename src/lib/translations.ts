@@ -4,7 +4,7 @@ export const translations = {
       links: [
         { label: "Services", href: "#offer" },
         { label: "Team", href: "#who" },
-        { label: "Achievements", href: "#proof" },
+        { label: "Why us", href: "#proof" },
         { label: "Pricing", href: "#pricing" },
         { label: "Methodology", href: "#vision" },
         { label: "FAQ", href: "#faq" },
@@ -19,7 +19,7 @@ export const translations = {
       cta: "Explore the Services",
       sideLabel: "EST. 2026 — Clarity Engineered",
       sideMetricLabel: "Currently",
-      sideMetricValue: "● Onboarding Q3",
+      sideMetricValue: "● Onboarding Q4",
       marquee: ["Cut through the noise", "● Deploy the right tools", "Build AI that sticks", "● Real adoption, not just access", "Enterprise AI, done right", "● From strategy to live workflows", "Clarity in the era of AI", "● Athens — est. 2026"],
     },
     who: {
@@ -62,7 +62,7 @@ export const translations = {
         { k: "3 yrs", v: "Prior enterprise AI experience" },
         { k: "Day one", v: "In the Greek AI market" },
         { k: "EST. 2026", v: "Founded in Athens" },
-        { k: "Q3", v: "Currently onboarding" },
+        { k: "Q4", v: "Currently onboarding" },
       ],
     },
     offer: {
@@ -85,7 +85,7 @@ export const translations = {
           {
             code: "A2",
             title: "Local AI",
-            body: "Models such as Mistral, Llama and Qwen on your own machine or server. For data that must not leave the company.",
+            body: "Models such as Qwen, Llama and Mistral on vLLM, wherever you want them: in your office, your server room or a private EU cloud. For data that must not leave the company.",
           },
           {
             code: "A3",
@@ -110,17 +110,17 @@ export const translations = {
       ],
     },
     achievements: {
-      label: "What we've achieved",
-      h2a: "Numbers",
-      h2b: "from real work —",
-      h2c: "no exaggeration.",
-      stats: [
-        { value: 150, suffix: "+", label: "AI tools evaluated", note: "We tested and documented every major tool — from models to automation platforms." },
-        { value: 40, suffix: "%", label: "Avg. time savings", note: "In the workflows we automated as part of our professional experience." },
-        { value: 10, suffix: "+", label: "Sectors covered", note: "Finance, energy, law, real estate, logistics, retail, marketing, tourism, technology, and education." },
-        { value: 15, suffix: "+", label: "AI use cases — Greek market", note: "Code development, web design, social media, content creation, SEO, customer service, translations, legal, accounting, and more." },
+      label: "Why us",
+      h2: "AI Transformation",
+      h2Sub: "for Greek businesses, from professionals in the field.",
+      coreSlides: [
+        { value: 150, suffix: "+", text: "AI tools we have", accent: "tested" },
+        { value: 20, suffix: "+", text: "sectors we have", accent: "worked in" },
+        { value: 3, suffix: "+", text: "years of experience in", accent: "Enterprise GenAI" },
       ],
-      toolsLabel: "AI tools we've set up & tested",
+      galaxyLabel: "AI tools we have worked with",
+      sectors: ["Finance", "Energy", "Law", "Real estate", "Logistics", "Retail", "Marketing", "Tourism", "Technology", "Education"],
+      useCases: ["Code", "Web design", "Social media", "Content", "SEO", "Customer service", "Translation", "Accounting"],
     },
     vision: {
       label: "Methodology",
@@ -310,7 +310,7 @@ export const translations = {
       companyLinks: ["Who we are", "Work", "Contact"],
       elsewhere: "Elsewhere",
       elsewhereLinks: ["LinkedIn", "Substack", "X / Twitter"],
-      accepting: "Currently accepting Q3 engagements",
+      accepting: "Currently accepting Q4 engagements",
     },
   },
 
@@ -319,7 +319,7 @@ export const translations = {
       links: [
         { label: "Υπηρεσίες", href: "#offer" },
         { label: "Ομάδα", href: "#who" },
-        { label: "Επιτεύγματα", href: "#proof" },
+        { label: "Γιατί εμάς", href: "#proof" },
         { label: "Τιμές", href: "#pricing" },
         { label: "Μεθοδολογία", href: "#vision" },
         { label: "FAQ", href: "#faq" },
@@ -334,7 +334,7 @@ export const translations = {
       cta: "Εξερευνήστε τις Υπηρεσίες",
       sideLabel: "ΙΔΡΥΣΗ 2026 — Σαφήνεια στην εποχή του GenAI",
       sideMetricLabel: "Τρέχον",
-      sideMetricValue: "● Q3 Onboarding",
+      sideMetricValue: "● Q4 Onboarding",
       marquee: ["Στρατηγική AI", "● Αξιολόγηση Εργαλείων", "Υλοποίηση", "● Εκπαίδευση Ομάδων", "Σχεδιασμός Ροών", "● Επιλογή Εργαλείων AI", "Ενσωμάτωση", "● Συνεχής Ενημέρωση"],
     },
     who: {
@@ -377,7 +377,7 @@ export const translations = {
         { k: "3 χρόνια", v: "Εμπειρία enterprise AI" },
         { k: "Από πρώτη στιγμή", v: "Στην αγορά AI της Ελλάδας" },
         { k: "2026", v: "Ιδρύθηκε στην Αθήνα" },
-        { k: "Q3", v: "Τώρα δεχόμαστε πελάτες" },
+        { k: "Q4", v: "Τώρα δεχόμαστε πελάτες" },
       ],
     },
     offer: {
@@ -400,7 +400,7 @@ export const translations = {
           {
             code: "A2",
             title: "Local/On-Premise AI",
-            body: "Μοντέλα όπως Mistral, Llama και Qwen, σε δικό σας μηχάνημα ή server. Για δεδομένα που δεν πρέπει να βγουν από την εταιρεία.",
+            body: "Μοντέλα όπως Qwen, Llama και Mistral πάνω σε vLLM, όπου το θέλετε: στο γραφείο, στο server room σας ή σε ιδιωτικό cloud στην ΕΕ. Για δεδομένα που δεν πρέπει να βγουν από την εταιρεία.",
           },
           {
             code: "A3",
@@ -425,17 +425,17 @@ export const translations = {
       ],
     },
     achievements: {
-      label: "Τι έχουμε πετύχει",
-      h2a: "Αριθμοί",
-      h2b: "από την πράξη —",
-      h2c: "χωρίς υπερβολή.",
-      stats: [
-        { value: 150, suffix: "+", label: "Εργαλεία AI αξιολογημένα", note: "Δοκιμάσαμε και τεκμηριώσαμε κάθε σημαντικό εργαλείο — από μοντέλα ως πλατφόρμες αυτοματισμού." },
-        { value: 40, suffix: "%", label: "Μέση εξοικονόμηση χρόνου", note: "Στις ροές εργασίας που αυτοματοποιήσαμε στο πλαίσιο της εμπειρίας μας." },
-        { value: 10, suffix: "+", label: "Κλάδοι εφαρμογής", note: "Χρηματοοικονομικά, ενέργεια, νομικά, real estate, logistics, retail, μάρκετινγκ, τουρισμός, τεχνολογία και εκπαίδευση." },
-        { value: 15, suffix: "+", label: "AI use cases — ελληνική αγορά", note: "Ανάπτυξη κώδικα, web design, social media, δημιουργία περιεχομένου, SEO, εξυπηρέτηση πελατών, μεταφράσεις, νομικά, λογιστικά και άλλα." },
+      label: "Γιατί εμάς",
+      h2: "AI Transformation",
+      h2Sub: "για ελληνικές επιχειρήσεις από επαγγελματίες του χώρου.",
+      coreSlides: [
+        { value: 150, suffix: "+", text: "εργαλεία AI που έχουμε", accent: "τεστάρει" },
+        { value: 20, suffix: "+", text: "κλάδοι όπου έχουμε", accent: "δουλέψει" },
+        { value: 3, suffix: "+", text: "χρόνια εμπειρία σε", accent: "Enterprise GenAI" },
       ],
-      toolsLabel: "Εργαλεία AI που έχουμε εγκαταστήσει & δοκιμάσει",
+      galaxyLabel: "Εργαλεία AI με τα οποία έχουμε δουλέψει",
+      sectors: ["Χρηματοοικονομικά", "Ενέργεια", "Νομικά", "Real estate", "Logistics", "Retail", "Μάρκετινγκ", "Τουρισμός", "Τεχνολογία", "Εκπαίδευση"],
+      useCases: ["Κώδικας", "Web design", "Social media", "Περιεχόμενο", "SEO", "Εξυπηρέτηση πελατών", "Μεταφράσεις", "Λογιστικά"],
     },
     vision: {
       label: "Μεθοδολογία",
@@ -625,7 +625,7 @@ export const translations = {
       companyLinks: ["Ποιοι είμαστε", "Έργο", "Επικοινωνία"],
       elsewhere: "Αλλού",
       elsewhereLinks: ["LinkedIn", "Substack", "X / Twitter"],
-      accepting: "Δεχόμαστε συνεργασίες Q3",
+      accepting: "Δεχόμαστε συνεργασίες Q4",
     },
   },
 } as const;

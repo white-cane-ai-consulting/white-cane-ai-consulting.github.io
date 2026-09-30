@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { LanguageProvider } from "@/contexts/LanguageContext";
+import { Achievements } from "@/components/site/Achievements";
 import { Offer } from "@/components/site/Offer";
 import { Pricing } from "@/components/site/Pricing";
 import { CTA } from "@/components/site/CTA";
@@ -81,6 +82,21 @@ describe("Offer", () => {
 
     fireEvent.click(screen.getByTestId("service-modal-backdrop"));
     await waitFor(() => expect(screen.queryByRole("dialog")).not.toBeInTheDocument(), { timeout: 3000 });
+  });
+});
+
+describe("Why us", () => {
+  it("shows the AI Transformation heading and the tool galaxy", () => {
+    const { container } = renderWithLang(<Achievements />);
+
+    expect(container.querySelector("section#proof")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 2, name: /AI Transformation/ })).toBeInTheDocument();
+
+    // The galaxy is decorative motion, so screen readers get the tool list through its label instead.
+    const galaxy = screen.getByRole("img", { name: new RegExp(gr.achievements.galaxyLabel) });
+    for (const tool of ["Claude", "ChatGPT", "Gemini", "n8n", "Notion", "HubSpot"]) {
+      expect(galaxy.getAttribute("aria-label")).toContain(tool);
+    }
   });
 });
 

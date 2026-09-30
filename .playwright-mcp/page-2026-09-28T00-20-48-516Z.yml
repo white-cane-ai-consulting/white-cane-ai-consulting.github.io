@@ -1,0 +1,613 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - region "Notifications (F8)":
+      - list
+    - region "Notifications alt+T"
+    - main [ref=e3]:
+      - generic [ref=e5]:
+        - link "White Cane AI Consulting WHITE CANE / AI Consulting" [ref=e6] [cursor=pointer]:
+          - /url: "#top"
+          - img "White Cane AI Consulting" [ref=e8]
+          - generic [ref=e9]: WHITE CANE / AI Consulting
+        - navigation [ref=e10]:
+          - link "Υπηρεσίες" [ref=e11] [cursor=pointer]:
+            - /url: "#offer"
+          - link "Ομάδα" [ref=e12] [cursor=pointer]:
+            - /url: "#who"
+          - link "Γιατί εμάς" [ref=e13] [cursor=pointer]:
+            - /url: "#proof"
+          - link "Τιμές" [ref=e14] [cursor=pointer]:
+            - /url: "#pricing"
+          - link "Μεθοδολογία" [ref=e15] [cursor=pointer]:
+            - /url: "#vision"
+          - link "FAQ" [ref=e16] [cursor=pointer]:
+            - /url: "#faq"
+        - generic [ref=e17]:
+          - generic [ref=e18]:
+            - button "EN" [ref=e19] [cursor=pointer]
+            - button "GR" [ref=e20] [cursor=pointer]
+          - link "Επικοινωνία" [ref=e21] [cursor=pointer]:
+            - /url: "#contact"
+      - generic [ref=e23]:
+        - generic [ref=e28]: ΙΔΡΥΣΗ 2026 — Σαφήνεια στην εποχή του GenAI
+        - generic [ref=e29]:
+          - generic [ref=e30]: Τρέχον
+          - generic [ref=e31]: ● Q4 Onboarding
+        - generic [ref=e32]:
+          - generic [ref=e33]: White Cane / Συμβουλευτική AI
+          - heading "Καθοδηγούμε όσους βαδίζουν τυφλά στην εποχή του AI." [level=1] [ref=e36]:
+            - generic [ref=e37]: Καθοδηγούμε
+            - generic [ref=e38]: όσους βαδίζουν τυφλά
+            - generic [ref=e39]:
+              - text: στην εποχή του
+              - emphasis [ref=e40]: AI.
+          - generic [ref=e41]:
+            - paragraph [ref=e42]: Βοηθάμε τις ελληνικές επιχειρήσεις να βρουν τη σωστή κατεύθυνση — επιλέγοντας, ενσωματώνοντας και αξιοποιώντας τα κατάλληλα εργαλεία AI για τη δουλειά που πραγματικά μετράει.
+            - link "Εξερευνήστε τις Υπηρεσίες →" [ref=e44] [cursor=pointer]:
+              - /url: "#offer"
+              - text: Εξερευνήστε τις Υπηρεσίες
+              - generic [ref=e45]: →
+        - generic [ref=e47]:
+          - generic [ref=e48]:
+            - generic [ref=e49]: Στρατηγική AI
+            - generic [ref=e50]: ● Αξιολόγηση Εργαλείων
+            - generic [ref=e51]: Υλοποίηση
+            - generic [ref=e52]: ● Εκπαίδευση Ομάδων
+            - generic [ref=e53]: Σχεδιασμός Ροών
+            - generic [ref=e54]: ● Επιλογή Εργαλείων AI
+            - generic [ref=e55]: Ενσωμάτωση
+            - generic [ref=e56]: ● Συνεχής Ενημέρωση
+          - generic [aria-hidden] [ref=e57]:
+            - generic [ref=e58]: Στρατηγική AI
+            - generic [ref=e59]: ● Αξιολόγηση Εργαλείων
+            - generic [ref=e60]: Υλοποίηση
+            - generic [ref=e61]: ● Εκπαίδευση Ομάδων
+            - generic [ref=e62]: Σχεδιασμός Ροών
+            - generic [ref=e63]: ● Επιλογή Εργαλείων AI
+            - generic [ref=e64]: Ενσωμάτωση
+            - generic [ref=e65]: ● Συνεχής Ενημέρωση
+          - generic [aria-hidden] [ref=e66]:
+            - generic [ref=e67]: Στρατηγική AI
+            - generic [ref=e68]: ● Αξιολόγηση Εργαλείων
+            - generic [ref=e69]: Υλοποίηση
+            - generic [ref=e70]: ● Εκπαίδευση Ομάδων
+            - generic [ref=e71]: Σχεδιασμός Ροών
+            - generic [ref=e72]: ● Επιλογή Εργαλείων AI
+            - generic [ref=e73]: Ενσωμάτωση
+            - generic [ref=e74]: ● Συνεχής Ενημέρωση
+          - generic [aria-hidden] [ref=e75]:
+            - generic [ref=e76]: Στρατηγική AI
+            - generic [ref=e77]: ● Αξιολόγηση Εργαλείων
+            - generic [ref=e78]: Υλοποίηση
+            - generic [ref=e79]: ● Εκπαίδευση Ομάδων
+            - generic [ref=e80]: Σχεδιασμός Ροών
+            - generic [ref=e81]: ● Επιλογή Εργαλείων AI
+            - generic [ref=e82]: Ενσωμάτωση
+            - generic [ref=e83]: ● Συνεχής Ενημέρωση
+      - generic [ref=e85]:
+        - generic [ref=e86]:
+          - generic [ref=e87]: 01 —
+          - generic [ref=e88]: Τι προσφέρουμε
+        - heading "Το AI της εταιρείας σας, στημένο σωστά." [level=2] [ref=e89]: Το AI της εταιρείας σας,στημένο σωστά.
+        - paragraph [ref=e90]: "Πολλές εταιρείες πληρώνουν ήδη για κάποιο εργαλείο AI. Σπάνια όμως είναι στημένο: κάθε υπάλληλος δουλεύει με δικό του λογαριασμό, το εργαλείο δεν ξέρει τίποτα για την εταιρεία, και κανείς δεν ελέγχει πού πηγαίνουν τα δεδομένα. Αυτό φτιάχνουμε."
+        - generic [ref=e91]:
+          - generic [ref=e92]:
+            - button [ref=e93] [cursor=pointer]:
+              - text: A
+              - heading "Στήσιμο εργαλείων AI" [level=3] [ref=e94]
+            - paragraph [ref=e95]: "Επιλέγουμε τα εργαλεία AI που ταιριάζουν στην εταιρεία σας, τα ρυθμίζουμε πάνω στα έγγραφα και τα συστήματά σας, και τα παραδίδουμε έτοιμα για δουλειά, με σωστά δικαιώματα και ασφάλεια. Συνήθως σε τρία επίπεδα:"
+            - button "Όλη η υπηρεσία →" [ref=e96] [cursor=pointer]:
+              - text: Όλη η υπηρεσία
+              - generic [ref=e97]: →
+          - list [ref=e98]:
+            - listitem [ref=e99]:
+              - button "A1 Enterprise AI πλατφόρμες ChatGPT, Claude, Gemini ή Microsoft Copilot, στην εταιρική τους έκδοση. Το εργαλείο που χρησιμοποιεί όλη η ομάδα κάθε μέρα. →" [ref=e100] [cursor=pointer]:
+                - generic [ref=e101]: A1
+                - generic [ref=e102]:
+                  - heading "Enterprise AI πλατφόρμες" [level=4] [ref=e103]
+                  - paragraph [ref=e104]: ChatGPT, Claude, Gemini ή Microsoft Copilot, στην εταιρική τους έκδοση. Το εργαλείο που χρησιμοποιεί όλη η ομάδα κάθε μέρα.
+                - generic [ref=e105]: →
+            - listitem [ref=e106]:
+              - button "A2 Local/On-Premise AI Μοντέλα όπως Mistral, Llama και Qwen, σε δικό σας μηχάνημα ή server. Για δεδομένα που δεν πρέπει να βγουν από την εταιρεία. →" [ref=e107] [cursor=pointer]:
+                - generic [ref=e108]: A2
+                - generic [ref=e109]:
+                  - heading "Local/On-Premise AI" [level=4] [ref=e110]
+                  - paragraph [ref=e111]: Μοντέλα όπως Mistral, Llama και Qwen, σε δικό σας μηχάνημα ή server. Για δεδομένα που δεν πρέπει να βγουν από την εταιρεία.
+                - generic [ref=e112]: →
+            - listitem [ref=e113]:
+              - button "A3 Εξειδικευμένα AI apps, tools και συνδέσεις ElevenLabs, Lovable, Notion AI, n8n και ό,τι άλλο χρειάζεται μια συγκεκριμένη δουλειά, συνδεδεμένο με το CRM, το ERP και τα αρχεία σας. Κανένα δεν μπαίνει χωρίς έλεγχο ασφάλειας. →" [ref=e114] [cursor=pointer]:
+                - generic [ref=e115]: A3
+                - generic [ref=e116]:
+                  - heading "Εξειδικευμένα AI apps, tools και συνδέσεις" [level=4] [ref=e117]
+                  - paragraph [ref=e118]: ElevenLabs, Lovable, Notion AI, n8n και ό,τι άλλο χρειάζεται μια συγκεκριμένη δουλειά, συνδεδεμένο με το CRM, το ERP και τα αρχεία σας. Κανένα δεν μπαίνει χωρίς έλεγχο ασφάλειας.
+                - generic [ref=e119]: →
+        - generic [ref=e120]:
+          - button "B Εκπαίδευση & Upskilling Δομημένα σεμινάρια, πρακτικά μαθήματα και οδηγοί που βοηθούν τους υπαλλήλους σας να υιοθετήσουν πραγματικά τα εργαλεία AI και να τα χρησιμοποιούν σωστά. Περισσότερα →" [ref=e121] [cursor=pointer]:
+            - generic [ref=e122]: B
+            - heading "Εκπαίδευση & Upskilling" [level=3] [ref=e123]
+            - paragraph [ref=e124]: Δομημένα σεμινάρια, πρακτικά μαθήματα και οδηγοί που βοηθούν τους υπαλλήλους σας να υιοθετήσουν πραγματικά τα εργαλεία AI και να τα χρησιμοποιούν σωστά.
+            - generic [ref=e125]:
+              - text: Περισσότερα
+              - generic [ref=e126]: →
+          - button "C Έρευνα AI & Επιλογή Κατάλληλων Εργαλείων Ερευνούμε και αξιολογούμε εργαλεία AI σε διαφορετικούς τομείς και κλάδους, μαζί με το πόσο καλά αποδίδουν στα ελληνικά, για να βρούμε αυτά που ταιριάζουν πραγματικά στις ανάγκες σας, όχι απλώς αυτά που συζητάει ο κόσμος. Περισσότερα →" [ref=e127] [cursor=pointer]:
+            - generic [ref=e128]: C
+            - heading "Έρευνα AI & Επιλογή Κατάλληλων Εργαλείων" [level=3] [ref=e129]
+            - paragraph [ref=e130]: Ερευνούμε και αξιολογούμε εργαλεία AI σε διαφορετικούς τομείς και κλάδους, μαζί με το πόσο καλά αποδίδουν στα ελληνικά, για να βρούμε αυτά που ταιριάζουν πραγματικά στις ανάγκες σας, όχι απλώς αυτά που συζητάει ο κόσμος.
+            - generic [ref=e131]:
+              - text: Περισσότερα
+              - generic [ref=e132]: →
+          - button "D Συνεχής Ενημέρωση Όταν εμφανίζονται νέα εργαλεία, μοντέλα ή δυνατότητες που σχετίζονται με την επιχείρησή σας, θα επικοινωνήσουμε και θα σας ενημερώσουμε. Περισσότερα →" [ref=e133] [cursor=pointer]:
+            - generic [ref=e134]: D
+            - heading "Συνεχής Ενημέρωση" [level=3] [ref=e135]
+            - paragraph [ref=e136]: Όταν εμφανίζονται νέα εργαλεία, μοντέλα ή δυνατότητες που σχετίζονται με την επιχείρησή σας, θα επικοινωνήσουμε και θα σας ενημερώσουμε.
+            - generic [ref=e137]:
+              - text: Περισσότερα
+              - generic [ref=e138]: →
+      - generic [ref=e140]:
+        - generic [ref=e141]:
+          - generic [ref=e142]: 02 —
+          - generic [ref=e143]: Ποιοι είμαστε
+        - generic [ref=e144]:
+          - img "White Cane AI Consulting" [ref=e146]
+          - generic [ref=e147]:
+            - heading "Χτίσαμε enterprise AI πριν γίνει μόδα — ξέρουμε πού σπάει." [level=2] [ref=e148]: Χτίσαμε enterprise AIπριν γίνει μόδα — ξέρουμε πού σπάει.
+            - generic [ref=e150]:
+              - paragraph [ref=e151]:
+                - text: Έχουμε
+                - strong [ref=e152]: εργαστεί στις κορυφαίες συμβουλευτικές εταιρείες
+                - text: της χώρας και έχουμε συμβάλει στη δημιουργία, από το μηδέν, μερικών από τις
+                - strong [ref=e153]: πρώτες ομάδες Generative AI
+                - text: στην Ελλάδα, ενώ έχουμε υπάρξει και μέρος μιας από τις μεγαλύτερες και πιο τεχνολογικά προηγμένες ομάδες AI στη χώρα.
+              - paragraph [ref=e154]:
+                - text: Έχουμε σχεδιάσει και
+                - strong [ref=e155]: αναπτύξει AI applications και AI tools
+                - text: για τις μεγαλύτερες ελληνικές επιχειρήσεις, σε διαφορετικούς κλάδους, φέρνοντας το AI στην πράξη — εκεί που δημιουργεί πραγματική αξία, ενώ παράλληλα έχουμε εκπαιδεύσει ομάδες και επαγγελματίες ώστε να αξιοποιούν ουσιαστικά τις δυνατότητές του. Ταυτόχρονα, έχουμε υλοποιήσει λύσεις προσαρμοσμένες σε πραγματικές ανάγκες, συνδυάζοντας τεχνική υλοποίηση με πρακτική κατανόηση του πώς το AI ενσωματώνεται σε έναν οργανισμό.
+              - paragraph [ref=e156]:
+                - text: Για εμάς, το AI δεν είναι απλώς δουλειά — είναι κάτι που μας ενθουσιάζει πραγματικά, γι' αυτό
+                - strong [ref=e157]: δοκιμάζουμε κάθε νέο εργαλείο
+                - text: και μοντέλο από την πρώτη στιγμή. Όλα ξεκίνησαν επειδή θέλαμε να βοηθήσουμε έναν συνάδελφο να κάνει τη δουλειά του πιο εύκολα με το AI και να εξελιχθεί — και κάπως έτσι
+                - strong [ref=e158]: ήρθε η ιδέα για την White Cane AI
+                - text: .
+        - generic [ref=e159]:
+          - generic [ref=e160]:
+            - generic [ref=e161]: 3 χρόνια
+            - generic [ref=e162]: Εμπειρία enterprise AI
+          - generic [ref=e163]:
+            - generic [ref=e164]: Από πρώτη στιγμή
+            - generic [ref=e165]: Στην αγορά AI της Ελλάδας
+          - generic [ref=e166]:
+            - generic [ref=e167]: "2026"
+            - generic [ref=e168]: Ιδρύθηκε στην Αθήνα
+          - generic [ref=e169]:
+            - generic [ref=e170]: Q4
+            - generic [ref=e171]: Τώρα δεχόμαστε πελάτες
+        - paragraph [ref=e173]: Έχουμε δει από μέσα τι πάει λάθος ακόμη και στις καλύτερες τεχνολογικές ομάδες — λάθος εργαλεία, κανένα adoption, ακριβές πλατφόρμες που κανείς δεν χρησιμοποιεί. Παρακολουθούμε εμπράκτως κάθε νέο εργαλείο και μοντέλο AI από την πρώτη μέρα, ώστε να ξέρουμε πάντα τι είναι πραγματικά χρήσιμο — και τι απλώς θόρυβος. Ξέρουμε επίσης ποια εργαλεία δουλεύουν πραγματικά στα ελληνικά και ποια όχι, αφού τα περισσότερα είναι φτιαγμένα και δοκιμασμένα μόνο στα αγγλικά.
+      - generic [ref=e174]:
+        - generic [ref=e175]:
+          - generic [ref=e176]:
+            - generic [ref=e177]: 03 —
+            - generic [ref=e178]: Γιατί εμάς
+          - generic [ref=e179]:
+            - heading "Γιατί εμάς;" [level=2] [ref=e180]
+            - paragraph [ref=e181]: Έχουμε δοκιμάσει πάνω από 150 εργαλεία AI σε πραγματική δουλειά, σε ελληνικές επιχειρήσεις και σε enterprise περιβάλλον. Ξέρουμε ποιο εργαλείο ταιριάζει σε κάθε δουλειά και πώς στήνεται σωστά.
+        - 'img "Εργαλεία AI με τα οποία έχουμε δουλέψει: Claude, ChatGPT, Gemini, Copilot, Mistral, Perplexity, DeepSeek, Llama, Anthropic, Cursor, GitHub Copilot, Windsurf, Replit, Lovable, Bolt, Vercel, Supabase, n8n, Make, Zapier, LangChain, Ollama, Hugging Face, ElevenLabs, Midjourney, Runway, QWen, Notion, Airtable, HubSpot, Google Drive, Gmail, Google Sheets, Figma, DeepL, Grammarly, Shopify, WooCommerce, WordPress, Stripe, WhatsApp, Viber, Trello, Asana, ClickUp, Miro, Zoom, Intercom, Zendesk, Jira, Confluence, Odoo, SAP, QuickBooks, Xero, MailChimp, Brevo, Google Analytics, Semrush, Webflow, Framer, Calendly, Typeform, Loom, Suno, GitHub, Python" [ref=e183]':
+          - generic:
+            - generic: 0+
+            - generic: εργαλεία AI που έχουμε δοκιμάσει
+          - generic: Claude
+          - generic: ChatGPT
+          - generic: Gemini
+          - generic: Copilot
+          - generic: Mistral
+          - generic: Perplexity
+          - generic: DeepSeek
+          - generic: Llama
+          - generic: Anthropic
+          - generic: Cursor
+          - generic: GitHub Copilot
+          - generic: Windsurf
+          - generic: Replit
+          - generic: Lovable
+          - generic: Bolt
+          - generic: Vercel
+          - generic: Supabase
+          - generic: n8n
+          - generic: Make
+          - generic: Zapier
+          - generic: LangChain
+          - generic: Ollama
+          - generic: Hugging Face
+          - generic: ElevenLabs
+          - generic: Midjourney
+          - generic: Runway
+          - generic: QWen
+          - generic: Notion
+          - generic: Airtable
+          - generic: HubSpot
+          - generic: Google Drive
+          - generic: Gmail
+          - generic: Google Sheets
+          - generic: Figma
+          - generic: DeepL
+          - generic: Grammarly
+          - generic: Shopify
+          - generic: WooCommerce
+          - generic: WordPress
+          - generic: Stripe
+          - generic: WhatsApp
+          - generic: Viber
+          - generic: Trello
+          - generic: Asana
+          - generic: ClickUp
+          - generic: Miro
+          - generic: Zoom
+          - generic: Intercom
+          - generic: Zendesk
+          - generic: Jira
+          - generic: Confluence
+          - generic: Odoo
+          - generic: SAP
+          - generic: QuickBooks
+          - generic: Xero
+          - generic: MailChimp
+          - generic: Brevo
+          - generic: Google Analytics
+          - generic: Semrush
+          - generic: Webflow
+          - generic: Framer
+          - generic: Calendly
+          - generic: Typeform
+          - generic: Loom
+          - generic: Suno
+          - generic: GitHub
+          - generic: Python
+          - generic: Χρηματοοικονομικά
+          - generic: Κώδικας
+          - generic: Ενέργεια
+          - generic: Web design
+          - generic: Νομικά
+          - generic: Social media
+          - generic: Real estate
+          - generic: Περιεχόμενο
+          - generic: Logistics
+          - generic: SEO
+          - generic: Retail
+          - generic: Εξυπηρέτηση πελατών
+          - generic: Μάρκετινγκ
+          - generic: Μεταφράσεις
+          - generic: Τουρισμός
+          - generic: Λογιστικά
+          - generic: Τεχνολογία
+          - generic: Εκπαίδευση
+        - generic [ref=e379]:
+          - generic [ref=e380]:
+            - generic [ref=e381]:
+              - generic [ref=e382]: "0"
+              - heading "Χρόνια σε enterprise AI" [level=3] [ref=e383]
+              - paragraph [ref=e384]: Πρακτική δουλειά με εργαλεία AI μέσα σε μεγάλους οργανισμούς, πριν ιδρύσουμε τη White Cane.
+            - generic [ref=e385]:
+              - generic [ref=e386]: 0+
+              - heading "Κλάδοι" [level=3] [ref=e388]
+              - paragraph [ref=e389]: Χρηματοοικονομικά, ενέργεια, νομικά, real estate, logistics, retail, μάρκετινγκ, τουρισμός, τεχνολογία και εκπαίδευση.
+            - generic [ref=e390]:
+              - generic [ref=e391]: 0+
+              - heading "Use cases στην ελληνική αγορά" [level=3] [ref=e393]
+              - paragraph [ref=e394]: Κώδικας, web design, social media, περιεχόμενο, SEO, εξυπηρέτηση πελατών, μεταφράσεις, νομικά, λογιστικά και άλλα.
+            - generic [ref=e395]:
+              - generic [ref=e396]: 0%
+              - heading "Μέση εξοικονόμηση χρόνου" [level=3] [ref=e398]
+              - paragraph [ref=e399]: Στις ροές εργασίας που έχουμε αυτοματοποιήσει στην επαγγελματική μας δουλειά.
+          - generic [ref=e400]:
+            - heading "Αυτό το site το σχεδιάσαμε και το χτίσαμε εμείς, με εργαλεία AI." [level=3] [ref=e401]
+            - generic [ref=e402]:
+              - paragraph [ref=e403]: Αν η εταιρεία σας χρειάζεται site, εσωτερικό εργαλείο ή αυτοματισμό, το φτιάχνουμε με τον ίδιο τρόπο.
+              - paragraph [ref=e404]: Claude Code · React · TypeScript · Vite · Tailwind CSS · Framer Motion
+              - link "Μιλήστε μαζί μας →" [ref=e405] [cursor=pointer]:
+                - /url: "#contact"
+                - text: Μιλήστε μαζί μας
+                - generic [ref=e406]: →
+      - generic [ref=e408]:
+        - generic [ref=e409]:
+          - generic [ref=e410]: 04 —
+          - generic [ref=e411]: Πακέτα & Τιμές
+        - generic [ref=e412]:
+          - heading "Τρία πακέτα. Για κάθε εταιρεία." [level=2] [ref=e413]: Τρία πακέτα.Για κάθε εταιρεία.
+          - generic [ref=e414]: Όλες οι τιμές είναι προ ΦΠΑ
+        - generic [ref=e417]:
+          - article [ref=e420]:
+            - generic [ref=e421]:
+              - generic [ref=e422]: "01"
+              - heading "Small Business AI Kickstart" [level=3] [ref=e423]
+              - paragraph [ref=e424]: Μικρή επιχείρηση · 5–20 άτομα
+              - generic [ref=e425]: €1.500 – €3.000
+              - group [ref=e427]:
+                - generic "Αναλυτικά το πακέτο" [ref=e428] [cursor=pointer]
+              - generic [ref=e432]:
+                - paragraph [ref=e433]: Μηνιαίο πακέτο υποστήριξης
+                - generic [ref=e434]:
+                  - paragraph [ref=e435]: €170/μήνα
+                  - button "Τι περιλαμβάνει" [ref=e436] [cursor=pointer]
+          - article [ref=e441]:
+            - generic [ref=e442]:
+              - generic [ref=e443]: "02"
+              - heading "Mid-Market AI Accelerator" [level=3] [ref=e444]
+              - paragraph [ref=e445]: Μεσαία επιχείρηση · 20–100 άτομα
+              - generic [ref=e446]: €3.000 – €8.000
+              - group [ref=e448]:
+                - generic "Αναλυτικά το πακέτο" [ref=e449] [cursor=pointer]
+              - generic [ref=e453]:
+                - paragraph [ref=e454]: Μηνιαίο πακέτο υποστήριξης
+                - generic [ref=e455]:
+                  - paragraph [ref=e456]: €350/μήνα
+                  - button "Τι περιλαμβάνει" [ref=e457] [cursor=pointer]
+          - article [ref=e462]:
+            - generic [ref=e463]:
+              - generic [ref=e464]: "03"
+              - heading "Enterprise Transformation" [level=3] [ref=e465]
+              - paragraph [ref=e466]: Μεγάλος οργανισμός · 100+ άτομα
+              - generic [ref=e467]: €8.000 – €20.000+
+              - group [ref=e469]:
+                - generic "Αναλυτικά το πακέτο" [ref=e470] [cursor=pointer]
+              - generic [ref=e474]:
+                - paragraph [ref=e475]: Μηνιαίο πακέτο υποστήριξης
+                - generic [ref=e476]:
+                  - paragraph [ref=e477]: €800/μήνα
+                  - button "Τι περιλαμβάνει" [ref=e478] [cursor=pointer]
+        - paragraph [ref=e481]: Η τιμή έχει εύρος ανάλογα με τις απαιτήσεις του κάθε έργου. Σε κάθε πακέτο παρέχουμε και τις 4 υπηρεσίες μας — Έρευνα, Στήσιμο, Εκπαίδευση και Ενημέρωση — και ακολουθούμε την παρακάτω μεθοδολογία.
+      - generic [ref=e485]:
+        - generic [ref=e486]:
+          - generic [ref=e487]: 05 —
+          - generic [ref=e488]: Μεθοδολογία
+        - generic [ref=e489]:
+          - generic [ref=e490]:
+            - heading "Κάθε πακέτο, η ίδια διαδικασία." [level=2] [ref=e491]: Κάθε πακέτο,η ίδια διαδικασία.
+            - paragraph [ref=e492]: "Από την έρευνα των κατάλληλων εργαλείων μέχρι την υλοποίηση, την πρακτική εκπαίδευση και τους δύο μήνες δωρεάν υποστήριξης: κάθε πακέτο ακολουθεί αυτά τα τέσσερα βήματα."
+            - generic [ref=e493]:
+              - button "Pause" [ref=e494] [cursor=pointer]
+              - generic [ref=e498]:
+                - button "Slide 1" [ref=e499] [cursor=pointer]
+                - button "Slide 2" [ref=e501] [cursor=pointer]
+                - button "Slide 3" [ref=e503] [cursor=pointer]
+                - button "Slide 4" [ref=e505] [cursor=pointer]
+          - generic [ref=e507]:
+            - generic [ref=e508]:
+              - generic [ref=e509]: 01 / ΑΚΟΥΜΕ
+              - heading "Βρίσκουμε τα εμπόδια σας." [level=3] [ref=e510]
+              - paragraph [ref=e511]: Πριν προτείνουμε οτιδήποτε, σας ακούμε. Εντοπίζουμε τα εμπόδια, τις επαναλαμβανόμενες διαδικασίες και τα πραγματικά επιχειρηματικά προβλήματα — και αναζητάμε λύσεις πάνω στην υποδομή που ήδη έχετε.
+            - generic:
+              - generic: 02 / ΣΧΕΔΙΑΖΟΥΜΕ
+              - heading "Οργανώνουμε και υλοποιούμε τη λύση." [level=3]
+              - paragraph: Ρυθμίζουμε τα εργαλεία με βάση τις δικές σας ανάγκες και τα ενσωματώνουμε στις ροές εργασίας σας. Ρεαλιστικά αποτελέσματα, βασισμένα στην πραγματικότητα — δεν σας πουλάμε ψέματα.
+            - generic:
+              - generic: 03 / ΕΚΠΑΙΔΕΥΟΥΜΕ
+              - heading "Βοηθάμε στην υιοθέτηση των εργαλείων." [level=3]
+              - paragraph: Δεν αφήνουμε ένα εργαλείο και φεύγουμε. Σας δείχνουμε πώς να το χρησιμοποιείτε και πώς να αντλείτε αξία από αυτό στην καθημερινή εργασία — και σας δείχνουμε τον δρόμο για ό,τι έρχεται.
+            - generic:
+              - generic: 04 / ΠΑΡΑΜΕΝΟΥΜΕ
+              - heading "Επικοινωνούμε μαζί σας" [level=3]
+              - paragraph: Κρατάμε επαφή και σας ενημερώνουμε για νέα features, use cases και καλύτερα μοντέλα που μπορούν να σας φανούν χρήσιμα — ώστε να είστε πάντα ένα βήμα μπροστά.
+      - generic [ref=e512]:
+        - generic [ref=e514]:
+          - generic [ref=e515]:
+            - generic [ref=e516]: 06 —
+            - generic [ref=e517]: Συχνές ερωτήσεις
+          - generic [ref=e518]:
+            - heading "Τι ρωτούν όσοι αρχίζουν να παίρνουν το AI στα σοβαρά." [level=2] [ref=e520]
+            - generic [ref=e522]:
+              - generic [ref=e524]:
+                - group "Τι σας ενδιαφέρει;" [ref=e525]:
+                  - generic [ref=e527]:
+                    - generic [ref=e528] [cursor=pointer]:
+                      - radio "Δωρεάν κλήση 30 λεπτών" [checked] [ref=e529]
+                      - text: Δωρεάν κλήση 30 λεπτών
+                    - generic [ref=e532] [cursor=pointer]:
+                      - radio "Small Business AI Kickstart" [ref=e533]
+                      - text: Small Business AI Kickstart
+                    - generic [ref=e535] [cursor=pointer]:
+                      - radio "Mid-Market AI Accelerator" [ref=e536]
+                      - text: Mid-Market AI Accelerator
+                    - generic [ref=e538] [cursor=pointer]:
+                      - radio "Enterprise Transformation" [ref=e539]
+                      - text: Enterprise Transformation
+                - generic [ref=e541]:
+                  - generic [ref=e542]:
+                    - generic [ref=e543]: Ονοματεπώνυμο*
+                    - textbox "Ονοματεπώνυμο" [ref=e544]
+                  - generic [ref=e545]:
+                    - generic [ref=e546]: Εταιρικό email*
+                    - textbox "Εταιρικό email" [ref=e547]
+                - generic [ref=e548]:
+                  - generic [ref=e549]:
+                    - text: Εταιρεία
+                    - generic [ref=e550]: (προαιρετικό)
+                  - textbox "Εταιρεία (προαιρετικό)" [ref=e551]:
+                    - /placeholder: Επωνυμία · αριθμός ατόμων
+                - generic [ref=e552]:
+                  - generic [ref=e553]: Θέμα*
+                  - textbox "Θέμα" [ref=e554]:
+                    - /placeholder: π.χ. AI για το τμήμα πωλήσεων
+                - generic [ref=e555]:
+                  - generic [ref=e556]: Περιγραφή*
+                  - textbox "Περιγραφή" [ref=e557]:
+                    - /placeholder: Τι θέλετε να λύσετε; Ποια εργαλεία και συστήματα χρησιμοποιείτε σήμερα;
+                - generic [ref=e558]:
+                  - paragraph [ref=e559]: "* Υποχρεωτικά πεδία. Ανοίγει το email σας με το μήνυμα έτοιμο προς αποστολή."
+                  - button "Αποστολή αιτήματος →" [ref=e560] [cursor=pointer]:
+                    - text: Αποστολή αιτήματος
+                    - generic [ref=e561]: →
+              - link "Ή γράψτε μας απευθείας consulting@whitecane-ai.com →" [ref=e562] [cursor=pointer]:
+                - /url: mailto:consulting@whitecane-ai.com
+                - generic [ref=e563]:
+                  - generic [ref=e564]: Ή γράψτε μας απευθείας
+                  - generic [ref=e565]: consulting@whitecane-ai.com
+                - generic [ref=e566]: →
+            - generic [ref=e567]:
+              - generic [ref=e568]:
+                - heading [level=3] [ref=e569]:
+                  - button "01 Πώς αποφασίζετε ποιο μοντέλο και ποια εργαλεία μας ταιριάζουν;" [expanded] [ref=e570] [cursor=pointer]:
+                    - generic [ref=e571]: "01"
+                    - generic [ref=e572]: Πώς αποφασίζετε ποιο μοντέλο και ποια εργαλεία μας ταιριάζουν;
+                - paragraph [ref=e578]: "Τα δοκιμάζουμε στη δική σας δουλειά: πραγματικά έγγραφα, το ύφος σας, τις δύσκολες περιπτώσεις που πραγματικά μπερδεύουν τα εργαλεία, και τρέχουμε τους σοβαρούς υποψήφιους ο ένας δίπλα στον άλλον. Ένα μοντέλο που πρωτεύει σε δημόσια benchmarks μπορεί να δώσει λάθος απάντηση σε έλεγχο συμβάσεων στα ελληνικά."
+              - heading [level=3] [ref=e580]:
+                - button "02 Δουλεύουν καλά τα εργαλεία στα ελληνικά;" [ref=e581] [cursor=pointer]:
+                  - generic [ref=e582]: "02"
+                  - generic [ref=e583]: Δουλεύουν καλά τα εργαλεία στα ελληνικά;
+              - heading [level=3] [ref=e589]:
+                - button "03 Τι γίνεται αν θέλουμε να σταματήσουμε στην πορεία;" [ref=e590] [cursor=pointer]:
+                  - generic [ref=e591]: "03"
+                  - generic [ref=e592]: Τι γίνεται αν θέλουμε να σταματήσουμε στην πορεία;
+              - heading [level=3] [ref=e598]:
+                - button "04 Τι σημαίνει στην πράξη «agent», και πότε αξίζει;" [ref=e599] [cursor=pointer]:
+                  - generic [ref=e600]: "04"
+                  - generic [ref=e601]: Τι σημαίνει στην πράξη «agent», και πότε αξίζει;
+              - heading [level=3] [ref=e607]:
+                - button "05 Φεύγουν τα δεδομένα μας από την εταιρεία;" [ref=e608] [cursor=pointer]:
+                  - generic [ref=e609]: "05"
+                  - generic [ref=e610]: Φεύγουν τα δεδομένα μας από την εταιρεία;
+              - heading [level=3] [ref=e616]:
+                - button "06 Μπορεί να τρέξει εξ ολοκλήρου στους δικούς μας servers, χωρίς cloud;" [ref=e617] [cursor=pointer]:
+                  - generic [ref=e618]: "06"
+                  - generic [ref=e619]: Μπορεί να τρέξει εξ ολοκλήρου στους δικούς μας servers, χωρίς cloud;
+              - heading [level=3] [ref=e625]:
+                - button "07 Πρέπει να αλλάξουμε τα συστήματα που ήδη χρησιμοποιούμε;" [ref=e626] [cursor=pointer]:
+                  - generic [ref=e627]: "07"
+                  - generic [ref=e628]: Πρέπει να αλλάξουμε τα συστήματα που ήδη χρησιμοποιούμε;
+              - heading [level=3] [ref=e634]:
+                - button "08 Τα μοντέλα αλλάζουν κάθε λίγους μήνες. Δεν θα παλιώσει ό,τι στήσουμε;" [ref=e635] [cursor=pointer]:
+                  - generic [ref=e636]: "08"
+                  - generic [ref=e637]: Τα μοντέλα αλλάζουν κάθε λίγους μήνες. Δεν θα παλιώσει ό,τι στήσουμε;
+              - heading [level=3] [ref=e643]:
+                - button "09 Θα αντικαταστήσει το AI μέρος της ομάδας μας;" [ref=e644] [cursor=pointer]:
+                  - generic [ref=e645]: "09"
+                  - generic [ref=e646]: Θα αντικαταστήσει το AI μέρος της ομάδας μας;
+              - heading [level=3] [ref=e652]:
+                - button "10 Πώς ξέρουμε αν τελικά άξιζε;" [ref=e653] [cursor=pointer]:
+                  - generic [ref=e654]: "10"
+                  - generic [ref=e655]: Πώς ξέρουμε αν τελικά άξιζε;
+              - heading [level=3] [ref=e661]:
+                - button "11 Τι περιλαμβάνει ένα έργο και πόσο διαρκεί;" [ref=e662] [cursor=pointer]:
+                  - generic [ref=e663]: "11"
+                  - generic [ref=e664]: Τι περιλαμβάνει ένα έργο και πόσο διαρκεί;
+        - generic [ref=e669]:
+          - generic [aria-hidden]:
+            - generic: WHITE CANE WHITE CANE WHITE CANE WHITE CANE WHITE CANE WHITE CANE WHITE CANE WHITE CANE
+          - generic [ref=e670]:
+            - generic [ref=e671]:
+              - generic [ref=e672]:
+                - img "White Cane AI Consulting" [ref=e674]
+                - generic [ref=e675]:
+                  - generic [ref=e676]: WHITE CANE AI CONSULTING
+                  - generic [ref=e677]: Καθοδηγούμε όσους βαδίζουν τυφλά στην εποχή του AI.
+              - generic [ref=e678]:
+                - generic [ref=e679]:
+                  - generic [ref=e680]: Τομείς
+                  - list [ref=e681]:
+                    - listitem [ref=e682]:
+                      - link "Στρατηγική" [ref=e683] [cursor=pointer]:
+                        - /url: "#offer"
+                    - listitem [ref=e684]:
+                      - link "Επιλογή" [ref=e685] [cursor=pointer]:
+                        - /url: "#offer"
+                    - listitem [ref=e686]:
+                      - link "Ενσωμάτωση" [ref=e687] [cursor=pointer]:
+                        - /url: "#offer"
+                - generic [ref=e688]:
+                  - generic [ref=e689]: Εταιρεία
+                  - list [ref=e690]:
+                    - listitem [ref=e691]:
+                      - link "Ποιοι είμαστε" [ref=e692] [cursor=pointer]:
+                        - /url: "#who"
+                    - listitem [ref=e693]:
+                      - link "Έργο" [ref=e694] [cursor=pointer]:
+                        - /url: "#proof"
+                    - listitem [ref=e695]:
+                      - link "Επικοινωνία" [ref=e696] [cursor=pointer]:
+                        - /url: "#contact"
+                - generic [ref=e697]:
+                  - generic [ref=e698]: Αλλού
+                  - list [ref=e699]:
+                    - listitem [ref=e700]:
+                      - link "LinkedIn" [ref=e701] [cursor=pointer]:
+                        - /url: "#"
+                    - listitem [ref=e702]:
+                      - link "Substack" [ref=e703] [cursor=pointer]:
+                        - /url: "#"
+                    - listitem [ref=e704]:
+                      - link "X / Twitter" [ref=e705] [cursor=pointer]:
+                        - /url: "#"
+            - generic [ref=e706]:
+              - generic [ref=e707]:
+                - generic [ref=e708]: © 2026 White Cane AI Consulting
+                - generic [ref=e709]: v0.3
+              - generic [ref=e710]:
+                - generic [ref=e711]: ●
+                - generic [ref=e712]: Δεχόμαστε συνεργασίες Q4
+  - generic [ref=e713]:
+    - dialog [aria-hidden]:
+      - generic:
+        - banner:
+          - generic: 01 / Small Business AI Kickstart
+          - heading [level=4]: Συνεχής υποστήριξη & ενημέρωση
+          - button
+        - generic:
+          - generic:
+            - generic:
+              - term: Ώρες τον μήνα
+              - definition: 2,5 ώρες
+            - generic:
+              - term: Μηνιαίο πακέτο υποστήριξης
+              - definition: €170/μήνα
+          - list:
+            - listitem:
+              - generic: Επίλυση αποριών, βελτίωση των skills και ρυθμίσεις αρχείων
+            - listitem:
+              - generic: Προσαρμογές στα εργαλεία και τις ροές που παραδόθηκαν
+            - listitem:
+              - generic: Ενημέρωση για νέα εργαλεία και μοντέλα που σας αφορούν
+          - paragraph: Ξεκινά μετά τους 2 μήνες δωρεάν υποστήριξης. Διακόπτεται οποτεδήποτε, με έγγραφη ειδοποίηση 15 ημερών.
+  - generic [ref=e714]:
+    - dialog [aria-hidden]:
+      - generic:
+        - banner:
+          - generic: 02 / Mid-Market AI Accelerator
+          - heading [level=4]: Συνεχής υποστήριξη & ενημέρωση
+          - button
+        - generic:
+          - generic:
+            - generic:
+              - term: Ώρες τον μήνα
+              - definition: 5 ώρες
+            - generic:
+              - term: Μηνιαίο πακέτο υποστήριξης
+              - definition: €350/μήνα
+          - list:
+            - listitem:
+              - generic: Διορθώσεις και βελτιώσεις σε skills, MCPs και connectors
+            - listitem:
+              - generic: Onboarding και καθοδήγηση νέων χρηστών
+            - listitem:
+              - generic: Regression testing όταν αλλάζουν σημαντικά μοντέλα
+          - paragraph: Ξεκινά μετά τους 2 μήνες δωρεάν υποστήριξης. Διακόπτεται οποτεδήποτε, με έγγραφη ειδοποίηση 15 ημερών.
+  - generic [ref=e715]:
+    - dialog [aria-hidden]:
+      - generic:
+        - banner:
+          - generic: 03 / Enterprise Transformation
+          - heading [level=4]: Συνεχής υποστήριξη & ενημέρωση
+          - button
+        - generic:
+          - generic:
+            - generic:
+              - term: Ώρες τον μήνα
+              - definition: 12 ώρες
+            - generic:
+              - term: Μηνιαίο πακέτο υποστήριξης
+              - definition: €800/μήνα
+          - list:
+            - listitem:
+              - generic: Συντήρηση τοπικών μοντέλων και integrations
+            - listitem:
+              - generic: Έλεγχοι απόδοσης, latency και αξιοπιστίας
+            - listitem:
+              - generic: Τεχνικός συντονισμός με IT και ομάδες compliance
+          - paragraph: Ξεκινά μετά τους 2 μήνες δωρεάν υποστήριξης. Διακόπτεται οποτεδήποτε, με έγγραφη ειδοποίηση 15 ημερών.

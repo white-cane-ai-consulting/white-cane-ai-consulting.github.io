@@ -1,119 +1,127 @@
-import { motion, useInView } from "framer-motion";
+import { AnimatePresence, motion, useInView, useReducedMotion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { ToolGalaxy } from "@/components/site/ToolGalaxy";
+import { FloatingApps } from "@/components/site/FloatingApps";
 
 const ease = [0.6, 0.05, 0.1, 1] as const;
+
+const reveal = (delay = 0) => ({
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-80px" },
+  transition: { duration: 0.9, delay, ease },
+});
 
 const Counter = ({ to, suffix = "", duration = 2 }: { to: number; suffix?: string; duration?: number }) => {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-50px" });
+  const reduceMotion = useReducedMotion();
   const [n, setN] = useState(0);
 
   useEffect(() => {
     if (!inView) return;
+    if (reduceMotion) return setN(to);
     let raf: number;
     const start = performance.now();
     const tick = (t: number) => {
       const p = Math.min(1, (t - start) / (duration * 1000));
-      const eased = 1 - Math.pow(1 - p, 3);
-      setN(Math.round(to * eased));
+      setN(Math.round(to * (1 - Math.pow(1 - p, 3))));
       if (p < 1) raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [inView, to, duration]);
+  }, [inView, to, duration, reduceMotion]);
 
-  return <span ref={ref}>{n}{suffix}</span>;
+  return (
+    <span ref={ref} className="tabular-nums">
+      {n}
+      {suffix}
+    </span>
+  );
 };
 
-const aiTools = [
-  { name: "Claude",      file: "claude-ai-icon.svg" },
-  { name: "ChatGPT",     file: "openai.svg" },
-  { name: "Gemini",      file: "gemini.svg" },
-  { name: "Copilot",     file: "copilot.svg" },
-  { name: "Cursor",      file: "cursor_light.svg" },
-  { name: "Lovable",     file: "lovable.svg" },
-  { name: "Mistral",     file: "mistral-ai_logo.svg" },
-  { name: "Perplexity",  file: "perplexity.svg" },
-  { name: "Bolt",        file: "bolt-new.svg" },
-  { name: "Windsurf",    file: "windsurf-light.svg" },
-  { name: "Midjourney",  file: "midjourney.svg" },
-  { name: "Runway",      file: "runway.svg" },
-  { name: "Notion AI",   file: "notion.svg" },
-  { name: "n8n",         file: "n8n.svg" },
-  { name: "Replit",      file: "replit.svg" },
-];
+type CoreSlide = { value: number; suffix: string; text: string; accent: string };
+
+const SLIDE_MS = 4200;
+const swap = { duration: 0.55, ease: [0.16, 1, 0.3, 1] } as const;
+
+/** Slowly rotates the centre of the galaxy: "150+ tools tested" → "20+ sectors" → "3+ years of Enterprise GenAI". */
+const CoreCycle = ({ slides }: { slides: readonly CoreSlide[] }) => {
+  const [i, setI] = useState(0);
+  const reduceMotion = useReducedMotion();
+  const slide = slides[i];
+
+  useEffect(() => {
+    const id = setInterval(() => setI((n) => (n + 1) % slides.length), SLIDE_MS);
+    return () => clearInterval(id);
+  }, [slides.length]);
+
+  const enter = reduceMotion ? { opacity: 0 } : { opacity: 0, y: 14, filter: "blur(6px)" };
+  const leave = reduceMotion ? { opacity: 0 } : { opacity: 0, y: -14, filter: "blur(6px)" };
+  const shown = { opacity: 1, y: 0, filter: "blur(0px)" };
+
+  return (
+    <div aria-live="polite">
+      {/* Keyed by the number, so it only counts up again when the number itself changes. */}
+      <div className="grid font-display text-6xl font-light leading-none tracking-tight md:text-8xl">
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.div key={`${slide.value}${slide.suffix}`} initial={enter} animate={shown} exit={leave} transition={swap} className="[grid-area:1/1]">
+            <Counter to={slide.value} suffix={slide.suffix} duration={1.4} />
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      <div className="relative mt-4 grid whitespace-nowrap font-display text-base leading-snug text-muted-foreground md:text-lg">
+        {/* Every caption sits invisibly in the same cell, so the block is always as wide as the longest one. */}
+        {slides.map((s, n) => (
+          <div key={n} aria-hidden className="invisible [grid-area:1/1]">
+            {s.text}
+            <br />
+            {s.accent}
+          </div>
+        ))}
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.div key={i} initial={enter} animate={shown} exit={leave} transition={swap} className="absolute inset-0">
+            {slide.text}
+            <span className="block text-signal">{slide.accent}</span>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+    </div>
+  );
+};
 
 export const Achievements = () => {
   const { t } = useLanguage();
   const a = t.achievements;
+  const words = a.sectors.flatMap((s, i) => (a.useCases[i] ? [s, a.useCases[i]] : [s]));
+  const sectionRef = useRef<HTMLElement>(null);
+  const galaxyRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section id="proof" className="relative py-32 md:py-44">
-      <div className="container">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease }}
-          className="flex items-center gap-3 mb-20"
-        >
+    <section ref={sectionRef} id="proof" className="relative overflow-hidden pb-20 pt-32 md:pb-28 md:pt-44">
+      <FloatingApps sectionRef={sectionRef} avoidRef={galaxyRef} textRef={textRef} />
+
+      <div className="container relative z-10">
+        <motion.div {...reveal()} className="mb-12 flex items-center gap-3">
           <span className="text-xs uppercase tracking-[0.18em] text-signal-bright">03 —</span>
           <span className="text-xs uppercase tracking-[0.18em] text-muted-foreground">{a.label}</span>
         </motion.div>
 
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 1, ease }}
-          className="font-display font-light text-4xl md:text-6xl lg:text-7xl leading-[1.05] mb-20 max-w-4xl text-balance"
-        >
-          {a.h2a}
-          <br />
-          <span className="text-muted-foreground">{a.h2b}</span>{" "}
-          <span className="italic font-normal">{a.h2c}</span>
-        </motion.h2>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-20">
-          {a.stats.map((s, i) => (
-            <motion.div
-              key={s.label}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.8, delay: i * 0.08, ease }}
-              className="rounded-3xl border border-border bg-card/40 p-7 md:p-8 transition-all duration-500 hover:bg-card hover:-translate-y-1 hover:shadow-soft"
-            >
-              <div className="font-display font-light text-6xl md:text-7xl mb-4 tracking-tight">
-                <Counter to={s.value} suffix={s.suffix} />
-              </div>
-              <div className="font-display text-sm uppercase tracking-[0.1em] mb-3 text-foreground">{s.label}</div>
-              <div className="text-sm text-muted-foreground leading-[1.7] max-w-[30ch]">{s.note}</div>
-            </motion.div>
-          ))}
+        <div ref={textRef} className="w-fit max-w-full">
+          <motion.h2 {...reveal()} className="max-w-6xl font-display text-[2.5rem] font-light leading-[1.02] sm:text-6xl md:text-7xl lg:text-8xl">
+            <span className="text-signal-bright">{a.h2}</span>{" "}
+            <span className="mt-3 block text-3xl leading-[1.15] text-muted-foreground md:text-5xl">{a.h2Sub}</span>
+          </motion.h2>
         </div>
+      </div>
 
-        {/* AI tools strip */}
-        <div className="rounded-3xl border border-border bg-card/40 px-7 py-9 overflow-hidden">
-          <div className="text-xs uppercase tracking-[0.14em] text-muted-foreground mb-7">{a.toolsLabel}</div>
-          <div className="flex overflow-hidden mask-gradient">
-            <div className="marquee-track flex items-center gap-16 whitespace-nowrap">
-              {[...aiTools, ...aiTools].map((tool, i) => (
-                <span key={i} className="flex items-center gap-3 group cursor-default">
-                  <img
-                    src={`/logos/${tool.file}`}
-                    alt={tool.name}
-                    className="w-9 h-9 shrink-0 object-contain"
-                  />
-                  <span className="text-muted-foreground/80 group-hover:text-foreground transition-colors duration-300 font-display text-lg md:text-xl tracking-wide">
-                    {tool.name}
-                  </span>
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
+      <div ref={galaxyRef} className="relative z-10 mt-4 px-4 md:mt-0 md:px-8">
+        <ToolGalaxy words={words} label={a.galaxyLabel}>
+          <CoreCycle slides={a.coreSlides} />
+        </ToolGalaxy>
       </div>
     </section>
   );
