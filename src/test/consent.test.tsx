@@ -1,5 +1,6 @@
 import { beforeEach, describe, expect, it } from "vitest";
 import { fireEvent, render, screen } from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import Index from "@/pages/Index";
 import { translations } from "@/lib/translations";
@@ -9,9 +10,11 @@ const gaScript = () => document.head.querySelector('script[src*="googletagmanage
 
 const renderPage = () =>
   render(
-    <LanguageProvider>
-      <Index />
-    </LanguageProvider>,
+    <MemoryRouter>
+      <LanguageProvider>
+        <Index />
+      </LanguageProvider>
+    </MemoryRouter>,
   );
 
 describe("Cookie consent", () => {

@@ -1,21 +1,16 @@
-import { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, useContext, ReactNode } from "react";
 import { translations, Lang, Translations } from "@/lib/translations";
 
 type LanguageContextType = {
   lang: Lang;
-  setLang: (l: Lang) => void;
   t: Translations;
 };
 
 const LanguageContext = createContext<LanguageContextType>(null!);
 
-export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [lang, setLang] = useState<Lang>("GR");
-  return (
-    <LanguageContext.Provider value={{ lang, setLang, t: translations[lang] }}>
-      {children}
-    </LanguageContext.Provider>
-  );
-};
+/** The language comes from the URL (`/` Greek, `/en/` English), so each version is its own crawlable page. */
+export const LanguageProvider = ({ lang = "GR", children }: { lang?: Lang; children: ReactNode }) => (
+  <LanguageContext.Provider value={{ lang, t: translations[lang] }}>{children}</LanguageContext.Provider>
+);
 
 export const useLanguage = () => useContext(LanguageContext);

@@ -4,7 +4,7 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
+export default defineConfig(({ mode, isSsrBuild }) => ({
   server: {
     host: "::",
     port: 8080,
@@ -13,6 +13,8 @@ export default defineConfig(({ mode }) => ({
     },
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
+  // The SSR bundle only feeds scripts/prerender.mjs; the public files already went to dist/.
+  build: isSsrBuild ? { copyPublicDir: false } : {},
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

@@ -13,7 +13,7 @@ export const translations = {
     },
     hero: {
       eyebrow: "White Cane / AI Consulting",
-      lines: ["Guiding", "those who walk blind", "into the era of"],
+      lines: ["Guiding", "those who walk blind", "into the era of "],
       lineHighlight: "AI.",
       sub: "We help businesses find the right direction — selecting, integrating, and operationalizing the right AI tools for the work that actually matters.",
       cta: "Explore the Services",
@@ -263,10 +263,6 @@ export const translations = {
           a: "The model is the part we deliberately keep replaceable. Your documents, your access rules, your evaluations and your workflows are the assets, and they outlive any single model. Swapping one out should be a configuration change and a test run, not a rebuild. That is the main reason we avoid architectures locked to one vendor.",
         },
         {
-          q: "Will AI replace part of our team?",
-          a: "That is your decision, not a technical outcome, and we will not pretend otherwise. What we can tell you is how the work looks afterwards: the routine part of a job shrinks and the part that needs judgement grows. The projects that succeed are the ones where the people doing the work helped choose the tool.",
-        },
-        {
           q: "How do we know whether it was actually worth it?",
           a: "We measure before we build. For each workflow we agree what counts: hours, error rate, turnaround time. We record today's number first, so the comparison afterwards is real. If a workflow shows no improvement, we say so and drop it instead of defending it.",
         },
@@ -305,9 +301,17 @@ export const translations = {
       },
       footerTagline: "Guiding those who walk blind into the era of AI.",
       practice: "Practice",
-      practiceLinks: ["Strategy", "Selection", "Integration"],
+      practiceLinks: [
+        { label: "Strategy", href: "#offer" },
+        { label: "Selection", href: "#offer" },
+        { label: "Integration", href: "#offer" },
+      ],
       company: "Company",
-      companyLinks: ["Who we are", "Work", "Contact"],
+      companyLinks: [
+        { label: "Who we are", href: "#who" },
+        { label: "Work", href: "#proof" },
+        { label: "Contact", href: "#contact" },
+      ],
       elsewhere: "Elsewhere",
       elsewhereLinks: ["LinkedIn", "Substack", "X / Twitter"],
       accepting: "Currently accepting Q4 engagements",
@@ -325,6 +329,10 @@ export const translations = {
         {
           term: "Who is responsible",
           body: "White Cane AI Consulting, Athens. For anything about your data, write to consulting@whitecane-ai.com.",
+        },
+        {
+          term: "Hosting",
+          body: "The site is hosted on GitHub Pages (GitHub, Inc.). Like any web server, it logs your IP address when you visit, for security, and may process it in the US. GitHub does not use it for tracking or advertising.",
         },
         {
           term: "Contact form",
@@ -614,10 +622,6 @@ export const translations = {
           a: "Το μοντέλο είναι το κομμάτι που αφήνουμε επίτηδες αντικαταστήσιμο. Τα έγγραφά σας, οι κανόνες πρόσβασης, τα evaluations και οι ροές εργασίας είναι τα περιουσιακά στοιχεία και ζουν περισσότερο από κάθε μοντέλο. Η αλλαγή ενός μοντέλου πρέπει να είναι αλλαγή ρύθμισης και ένα πέρασμα από τα tests, όχι ξήλωμα από την αρχή. Γι’ αυτό κυρίως αποφεύγουμε αρχιτεκτονικές δεμένες σε έναν πάροχο.",
         },
         {
-          q: "Θα αντικαταστήσει το AI μέρος της ομάδας μας;",
-          a: "Αυτό είναι δική σας απόφαση, όχι τεχνικό αποτέλεσμα, και δεν θα προσποιηθούμε το αντίθετο. Αυτό που μπορούμε να σας πούμε είναι πώς μοιάζει η δουλειά μετά: το ρουτινιάρικο μέρος μικραίνει και το μέρος που απαιτεί κρίση μεγαλώνει. Τα έργα που πετυχαίνουν είναι εκείνα όπου οι άνθρωποι που κάνουν τη δουλειά συμμετείχαν στην επιλογή του εργαλείου.",
-        },
-        {
           q: "Πώς ξέρουμε αν τελικά άξιζε;",
           a: "Μετράμε πριν χτίσουμε. Για κάθε ροή συμφωνούμε τι μετράει: ώρες, ποσοστό λαθών, χρόνος απόκρισης. Καταγράφουμε πρώτα τον σημερινό αριθμό, ώστε η σύγκριση μετά να είναι πραγματική. Αν μια ροή δεν δείξει βελτίωση, το λέμε και την κόβουμε αντί να την υπερασπιστούμε.",
         },
@@ -655,10 +659,21 @@ export const translations = {
         },
       },
       footerTagline: "Καθοδηγούμε όσους βαδίζουν τυφλά στην εποχή του AI.",
-      practice: "Τομείς",
-      practiceLinks: ["Στρατηγική", "Επιλογή", "Ενσωμάτωση"],
+      practice: "Οδηγοί",
+      // The Greek landing pages in src/lib/guides.ts.
+      practiceLinks: [
+        { label: "Στήσιμο εργαλείων AI", href: "/stisimo-ergaleion-ai/" },
+        { label: "Συμβουλευτική AI", href: "/symvouleftiki-ai/" },
+        { label: "AI στην επιχείρηση", href: "/ai-stin-epicheirisi/" },
+        { label: "AI Transformation", href: "/ai-transformation/" },
+        { label: "Εκπαίδευση AI", href: "/ekpaidefsi-ai/" },
+      ],
       company: "Εταιρεία",
-      companyLinks: ["Ποιοι είμαστε", "Έργο", "Επικοινωνία"],
+      companyLinks: [
+        { label: "Ποιοι είμαστε", href: "#who" },
+        { label: "Έργο", href: "#proof" },
+        { label: "Επικοινωνία", href: "#contact" },
+      ],
       elsewhere: "Αλλού",
       elsewhereLinks: ["LinkedIn", "Substack", "X / Twitter"],
       accepting: "Δεχόμαστε συνεργασίες Q4",
@@ -676,6 +691,10 @@ export const translations = {
         {
           term: "Υπεύθυνος επεξεργασίας",
           body: "White Cane AI Consulting, Αθήνα. Για οτιδήποτε αφορά τα δεδομένα σας, γράψτε στο consulting@whitecane-ai.com.",
+        },
+        {
+          term: "Φιλοξενία",
+          body: "Το site φιλοξενείται στο GitHub Pages (GitHub, Inc.). Όπως κάθε web server, καταγράφει τη διεύθυνση IP σας όταν το επισκέπτεστε, για λόγους ασφαλείας, και μπορεί να την επεξεργαστεί στις ΗΠΑ. Το GitHub δεν τη χρησιμοποιεί για παρακολούθηση ή διαφήμιση.",
         },
         {
           term: "Φόρμα επικοινωνίας",

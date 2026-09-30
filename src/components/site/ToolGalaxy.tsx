@@ -165,6 +165,9 @@ export const Tile = ({ glyph, size, inner = false, onEnter, onLeave }: { glyph: 
   );
 };
 
+// Layout effects only exist in the browser; during the build's prerender the plain effect (never run) avoids React's warning.
+const useIsomorphicLayoutEffect = typeof window === "undefined" ? useEffect : useLayoutEffect;
+
 export const ToolGalaxy = ({ words, label, children }: { words: string[]; label: string; children: ReactNode }) => {
   const boxRef = useRef<HTMLDivElement>(null);
   const worldRef = useRef<HTMLDivElement>(null);
@@ -181,7 +184,7 @@ export const ToolGalaxy = ({ words, label, children }: { words: string[]; label:
   // Live values the animation loop reads without re-rendering React.
   const live = useRef({ phase: 0, speed: 1, hover: -1, inside: false, px: 0, py: 0, tx: 0, ty: 0, visible: true, start: 0, lift: [] as number[] });
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const el = boxRef.current;
     if (!el) return;
     const measure = () => setBox({ w: el.clientWidth, h: el.clientHeight });

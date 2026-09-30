@@ -1,5 +1,5 @@
 import { useState, type ReactNode } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const ease = [0.6, 0.05, 0.1, 1] as const;
@@ -66,6 +66,7 @@ export const FAQ = ({ aside }: { aside?: ReactNode }) => {
                   <button
                     onClick={() => setOpen(isOpen ? null : i)}
                     aria-expanded={isOpen}
+                    aria-controls={`faq-answer-${i}`}
                     className="group w-full text-left flex items-start gap-4 px-5 sm:px-6 py-5"
                   >
                     <span
@@ -94,21 +95,20 @@ export const FAQ = ({ aside }: { aside?: ReactNode }) => {
                   </button>
                 </h3>
 
-                <AnimatePresence initial={false}>
-                  {isOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.38, ease: softEase }}
-                      className="overflow-hidden"
-                    >
-                      <p className="text-[0.9375rem] text-muted-foreground leading-[1.75] px-5 sm:px-6 pb-6 sm:pl-[3.4rem]">
-                        {item.a}
-                      </p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                {/* Closed answers stay in the markup, folded to zero height, so the
+                    prerendered page carries every answer for search engines and AI assistants. */}
+                <motion.div
+                  id={`faq-answer-${i}`}
+                  initial={false}
+                  animate={isOpen ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
+                  transition={{ duration: 0.38, ease: softEase }}
+                  aria-hidden={!isOpen}
+                  className="overflow-hidden"
+                >
+                  <p className="text-[0.9375rem] text-muted-foreground leading-[1.75] px-5 sm:px-6 pb-6 sm:pl-[3.4rem]">
+                    {item.a}
+                  </p>
+                </motion.div>
               </div>
             );
           })}

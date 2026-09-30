@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { Achievements } from "@/components/site/Achievements";
 import { Offer } from "@/components/site/Offer";
@@ -9,7 +10,12 @@ import { translations } from "@/lib/translations";
 
 const gr = translations.GR;
 
-const renderWithLang = (ui: React.ReactElement) => render(<LanguageProvider>{ui}</LanguageProvider>);
+const renderWithLang = (ui: React.ReactElement) =>
+  render(
+    <MemoryRouter>
+      <LanguageProvider>{ui}</LanguageProvider>
+    </MemoryRouter>,
+  );
 
 describe("Offer", () => {
   it("shows service A with its three levels and B, C, D", () => {

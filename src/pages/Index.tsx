@@ -8,17 +8,8 @@ import { Pricing } from "@/components/site/Pricing";
 import { CTA } from "@/components/site/CTA";
 import { CookieBanner, PrivacyModal } from "@/components/site/CookieConsent";
 import { ConsentProvider } from "@/contexts/ConsentContext";
-import { useEffect } from "react";
 
 const Index = () => {
-  useEffect(() => {
-    document.title = "White Cane AI Consulting — Clarity in the era of AI";
-    const desc = "Independent AI consulting. We help businesses select, integrate and operationalize the right AI tools — strategy, tooling, workflows and governance.";
-    let m = document.querySelector('meta[name="description"]');
-    if (!m) { m = document.createElement('meta'); m.setAttribute('name', 'description'); document.head.appendChild(m); }
-    m.setAttribute('content', desc);
-  }, []);
-
   return (
     <ConsentProvider>
     <main className="min-h-screen bg-background text-foreground overflow-x-clip">

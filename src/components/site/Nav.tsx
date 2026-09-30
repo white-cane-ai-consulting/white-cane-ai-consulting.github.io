@@ -1,12 +1,22 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/logo-icon-color.svg";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { homePath } from "@/lib/seo";
+import type { Lang } from "@/lib/translations";
+
+const langLinks: { lang: Lang; label: string; hrefLang: string }[] = [
+  { lang: "EN", label: "EN", hrefLang: "en" },
+  { lang: "GR", label: "GR", hrefLang: "el" },
+];
 
 export const Nav = () => {
-  const { lang, setLang, t } = useLanguage();
+  const { lang, t } = useLanguage();
   const [open, setOpen] = useState(false);
+  // Section anchors live on the home page, so from any other page they lead back to it.
+  const home = homePath[lang];
 
   return (
     <motion.header
@@ -16,7 +26,7 @@ export const Nav = () => {
       className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/60 border-b border-border/50"
     >
       <div className="container flex items-center justify-between h-16">
-        <a href="#top" className="flex items-center gap-3 group" onClick={() => setOpen(false)}>
+        <a href={`${home}#top`} className="flex items-center gap-3 group" onClick={() => setOpen(false)}>
           <div className="h-10 w-10 rounded-[25%] bg-bone overflow-hidden shrink-0 p-1">
             <img src={logo} alt="White Cane AI Consulting" className="h-full w-full" />
           </div>
@@ -26,28 +36,27 @@ export const Nav = () => {
         </a>
         <nav className="hidden lg:flex items-center gap-4 xl:gap-7 text-[11px] xl:text-xs uppercase tracking-[0.14em] text-muted-foreground">
           {t.nav.links.map((l) => (
-            <a key={l.href} href={l.href} className="rounded-full px-3 py-2 hover:text-foreground hover:bg-card transition-colors duration-300">
+            <a key={l.href} href={home + l.href} className="rounded-full px-3 py-2 hover:text-foreground hover:bg-card transition-colors duration-300">
               {l.label}
             </a>
           ))}
         </nav>
         <div className="flex items-center gap-3 sm:gap-4">
           <div className="flex items-center gap-0.5 text-xs uppercase tracking-[0.14em] bg-card rounded-full p-1">
-            <button
-              onClick={() => setLang("EN")}
-              className={`rounded-full px-3 py-1.5 transition-colors duration-300 ${lang === "EN" ? "bg-foreground text-background" : "text-muted-foreground hover:text-foreground"}`}
-            >
-              EN
-            </button>
-            <button
-              onClick={() => setLang("GR")}
-              className={`rounded-full px-3 py-1.5 transition-colors duration-300 ${lang === "GR" ? "bg-foreground text-background" : "text-muted-foreground hover:text-foreground"}`}
-            >
-              GR
-            </button>
+            {langLinks.map((l) => (
+              <Link
+                key={l.lang}
+                to={homePath[l.lang]}
+                hrefLang={l.hrefLang}
+                aria-current={lang === l.lang ? "page" : undefined}
+                className={`rounded-full px-3 py-1.5 transition-colors duration-300 ${lang === l.lang ? "bg-foreground text-background" : "text-muted-foreground hover:text-foreground"}`}
+              >
+                {l.label}
+              </Link>
+            ))}
           </div>
           <a
-            href="#contact"
+            href={`${home}#contact`}
             className="hidden sm:inline-flex group relative items-center gap-2 text-xs uppercase tracking-[0.14em] rounded-full bg-card px-5 py-2.5 hover:bg-signal hover:text-bone transition-colors duration-300"
           >
             <span className="w-1.5 h-1.5 bg-signal pulse-dot" />
@@ -77,7 +86,7 @@ export const Nav = () => {
               {t.nav.links.map((l) => (
                 <a
                   key={l.href}
-                  href={l.href}
+                  href={home + l.href}
                   onClick={() => setOpen(false)}
                   className="rounded-xl px-4 py-3.5 hover:bg-card hover:text-foreground transition-colors duration-300"
                 >
@@ -85,7 +94,7 @@ export const Nav = () => {
                 </a>
               ))}
               <a
-                href="#contact"
+                href={`${home}#contact`}
                 onClick={() => setOpen(false)}
                 className="mt-4 inline-flex items-center gap-2 text-xs rounded-full bg-bone text-ink px-5 py-3.5 hover:bg-signal hover:text-bone transition-colors duration-300 justify-center"
               >

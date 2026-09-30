@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { render, screen } from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import Index from "@/pages/Index";
 import { translations } from "@/lib/translations";
@@ -9,9 +10,11 @@ const gr = translations.GR;
 describe("Index", () => {
   it("renders every section in order, with the FAQ folded into the contact section", () => {
     const { container } = render(
-      <LanguageProvider>
-        <Index />
-      </LanguageProvider>,
+      <MemoryRouter>
+        <LanguageProvider>
+          <Index />
+        </LanguageProvider>
+      </MemoryRouter>,
     );
 
     const ids = [...container.querySelectorAll("section[id]")].map((s) => s.id);

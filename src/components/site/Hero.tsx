@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { Fragment, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -15,6 +15,9 @@ export const Hero = () => {
     const fwd = fwdRef.current;
     const rev = revRef.current;
     if (!fwd || !rev) return;
+    // React doesn't write `muted` into prerendered HTML, and browsers only autoplay muted video.
+    fwd.muted = true;
+    rev.muted = true;
 
     const SPEED = 0.7;
     const FADE_MS = 500;
@@ -124,6 +127,7 @@ export const Hero = () => {
         <video
           ref={fwdRef}
           muted
+          suppressHydrationWarning
           playsInline
           preload="auto"
           className="absolute inset-0 w-full h-full object-cover"
@@ -134,6 +138,7 @@ export const Hero = () => {
         <video
           ref={revRef}
           muted
+          suppressHydrationWarning
           playsInline
           preload="auto"
           className="absolute inset-0 w-full h-full object-cover"
@@ -158,37 +163,41 @@ export const Hero = () => {
       </div>
 
       <div className="container relative z-10">
-        {/* Eyebrow */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4, ease }}
-          className="flex items-center gap-3 mb-10"
-        >
-          <span className="h-px w-12 bg-signal" />
-          <span className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
-            {t.hero.eyebrow}
+        {/* The eyebrow ("White Cane / Συμβουλευτική AI") is part of the h1, so the page's
+            main heading names what we do. The spaces between the spans keep the words
+            apart for crawlers that read the text without the layout. */}
+        <h1>
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4, ease }}
+            className="flex items-center gap-3 mb-10"
+          >
+            <span className="h-px w-12 bg-signal" />
+            <span className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
+              {t.hero.eyebrow}
+            </span>
+          </motion.span>{" "}
+          <span className="block font-display font-light leading-[0.95] tracking-tight max-w-[12ch] text-balance text-[clamp(1.75rem,6vw,5.25rem)]">
+            {t.hero.lines.map((line, i) => {
+              const parts = i === 2 ? line.split(t.hero.lineHighlight) : null;
+              return (
+                <Fragment key={i}>
+                  {i > 0 && " "}
+                  <motion.span
+                    initial={{ opacity: 0, y: 80, skewY: 4 }}
+                    animate={{ opacity: 1, y: 0, skewY: 0 }}
+                    transition={{ duration: 1.1, delay: 0.5 + i * 0.15, ease }}
+                    className="block"
+                  >
+                    {parts ? (
+                      <>{parts[0]}<em className="not-italic text-signal-bright font-normal">{t.hero.lineHighlight}</em>{parts[1]}</>
+                    ) : line}
+                  </motion.span>
+                </Fragment>
+              );
+            })}
           </span>
-        </motion.div>
-
-        {/* Headline */}
-        <h1 className="font-display font-light leading-[0.95] tracking-tight max-w-[12ch] text-balance text-[clamp(1.75rem,6vw,5.25rem)]">
-          {t.hero.lines.map((line, i) => {
-            const parts = i === 2 ? line.split(t.hero.lineHighlight) : null;
-            return (
-              <motion.span
-                key={i}
-                initial={{ opacity: 0, y: 80, skewY: 4 }}
-                animate={{ opacity: 1, y: 0, skewY: 0 }}
-                transition={{ duration: 1.1, delay: 0.5 + i * 0.15, ease }}
-                className="block"
-              >
-                {parts ? (
-                  <>{parts[0]}<em className="not-italic text-signal-bright font-normal">{t.hero.lineHighlight}</em>{parts[1]}</>
-                ) : line}
-              </motion.span>
-            );
-          })}
         </h1>
 
         {/* Sub */}
