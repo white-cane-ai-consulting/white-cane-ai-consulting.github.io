@@ -349,7 +349,7 @@ export const translations = {
         },
         {
           term: "Contact form",
-          body: "When you send the form, your name, email, company (if given) and message are passed to us by email through Web3Forms, a form-delivery service, which processes them only to deliver the message. We use what we receive only to reply and for any work that follows.",
+          body: "When you send the form, your name, email, company (if given) and message are passed to us by email through Web3Forms, a form-delivery service, which processes them only to deliver the message. We use what we receive only to reply and for any work that follows. We keep it for 1 year and then delete it, unless a working relationship has followed.",
         },
         {
           term: "Google Analytics",
@@ -721,7 +721,7 @@ export const translations = {
         },
         {
           term: "Φόρμα επικοινωνίας",
-          body: "Όταν στέλνετε τη φόρμα, το όνομα, το email, η εταιρεία (αν τη συμπληρώσετε) και το μήνυμά σας μας φτάνουν με email μέσω Web3Forms, μιας υπηρεσίας παράδοσης φορμών, που τα επεξεργάζεται μόνο για να παραδώσει το μήνυμα. Όσα λαμβάνουμε τα χρησιμοποιούμε μόνο για να απαντήσουμε και για τη συνεργασία που μπορεί να ακολουθήσει.",
+          body: "Όταν στέλνετε τη φόρμα, το όνομα, το email, η εταιρεία (αν τη συμπληρώσετε) και το μήνυμά σας μας φτάνουν με email μέσω Web3Forms, μιας υπηρεσίας παράδοσης φορμών, που τα επεξεργάζεται μόνο για να παραδώσει το μήνυμα. Όσα λαμβάνουμε τα χρησιμοποιούμε μόνο για να απαντήσουμε και για τη συνεργασία που μπορεί να ακολουθήσει. Τα κρατάμε για 1 χρόνο και μετά διαγράφονται, εκτός αν έχει προκύψει συνεργασία.",
         },
         {
           term: "Google Analytics",
