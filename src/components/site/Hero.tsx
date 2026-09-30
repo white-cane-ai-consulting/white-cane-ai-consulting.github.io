@@ -154,14 +154,6 @@ export const Hero = () => {
         {t.hero.sideLabel}
       </div>
 
-      {/* Side metric */}
-      <div className="hidden lg:block absolute right-8 top-32 text-right">
-        <div className="text-[11px] tracking-[0.18em] text-muted-foreground uppercase mb-2">{t.hero.sideMetricLabel}</div>
-        <div className="font-display text-2xl">
-          {t.hero.sideMetricValue}
-        </div>
-      </div>
-
       <div className="container relative z-10">
         {/* The eyebrow ("White Cane / Συμβουλευτική AI") is part of the h1, so the page's
             main heading names what we do. The spaces between the spans keep the words

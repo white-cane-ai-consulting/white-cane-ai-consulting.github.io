@@ -1,14 +1,12 @@
 import { useEffect, useRef } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { LanguageProvider } from "@/contexts/LanguageContext";
-import { guides } from "@/lib/guides";
-import { applyMeta, getPageMeta, homePath, langFromPath } from "@/lib/seo";
+import { applyMeta, getPageMeta, homePath, langFromPath, retiredPaths } from "@/lib/seo";
 import Index from "./pages/Index.tsx";
-import GuidePage from "./pages/GuidePage.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -48,8 +46,9 @@ export const AppShell = () => {
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/en" element={<Index />} />
-            {guides.map((g) => (
-              <Route key={g.path} path={g.path} element={<GuidePage guide={g} />} />
+            {/* Former landing pages. On GitHub Pages their static files redirect (scripts/prerender.mjs); this covers in-app visits. */}
+            {retiredPaths.map((path) => (
+              <Route key={path} path={path} element={<Navigate to="/" replace />} />
             ))}
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />

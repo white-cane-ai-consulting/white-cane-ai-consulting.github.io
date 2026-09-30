@@ -7,7 +7,10 @@ import { Check } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { cn } from "@/lib/utils";
 
-const CONTACT_EMAIL = "consulting@whitecane-ai.com";
+// Web3Forms emails each submission to the address the key was created for. The key is public
+// by design (it is sent from the browser); set it as VITE_WEB3FORMS_KEY at build time.
+const FORM_ENDPOINT = "https://api.web3forms.com/submit";
+const FORM_KEY = import.meta.env.VITE_WEB3FORMS_KEY as string | undefined;
 const softEase = [0.16, 1, 0.3, 1] as const;
 
 const field =
@@ -18,13 +21,14 @@ const label = "mb-2 block text-xs uppercase tracking-[0.12em] text-ink/65";
 const Req = () => <span aria-hidden="true" className="ml-1 text-signal">*</span>;
 
 /**
- * The site is static, so the form has no backend: submitting composes the message
- * and hands it to the visitor's email app, addressed to us, with the package in the subject.
+ * The site is static, so submissions go to a form-delivery service that emails them to us,
+ * with the package in the subject. The visitor never needs an email app.
  */
 export const ContactForm = () => {
   const { t } = useLanguage();
   const f = t.cta.form;
   const [sent, setSent] = useState(false);
+  const [failed, setFailed] = useState(false);
 
   const schema = z.object({
     pkg: z.number().int().min(0).max(f.packages.length - 1),
@@ -42,28 +46,38 @@ export const ContactForm = () => {
     watch,
     setValue,
     reset,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<Values>({
     resolver: zodResolver(schema),
     defaultValues: { pkg: 0, name: "", email: "", company: "", subject: "", message: "" },
   });
   const pkg = watch("pkg");
 
-  const onSubmit = (v: Values) => {
+  const onSubmit = async (v: Values) => {
+    setFailed(false);
     const packageName = f.packages[v.pkg];
-    const body = [
-      `${f.packageLabel} ${packageName}`,
-      `${f.name}: ${v.name}`,
-      `${f.email}: ${v.email}`,
-      v.company ? `${f.company}: ${v.company}` : null,
-      "",
-      v.message,
-    ]
-      .filter((line) => line !== null)
-      .join("\n");
-    const href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(`[${packageName}] ${v.subject}`)}&body=${encodeURIComponent(body)}`;
-    window.location.href = href;
-    setSent(true);
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: FORM_KEY,
+          subject: `[${packageName}] ${v.subject}`,
+          from_name: "White Cane website",
+          name: v.name,
+          email: v.email,
+          company: v.company || "-",
+          package: packageName,
+          message: v.message,
+          botcheck: "",
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.success) throw new Error(data.message ?? res.statusText);
+      setSent(true);
+    } catch {
+      setFailed(true);
+    }
   };
 
   const error = (msg?: string) =>
@@ -184,15 +198,18 @@ export const ContactForm = () => {
               {error(errors.message?.message)}
             </div>
 
+            {failed && <p role="alert" className="text-sm text-signal">{f.sendError}</p>}
+
             <div className="flex flex-col gap-3 pt-1 sm:flex-row sm:items-center sm:justify-between">
               <p className="text-xs leading-[1.6] text-ink/60 sm:max-w-[16rem]">
                 <span className="text-signal">*</span> {f.required}. {f.note}
               </p>
               <button
                 type="submit"
-                className="group inline-flex shrink-0 items-center justify-center gap-3 rounded-full bg-ink px-6 py-3.5 text-xs uppercase tracking-[0.14em] text-bone transition-colors duration-300 hover:bg-signal"
+                disabled={isSubmitting}
+                className="group disabled:opacity-60 inline-flex shrink-0 items-center justify-center gap-3 rounded-full bg-ink px-6 py-3.5 text-xs uppercase tracking-[0.14em] text-bone transition-colors duration-300 hover:bg-signal"
               >
-                {f.submit}
+                {isSubmitting ? f.sending : f.submit}
                 <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
               </button>
             </div>

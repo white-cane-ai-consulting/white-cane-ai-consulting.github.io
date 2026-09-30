@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { ServiceModal } from "@/components/site/ServiceModal";
+import { ServiceDetailText, ServiceModal } from "@/components/site/ServiceModal";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { serviceDetails, type ServiceId } from "@/lib/serviceDetails";
 import { cn } from "@/lib/utils";
@@ -21,6 +21,20 @@ export const Offer = () => {
   const o = t.offer;
   const a = o.serviceA;
   const [open, setOpen] = useState<ServiceId | null>(null);
+
+  // Footer links like "/#offer-B" open that service's window. Read in an effect, never during render.
+  useEffect(() => {
+    const fromHash = () => {
+      const id = window.location.hash.match(/^#offer-([ABCD])$/)?.[1] as ServiceId | undefined;
+      if (id) {
+        document.getElementById("offer")?.scrollIntoView();
+        setOpen(id);
+      }
+    };
+    fromHash();
+    window.addEventListener("hashchange", fromHash);
+    return () => window.removeEventListener("hashchange", fromHash);
+  }, []);
 
   // `initial` stays the same for everyone so the prerendered markup hydrates cleanly;
   // reduced motion only drops the duration.
@@ -123,7 +137,7 @@ export const Offer = () => {
                     {i < a.levels.length - 1 && <span aria-hidden className="absolute inset-x-0 bottom-0 h-px bg-white/10" />}
                     <span
                       aria-hidden
-                      className="absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-signal transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100 group-focus-visible:scale-x-100"
+                      className="absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-signal transition-transform duration-700 ease-expo group-hover:scale-x-100 group-focus-visible:scale-x-100"
                     />
                   </button>
                 </motion.li>
@@ -169,11 +183,11 @@ export const Offer = () => {
               <button
                 type="button"
                 onClick={() => setOpen(s.id)}
-                className="group relative flex h-full w-full flex-col overflow-hidden rounded-[1.5rem] border border-border bg-[linear-gradient(180deg,hsl(var(--sapphire)/0.4)_0%,hsl(var(--card)/0.7)_55%)] p-7 text-left transition-[transform,border-color,background-color] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:border-foreground/20 focus-visible:border-signal focus-visible:outline-none md:p-8"
+                className="group relative flex h-full w-full flex-col overflow-hidden rounded-[1.5rem] border border-border bg-[linear-gradient(180deg,hsl(var(--sapphire)/0.4)_0%,hsl(var(--card)/0.7)_55%)] p-7 text-left transition-[transform,border-color,background-color] duration-500 ease-expo hover:-translate-y-1 hover:border-foreground/20 focus-visible:border-signal focus-visible:outline-none md:p-8"
               >
                 <span
                   aria-hidden
-                  className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-signal transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100 group-focus-visible:scale-x-100"
+                  className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-signal transition-transform duration-700 ease-expo group-hover:scale-x-100 group-focus-visible:scale-x-100"
                 />
                 <span className="font-display text-6xl font-light leading-[0.8] text-foreground/40 transition-colors duration-500 group-hover:text-signal-bright group-focus-visible:text-signal-bright">
                   {s.id}
@@ -189,6 +203,14 @@ export const Offer = () => {
             </motion.li>
           ))}
         </ol>
+      </div>
+
+      {/* The same text the service windows open with, in the page from the start, so search
+          engines and AI assistants read it without clicking. Visitors get it through the windows. */}
+      <div hidden>
+        {Object.values(serviceDetails[lang]).map((detail) => (
+          <ServiceDetailText key={detail.code} detail={detail} />
+        ))}
       </div>
 
       <ServiceModal

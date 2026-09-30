@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Marketing website for **White Cane AI Consulting** ("Clarity in the era of AI"). React/TypeScript site (one long home page plus Greek landing pages), built with Vite, prerendered to static HTML at build time, and styled with TailwindCSS + a custom editorial design system.
+Marketing website for **White Cane AI Consulting** ("Clarity in the era of AI"). React/TypeScript single-page site (Greek home at `/`, English at `/en/`), built with Vite, prerendered to static HTML at build time, and styled with TailwindCSS + a custom editorial design system.
 
 ## Commands
 
@@ -24,9 +24,15 @@ The project also has a `bun.lockb`, so Bun can be used as an alternative to npm.
 
 ## Architecture
 
-**Routes** (`AppShell` in `App.tsx`): `/` Greek home and `/en/` English home both render `Index.tsx`; the language comes from the URL (`langFromPath`), not from state. Each entry in `src/lib/guides.ts` gets its own Greek landing page (`GuidePage.tsx`). A catch-all renders `NotFound.tsx`. Section anchors are prefixed with the home path (`/#offer`) so they work from every page.
+**Routes** (`AppShell` in `App.tsx`): `/` Greek home and `/en/` English home both render `Index.tsx`; the language comes from the URL (`langFromPath`), not from state. Everything lives on the home page by the owner's choice: no separate landing pages. Former guide URLs (`retiredPaths` in `src/lib/seo.ts`) redirect to `/`. A catch-all renders `NotFound.tsx`. Section anchors are prefixed with the home path (`/#offer`).
 
-**Prerendering / SEO:** `npm run build` builds the browser bundle, then an SSR bundle from `src/entry-server.tsx`, then `scripts/prerender.mjs` renders every route in `routes` to `dist/<path>/index.html`, plus `404.html`, `sitemap.xml` and `llms.txt`. `main.tsx` hydrates that markup. Per-page `<title>`, description, canonical, hreflang, Open Graph and JSON-LD come from `src/lib/seo.ts`. Anything rendered must match between server and client: no `window`/`localStorage` reads during render (use effects), or hydration fails. `src/test/seo.test.tsx` hydrates every route and fails on a mismatch. Content that should be indexable must be in the markup even when visually collapsed (see `FAQ.tsx`).
+**Prerendering / SEO:** `npm run build` builds the browser bundle, then an SSR bundle from `src/entry-server.tsx`, then `scripts/prerender.mjs` renders every route in `routes` to `dist/<path>/index.html`, plus `404.html`, `sitemap.xml`, `llms.txt` and a meta-refresh redirect page for each retired path. `main.tsx` hydrates that markup. Per-page `<title>`, description, canonical, hreflang, Open Graph and JSON-LD come from `src/lib/seo.ts`. Anything rendered must match between server and client: no `window`/`localStorage` reads during render (use effects), or hydration fails. `src/test/seo.test.tsx` hydrates every route and fails on a mismatch. Content that should be indexable must be in the markup even when visually collapsed: FAQ answers stay mounted (`FAQ.tsx`), and `Offer.tsx` keeps a hidden copy of every service window's text (`ServiceDetailText`). Never add text a visitor cannot reach by clicking; hidden-text and visitor-only redirects are search-engine spam.
+
+**Contact form:** `ContactForm.tsx` POSTs JSON to Web3Forms, which emails each submission to consulting@whitecane-ai.com (no mail client involved). The public access key comes from `VITE_WEB3FORMS_KEY` at build time: locally in `.env.local` (git-ignored, see `.env.example`), in CI from the `WEB3FORMS_KEY` GitHub Actions secret (`.github/workflows/deploy.yml`). Without the key the form shows its error message. The privacy policy text (`translations.ts`) names Web3Forms as a processor; keep it in sync if the provider changes.
+
+**Service windows:** the footer "Τομείς/Practice" links and any `/#offer-A` … `/#offer-D` URL open that service's window (`Offer.tsx` reads the hash in an effect, never during render).
+
+**Social preview:** `public/og-image.png` (1904×941); the matching `og:image:width/height` are in `seo.ts`. Change both together.
 
 **Component split:**
 - `src/components/site/` — page-specific marketing sections (Nav, Hero, Who, Offer, Achievements, Vision, Pricing, CTA, Footer). These are the primary working files for content/layout changes.

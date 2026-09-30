@@ -104,7 +104,7 @@ const Tabs = ({ block }: { block: Extract<DetailBlock, { kind: "tabs" }> }) => {
   );
 };
 
-const Block = ({ block, onNavigate }: { block: DetailBlock; onNavigate?: (id: ServiceId) => void }) => {
+const Block = ({ block, onNavigate, flat }: { block: DetailBlock; onNavigate?: (id: ServiceId) => void; flat?: boolean }) => {
   switch (block.kind) {
     case "lead":
       return <p className="max-w-3xl text-lg leading-[1.6] text-foreground sm:text-xl">{block.body}</p>;
@@ -178,7 +178,20 @@ const Block = ({ block, onNavigate }: { block: DetailBlock; onNavigate?: (id: Se
         </Section>
       );
     case "tabs":
-      return <Tabs block={block} />;
+      // Flat: every tab's rows, one after another, for the copy that sits in the page markup.
+      return flat ? (
+        <>
+          {block.tabs.map((tab) => (
+            <Section key={tab.label} title={`${block.title}: ${tab.label} (${tab.sub})`}>
+              {tab.rows.map(([term, desc]) => (
+                <Row key={term} term={term}>{desc}</Row>
+              ))}
+            </Section>
+          ))}
+        </>
+      ) : (
+        <Tabs block={block} />
+      );
     case "compare":
       if (block.tone === "tradeoff") {
         return (
@@ -224,6 +237,21 @@ const Block = ({ block, onNavigate }: { block: DetailBlock; onNavigate?: (id: Se
       return null;
   }
 };
+
+/**
+ * A window's full text without the window: every block, every tab. The home page keeps a
+ * copy of all windows in its markup (hidden, see Offer) so search engines and AI assistants
+ * read what visitors get by opening them.
+ */
+export const ServiceDetailText = ({ detail }: { detail: ServiceDetail }) => (
+  <section>
+    <h3>{detail.title}</h3>
+    <p>{detail.kicker}</p>
+    {detail.blocks.map((block, index) => (
+      <Block key={index} block={block} flat />
+    ))}
+  </section>
+);
 
 type ServiceModalProps = {
   detail: ServiceDetail | null;

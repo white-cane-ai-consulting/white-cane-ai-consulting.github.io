@@ -67,7 +67,7 @@ const TierCard = ({ children }: { children: ReactNode }) => {
         {/* One sheen across the card on entry; it resets instantly on leave. */}
         <span
           aria-hidden="true"
-          className="pointer-events-none absolute -inset-y-10 left-0 w-1/2 -translate-x-[150%] skew-x-[-18deg] bg-gradient-to-r from-transparent via-bone/[0.06] to-transparent motion-safe:group-hover:translate-x-[320%] motion-safe:group-hover:transition-transform motion-safe:group-hover:duration-[1200ms] motion-safe:group-hover:ease-out"
+          className="pointer-events-none absolute -inset-y-10 left-0 w-1/2 -translate-x-[150%] skew-x-[-18deg] bg-gradient-to-r from-transparent via-bone/[0.06] to-transparent motion-safe:group-hover:translate-x-[320%] motion-safe:group-hover:transition-transform motion-safe:group-hover:duration-1200 motion-safe:group-hover:ease-out"
         />
         <div className="relative flex flex-col">{children}</div>
       </motion.article>

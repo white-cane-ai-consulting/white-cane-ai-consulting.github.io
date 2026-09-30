@@ -151,19 +151,3 @@
 [data-radix-popper-content-wrapper]:has(> [data-retainer-panel][data-state="closed"]) {
   pointer-events: none;
 }
-
-/* Guide pages: the header settles in once, on arrival. The text is in the prerendered HTML
-   from the start; only its first paint is eased. Reduced motion keeps the fade, drops the rise. */
-.guide-rise {
-  animation: guideRise 640ms cubic-bezier(0.23, 1, 0.32, 1) both;
-  animation-delay: var(--rise-delay, 0ms);
-}
-@keyframes guideRise {
-  from { opacity: 0; transform: translateY(10px); }
-}
-@keyframes guideFade {
-  from { opacity: 0; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .guide-rise { animation-name: guideFade; }
-}

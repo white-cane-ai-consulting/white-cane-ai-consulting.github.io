@@ -1,12 +1,12 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { act, render, screen, within } from "@testing-library/react";
+import { act, render, screen } from "@testing-library/react";
 import { renderToString } from "react-dom/server";
 import { hydrateRoot } from "react-dom/client";
 import { MemoryRouter } from "react-router-dom";
 import { StaticRouter } from "react-router-dom/server";
 import { AppShell } from "@/App";
-import { guides } from "@/lib/guides";
-import { buildSitemap, getPageMeta, renderHead, routes } from "@/lib/seo";
+import { serviceDetails } from "@/lib/serviceDetails";
+import { buildSitemap, getPageMeta, renderHead, retiredPaths, routes } from "@/lib/seo";
 import { translations } from "@/lib/translations";
 
 const gr = translations.GR;
@@ -59,27 +59,24 @@ describe("page metadata", () => {
   });
 });
 
-describe("guide pages", () => {
-  it("are linked from the Greek footer", () => {
-    expect(gr.cta.practiceLinks.map((l) => l.href)).toEqual(guides.map((g) => g.path));
-  });
-
-  it.each(guides.map((g) => [g.path, g] as const))("%s renders its heading, sections and questions", (path, guide) => {
+describe("one page for everything", () => {
+  it.each(retiredPaths)("%s leads to the home page", (path) => {
     render(
       <MemoryRouter initialEntries={[path]}>
         <AppShell />
       </MemoryRouter>,
     );
+    expect(screen.getByRole("heading", { level: 1, name: /Συμβουλευτική AI/ })).toBeInTheDocument();
+  });
 
-    expect(screen.getByRole("heading", { level: 1, name: guide.h1 })).toBeInTheDocument();
-    for (const section of guide.sections) {
-      expect(screen.getByRole("heading", { level: 2, name: section.h2 })).toBeInTheDocument();
-    }
-    const faq = document.getElementById("faq")!;
-    for (const item of guide.faq) {
-      expect(within(faq).getByText(item.q)).toBeInTheDocument();
-      expect(within(faq).getByText(item.a)).toBeInTheDocument();
-    }
+  it("keeps retired URLs out of the sitemap", () => {
+    const xml = buildSitemap("2026-10-01");
+    for (const path of retiredPaths) expect(xml).not.toContain(path);
+  });
+
+  it.each(["GR", "EN"] as const)("quotes every package price in the %s cost question", (lang) => {
+    const cost = translations[lang].faq.items.find((item) => /κοστίζει|cost/i.test(item.q))!;
+    for (const tier of translations[lang].pricing.tiers) expect(cost.a).toContain(tier.price);
   });
 });
 
@@ -98,6 +95,23 @@ describe("prerendering", () => {
     const page = document.createElement("div");
     page.innerHTML = html;
     for (const item of gr.faq.items) expect(page.textContent).toContain(item.a);
+  });
+
+  it("puts the text of every service window in the HTML, not only when opened", () => {
+    const html = renderToString(
+      <StaticRouter location="/">
+        <AppShell />
+      </StaticRouter>,
+    );
+    const page = document.createElement("div");
+    page.innerHTML = html;
+    for (const detail of Object.values(serviceDetails.GR)) {
+      expect(page.textContent).toContain(detail.title);
+      const lead = detail.blocks.find((b) => b.kind === "lead" || b.kind === "para");
+      if (lead && "body" in lead) expect(page.textContent).toContain(lead.body);
+    }
+    // Every tab of the size comparison, not only the one selected by default.
+    expect(page.textContent).toContain("10–30 εργάσιμες.");
   });
 
   it.each(routes)("%s hydrates without a mismatch", async (path) => {

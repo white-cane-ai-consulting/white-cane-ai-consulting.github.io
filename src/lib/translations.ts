@@ -18,8 +18,6 @@ export const translations = {
       sub: "We help businesses find the right direction: selecting, integrating and operationalizing the right AI tools for the work that actually matters.",
       cta: "Explore the Services",
       sideLabel: "EST. 2026 · Clarity Engineered",
-      sideMetricLabel: "Currently",
-      sideMetricValue: "● Onboarding Q4",
       marquee: ["Cut through the noise", "● Deploy the right tools", "Build AI that sticks", "● Real adoption, not just access", "Enterprise AI, done right", "● From strategy to live workflows", "Clarity in the era of AI", "● Athens, est. 2026"],
     },
     who: {
@@ -62,7 +60,6 @@ export const translations = {
         { k: "3 yrs", v: "Prior enterprise AI experience" },
         { k: "Before GPT-4", v: "In Generative AI since 2023" },
         { k: "EST. 2026", v: "Founded in Athens" },
-        { k: "Q4", v: "Currently onboarding" },
       ],
     },
     offer: {
@@ -237,25 +234,35 @@ export const translations = {
       h2b: "when they start taking",
       h2c: "AI seriously.",
       items: [
+        // The first six are phrased the way people search for help ("how do we bring AI into our company");
+        // each covers several variants of the same question.
         {
-          q: "How do you decide which model and which tools are right for us?",
-          a: "We test them on your own work: real documents, your tone, the edge cases that actually trip tools up, and run the serious candidates side by side. A model that tops a public benchmark can still give the wrong answer when reviewing contracts in Greek.",
+          q: "How do we bring AI into our company?",
+          a: "Start with three to five tasks that repeat every week and measure how long they take today. Choose one company platform, close the personal accounts, connect it to your documents and systems (email, files, CRM, ERP), train the team on its own work and compare the results after a few weeks. That is exactly the set-up we do: we add the AI apps and tools your company needs and build them into the way you already work.",
+        },
+        {
+          q: "Does our company need AI? When is it worth it, and when not?",
+          a: "It is worth it when there are tasks that repeat, rely on text or documents and take a lot of time: quotes, replies to customers, reports, searching files, meeting notes. It is not worth it when the work is mostly judgement and accountability, or when there is nothing you can measure. If you already pay for ChatGPT or Copilot but only a few people use it, on personal accounts and without access to the company's documents, what you need is the set-up, not another tool. If we don't see a benefit in your case, we will tell you.",
+        },
+        {
+          q: "Which AI should we use? There are so many.",
+          a: "One company platform for the whole team is usually enough. On Google Workspace, Gemini is the quickest start. On Microsoft 365, Copilot already sees your files and email. For long documents and precise writing, Claude. For general use and the widest ecosystem of apps, ChatGPT. We add a second tool only if a department has a need the first platform does not cover. Before we recommend anything, we test it on your own Greek documents.",
+        },
+        {
+          q: "Is it safe to bring AI into our company?",
+          a: "It depends on the plan and the settings. On free and personal plans, what an employee uploads may be used to train models. On a company plan, with a data processing agreement (DPA), training on your data switched off, sign-in with a company account (SSO) and the right access rights, it is safe for most files. For data that must not leave the company at all, we run models on your own infrastructure. We check GDPR before anything real goes in.",
+        },
+        {
+          q: "How do we speed up our processes and build workflows and agents with AI?",
+          a: "We start with the tasks that repeat and pass through many hands: quotes, orders, invoices, customer requests, reports. For each one, AI writes the first draft or extracts the data, and an automation (n8n, Make or Power Automate) moves the data between email, files, CRM and ERP with no copying by hand. We record today's time first, so afterwards it shows whether the workflow really got faster. When a task has several steps and clear rules, we add an agent: a model given tools and permission to act, such as reading a file, querying a database or drafting a reply. It is the wrong choice when judgement and accountability matter more than speed, and then a plain search box serves you better. We will tell you which is which. That is what AI transformation looks like in practice: department by department, measured at every step.",
+        },
+        {
+          q: "Who can help us bring AI into our company?",
+          a: "We can. White Cane AI is a team from Athens with experience setting up AI tools in large Greek companies. We choose the tools, set them up, train your team and stay with you for two months. We start with a free 30-minute call, where you tell us what you want to solve and we tell you what we would set up and which package fits. You can ask for it through the contact form.",
         },
         {
           q: "Do the tools actually work well in Greek?",
           a: "Not always. Some models handle Greek grammar and business documents worse than English, even when their English output looks strong. We test candidates on Greek text specifically (contracts, invoices, customer messages), and we know the Greek market, so we can tell you upfront which tools are worth trying and which aren't.",
-        },
-        {
-          q: "What if we want to stop partway through, or later on?",
-          a: "Each package is a complete project, not a subscription: you pay once and it is delivered to your team. The monthly support after the two free months is optional, and you can cancel it whenever you like with 15 days' written notice.",
-        },
-        {
-          q: "What does an “agent” actually mean, and when is one worth it?",
-          a: "An agent is a model given tools and permission to act: read a file, query a database, draft a reply. It earns its place when a task has several steps and clear rules, and it is the wrong choice when judgement and accountability matter more than speed. We will tell you when a plain search box would serve you better.",
-        },
-        {
-          q: "Does our data leave the company?",
-          a: "Only if you allow it. On cloud platforms we enforce no model training on your data, custom retention, IP allowlisting, and a GDPR and DPA review before anything real goes in. When data cannot leave at all, we run local open-weight models on your own infrastructure. No transfer to a third party means no corresponding risk.",
         },
         {
           q: "Can this run entirely on our own servers, without the cloud?",
@@ -270,12 +277,8 @@ export const translations = {
           a: "The model is the part we deliberately keep replaceable. Your documents, your access rules, your evaluations and your workflows are the assets, and they outlive any single model. Swapping one out should be a configuration change and a test run, not a rebuild. That is the main reason we avoid architectures locked to one vendor.",
         },
         {
-          q: "How do we know whether it was actually worth it?",
-          a: "We measure before we build. For each workflow we agree what counts: hours, error rate, turnaround time. We record today's number first, so the comparison afterwards is real. If a workflow shows no improvement, we say so and drop it instead of defending it.",
-        },
-        {
-          q: "What does a project include, and how long does it take?",
-          a: "Four things, every time: research and benchmarking of the right tools, the full technical set-up with its security configuration, training that matches the size of your team, and two months of support. Around 5 working days for a small business, 5–15 for mid-market and 10–30 for an enterprise rollout, with on-premise installations at the top of that range.",
+          q: "How much do AI consulting and tool set-up cost?",
+          a: "It depends on the size of the company and on how many tools and connections are needed. Small business (5–15 people): €1,500 – €2,500. Mid-sized business (20–100 people): €2,500 – €7,500. Large organisation (100+ people): €8,000 – €20,000+. Prices exclude VAT and include research, set-up, training and two months of support.",
         },
       ],
     },
@@ -295,9 +298,11 @@ export const translations = {
         message: "Description",
         messagePlaceholder: "What do you want to solve? Which tools and systems do you use today?",
         submit: "Send request",
-        note: "Opens your email app with the message ready to send.",
-        sentTitle: "Your message is ready in your email app.",
-        sentBody: "Press send there. If nothing opened, write to us directly at the address below.",
+        note: "We reply by email.",
+        sending: "Sending…",
+        sendError: "Something went wrong and the message was not sent. Please try again, or write to us directly at the address below.",
+        sentTitle: "Your message has been sent.",
+        sentBody: "We will get back to you by email.",
         again: "New message",
         errors: {
           name: "Please enter your name.",
@@ -309,9 +314,10 @@ export const translations = {
       footerTagline: "Guiding those who walk blind into the era of AI.",
       practice: "Practice",
       practiceLinks: [
-        { label: "Strategy", href: "#offer" },
-        { label: "Selection", href: "#offer" },
-        { label: "Integration", href: "#offer" },
+        { label: "AI tool set-up", href: "#offer-A" },
+        { label: "Research & selection", href: "#offer-B" },
+        { label: "Training", href: "#offer-C" },
+        { label: "Staying current", href: "#offer-D" },
       ],
       company: "Company",
       companyLinks: [
@@ -321,7 +327,7 @@ export const translations = {
       ],
       elsewhere: "Elsewhere",
       elsewhereLinks: ["LinkedIn", "Substack", "X / Twitter"],
-      accepting: "Currently accepting Q4 engagements",
+      accepting: "Currently accepting engagements",
     },
     consent: {
       banner: "We use Google Analytics to see how many people visit the site and what they read. It sets cookies only if you accept.",
@@ -343,7 +349,7 @@ export const translations = {
         },
         {
           term: "Contact form",
-          body: "The form sends nothing to a server. It opens your own email app with the message ready, and you send it. We use the emails we receive only to reply and for any work that follows.",
+          body: "When you send the form, your name, email, company (if given) and message are passed to us by email through Web3Forms, a form-delivery service, which processes them only to deliver the message. We use what we receive only to reply and for any work that follows.",
         },
         {
           term: "Google Analytics",
@@ -384,8 +390,6 @@ export const translations = {
       sub: "Βοηθάμε τις ελληνικές επιχειρήσεις να βρουν τη σωστή κατεύθυνση: επιλέγοντας, ενσωματώνοντας και αξιοποιώντας τα κατάλληλα εργαλεία AI για τη δουλειά που πραγματικά μετράει.",
       cta: "Εξερευνήστε τις Υπηρεσίες",
       sideLabel: "ΙΔΡΥΣΗ 2026 · Σαφήνεια στην εποχή του GenAI",
-      sideMetricLabel: "Τρέχον",
-      sideMetricValue: "● Q4 Onboarding",
       marquee: ["Στρατηγική AI", "● Αξιολόγηση Εργαλείων", "Υλοποίηση", "● Εκπαίδευση Ομάδων", "Σχεδιασμός Ροών", "● Επιλογή Εργαλείων AI", "Ενσωμάτωση", "● Συνεχής Ενημέρωση"],
     },
     who: {
@@ -428,7 +432,6 @@ export const translations = {
         { k: "3+ χρόνια", v: "Εμπειρία enterprise AI" },
         { k: "Πριν το GPT-4", v: "Στο Generative AI από το 2023" },
         { k: "2026", v: "Ιδρύθηκε στην Αθήνα" },
-        { k: "Q4", v: "Τώρα δεχόμαστε πελάτες" },
       ],
     },
     offer: {
@@ -603,25 +606,35 @@ export const translations = {
       h2b: "όσοι αρχίζουν να παίρνουν",
       h2c: "το AI στα σοβαρά.",
       items: [
+        // The first six are phrased the way people search for help ("πώς να βάλω AI στην εταιρεία μου");
+        // each covers several variants of the same question.
         {
-          q: "Πώς αποφασίζετε ποιο μοντέλο και ποια εργαλεία μας ταιριάζουν;",
-          a: "Τα δοκιμάζουμε στη δική σας δουλειά: πραγματικά έγγραφα, το ύφος σας, τις δύσκολες περιπτώσεις που πραγματικά μπερδεύουν τα εργαλεία, και τρέχουμε τους σοβαρούς υποψήφιους ο ένας δίπλα στον άλλον. Ένα μοντέλο που πρωτεύει σε δημόσια benchmarks μπορεί να δώσει λάθος απάντηση σε έλεγχο συμβάσεων στα ελληνικά.",
+          q: "Πώς να βάλω AI στην εταιρεία μου;",
+          a: "Ξεκινήστε από τρεις με πέντε δουλειές που επαναλαμβάνονται κάθε εβδομάδα και μετρήστε πόσο χρόνο παίρνουν σήμερα. Διαλέξτε μία εταιρική πλατφόρμα, κλείστε τους προσωπικούς λογαριασμούς, συνδέστε την με τα έγγραφα και τα συστήματά σας (email, αρχεία, CRM, ERP), εκπαιδεύστε την ομάδα πάνω στη δική της δουλειά και συγκρίνετε τα αποτελέσματα μετά από λίγες εβδομάδες. Αυτό ακριβώς είναι το στήσιμο που κάνουμε: προσθέτουμε τις εφαρμογές και τα εργαλεία AI που χρειάζεται η εταιρεία σας και τα ενσωματώνουμε στον τρόπο που ήδη δουλεύετε.",
+        },
+        {
+          q: "Χρειάζεται η εταιρεία μου AI; Πότε αξίζει και πότε όχι;",
+          a: "Αξίζει όταν υπάρχουν δουλειές που επαναλαμβάνονται, βασίζονται σε κείμενα ή έγγραφα και παίρνουν πολύ χρόνο: προσφορές, απαντήσεις σε πελάτες, αναφορές, αναζήτηση σε αρχεία, πρακτικά συναντήσεων. Δεν αξίζει όταν η δουλειά θέλει κυρίως κρίση και ευθύνη, ή όταν δεν υπάρχει κάτι που να μετριέται. Αν ήδη πληρώνετε ChatGPT ή Copilot αλλά το χρησιμοποιούν λίγοι, με προσωπικούς λογαριασμούς και χωρίς πρόσβαση στα έγγραφα της εταιρείας, η ανάγκη είναι το στήσιμο και όχι ακόμα ένα εργαλείο. Αν στη δική σας περίπτωση δεν βλέπουμε όφελος, θα σας το πούμε.",
+        },
+        {
+          q: "Τι AI να βάλω στην εταιρεία μου; Υπάρχουν τόσα πολλά.",
+          a: "Συνήθως αρκεί μία εταιρική πλατφόρμα για όλη την ομάδα. Σε Google Workspace, το Gemini είναι η πιο γρήγορη αρχή. Σε Microsoft 365, το Copilot βλέπει ήδη τα αρχεία και τα email σας. Για μεγάλα έγγραφα και ακρίβεια στη γραφή, το Claude. Για γενική χρήση και το μεγαλύτερο οικοσύστημα εφαρμογών, το ChatGPT. Δεύτερο εργαλείο προσθέτουμε μόνο αν κάποιο τμήμα έχει ανάγκη που η πρώτη πλατφόρμα δεν καλύπτει. Πριν προτείνουμε οτιδήποτε, το δοκιμάζουμε σε δικά σας ελληνικά έγγραφα.",
+        },
+        {
+          q: "Είναι ασφαλές να βάλω AI στην εταιρεία μου;",
+          a: "Εξαρτάται από το πλάνο και τις ρυθμίσεις. Στα δωρεάν και προσωπικά πλάνα, ό,τι ανεβάζει ένας υπάλληλος μπορεί να χρησιμοποιηθεί για την εκπαίδευση μοντέλων. Σε εταιρικό πλάνο, με σύμβαση επεξεργασίας δεδομένων (DPA), απενεργοποιημένη την εκπαίδευση στα δεδομένα σας, είσοδο με εταιρικό λογαριασμό (SSO) και σωστά δικαιώματα πρόσβασης, για τα περισσότερα αρχεία είναι ασφαλές. Για δεδομένα που δεν επιτρέπεται να βγουν καθόλου από την εταιρεία, τρέχουμε μοντέλα στη δική σας υποδομή. Ελέγχουμε το GDPR πριν μπει οτιδήποτε πραγματικό.",
+        },
+        {
+          q: "Πώς θα επιταχύνω τις διαδικασίες μου και θα φτιάξω workflows και agents με AI;",
+          a: "Ξεκινάμε από τις δουλειές που επαναλαμβάνονται και περνούν από πολλά χέρια: προσφορές, παραγγελίες, τιμολόγια, αιτήματα πελατών, αναφορές. Σε καθεμία, το AI γράφει το πρώτο προσχέδιο ή εξάγει τα στοιχεία, και ένας αυτοματισμός (n8n, Make ή Power Automate) μεταφέρει τα δεδομένα ανάμεσα στο email, τα αρχεία, το CRM και το ERP χωρίς αντιγραφή με το χέρι. Καταγράφουμε πρώτα τον σημερινό χρόνο, ώστε μετά να φαίνεται αν η ροή πράγματι επιταχύνθηκε. Όταν μια δουλειά έχει πολλά βήματα και καθαρούς κανόνες, προσθέτουμε agent: ένα μοντέλο στο οποίο έχουν δοθεί εργαλεία και άδεια να δράσει, π.χ. να διαβάσει ένα αρχείο, να ρωτήσει μια βάση ή να γράψει μια απάντηση. Είναι λάθος επιλογή όταν μετράει περισσότερο η κρίση και η ευθύνη παρά η ταχύτητα, και τότε ένα απλό πεδίο αναζήτησης σας εξυπηρετεί καλύτερα. Θα σας πούμε ποιο είναι ποιο. Έτσι γίνεται στην πράξη το AI transformation: τμήμα προς τμήμα, με μέτρηση σε κάθε βήμα.",
+        },
+        {
+          q: "Ποιος μπορεί να με βοηθήσει να βάλω AI στην εταιρεία μου;",
+          a: "Εμείς. Η White Cane AI είναι ομάδα από την Αθήνα με εμπειρία στο στήσιμο εργαλείων AI σε μεγάλες ελληνικές επιχειρήσεις. Διαλέγουμε τα εργαλεία, τα στήνουμε, εκπαιδεύουμε την ομάδα και μένουμε δίπλα σας για δύο μήνες. Ξεκινάμε με μια δωρεάν κλήση 30 λεπτών, όπου μας λέτε τι θέλετε να λύσετε και σας λέμε τι θα στήναμε και ποιο πακέτο ταιριάζει. Μπορείτε να τη ζητήσετε από τη φόρμα επικοινωνίας.",
         },
         {
           q: "Δουλεύουν καλά τα εργαλεία στα ελληνικά;",
           a: "Όχι πάντα. Κάποια μοντέλα τα πάνε χειρότερα με την ελληνική γραμματική και τα επιχειρηματικά έγγραφα απ' ό,τι με τα αγγλικά, ακόμα κι όταν η απόδοσή τους στα αγγλικά φαίνεται καλή. Δοκιμάζουμε τους υποψήφιους ειδικά σε ελληνικό κείμενο (συμβάσεις, τιμολόγια, μηνύματα πελατών) και ξέρουμε την ελληνική αγορά, οπότε μπορούμε να σας πούμε εξαρχής ποια εργαλεία αξίζει να δοκιμάσετε και ποια όχι.",
-        },
-        {
-          q: "Τι γίνεται αν θέλουμε να σταματήσουμε στην πορεία;",
-          a: "Κάθε πακέτο είναι ένα ολοκληρωμένο έργο, όχι συνδρομή: το πληρώνετε μία φορά και παραδίδεται στην ομάδα σας. Η μηνιαία υποστήριξη μετά τους δύο δωρεάν μήνες είναι προαιρετική και τη διακόπτετε όποτε θέλετε, με 15 ημέρες έγγραφη ειδοποίηση.",
-        },
-        {
-          q: "Τι σημαίνει στην πράξη «agent», και πότε αξίζει;",
-          a: "Ένα agent είναι ένα μοντέλο στο οποίο έχουν δοθεί εργαλεία και άδεια να δράσει: να διαβάσει ένα αρχείο, να ρωτήσει μια βάση, να γράψει μια απάντηση. Αξίζει όταν μια εργασία έχει πολλά βήματα και καθαρούς κανόνες, και είναι λάθος επιλογή όταν μετράει περισσότερο η κρίση και η ευθύνη παρά η ταχύτητα. Θα σας πούμε όταν ένα απλό πεδίο αναζήτησης σας εξυπηρετεί καλύτερα.",
-        },
-        {
-          q: "Φεύγουν τα δεδομένα μας από την εταιρεία;",
-          a: "Μόνο αν το επιτρέψετε. Στις cloud πλατφόρμες επιβάλλουμε no model training στα δεδομένα σας, custom data retention, IP allowlisting και έλεγχο GDPR και DPA πριν μπει οτιδήποτε πραγματικό. Όταν τα δεδομένα δεν επιτρέπεται να βγουν καθόλου, τρέχουμε τοπικά open-weight μοντέλα στη δική σας υποδομή. Καμία μεταφορά σε τρίτο σημαίνει κανένα αντίστοιχο ρίσκο.",
         },
         {
           q: "Μπορεί να τρέξει εξ ολοκλήρου στους δικούς μας servers, χωρίς cloud;",
@@ -636,12 +649,8 @@ export const translations = {
           a: "Το μοντέλο είναι το κομμάτι που αφήνουμε επίτηδες αντικαταστήσιμο. Τα έγγραφά σας, οι κανόνες πρόσβασης, τα evaluations και οι ροές εργασίας είναι τα περιουσιακά στοιχεία και ζουν περισσότερο από κάθε μοντέλο. Η αλλαγή ενός μοντέλου πρέπει να είναι αλλαγή ρύθμισης και ένα πέρασμα από τα tests, όχι ξήλωμα από την αρχή. Γι’ αυτό κυρίως αποφεύγουμε αρχιτεκτονικές δεμένες σε έναν πάροχο.",
         },
         {
-          q: "Πώς ξέρουμε αν τελικά άξιζε;",
-          a: "Μετράμε πριν χτίσουμε. Για κάθε ροή συμφωνούμε τι μετράει: ώρες, ποσοστό λαθών, χρόνος απόκρισης. Καταγράφουμε πρώτα τον σημερινό αριθμό, ώστε η σύγκριση μετά να είναι πραγματική. Αν μια ροή δεν δείξει βελτίωση, το λέμε και την κόβουμε αντί να την υπερασπιστούμε.",
-        },
-        {
-          q: "Τι περιλαμβάνει ένα έργο και πόσο διαρκεί;",
-          a: "Τέσσερα πράγματα, πάντα: έρευνα και benchmark των κατάλληλων εργαλείων, πλήρες τεχνικό στήσιμο με τις ρυθμίσεις ασφαλείας του, εκπαίδευση προσαρμοσμένη στο μέγεθος της ομάδας σας, και δύο μήνες υποστήριξη. Περίπου 5 εργάσιμες για μικρή επιχείρηση, 5–15 για μεσαία και 10–30 για enterprise rollout, με τις On-Premise εγκαταστάσεις στο πάνω άκρο.",
+          q: "Πόσο κοστίζει η συμβουλευτική και το στήσιμο εργαλείων AI;",
+          a: "Εξαρτάται από το μέγεθος της εταιρείας και από το πόσα εργαλεία και συνδέσεις χρειάζονται. Μικρή επιχείρηση (5–20 άτομα): €1.500 – €3.000. Μεσαία επιχείρηση (20–100 άτομα): €3.000 – €8.000. Μεγάλος οργανισμός (100+ άτομα): €8.000 – €20.000+. Οι τιμές είναι προ ΦΠΑ και περιλαμβάνουν έρευνα, στήσιμο, εκπαίδευση και δύο μήνες υποστήριξη.",
         },
       ],
     },
@@ -661,9 +670,11 @@ export const translations = {
         message: "Περιγραφή",
         messagePlaceholder: "Τι θέλετε να λύσετε; Ποια εργαλεία και συστήματα χρησιμοποιείτε σήμερα;",
         submit: "Αποστολή αιτήματος",
-        note: "Ανοίγει το email σας με το μήνυμα έτοιμο προς αποστολή.",
-        sentTitle: "Το μήνυμά σας είναι έτοιμο στο email σας.",
-        sentBody: "Πατήστε αποστολή εκεί. Αν δεν άνοιξε τίποτα, γράψτε μας απευθείας στη διεύθυνση παρακάτω.",
+        note: "Απαντάμε με email.",
+        sending: "Αποστολή…",
+        sendError: "Κάτι πήγε στραβά και το μήνυμα δεν στάλθηκε. Δοκιμάστε ξανά ή γράψτε μας απευθείας στη διεύθυνση παρακάτω.",
+        sentTitle: "Το μήνυμά σας στάλθηκε.",
+        sentBody: "Θα σας απαντήσουμε με email.",
         again: "Νέο μήνυμα",
         errors: {
           name: "Συμπληρώστε το όνομά σας.",
@@ -673,14 +684,12 @@ export const translations = {
         },
       },
       footerTagline: "Καθοδηγούμε όσους βαδίζουν τυφλά στην εποχή του AI.",
-      practice: "Οδηγοί",
-      // The Greek landing pages in src/lib/guides.ts.
+      practice: "Τομείς",
       practiceLinks: [
-        { label: "Στήσιμο εργαλείων AI", href: "/stisimo-ergaleion-ai/" },
-        { label: "Συμβουλευτική AI", href: "/symvouleftiki-ai/" },
-        { label: "AI στην επιχείρηση", href: "/ai-stin-epicheirisi/" },
-        { label: "AI Transformation", href: "/ai-transformation/" },
-        { label: "Εκπαίδευση AI", href: "/ekpaidefsi-ai/" },
+        { label: "Στήσιμο εργαλείων AI", href: "#offer-A" },
+        { label: "Έρευνα & επιλογή", href: "#offer-B" },
+        { label: "Εκπαίδευση", href: "#offer-C" },
+        { label: "Συνεχής ενημέρωση", href: "#offer-D" },
       ],
       company: "Εταιρεία",
       companyLinks: [
@@ -690,7 +699,7 @@ export const translations = {
       ],
       elsewhere: "Αλλού",
       elsewhereLinks: ["LinkedIn", "Substack", "X / Twitter"],
-      accepting: "Δεχόμαστε συνεργασίες Q4",
+      accepting: "Δεχόμαστε συνεργασίες",
     },
     consent: {
       banner: "Χρησιμοποιούμε το Google Analytics για να βλέπουμε πόσοι επισκέπτονται το site και τι διαβάζουν. Βάζει cookies μόνο αν το αποδεχτείτε.",
@@ -712,7 +721,7 @@ export const translations = {
         },
         {
           term: "Φόρμα επικοινωνίας",
-          body: "Η φόρμα δεν στέλνει τίποτα σε server. Ανοίγει το δικό σας πρόγραμμα email με το μήνυμα έτοιμο και το στέλνετε εσείς. Τα emails που λαμβάνουμε τα χρησιμοποιούμε μόνο για να απαντήσουμε και για τη συνεργασία που μπορεί να ακολουθήσει.",
+          body: "Όταν στέλνετε τη φόρμα, το όνομα, το email, η εταιρεία (αν τη συμπληρώσετε) και το μήνυμά σας μας φτάνουν με email μέσω Web3Forms, μιας υπηρεσίας παράδοσης φορμών, που τα επεξεργάζεται μόνο για να παραδώσει το μήνυμα. Όσα λαμβάνουμε τα χρησιμοποιούμε μόνο για να απαντήσουμε και για τη συνεργασία που μπορεί να ακολουθήσει.",
         },
         {
           term: "Google Analytics",

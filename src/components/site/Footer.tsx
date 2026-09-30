@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "@/assets/logo-icon-color.svg";
+import logo from "@/assets/logo-stacked-color.svg";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useConsent } from "@/contexts/ConsentContext";
 import { homePath } from "@/lib/seo";
@@ -92,7 +92,7 @@ export const Footer = () => {
             <button type="button" onClick={() => setPolicyOpen(true)} className="self-start uppercase tracking-[0.16em] transition-colors hover:text-foreground">
               {t.consent.footerLink}
             </button>
-            <span className="text-muted-foreground/70">v0.5</span>
+            <span className="text-muted-foreground/70">v0.6</span>
           </div>
           <span style={gridWidth ? { width: gridWidth } : undefined} className="flex items-center">
             <span className="text-signal-bright mr-2">●</span>

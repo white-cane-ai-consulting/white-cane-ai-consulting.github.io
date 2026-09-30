@@ -85,7 +85,7 @@ export const Who = () => {
         {/* Proof strip */}
         <motion.div
           {...fadeUp(0.4)}
-          className="grid grid-cols-2 md:grid-cols-4 gap-3"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-3"
         >
           {w.proof.map((p) => (
             <div

@@ -1,7 +1,8 @@
 /*
  * Runs after `vite build` (browser bundle → dist/) and `vite build --ssr` (dist-ssr/).
  * Renders every route to static HTML so search engines and AI assistants get the full
- * text without running JavaScript, then writes sitemap.xml, llms.txt and 404.html.
+ * text without running JavaScript, then writes sitemap.xml, llms.txt and 404.html, and a
+ * redirect to the home page at each retired URL.
  */
 import fs from "node:fs/promises";
 import path from "node:path";
@@ -14,7 +15,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const dist = path.join(root, "dist");
 const ssrDir = path.join(root, "dist-ssr");
 
-const { render, routes, buildSitemap, buildLlmsTxt } = await import(pathToFileURL(path.join(ssrDir, "entry-server.js")).href);
+const { render, routes, retiredPaths, siteUrl, buildSitemap, buildLlmsTxt } = await import(pathToFileURL(path.join(ssrDir, "entry-server.js")).href);
 
 const template = await fs.readFile(path.join(dist, "index.html"), "utf8");
 for (const marker of ['<html lang="el">', "<!--app-head-->", "<!--app-html-->"]) {
@@ -39,6 +40,27 @@ for (const url of routes) {
   const file = path.join(dist, url, "index.html");
   await write(file, page(url));
   console.log(`prerendered ${url}`);
+}
+
+// GitHub Pages can't send a 301, so a retired URL gets a page that forwards everyone at once.
+// Search engines treat an immediate meta refresh as a permanent redirect.
+const redirectPage = `<!doctype html>
+<html lang="el">
+  <head>
+    <meta charset="UTF-8" />
+    <title>White Cane AI Consulting</title>
+    <link rel="canonical" href="${siteUrl}/" />
+    <meta http-equiv="refresh" content="0; url=/" />
+    <script>location.replace("/" + location.hash);</script>
+  </head>
+  <body>
+    <a href="/">whitecane-ai.com</a>
+  </body>
+</html>
+`;
+for (const url of retiredPaths) {
+  await write(path.join(dist, url, "index.html"), redirectPage);
+  console.log(`redirect ${url} → /`);
 }
 
 await write(path.join(dist, "404.html"), page("/404/"));

@@ -1,5 +1,5 @@
 import { translations, type Lang } from "@/lib/translations";
-import { findGuide, guides, type Guide } from "@/lib/guides";
+import { serviceDetails } from "@/lib/serviceDetails";
 
 /*
  * Everything search engines and AI assistants read before the page itself: title,
@@ -22,7 +22,21 @@ const ogLocale: Record<Lang, string> = { GR: "el_GR", EN: "en_US" };
 export const langFromPath = (pathname: string): Lang => (/^\/en(\/|$)/.test(pathname) ? "EN" : "GR");
 
 /** Every URL the build writes out, in sitemap order. */
-export const routes = [homePath.GR, homePath.EN, ...guides.map((g) => g.path)];
+export const routes = [homePath.GR, homePath.EN];
+
+/**
+ * Greek landing pages that were live from 30 Sep to 1 Oct 2026 and got indexed. The user
+ * wants every visitor on the home page, so each now redirects there for everyone (people and
+ * crawlers alike, which is what search engines accept). Keep them until Search Console shows
+ * none of them indexed any more.
+ */
+export const retiredPaths = [
+  "/stisimo-ergaleion-ai/",
+  "/symvouleftiki-ai/",
+  "/ai-stin-epicheirisi/",
+  "/ai-transformation/",
+  "/ekpaidefsi-ai/",
+];
 
 type JsonLd = Record<string, unknown>;
 
@@ -138,47 +152,6 @@ const faqPage = (url: string, items: readonly { q: string; a: string }[]): JsonL
   })),
 });
 
-const breadcrumb = (guide: Guide): JsonLd => ({
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Αρχική", item: abs("/") },
-    { "@type": "ListItem", position: 2, name: guide.label, item: abs(guide.path) },
-  ],
-});
-
-const guideMain = (guide: Guide): JsonLd => {
-  const url = abs(guide.path);
-  if (guide.schema.type === "Article") {
-    return {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      headline: guide.h1,
-      description: guide.description,
-      inLanguage: "el",
-      url,
-      mainEntityOfPage: url,
-      image: OG_IMAGE,
-      dateModified: guide.updated,
-      datePublished: guide.updated,
-      author: { "@id": ORG_ID },
-      publisher: { "@id": ORG_ID },
-    };
-  }
-  return {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: guide.h1,
-    serviceType: guide.schema.serviceType,
-    description: guide.description,
-    url,
-    inLanguage: "el",
-    provider: { "@id": ORG_ID },
-    areaServed: { "@type": "Country", name: "Ελλάδα" },
-    availableLanguage: ["el", "en"],
-  };
-};
-
 const homeAlternates = [
   { hreflang: "el", href: abs(homePath.GR) },
   { hreflang: "en", href: abs(homePath.EN) },
@@ -199,20 +172,6 @@ export const getPageMeta = (pathname: string): PageMeta => {
       alternates: homeAlternates,
       ogType: "website",
       jsonLd: [organization(lang), website, faqPage(abs(path), translations[lang].faq.items)],
-    };
-  }
-
-  const guide = findGuide(path);
-  if (guide) {
-    const branded = `${guide.title} | White Cane AI`;
-    return {
-      path,
-      lang: "GR",
-      // Google cuts titles at roughly 60–65 characters; a cut-off brand helps nobody.
-      title: branded.length <= 65 ? branded : guide.title,
-      description: guide.description,
-      ogType: guide.schema.type === "Article" ? "article" : "website",
-      jsonLd: [guideMain(guide), breadcrumb(guide), faqPage(abs(path), guide.faq)],
     };
   }
 
@@ -248,8 +207,8 @@ export const renderHead = (meta: PageMeta) => {
     `<meta property="og:description" content="${escapeAttr(meta.description)}" />`,
     `<meta property="og:url" content="${url}" />`,
     `<meta property="og:image" content="${OG_IMAGE}" />`,
-    `<meta property="og:image:width" content="1200" />`,
-    `<meta property="og:image:height" content="630" />`,
+    `<meta property="og:image:width" content="1904" />`,
+    `<meta property="og:image:height" content="941" />`,
     `<meta name="twitter:card" content="summary_large_image" />`,
     `<meta name="twitter:site" content="@WhiteCaneAI" />`,
     `<meta name="twitter:title" content="${escapeAttr(meta.title)}" />`,
@@ -288,7 +247,9 @@ ${entries.join("\n")}
 export const buildLlmsTxt = () => {
   const gr = translations.GR;
   const packages = gr.pricing.tiers.map((t) => `- ${t.name} (${t.size}): ${t.price} προ ΦΠΑ, ${t.timeline}`).join("\n");
-  const pages = guides.map((g) => `- [${g.h1}](${abs(g.path)}): ${g.description}`).join("\n");
+  const services = Object.values(serviceDetails.GR)
+    .map((d) => `- ${d.code}. ${d.title}: ${d.kicker}`)
+    .join("\n");
   return `# ${ORG_NAME}
 
 > Συμβουλευτική AI στην Αθήνα για ελληνικές επιχειρήσεις. Επιλέγουμε, στήνουμε και εκπαιδεύουμε ομάδες σε εργαλεία AI: ChatGPT, Claude, Gemini, Microsoft 365 Copilot, και τοπικά μοντέλα όπως Qwen, Llama και Mistral σε vLLM. Τα συνδέουμε με τα έγγραφα και τα συστήματα της εταιρείας (ERP, CRM, Microsoft 365, Google Workspace), με ρυθμίσεις ασφάλειας και GDPR.
@@ -299,7 +260,10 @@ AI consulting firm in Athens, Greece. We select, set up and train teams on AI to
 
 - [Αρχική](${abs("/")}): υπηρεσίες, ομάδα, πακέτα και τιμές, μεθοδολογία, συχνές ερωτήσεις
 - [Home (English)](${abs("/en/")})
-${pages}
+
+## Υπηρεσίες
+
+${services}
 
 ## Πακέτα
 

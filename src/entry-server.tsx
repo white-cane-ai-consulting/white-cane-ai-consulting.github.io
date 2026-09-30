@@ -1,7 +1,7 @@
 import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router-dom/server";
 import { AppShell } from "./App.tsx";
-import { buildLlmsTxt, buildSitemap, getPageMeta, htmlLang, renderHead, routes } from "@/lib/seo";
+import { SITE_URL, buildLlmsTxt, buildSitemap, getPageMeta, htmlLang, renderHead, retiredPaths, routes } from "@/lib/seo";
 
 /** Build-time entry: scripts/prerender.mjs calls `render` once per URL and writes the HTML. */
 export const render = (url: string) => {
@@ -14,4 +14,4 @@ export const render = (url: string) => {
   return { html, head: renderHead(meta), lang: htmlLang[meta.lang] };
 };
 
-export { buildLlmsTxt, buildSitemap, routes };
+export { buildLlmsTxt, buildSitemap, retiredPaths, routes, SITE_URL as siteUrl };

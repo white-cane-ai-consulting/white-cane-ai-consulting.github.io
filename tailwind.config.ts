@@ -11,6 +11,12 @@ export default {
       screens: { "2xl": "1440px" },
     },
     extend: {
+      transitionTimingFunction: {
+        expo: "cubic-bezier(0.16, 1, 0.3, 1)",
+      },
+      transitionDuration: {
+        1200: "1200ms",
+      },
       colors: {
         border: "hsl(var(--border) / <alpha-value>)",
         input: "hsl(var(--input) / <alpha-value>)",
