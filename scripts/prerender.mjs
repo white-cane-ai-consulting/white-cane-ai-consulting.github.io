@@ -54,7 +54,7 @@ const redirectPage = `<!doctype html>
     <script>location.replace("/" + location.hash);</script>
   </head>
   <body>
-    <a href="/">whitecane-ai.com</a>
+    <h1><a href="/">White Cane AI Consulting</a></h1>
   </body>
 </html>
 `;
