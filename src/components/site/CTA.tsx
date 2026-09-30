@@ -4,6 +4,7 @@ import logo from "@/assets/logo-icon-color.svg";
 import { FAQ } from "@/components/site/FAQ";
 import { ContactForm } from "@/components/site/ContactForm";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useConsent } from "@/contexts/ConsentContext";
 
 const ease = [0.6, 0.05, 0.1, 1] as const;
 
@@ -14,6 +15,7 @@ const ease = [0.6, 0.05, 0.1, 1] as const;
 export const CTA = () => {
   const { t } = useLanguage();
   const c = t.cta;
+  const { setPolicyOpen } = useConsent();
   const gridRef = useRef<HTMLDivElement>(null);
   const [gridWidth, setGridWidth] = useState<number | null>(null);
 
@@ -111,6 +113,9 @@ export const CTA = () => {
           <div className="mt-8 mb-16 flex flex-col md:flex-row md:justify-between md:items-center gap-4 text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
             <div className="flex flex-col gap-1">
               <span>© {new Date().getFullYear()} White Cane AI Consulting</span>
+              <button type="button" onClick={() => setPolicyOpen(true)} className="self-start uppercase tracking-[0.16em] transition-colors hover:text-foreground">
+                {t.consent.footerLink}
+              </button>
               <span className="text-muted-foreground/70">v0.4</span>
             </div>
             <span style={gridWidth ? { width: gridWidth } : undefined} className="flex items-center">

@@ -6,6 +6,8 @@ import { Achievements } from "@/components/site/Achievements";
 import { Vision } from "@/components/site/Vision";
 import { Pricing } from "@/components/site/Pricing";
 import { CTA } from "@/components/site/CTA";
+import { CookieBanner, PrivacyModal } from "@/components/site/CookieConsent";
+import { ConsentProvider } from "@/contexts/ConsentContext";
 import { useEffect } from "react";
 
 const Index = () => {
@@ -18,6 +20,7 @@ const Index = () => {
   }, []);
 
   return (
+    <ConsentProvider>
     <main className="min-h-screen bg-background text-foreground overflow-x-clip">
       <Nav />
       <Hero />
@@ -27,7 +30,10 @@ const Index = () => {
       <Pricing />
       <Vision />
       <CTA />
+      <CookieBanner />
+      <PrivacyModal />
     </main>
+    </ConsentProvider>
   );
 };
 

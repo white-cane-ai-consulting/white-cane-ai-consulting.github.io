@@ -312,6 +312,42 @@ export const translations = {
       elsewhereLinks: ["LinkedIn", "Substack", "X / Twitter"],
       accepting: "Currently accepting Q4 engagements",
     },
+    consent: {
+      banner: "We use Google Analytics to see how many people visit the site and what they read. It sets cookies only if you accept.",
+      accept: "Accept",
+      reject: "Decline",
+      policy: "Privacy policy",
+      footerLink: "Privacy & cookies",
+      title: "Privacy and cookies",
+      updated: "Last updated: 30 September 2026",
+      intro: "The site has no user accounts and no advertising. The only data we may collect is described below.",
+      sections: [
+        {
+          term: "Who is responsible",
+          body: "White Cane AI Consulting, Athens. For anything about your data, write to consulting@whitecane-ai.com.",
+        },
+        {
+          term: "Contact form",
+          body: "The form sends nothing to a server. It opens your own email app with the message ready, and you send it. We use the emails we receive only to reply and for any work that follows.",
+        },
+        {
+          term: "Google Analytics",
+          body: "Runs only with your consent. It records which sections you view, how long you stay, your device and browser type and your approximate location (country, city). We do not use it for advertising and do not link it to your name. The provider is Google Ireland Ltd. Data may be transferred to the US under the EU–US Data Privacy Framework. We keep it for up to 14 months.",
+        },
+        {
+          term: "Cookies",
+          body: "If you accept: _ga and _ga_6QH7W9S26B, set by Google Analytics, lasting up to 2 years. If you do not, no cookie is set. Your choice is kept in your browser (localStorage) for 12 months so we don't ask on every visit.",
+        },
+        {
+          term: "Your rights",
+          body: "You can ask to see, correct or delete your data by writing to consulting@whitecane-ai.com, and change your Google Analytics choice at any time with the buttons below. You can also complain to the Hellenic Data Protection Authority (dpa.gr).",
+        },
+      ],
+      status: "Google Analytics in this browser:",
+      on: "on",
+      off: "off",
+      close: "Close",
+    },
   },
 
   GR: {
@@ -626,6 +662,42 @@ export const translations = {
       elsewhere: "Αλλού",
       elsewhereLinks: ["LinkedIn", "Substack", "X / Twitter"],
       accepting: "Δεχόμαστε συνεργασίες Q4",
+    },
+    consent: {
+      banner: "Χρησιμοποιούμε το Google Analytics για να βλέπουμε πόσοι επισκέπτονται το site και τι διαβάζουν. Βάζει cookies μόνο αν το αποδεχτείτε.",
+      accept: "Αποδοχή",
+      reject: "Απόρριψη",
+      policy: "Πολιτική απορρήτου",
+      footerLink: "Απόρρητο & cookies",
+      title: "Απόρρητο και cookies",
+      updated: "Τελευταία ενημέρωση: 30 Σεπτεμβρίου 2026",
+      intro: "Το site δεν έχει λογαριασμούς χρηστών ούτε διαφημίσεις. Τα μόνα δεδομένα που μπορεί να συλλέξουμε περιγράφονται παρακάτω.",
+      sections: [
+        {
+          term: "Υπεύθυνος επεξεργασίας",
+          body: "White Cane AI Consulting, Αθήνα. Για οτιδήποτε αφορά τα δεδομένα σας, γράψτε στο consulting@whitecane-ai.com.",
+        },
+        {
+          term: "Φόρμα επικοινωνίας",
+          body: "Η φόρμα δεν στέλνει τίποτα σε server. Ανοίγει το δικό σας πρόγραμμα email με το μήνυμα έτοιμο και το στέλνετε εσείς. Τα emails που λαμβάνουμε τα χρησιμοποιούμε μόνο για να απαντήσουμε και για τη συνεργασία που μπορεί να ακολουθήσει.",
+        },
+        {
+          term: "Google Analytics",
+          body: "Λειτουργεί μόνο με τη συγκατάθεσή σας. Καταγράφει ποιες ενότητες βλέπετε, πόση ώρα μένετε, τον τύπο συσκευής και browser και την κατά προσέγγιση τοποθεσία σας (χώρα, πόλη). Δεν το χρησιμοποιούμε για διαφήμιση και δεν συνδέουμε τα στοιχεία με το όνομά σας. Πάροχος είναι η Google Ireland Ltd. Τα δεδομένα μπορεί να μεταφερθούν στις ΗΠΑ, με βάση το EU–US Data Privacy Framework. Τα κρατάμε έως 14 μήνες.",
+        },
+        {
+          term: "Cookies",
+          body: "Αν αποδεχτείτε: _ga και _ga_6QH7W9S26B, από το Google Analytics, με διάρκεια έως 2 χρόνια. Αν όχι, δεν μπαίνει κανένα cookie. Την επιλογή σας την κρατάμε στον browser σας (localStorage) για 12 μήνες, ώστε να μη σας ρωτάμε σε κάθε επίσκεψη.",
+        },
+        {
+          term: "Τα δικαιώματά σας",
+          body: "Μπορείτε να ζητήσετε πρόσβαση, διόρθωση ή διαγραφή των δεδομένων σας στο consulting@whitecane-ai.com και να αλλάξετε την επιλογή σας για το Google Analytics οποιαδήποτε στιγμή, από τα κουμπιά παρακάτω. Έχετε επίσης δικαίωμα καταγγελίας στην Αρχή Προστασίας Δεδομένων Προσωπικού Χαρακτήρα (dpa.gr).",
+        },
+      ],
+      status: "Google Analytics σε αυτόν τον browser:",
+      on: "ενεργό",
+      off: "ανενεργό",
+      close: "Κλείσιμο",
     },
   },
 } as const;
