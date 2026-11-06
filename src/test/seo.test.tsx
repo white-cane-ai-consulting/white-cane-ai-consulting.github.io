@@ -6,7 +6,7 @@ import { MemoryRouter } from "react-router-dom";
 import { StaticRouter } from "react-router-dom/server";
 import { AppShell } from "@/App";
 import { serviceDetails } from "@/lib/serviceDetails";
-import { buildSitemap, getPageMeta, renderHead, retiredPaths, routes } from "@/lib/seo";
+import { buildLlmsTxt, buildSitemap, getPageMeta, renderHead, retiredPaths, routes } from "@/lib/seo";
 import { translations } from "@/lib/translations";
 
 const gr = translations.GR;
@@ -38,7 +38,7 @@ describe("page metadata", () => {
     expect(getPageMeta("/does-not-exist/").noindex).toBe(true);
   });
 
-  it("writes parseable JSON-LD, with the FAQ answers and the package prices", () => {
+  it("writes parseable JSON-LD, with the FAQ answers and the services", () => {
     const head = renderHead(getPageMeta("/"));
     const blocks = [...head.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((m) => JSON.parse(m[1]));
     expect(blocks.map((b) => b["@type"])).toEqual(["ProfessionalService", "WebSite", "FAQPage"]);
@@ -47,10 +47,18 @@ describe("page metadata", () => {
     expect(faq).toHaveLength(gr.faq.items.length);
     expect(faq[0].acceptedAnswer.text).toBe(gr.faq.items[0].a);
 
+    // The services, never prices or the old packages.
     const offers = blocks[0].hasOfferCatalog.itemListElement;
-    expect(offers[0].priceSpecification).toMatchObject({ minPrice: 1500, maxPrice: 3000, priceCurrency: "EUR" });
-    // "€20.000+" is open-ended, so it has no maximum.
-    expect(offers[2].priceSpecification.maxPrice).toBeUndefined();
+    expect(offers.map((o: { itemOffered: { name: string } }) => o.itemOffered.name)).toEqual(
+      Object.values(serviceDetails.GR).map((d) => d.title),
+    );
+    expect(head).not.toMatch(/€|priceSpecification|Kickstart|Accelerator/);
+  });
+
+  it("writes llms.txt without prices or the old packages", () => {
+    const txt = buildLlmsTxt();
+    for (const d of Object.values(serviceDetails.GR)) expect(txt).toContain(d.title);
+    expect(txt).not.toMatch(/€|Kickstart|Accelerator|Πακέτα/);
   });
 
   it("lists every page in the sitemap", () => {
@@ -74,10 +82,6 @@ describe("one page for everything", () => {
     for (const path of retiredPaths) expect(xml).not.toContain(path);
   });
 
-  it.each(["GR", "EN"] as const)("quotes every package price in the %s cost question", (lang) => {
-    const cost = translations[lang].faq.items.find((item) => /κοστίζει|cost/i.test(item.q))!;
-    for (const tier of translations[lang].pricing.tiers) expect(cost.a).toContain(tier.price);
-  });
 });
 
 describe("prerendering", () => {

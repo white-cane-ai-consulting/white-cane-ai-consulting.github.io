@@ -105,19 +105,6 @@ export const Pricing = () => {
             <br />
             <span className="text-signal-bright italic font-normal">{p.h2c}</span>
           </motion.h2>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 1, delay: 0.15, ease }}
-            className="lg:col-span-4 lg:flex lg:justify-end"
-          >
-            <span className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.12em] text-muted-foreground bg-card rounded-full px-4 py-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-signal" />
-              {p.vatNote}
-            </span>
-          </motion.div>
         </div>
 
         {/* items-start + no h-full: opening one card's details grows only that card. */}
@@ -137,10 +124,6 @@ export const Pricing = () => {
 
                 <h3 className="font-body text-2xl font-medium tracking-tight mb-2 text-balance leading-tight">{tier.name}</h3>
                 <p className="text-xs uppercase tracking-[0.1em] text-muted-foreground/80 mb-7">{tier.size}</p>
-
-                <div className="mb-7">
-                  <div className="font-body font-light tracking-tight text-[2rem] xl:text-4xl leading-none">{tier.price}</div>
-                </div>
 
                 <details className="group/details mb-7 border-y border-border/60">
                   <summary className="flex cursor-pointer list-none items-center justify-between gap-3 py-4 text-sm text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-signal [&::-webkit-details-marker]:hidden">
@@ -174,18 +157,12 @@ export const Pricing = () => {
                 <div>
                   <div className="rounded-2xl border border-border/70 bg-background/60 p-5 transition-colors hover:border-signal/40">
                     <p className="font-body text-base font-medium leading-snug text-foreground">{tier.retainerLabel}</p>
-                    <div className="mt-5 flex flex-wrap items-center justify-between gap-x-4 gap-y-3">
-                      <p className="font-body text-2xl font-medium leading-none text-signal">
-                        {tier.retainerPrice}
-                        <span className="text-sm text-muted-foreground">{tier.retainerPer}</span>
-                      </p>
+                    <div className="mt-5">
                       <RetainerPopover
                         detail={{
                           code: tier.code,
                           tierName: tier.name,
                           label: tier.retainerLabel,
-                          price: tier.retainerPrice,
-                          per: tier.retainerPer,
                           hours: tier.retainerHours,
                           features: tier.retainerFeatures,
                         }}
@@ -202,16 +179,6 @@ export const Pricing = () => {
             </motion.div>
           ))}
         </div>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.9, ease }}
-          className="mt-9 max-w-4xl text-sm font-light leading-[1.8] text-muted-foreground/70"
-        >
-          {p.footnote}
-        </motion.p>
       </div>
     </section>
   );

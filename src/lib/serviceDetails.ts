@@ -73,7 +73,7 @@ const EN: Record<ServiceId, ServiceDetail> = {
         tabs: [
           {
             label: "5–15 people",
-            sub: "Small Business AI Kickstart",
+            sub: "Small business",
             rows: [
               ["Tools", "One platform (ChatGPT, Claude, Gemini or Copilot) and 1–3 specialised tools."],
               ["Where it runs", "Cloud, on a Team or Business plan. No servers, no IT department needed."],
@@ -84,7 +84,7 @@ const EN: Record<ServiceId, ServiceDetail> = {
           },
           {
             label: "20–100 people",
-            sub: "Mid-Market AI Accelerator",
+            sub: "Mid-sized business",
             rows: [
               ["Tools", "One main platform and 3–7 tools and connections."],
               ["Where it runs", "Cloud. A local model only for specific sensitive data."],
@@ -95,7 +95,7 @@ const EN: Record<ServiceId, ServiceDetail> = {
           },
           {
             label: "100+ people",
-            sub: "Enterprise Transformation",
+            sub: "Large organisation",
             rows: [
               ["Tools", "Enterprise plan and 5–10+ tools."],
               ["Where it runs", "Hybrid: cloud, plus local models on your own infrastructure."],
@@ -429,7 +429,7 @@ const GR: Record<ServiceId, ServiceDetail> = {
         tabs: [
           {
             label: "5–15 άτομα",
-            sub: "Small Business AI Kickstart",
+            sub: "Μικρή επιχείρηση",
             rows: [
               ["Εργαλεία", "Τουλάχιστον μία πλατφόρμα (ChatGPT, Claude, Gemini ή Copilot) και 2–5 εξειδικευμένα εργαλεία."],
               ["Πού τρέχει", "Cloud, σε Team ή Business πλάνο. Χωρίς servers, χωρίς τμήμα IT."],
@@ -440,7 +440,7 @@ const GR: Record<ServiceId, ServiceDetail> = {
           },
           {
             label: "20–100 άτομα",
-            sub: "Mid-Market AI Accelerator",
+            sub: "Μεσαία επιχείρηση",
             rows: [
               ["Εργαλεία", "Τουλάχιστον μία κύρια πλατφόρμα και 5–15 εργαλεία και συνδέσεις."],
               ["Πού τρέχει", "Cloud. Τοπικό μοντέλο μόνο για συγκεκριμένα ευαίσθητα δεδομένα."],
@@ -451,7 +451,7 @@ const GR: Record<ServiceId, ServiceDetail> = {
           },
           {
             label: "100+ άτομα",
-            sub: "Enterprise Transformation",
+            sub: "Μεγάλος οργανισμός",
             rows: [
               ["Εργαλεία", "Enterprise πλάνο και 10+ εργαλεία."],
               ["Πού τρέχει", "Υβριδικά: cloud, και τοπικά μοντέλα στη δική σας υποδομή."],

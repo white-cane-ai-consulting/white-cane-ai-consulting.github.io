@@ -5,7 +5,6 @@ export const translations = {
         { label: "Services", href: "#offer" },
         { label: "Team", href: "#who" },
         { label: "Why us", href: "#proof" },
-        { label: "Pricing", href: "#pricing" },
         { label: "Methodology", href: "#vision" },
         { label: "FAQ", href: "#faq" },
       ],
@@ -128,9 +127,9 @@ export const translations = {
     },
     vision: {
       label: "Methodology",
-      h2a: "Every package,",
+      h2a: "Every project,",
       h2b: "the same process.",
-      sub: "From researching the right tools to implementation, hands-on training and two months of free support: every package follows these four steps.",
+      sub: "From researching the right tools to implementation, hands-on training and two months of free support: every project follows these four steps.",
       slides: [
         { k: "01 / LISTEN", t: "We listen first.", d: "Before we recommend anything, we sit with your team. We identify the bottlenecks, the repetitive tasks, and the real business problems, then research solutions built around the infrastructure you already have." },
         { k: "02 / DESIGN", t: "We design the solution.", d: "We configure the tools around your specific requirements and integrate them into your workflows. Realistic outcomes, grounded in your reality. We don't promise what we can't deliver." },
@@ -139,10 +138,9 @@ export const translations = {
       ],
     },
     pricing: {
-      label: "Packages & pricing",
+      label: "Packages",
       h2a: "Three packages.",
       h2c: "For every company.",
-      vatNote: "All prices exclude VAT",
       timelineLabel: "Delivery",
       scopeLabel: "Scope",
       retainerContentsLabel: "What it includes",
@@ -151,13 +149,11 @@ export const translations = {
       retainerStartNote: "Starts after the 2 free months of support. Pause any time with 15 days' written notice.",
       retainerCloseLabel: "Close",
       detailsLabel: "Package details",
-      footnote: "The price range depends on the requirements of each project. Every package includes all four of our services (Research, Set-up, Training and Updates) and follows the methodology below.",
       tiers: [
         {
           code: "01",
           name: "Small Business AI Kickstart",
           size: "Small business · 5–15 people",
-          price: "€1,500 – €2,500",
           timeline: "~5 working days",
           scope: "1 core LLM + 1–3 apps",
           features: [
@@ -169,8 +165,6 @@ export const translations = {
           ],
           retainerLabel: "Monthly support package",
           retainerHours: "2.5 hours",
-          retainerPrice: "€170",
-          retainerPer: "/month",
           retainerFeatures: [
             "Questions, prompt improvements and file configuration",
             "Adjustments to the tools and workflows already delivered",
@@ -181,7 +175,6 @@ export const translations = {
           code: "02",
           name: "Mid-Market AI Accelerator",
           size: "Mid-sized business · 20–100 people",
-          price: "€2,500 – €7,500",
           timeline: "5–15 working days",
           scope: "1 core LLM + 3–7 apps & MCPs",
           features: [
@@ -193,8 +186,6 @@ export const translations = {
           ],
           retainerLabel: "Monthly support package",
           retainerHours: "5 hours",
-          retainerPrice: "€350",
-          retainerPer: "/month",
           retainerFeatures: [
             "Fixes and improvements to n8n, MCPs and prompts",
             "Onboarding and guidance for new users",
@@ -205,7 +196,6 @@ export const translations = {
           code: "03",
           name: "Enterprise Transformation",
           size: "Large organisation · 100+ people",
-          price: "€8,000 – €20,000+",
           timeline: "10–30 working days",
           scope: "Core LLM / on-prem + 5–10+ apps",
           features: [
@@ -218,8 +208,6 @@ export const translations = {
           ],
           retainerLabel: "Monthly support package",
           retainerHours: "12 hours",
-          retainerPrice: "€800",
-          retainerPer: "/month",
           retainerFeatures: [
             "Maintenance of local models and integrations",
             "Performance, latency and reliability checks",
@@ -258,7 +246,7 @@ export const translations = {
         },
         {
           q: "Who can help us bring AI into our company?",
-          a: "We can. White Cane AI is a team from Athens with experience setting up AI tools in large Greek companies. We choose the tools, set them up, train your team and stay with you for two months. We start with a free 30-minute call, where you tell us what you want to solve and we tell you what we would set up and which package fits. You can ask for it through the contact form.",
+          a: "We can. White Cane AI is a team from Athens with experience setting up AI tools in large Greek companies. We choose the tools, set them up, train your team and stay with you for two months. We start with a free 30-minute call, where you tell us what you want to solve and we tell you what we would set up and where we would start. You can ask for it through the contact form.",
         },
         {
           q: "Do the tools actually work well in Greek?",
@@ -278,7 +266,7 @@ export const translations = {
         },
         {
           q: "How much do AI consulting and tool set-up cost?",
-          a: "It depends on the size of the company and on how many tools and connections are needed. Small business (5–15 people): €1,500 – €2,500. Mid-sized business (20–100 people): €2,500 – €7,500. Large organisation (100+ people): €8,000 – €20,000+. Prices exclude VAT and include research, set-up, training and two months of support.",
+          a: "It depends on the size of the company and on how many tools and connections are needed. We quote per project after a short conversation, with no obligation. Every project includes research, set-up, training and two months of support. Get in touch and we will send you a proposal.",
         },
       ],
     },
@@ -286,7 +274,7 @@ export const translations = {
       directLine: "Or write to us directly",
       form: {
         packageLabel: "What are you interested in?",
-        packages: ["Free 30-minute call", "Small Business AI Kickstart", "Mid-Market AI Accelerator", "Enterprise Transformation"],
+        packages: ["Free 30-minute call", "AI tool set-up", "Tool research & evaluation", "Team training"],
         name: "Full name",
         email: "Work email",
         company: "Company",
@@ -324,6 +312,7 @@ export const translations = {
         { label: "Who we are", href: "#who" },
         { label: "Work", href: "#proof" },
         { label: "Contact", href: "#contact" },
+        { label: "llms.txt", href: "/llms.txt" },
       ],
       elsewhere: "Elsewhere",
       elsewhereLinks: ["LinkedIn", "Substack", "X / Twitter"],
@@ -377,7 +366,6 @@ export const translations = {
         { label: "Υπηρεσίες", href: "#offer" },
         { label: "Ομάδα", href: "#who" },
         { label: "Γιατί εμάς", href: "#proof" },
-        { label: "Τιμές", href: "#pricing" },
         { label: "Μεθοδολογία", href: "#vision" },
         { label: "FAQ", href: "#faq" },
       ],
@@ -436,7 +424,7 @@ export const translations = {
     },
     offer: {
       label: "Τι προσφέρουμε",
-      h2a: "AI infrastructure στην εταιρείας σας,",
+      h2a: "AI infrastructure στην εταιρεία σας,",
       h2b: "",
       h2c: "στημένο σωστά.",
       lead: "Πολλές εταιρείες πληρώνουν ήδη για κάποιο εργαλείο AI. Σπάνια όμως είναι στημένο: κάθε υπάλληλος δουλεύει με δικό του λογαριασμό, το εργαλείο δεν ξέρει τίποτα για την εταιρεία, και κανείς δεν ελέγχει πού πηγαίνουν τα δεδομένα. Αυτό φτιάχνουμε.",
@@ -500,21 +488,20 @@ export const translations = {
     },
     vision: {
       label: "Μεθοδολογία",
-      h2a: "Κάθε πακέτο,",
+      h2a: "Κάθε έργο,",
       h2b: "η ίδια διαδικασία.",
-      sub: "Από την έρευνα των κατάλληλων εργαλείων μέχρι την υλοποίηση, την πρακτική εκπαίδευση και τους δύο μήνες δωρεάν υποστήριξης: κάθε πακέτο ακολουθεί αυτά τα τέσσερα βήματα.",
+      sub: "Από την έρευνα των κατάλληλων εργαλείων μέχρι την υλοποίηση, την πρακτική εκπαίδευση και τους δύο μήνες δωρεάν υποστήριξης: κάθε έργο ακολουθεί αυτά τα τέσσερα βήματα.",
       slides: [
-        { k: "01 / ΑΚΟΥΜΕ", t: "Βρίσκουμε τα εμπόδια σας.", d: "Πριν προτείνουμε οτιδήποτε, σας ακούμε. Εντοπίζουμε τα εμπόδια, τις επαναλαμβανόμενες διαδικασίες και τα πραγματικά επιχειρηματικά προβλήματα, και αναζητάμε λύσεις πάνω στην υποδομή που ήδη έχετε." },
+        { k: "01 / ΑΚΟΥΜΕ", t: "Βρίσκουμε τα εμπόδιά σας.", d: "Πριν προτείνουμε οτιδήποτε, σας ακούμε. Εντοπίζουμε τα εμπόδια, τις επαναλαμβανόμενες διαδικασίες και τα πραγματικά επιχειρηματικά προβλήματα, και αναζητάμε λύσεις πάνω στην υποδομή που ήδη έχετε." },
         { k: "02 / ΣΧΕΔΙΑΖΟΥΜΕ", t: "Οργανώνουμε και υλοποιούμε τη λύση.", d: "Ρυθμίζουμε τα εργαλεία με βάση τις δικές σας ανάγκες και τα ενσωματώνουμε στις ροές εργασίας σας. Ρεαλιστικά αποτελέσματα, βασισμένα στην πραγματικότητα. Δεν σας πουλάμε ψέματα." },
         { k: "03 / ΕΚΠΑΙΔΕΥΟΥΜΕ", t: "Βοηθάμε στην υιοθέτηση των εργαλείων.", d: "Δεν αφήνουμε ένα εργαλείο και φεύγουμε. Σας δείχνουμε πώς να το χρησιμοποιείτε και πώς να αντλείτε αξία από αυτό στην καθημερινή εργασία, και σας δείχνουμε τον δρόμο για ό,τι έρχεται." },
         { k: "04 / ΠΑΡΑΜΕΝΟΥΜΕ", t: "Επικοινωνούμε μαζί σας", d: "Κρατάμε επαφή και σας ενημερώνουμε για νέα features, use cases και καλύτερα μοντέλα που μπορούν να σας φανούν χρήσιμα, ώστε να είστε πάντα ένα βήμα μπροστά." },
       ],
     },
     pricing: {
-      label: "Πακέτα & Τιμές",
+      label: "Πακέτα",
       h2a: "Τρία πακέτα.",
       h2c: "Για κάθε εταιρεία.",
-      vatNote: "Όλες οι τιμές είναι προ ΦΠΑ",
       timelineLabel: "Χρόνος υλοποίησης",
       scopeLabel: "Εύρος",
       retainerContentsLabel: "Τι περιλαμβάνει",
@@ -523,13 +510,11 @@ export const translations = {
       retainerStartNote: "Ξεκινά μετά τους 2 μήνες δωρεάν υποστήριξης. Διακόπτεται οποτεδήποτε, με έγγραφη ειδοποίηση 15 ημερών.",
       retainerCloseLabel: "Κλείσιμο",
       detailsLabel: "Αναλυτικά το πακέτο",
-      footnote: "Η τιμή έχει εύρος ανάλογα με τις απαιτήσεις του κάθε έργου. Σε κάθε πακέτο παρέχουμε και τις 4 υπηρεσίες μας (Έρευνα, Στήσιμο, Εκπαίδευση και Ενημέρωση) και ακολουθούμε την παρακάτω μεθοδολογία.",
       tiers: [
         {
           code: "01",
           name: "Small Business AI Kickstart",
           size: "Μικρή επιχείρηση · 5–20 άτομα",
-          price: "€1.500 – €3.000",
           timeline: "5 εργάσιμες",
           scope: "1-2 Core LLM + 2–5 apps/tools",
           features: [
@@ -541,8 +526,6 @@ export const translations = {
           ],
           retainerLabel: "Μηνιαίο πακέτο υποστήριξης",
           retainerHours: "2,5 ώρες",
-          retainerPrice: "€170",
-          retainerPer: "/μήνα",
           retainerFeatures: [
             "Επίλυση αποριών, βελτίωση των skills και ρυθμίσεις αρχείων",
             "Προσαρμογές στα εργαλεία και τις ροές που παραδόθηκαν",
@@ -553,7 +536,6 @@ export const translations = {
           code: "02",
           name: "Mid-Market AI Accelerator",
           size: "Μεσαία επιχείρηση · 20–100 άτομα",
-          price: "€3.000 – €8.000",
           timeline: "5–15 εργάσιμες",
           scope: "1-3 Core LLM + 5–15 apps & MCPs",
           features: [
@@ -565,8 +547,6 @@ export const translations = {
           ],
           retainerLabel: "Μηνιαίο πακέτο υποστήριξης",
           retainerHours: "5 ώρες",
-          retainerPrice: "€350",
-          retainerPer: "/μήνα",
           retainerFeatures: [
             "Διορθώσεις και βελτιώσεις σε skills, MCPs και connectors",
             "Onboarding και καθοδήγηση νέων χρηστών",
@@ -577,7 +557,6 @@ export const translations = {
           code: "03",
           name: "Enterprise Transformation",
           size: "Μεγάλος οργανισμός · 100+ άτομα",
-          price: "€8.000 – €20.000+",
           timeline: "10–30 εργάσιμες",
           scope: "Cloud/On-Prem LLMs + 10+ apps/tools",
           features: [
@@ -590,8 +569,6 @@ export const translations = {
           ],
           retainerLabel: "Μηνιαίο πακέτο υποστήριξης",
           retainerHours: "12 ώρες",
-          retainerPrice: "€800",
-          retainerPer: "/μήνα",
           retainerFeatures: [
             "Συντήρηση τοπικών μοντέλων και integrations",
             "Έλεγχοι απόδοσης, latency και αξιοπιστίας",
@@ -630,7 +607,7 @@ export const translations = {
         },
         {
           q: "Ποιος μπορεί να με βοηθήσει να βάλω AI στην εταιρεία μου;",
-          a: "Εμείς. Η White Cane AI είναι ομάδα από την Αθήνα με εμπειρία στο στήσιμο εργαλείων AI σε μεγάλες ελληνικές επιχειρήσεις. Διαλέγουμε τα εργαλεία, τα στήνουμε, εκπαιδεύουμε την ομάδα και μένουμε δίπλα σας για δύο μήνες. Ξεκινάμε με μια δωρεάν κλήση 30 λεπτών, όπου μας λέτε τι θέλετε να λύσετε και σας λέμε τι θα στήναμε και ποιο πακέτο ταιριάζει. Μπορείτε να τη ζητήσετε από τη φόρμα επικοινωνίας.",
+          a: "Εμείς. Η White Cane AI είναι ομάδα από την Αθήνα με εμπειρία στο στήσιμο εργαλείων AI σε μεγάλες ελληνικές επιχειρήσεις. Διαλέγουμε τα εργαλεία, τα στήνουμε, εκπαιδεύουμε την ομάδα και μένουμε δίπλα σας για δύο μήνες. Ξεκινάμε με μια δωρεάν κλήση 30 λεπτών, όπου μας λέτε τι θέλετε να λύσετε και σας λέμε τι θα στήναμε και από πού θα ξεκινούσαμε. Μπορείτε να τη ζητήσετε από τη φόρμα επικοινωνίας.",
         },
         {
           q: "Δουλεύουν καλά τα εργαλεία στα ελληνικά;",
@@ -650,7 +627,7 @@ export const translations = {
         },
         {
           q: "Πόσο κοστίζει η συμβουλευτική και το στήσιμο εργαλείων AI;",
-          a: "Εξαρτάται από το μέγεθος της εταιρείας και από το πόσα εργαλεία και συνδέσεις χρειάζονται. Μικρή επιχείρηση (5–20 άτομα): €1.500 – €3.000. Μεσαία επιχείρηση (20–100 άτομα): €3.000 – €8.000. Μεγάλος οργανισμός (100+ άτομα): €8.000 – €20.000+. Οι τιμές είναι προ ΦΠΑ και περιλαμβάνουν έρευνα, στήσιμο, εκπαίδευση και δύο μήνες υποστήριξη.",
+          a: "Εξαρτάται από το μέγεθος της εταιρείας και από το πόσα εργαλεία και συνδέσεις χρειάζονται. Δίνουμε προσφορά ανά έργο, μετά από μια σύντομη συζήτηση και χωρίς δέσμευση. Κάθε έργο περιλαμβάνει έρευνα, στήσιμο, εκπαίδευση και δύο μήνες υποστήριξης. Επικοινωνήστε μαζί μας και θα σας στείλουμε πρόταση.",
         },
       ],
     },
@@ -658,7 +635,7 @@ export const translations = {
       directLine: "Ή γράψτε μας απευθείας",
       form: {
         packageLabel: "Τι σας ενδιαφέρει;",
-        packages: ["Δωρεάν κλήση 30 λεπτών", "Small Business AI Kickstart", "Mid-Market AI Accelerator", "Enterprise Transformation"],
+        packages: ["Δωρεάν κλήση 30 λεπτών", "Στήσιμο εργαλείων AI", "Έρευνα & αξιολόγηση εργαλείων", "Εκπαίδευση ομάδας"],
         name: "Ονοματεπώνυμο",
         email: "Εταιρικό email",
         company: "Εταιρεία",
@@ -696,6 +673,7 @@ export const translations = {
         { label: "Ποιοι είμαστε", href: "#who" },
         { label: "Έργο", href: "#proof" },
         { label: "Επικοινωνία", href: "#contact" },
+        { label: "llms.txt", href: "/llms.txt" },
       ],
       elsewhere: "Αλλού",
       elsewhereLinks: ["LinkedIn", "Substack", "X / Twitter"],

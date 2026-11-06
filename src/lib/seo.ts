@@ -66,14 +66,6 @@ const home: Record<Lang, { title: string; description: string }> = {
 
 const abs = (path: string) => `${SITE_URL}${path}`;
 
-const euros = (s: string) => Number(s.replace(/[^\d]/g, ""));
-
-/** "€1.500 – €3.000" → { min: 1500, max: 3000 }; an open-ended "€20.000+" has no max. */
-const priceRange = (price: string) => {
-  const [lo, hi] = price.split("–").map((s) => s.trim());
-  return { min: euros(lo), max: hi && !hi.endsWith("+") ? euros(hi) : undefined };
-};
-
 const organization = (lang: Lang): JsonLd => {
   const t = translations[lang];
   return {
@@ -108,25 +100,14 @@ const organization = (lang: Lang): JsonLd => {
       "GDPR",
       "EU AI Act",
     ],
+    // The services shown in the "offer" section. No prices: the site quotes per project.
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: t.pricing.label,
-      itemListElement: t.pricing.tiers.map((tier) => {
-        const { min, max } = priceRange(tier.price);
-        return {
-          "@type": "Offer",
-          name: tier.name,
-          description: tier.size,
-          priceSpecification: {
-            "@type": "PriceSpecification",
-            priceCurrency: "EUR",
-            minPrice: min,
-            ...(max ? { maxPrice: max } : {}),
-            valueAddedTaxIncluded: false,
-          },
-          itemOffered: { "@type": "Service", name: tier.name, description: tier.features.join(" ") },
-        };
-      }),
+      name: t.offer.label,
+      itemListElement: Object.values(serviceDetails[lang]).map((d) => ({
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: d.title, description: d.kicker, provider: { "@id": ORG_ID } },
+      })),
     },
   };
 };
@@ -243,37 +224,84 @@ ${entries.join("\n")}
 `;
 };
 
-/** /llms.txt: a plain summary with links, for AI assistants that read the site. */
+/** One plain sentence per service for llms.txt, taken from what each service window already says. */
+const llmsServices: Record<"GR" | "EN", Record<string, string>> = {
+  GR: {
+    A: "Στήνουμε τα εργαλεία AI της εταιρείας ώστε να δουλεύουν πάνω στα δικά της δεδομένα, με εταιρικούς λογαριασμούς και ελεγμένη ασφάλεια, έτσι ώστε η ομάδα να τα χρησιμοποιεί από την πρώτη μέρα.",
+    A1: "ChatGPT, Claude, Gemini και Microsoft Copilot σε εταιρικό πλάνο, στημένα για όλη την ομάδα.",
+    A2: "Μοντέλα (vLLM, Qwen, Llama, Mistral) που τρέχουν στη δική σας υποδομή, όταν ο νόμος, μια σύμβαση ή η πολιτική της εταιρείας δεν επιτρέπει να βγουν δεδομένα έξω.",
+    A3: "Εργαλεία φτιαγμένα για συγκεκριμένες δουλειές, συνδεδεμένα με ERP, CRM και αυτοματισμούς, μόνο όταν λύνουν πραγματική ανάγκη και περνούν έλεγχο ασφάλειας.",
+    B: "Ορίζουμε τι πρέπει να κάνει το εργαλείο, δοκιμάζουμε τους υποψηφίους στα ελληνικά και πάνω στα πραγματικά αρχεία του πελάτη, και παραδίδουμε σύγκριση με τεκμηριωμένη πρόταση.",
+    C: "Σεμινάρια, πρακτικά μαθήματα ανά ρόλο και γραπτοί οδηγοί πάνω στη δουλειά της ίδιας της εταιρείας, ώστε τα εργαλεία να χρησιμοποιούνται πραγματικά.",
+    D: "Όταν βγαίνουν νέα εργαλεία ή μοντέλα που αφορούν την επιχείρηση, στέλνουμε σύντομη ενημέρωση με συγκεκριμένη πρόταση, όχι newsletter.",
+  },
+  EN: {
+    A: "We set up a company's AI tools to work on its own data, with company accounts and verified security, so the team uses them from day one.",
+    A1: "ChatGPT, Claude, Gemini and Microsoft Copilot on a business plan, set up for the whole team.",
+    A2: "Models (vLLM, Qwen, Llama, Mistral) running on your own infrastructure, when the law, a contract or company policy does not allow data to leave.",
+    A3: "Tools built for specific jobs, connected to ERP, CRM and automations, only when they solve a real need and pass a security check.",
+    B: "We define what the tool must do, test candidates in Greek and on the client's real files, and deliver a comparison with a reasoned recommendation.",
+    C: "Seminars, hands-on lessons per role and written guides built on the company's own work, so the tools actually get used.",
+    D: "When new tools or models matter to the business, we send a short note with a concrete suggestion, not a newsletter.",
+  },
+};
+
+/**
+ * /llms.txt: a plain, factual summary with links, for AI assistants that read the site.
+ * Everything here is also on the visible pages (no extra claims, no prices); the services
+ * and the FAQ questions come straight from the same data the page renders.
+ */
 export const buildLlmsTxt = () => {
-  const gr = translations.GR;
-  const packages = gr.pricing.tiers.map((t) => `- ${t.name} (${t.size}): ${t.price} προ ΦΠΑ, ${t.timeline}`).join("\n");
-  const services = Object.values(serviceDetails.GR)
-    .map((d) => `- ${d.code}. ${d.title}: ${d.kicker}`)
-    .join("\n");
+  const services = (lang: "GR" | "EN", path: string) =>
+    Object.entries(serviceDetails[lang])
+      .map(([id, d]) => `- [${d.title}](${abs(path)}#offer-${id}): ${llmsServices[lang][id]}`)
+      .join("\n");
+  const questions = (lang: "GR" | "EN", path: string) =>
+    translations[lang].faq.items.map((item) => `- [${item.q}](${abs(path)}#faq)`).join("\n");
+
   return `# ${ORG_NAME}
 
-> Συμβουλευτική AI στην Αθήνα για ελληνικές επιχειρήσεις. Επιλέγουμε, στήνουμε και εκπαιδεύουμε ομάδες σε εργαλεία AI: ChatGPT, Claude, Gemini, Microsoft 365 Copilot, και τοπικά μοντέλα όπως Qwen, Llama και Mistral σε vLLM. Τα συνδέουμε με τα έγγραφα και τα συστήματα της εταιρείας (ERP, CRM, Microsoft 365, Google Workspace), με ρυθμίσεις ασφάλειας και GDPR.
+> Η White Cane AI Consulting είναι συμβουλευτική AI από την Αθήνα για ελληνικές επιχειρήσεις. Επιλέγουμε, στήνουμε και εκπαιδεύουμε ομάδες σε εργαλεία AI (ChatGPT, Claude, Gemini, Microsoft 365 Copilot, και τοπικά μοντέλα), τα συνδέουμε με τα έγγραφα και τα συστήματα της εταιρείας, με ρυθμίσεις ασφάλειας και GDPR, και δοκιμάζουμε κάθε εργαλείο στα ελληνικά πριν το προτείνουμε.
 
-AI consulting firm in Athens, Greece. We select, set up and train teams on AI tools for Greek businesses, and test every tool in Greek before recommending it.
+## Βασικά στοιχεία
 
-## Σελίδες
-
-- [Αρχική](${abs("/")}): υπηρεσίες, ομάδα, πακέτα και τιμές, μεθοδολογία, συχνές ερωτήσεις
-- [Home (English)](${abs("/en/")})
+- Τι κάνουμε: στήσιμο εργαλείων AI, έρευνα και αξιολόγηση εργαλείων, εκπαίδευση ομάδων, συνεχής ενημέρωση.
+- Για ποιους: ελληνικές επιχειρήσεις, από μικρές ομάδες 5 ατόμων μέχρι οργανισμούς άνω των 100 ατόμων.
+- Έδρα: Αθήνα. Ιδρύθηκε το 2026. Εργαζόμαστε στα ελληνικά και στα αγγλικά.
+- Εμπειρία (όπως δηλώνεται στο site): 3+ χρόνια σε enterprise Generative AI, 150+ εργαλεία AI που έχουμε δοκιμάσει, 20+ κλάδοι.
+- Κόστος: δεν δημοσιεύουμε τιμές. Δίνουμε προσφορά ανά έργο, ανάλογα με το μέγεθος της εταιρείας και τα εργαλεία και τις συνδέσεις που χρειάζονται, μετά από μια δωρεάν κλήση 30 λεπτών χωρίς δέσμευση.
+- Κάθε έργο περιλαμβάνει έρευνα εργαλείων, στήσιμο, εκπαίδευση της ομάδας και δύο μήνες υποστήριξης.
+- Πώς ξεκινάτε: δωρεάν κλήση 30 λεπτών μέσω της φόρμας επικοινωνίας ή με email στο ${EMAIL}.
 
 ## Υπηρεσίες
 
-${services}
+${services("GR", "/")}
 
-## Πακέτα
+## Συχνές ερωτήσεις (με πλήρεις απαντήσεις στη σελίδα)
 
-${packages}
+${questions("GR", "/")}
 
-Κάθε πακέτο περιλαμβάνει έρευνα εργαλείων, στήσιμο, εκπαίδευση της ομάδας και δύο μήνες υποστήριξη. Μετά, προαιρετικό μηνιαίο πακέτο υποστήριξης.
+## Σελίδες
+
+- [Αρχική (ελληνικά)](${abs("/")}): όλες οι ενότητες σε μία σελίδα
+- [Home (English)](${abs("/en/")}): the same page in English
 
 ## Επικοινωνία
 
 - Email: ${EMAIL}
-- Έδρα: Αθήνα
+- Φόρμα επικοινωνίας: ${abs("/")}#contact (English: ${abs("/en/")}#contact)
+- Έδρα: Αθήνα, Ελλάδα
+
+## English summary
+
+White Cane AI Consulting is an AI consultancy in Athens, Greece. We select, set up and train teams on AI tools for Greek businesses (ChatGPT, Claude, Gemini, Microsoft 365 Copilot and local models), connect them to the company's documents and systems with security and GDPR settings, and test every tool in Greek before recommending it. We work with teams from 5 people up to organisations of 100+. We do not publish prices: we quote per project after a free 30-minute call, and every project includes research, set-up, team training and two months of support.
+
+### Services
+
+${services("EN", "/en/")}
+
+### Frequently asked questions
+
+${questions("EN", "/en/")}
 `;
 };

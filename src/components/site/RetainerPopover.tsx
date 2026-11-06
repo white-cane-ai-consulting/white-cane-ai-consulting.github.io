@@ -9,8 +9,6 @@ export type RetainerDetail = {
   readonly code: string;
   readonly tierName: string;
   readonly label: string;
-  readonly price: string;
-  readonly per: string;
   readonly hours: string;
   readonly features: readonly string[];
 };
@@ -88,7 +86,7 @@ export const RetainerPopover = ({
           keeps it out of the accessibility tree (and out of `getByRole` queries) while
           closed, and `pointer-events: none` on Content itself — not just the panel inside
           it — keeps its floating box (positioned right above the trigger, so it overlaps
-          whatever else is there, e.g. the price or the details toggle) from silently
+          whatever else is there, e.g. the details toggle) from silently
           catching hover and reopening the panel; `inert` drops the close button from the
           tab order too. Radix's own positioning wrapper around Content gets the same
           treatment from a rule in index.css, keyed on `data-retainer-panel`. */}
@@ -134,17 +132,10 @@ export const RetainerPopover = ({
             </header>
 
             <div className="space-y-3 px-5 py-4">
-              <dl className="grid grid-cols-2 gap-2.5">
+              <dl>
                 <div className="rounded-xl border border-border/60 bg-card/35 px-3.5 py-2.5">
                   <dt className="text-[10px] uppercase tracking-[0.1em] text-muted-foreground/80">{hoursLabel}</dt>
                   <dd className="mt-1 font-body text-base leading-none text-foreground">{detail.hours}</dd>
-                </div>
-                <div className="rounded-xl border border-signal/25 bg-signal/[0.07] px-3.5 py-2.5">
-                  <dt className="truncate text-[10px] uppercase tracking-[0.1em] text-muted-foreground/80">{detail.label}</dt>
-                  <dd className="mt-1 font-body text-base leading-none text-signal">
-                    {detail.price}
-                    <span className="text-xs text-muted-foreground">{detail.per}</span>
-                  </dd>
                 </div>
               </dl>
 

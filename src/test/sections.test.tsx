@@ -107,24 +107,20 @@ describe("Why us", () => {
 });
 
 describe("Pricing", () => {
-  it("renders the three packages with their monthly support price", () => {
+  it("renders the three packages with their monthly support package", () => {
     renderWithLang(<Pricing />);
 
     const cards = screen.getAllByRole("article");
     gr.pricing.tiers.forEach((tier, i) => {
       expect(screen.getByRole("heading", { name: tier.name })).toBeInTheDocument();
-      expect(screen.getByText(tier.price)).toBeInTheDocument();
-      // Scoped to the card: the retainer panel (always mounted, hidden until hovered)
-      // repeats the same price, which would otherwise match twice here.
-      // The retainer price and its "/μήνα" suffix sit in one paragraph, split across nodes.
-      expect(within(cards[i]).getByText(tier.retainerPrice, { exact: false })).toBeInTheDocument();
+      expect(within(cards[i]).getByRole("button", { name: gr.pricing.retainerContentsLabel })).toBeInTheDocument();
     });
     // The label is now the same on all three cards, so the hours no longer leak into it.
     // Scoped per card: each card's (always-mounted, hidden) retainer panel repeats it too.
     cards.forEach((card) => {
       expect(within(card).getAllByText(gr.pricing.tiers[0].retainerLabel)).toHaveLength(1);
     });
-    expect(screen.getByText(gr.pricing.vatNote)).toBeInTheDocument();
+    expect(screen.queryByText(/€/)).not.toBeInTheDocument();
     // The per-package "discuss" button was removed; the contact form picks the package instead.
     expect(screen.queryByRole("link", { name: /Συζητήστε/ })).not.toBeInTheDocument();
   });
@@ -170,14 +166,14 @@ describe("closing section", () => {
     expect(section?.querySelector('a[href="mailto:consulting@whitecane-ai.com"]')).toBeInTheDocument();
   });
 
-  it("offers the free call and the three packages in the contact form", () => {
+  it("offers the free call and the services in the contact form, not the old packages", () => {
     renderWithLang(<CTA />);
 
     const radios = screen.getAllByRole("radio");
-    expect(radios).toHaveLength(4);
+    expect(radios).toHaveLength(gr.cta.form.packages.length);
     expect(screen.getByRole("radio", { name: gr.cta.form.packages[0] })).toBeChecked();
     for (const tier of gr.pricing.tiers) {
-      expect(screen.getByRole("radio", { name: tier.name })).toBeInTheDocument();
+      expect(screen.queryByRole("radio", { name: tier.name })).not.toBeInTheDocument();
     }
   });
 

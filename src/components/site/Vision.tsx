@@ -69,7 +69,7 @@ export const Vision = () => {
             >
               {v.h2a}
               <br />
-              <span className="italic">{v.h2b}</span>
+              <span className="italic text-signal-bright">{v.h2b}</span>
             </motion.h2>
             <p className="text-base text-muted-foreground leading-[1.75] mb-10 max-w-md">{v.sub}</p>
 

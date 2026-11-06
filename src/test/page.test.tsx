@@ -18,7 +18,7 @@ describe("Index", () => {
     );
 
     const ids = [...container.querySelectorAll("section[id]")].map((s) => s.id);
-    expect(ids).toEqual(["top", "offer", "who", "proof", "pricing", "vision", "contact"]);
+    expect(ids).toEqual(["top", "offer", "who", "proof", "vision", "contact"]);
 
     // #faq is an anchor inside the contact section rather than a section of its own.
     const contact = container.querySelector("section#contact");
