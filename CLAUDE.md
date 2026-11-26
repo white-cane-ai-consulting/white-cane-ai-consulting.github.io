@@ -6,6 +6,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Marketing website for **White Cane AI Consulting** ("Clarity in the era of AI"). React/TypeScript single-page site (Greek home at `/`, English at `/en/`), built with Vite, prerendered to static HTML at build time, and styled with TailwindCSS + a custom editorial design system.
 
+## Site copy rules
+
+- **Source for service text:** the owner keeps the current description of the services and how they are sold outside this repo (`Company Content.txt` in the `white-cane-ai-website` folder). Read it before rewriting service or FAQ copy.
+- **No fixed packages, no prices.** Each proposal is priced per client; the site never shows prices. The `Pricing` component (v1 packages) stays hidden.
+- **Team copy:** no names, neither of people nor of companies anyone worked for. The founder appears only as "ο CEO" / "the CEO" or "η ομάδα" / "the team".
+- **Client-facing text:** Greek first, plain, no hype. The English page says the same as the Greek one.
+
 ## Commands
 
 ```bash

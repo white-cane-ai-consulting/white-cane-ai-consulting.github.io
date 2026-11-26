@@ -192,7 +192,7 @@ describe("closing section", () => {
     renderWithLang(<CTA />);
 
     const second = gr.faq.items[1];
-    const trigger = screen.getByRole("button", { name: new RegExp(second.q.slice(0, 20), "i") });
+    const trigger = screen.getByRole("button", { name: (name) => name.includes(second.q) });
 
     expect(trigger).toHaveAttribute("aria-expanded", "false");
     fireEvent.click(trigger);

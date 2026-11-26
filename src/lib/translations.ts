@@ -223,8 +223,8 @@ export const translations = {
         // The first six are phrased the way people search for help ("how do we bring AI into our company");
         // each covers several variants of the same question.
         {
-          q: "How do we bring AI into our company?",
-          a: "Start with three to five tasks that repeat every week and measure how long they take today. Choose one company platform, close the personal accounts, connect it to your documents and systems (email, files, CRM, ERP), train the team on its own work and compare the results after a few weeks. That is exactly the set-up we do: we add the AI apps and tools your company needs and build them into the way you already work.",
+          q: "How do we know what AI our company needs?",
+          a: "Your work shows it. List three to five tasks that repeat every week and how long they take today. Then look at which platform the team already works on (Microsoft 365 or Google Workspace) and how sensitive the data involved is. Those three things show what you need: one company platform for the whole team, automations for work that passes through many hands, or a model on your own infrastructure for data that must not leave. When we do this with you, we measure the time before and after, so it shows whether it was worth it.",
         },
         {
           q: "Does our company need AI? When is it worth it, and when not?",
@@ -309,7 +309,6 @@ export const translations = {
         { label: "Who we are", href: "#who" },
         { label: "Why us", href: "#proof" },
         { label: "Contact", href: "#contact" },
-        { label: "llms.txt", href: "/llms.txt" },
       ],
       accepting: "Currently accepting engagements",
     },
@@ -408,7 +407,7 @@ export const translations = {
         },
       ],
       proof: [
-        { k: "3+ χρόνια εμπειρεία", v: "σε Enterprise Generative AI σε μεγάλες ελληνικές εταιρείες" },
+        { k: "3+ χρόνια εμπειρία", v: "σε Enterprise Generative AI σε μεγάλες ελληνικές εταιρείες" },
         { k: "Ελληνική εξειδίκευση", v: "Στήνουμε εργαλεία AI πάνω σε ελληνικά έγγραφα και συστήματα" },
         { k: "από το 2026", v: "Με έδρα στην Αθήνα" },
       ],
@@ -579,8 +578,8 @@ export const translations = {
         // The first six are phrased the way people search for help ("πώς να βάλω AI στην εταιρεία μου");
         // each covers several variants of the same question.
         {
-          q: "Πώς να βάλω AI στην εταιρεία μου;",
-          a: "Ξεκινήστε από τρεις με πέντε δουλειές που επαναλαμβάνονται κάθε εβδομάδα και μετρήστε πόσο χρόνο παίρνουν σήμερα. Διαλέξτε μία εταιρική πλατφόρμα, κλείστε τους προσωπικούς λογαριασμούς, συνδέστε την με τα έγγραφα και τα συστήματά σας (email, αρχεία, CRM, ERP), εκπαιδεύστε την ομάδα πάνω στη δική της δουλειά και συγκρίνετε τα αποτελέσματα μετά από λίγες εβδομάδες. Αυτό ακριβώς είναι το στήσιμο που κάνουμε: προσθέτουμε τις εφαρμογές και τα εργαλεία AI που χρειάζεται η εταιρεία σας και τα ενσωματώνουμε στον τρόπο που ήδη δουλεύετε.",
+          q: "Πώς ξέρω τι AI χρειάζεται η εταιρεία μου;",
+          a: "Το δείχνουν οι δουλειές σας. Γράψτε τρεις με πέντε δουλειές που επαναλαμβάνονται κάθε εβδομάδα και πόσο χρόνο παίρνουν σήμερα. Μετά δείτε σε ποια πλατφόρμα δουλεύει ήδη η ομάδα (Microsoft 365 ή Google Workspace) και πόσο ευαίσθητα είναι τα δεδομένα που θα χρησιμοποιηθούν. Αυτά τα τρία δείχνουν τι χρειάζεστε: μια εταιρική πλατφόρμα για όλη την ομάδα, αυτοματισμούς για δουλειές που περνούν από πολλά χέρια, ή μοντέλο στη δική σας υποδομή για δεδομένα που δεν πρέπει να βγουν έξω. Όταν το κάνουμε μαζί σας, μετράμε τον χρόνο πριν και μετά, ώστε να φαίνεται αν άξιζε.",
         },
         {
           q: "Χρειάζεται η εταιρεία μου AI; Πότε αξίζει και πότε όχι;",
@@ -665,7 +664,6 @@ export const translations = {
         { label: "Ποιοι είμαστε", href: "#who" },
         { label: "Γιατί εμάς", href: "#proof" },
         { label: "Επικοινωνία", href: "#contact" },
-        { label: "llms.txt", href: "/llms.txt" },
       ],
       accepting: "Δεχόμαστε συνεργασίες",
     },
