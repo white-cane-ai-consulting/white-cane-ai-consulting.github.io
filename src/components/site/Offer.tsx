@@ -56,7 +56,7 @@ export const Offer = () => {
     <section id="offer" className="relative py-28 md:py-40 bg-secondary/40 border-y border-border/50">
       <div className="container">
         <motion.div {...reveal()} className="flex items-center gap-3 mb-12 md:mb-14">
-          <span className="text-xs uppercase tracking-[0.18em] text-signal-bright">01 —</span>
+          <span aria-hidden="true" className="h-px w-8 bg-signal-bright" />
           <span className="text-xs uppercase tracking-[0.18em] text-muted-foreground">{o.label}</span>
         </motion.div>
 
@@ -70,26 +70,19 @@ export const Offer = () => {
           <span className="font-normal italic text-signal-bright">{o.h2c}</span>
         </motion.h2>
 
-        <motion.p
-          {...reveal(0.1)}
-          className="mt-8 max-w-[60ch] text-lg leading-[1.7] text-muted-foreground md:mt-10 md:text-xl md:leading-[1.65]"
-        >
-          {o.lead}
-        </motion.p>
-
         {/* A: the core service. */}
         <motion.div
           {...reveal(0, 1)}
-          className="relative mt-20 overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(160deg,hsl(217_45%_15%)_0%,hsl(217_30%_9%)_55%,hsl(60_4%_7%)_100%)] py-7 shadow-[inset_0_1px_0_hsl(0_0%_100%/0.08),0_40px_120px_-50px_hsl(217_60%_20%/0.9)] px-5 sm:p-10 md:mt-28 lg:p-14"
+          className="relative mt-20 overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(160deg,hsl(217_45%_15%)_0%,hsl(217_30%_9%)_55%,hsl(60_4%_7%)_100%)] py-7 shadow-[inset_0_1px_0_hsl(0_0%_100%/0.08)] px-5 sm:p-10 md:mt-28 lg:p-14"
         >
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-0 bg-[radial-gradient(55%_60%_at_100%_0%,hsl(var(--signal)/0.16),transparent_70%),radial-gradient(60%_80%_at_0%_100%,hsl(var(--sapphire)/0.55),transparent_70%)]"
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_80%_at_0%_100%,hsl(var(--sapphire)/0.45),transparent_70%)]"
           />
 
           <div className="relative grid gap-y-12 lg:grid-cols-12 lg:gap-x-16">
             <div className="lg:col-span-5">
-              <span aria-hidden className="block font-display text-[5.5rem] font-light leading-[0.8] text-signal-bright md:text-[7.5rem]">
+              <span aria-hidden className="block font-display text-6xl font-light leading-[0.8] text-signal-bright md:text-7xl">
                 A
               </span>
               <p className="mt-8 text-sm text-foreground/70">{serviceDetails[lang].A.kicker}</p>
@@ -98,7 +91,7 @@ export const Offer = () => {
                   {a.title}
                 </h3>
               </button>
-              <p className="mt-6 max-w-md text-base leading-[1.75] text-foreground/75">{a.body}</p>
+              <p className="mt-4 max-w-sm text-pretty text-sm leading-[1.6] text-foreground/55">{a.body}</p>
               <button
                 type="button"
                 onClick={() => setOpen("A")}
@@ -116,7 +109,7 @@ export const Offer = () => {
                     type="button"
                     onClick={() => setOpen(level.code as ServiceId)}
                     className={cn(
-                      "group relative grid w-full grid-cols-[2rem_1fr_1rem] gap-x-2 py-8 text-left focus-visible:outline-none sm:grid-cols-[3.5rem_1fr_1.5rem] sm:gap-x-4 md:py-9",
+                      "group relative grid w-full grid-cols-[2rem_1fr] gap-x-2 py-6 text-left focus-visible:outline-none sm:grid-cols-[3.5rem_1fr] sm:gap-x-4 md:py-9",
                       i === 0 && "lg:pt-2",
                     )}
                   >
@@ -125,14 +118,8 @@ export const Offer = () => {
                       <h4 className="font-display text-xl leading-snug text-balance transition-colors duration-300 group-hover:text-signal-bright group-focus-visible:text-signal-bright md:text-2xl">
                         {level.title}
                       </h4>
-                      <p className="mt-3 max-w-xl text-[0.9375rem] leading-[1.7] text-foreground/70">{level.body}</p>
+                      <p className="mt-2 max-w-xl text-pretty text-sm leading-[1.6] text-foreground/55">{level.body}</p>
                     </div>
-                    <span
-                      aria-hidden
-                      className="pt-1 text-right text-foreground/50 transition-all duration-300 group-hover:translate-x-1 group-hover:text-foreground group-focus-visible:translate-x-1 group-focus-visible:text-foreground"
-                    >
-                      →
-                    </span>
                     {/* Hairline under the row that fills with red from the left. */}
                     {i < a.levels.length - 1 && <span aria-hidden className="absolute inset-x-0 bottom-0 h-px bg-white/10" />}
                     <span
@@ -189,15 +176,16 @@ export const Offer = () => {
                   aria-hidden
                   className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-signal transition-transform duration-700 ease-expo group-hover:scale-x-100 group-focus-visible:scale-x-100"
                 />
-                <span className="font-display text-6xl font-light leading-[0.8] text-foreground/40 transition-colors duration-500 group-hover:text-signal-bright group-focus-visible:text-signal-bright">
+                <span className="font-display text-4xl font-light leading-[0.8] text-foreground/40 transition-colors duration-500 group-hover:text-signal-bright group-focus-visible:text-signal-bright">
                   {s.id}
                 </span>
-                <h3 className="mt-10 font-display text-xl leading-snug text-balance md:text-2xl">{s.title}</h3>
+                <h3 className="mt-6 font-display text-xl leading-snug text-balance transition-colors duration-300 group-hover:text-signal-bright group-focus-visible:text-signal-bright md:text-2xl">
+                  {s.title}
+                </h3>
                 <p className="mt-2 text-sm text-foreground/60">{s.when}</p>
-                <p className="mt-5 text-[0.9375rem] leading-[1.7] text-muted-foreground">{s.body}</p>
-                <span className="mt-auto inline-flex items-center gap-2 pt-8 text-sm text-foreground underline decoration-border underline-offset-[6px] transition-colors duration-300 group-hover:decoration-signal">
+                <p className="mt-3 text-pretty text-sm leading-[1.6] text-foreground/55">{s.body}</p>
+                <span className="mt-auto pt-8 text-sm text-muted-foreground underline decoration-transparent underline-offset-[6px] transition-colors duration-300 group-hover:text-foreground group-hover:decoration-signal group-focus-visible:text-foreground group-focus-visible:decoration-signal">
                   {o.more}
-                  <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                 </span>
               </button>
             </motion.li>

@@ -57,7 +57,7 @@ export const Footer = () => {
               <div className="text-sm text-muted-foreground mt-1 leading-relaxed">{c.footerTagline}</div>
             </div>
           </div>
-          <div ref={gridRef} className="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-8 sm:gap-10 text-sm">
+          <div ref={gridRef} className="grid grid-cols-2 gap-x-6 gap-y-8 sm:gap-10 text-sm">
             <div>
               <div className="text-[11px] text-muted-foreground uppercase tracking-[0.14em] mb-3">{c.practice}</div>
               <ul className="space-y-2">
@@ -74,14 +74,6 @@ export const Footer = () => {
                 ))}
               </ul>
             </div>
-            <div>
-              <div className="text-[11px] text-muted-foreground uppercase tracking-[0.14em] mb-3">{c.elsewhere}</div>
-              <ul className="space-y-2">
-                {c.elsewhereLinks.map((l) => (
-                  <li key={l}><a href="#" className={linkClass}>{l}</a></li>
-                ))}
-              </ul>
-            </div>
           </div>
         </div>
 
@@ -92,7 +84,6 @@ export const Footer = () => {
             <button type="button" onClick={() => setPolicyOpen(true)} className="self-start uppercase tracking-[0.16em] transition-colors hover:text-foreground">
               {t.consent.footerLink}
             </button>
-            <span className="text-muted-foreground/70">v0.6</span>
           </div>
           <span style={gridWidth ? { width: gridWidth } : undefined} className="flex items-center">
             <span className="text-signal-bright mr-2">●</span>

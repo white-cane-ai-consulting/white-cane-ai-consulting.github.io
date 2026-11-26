@@ -18,7 +18,7 @@ const renderWithLang = (ui: React.ReactElement) =>
   );
 
 describe("Offer", () => {
-  it("shows service A with its three levels and B, C, D", () => {
+  it("shows service A with its four levels and B, C, D", () => {
     renderWithLang(<Offer />);
 
     expect(screen.getByRole("heading", { name: gr.offer.serviceA.title })).toBeInTheDocument();
@@ -63,7 +63,7 @@ describe("Offer", () => {
     fireEvent.click(screen.getByRole("heading", { name: gr.offer.serviceA.title }));
     const dialog = await screen.findByRole("dialog");
 
-    fireEvent.click(within(dialog).getByRole("button", { name: /Τοπικό AI/ }));
+    fireEvent.click(within(dialog).getByRole("button", { name: /Local LLMs/ }));
     expect(await within(screen.getByRole("dialog")).findByText("Πού το στήνουμε")).toBeInTheDocument();
   });
 
@@ -73,7 +73,7 @@ describe("Offer", () => {
     fireEvent.click(screen.getByRole("heading", { name: gr.offer.serviceA.levels[0].title }));
 
     const dialog = await screen.findByRole("dialog");
-    expect(within(dialog).getByText("Enterprise AI πλατφόρμες")).toBeInTheDocument();
+    expect(within(dialog).getByText("Enterprise AI πλατφόρμες και εργαλεία")).toBeInTheDocument();
     expect(within(dialog).getByText("Ποια πλατφόρμα, για ποια εταιρεία")).toBeInTheDocument();
   });
 

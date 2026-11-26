@@ -46,7 +46,7 @@ type CoreSlide = { value: number; suffix: string; text: string; accent: string }
 const SLIDE_MS = 4200;
 const swap = { duration: 0.55, ease: [0.16, 1, 0.3, 1] } as const;
 
-/** Slowly rotates the centre of the galaxy: "150+ tools tested" → "20+ sectors" → "3+ years of Enterprise GenAI". */
+/** Slowly rotates the centre of the galaxy: "100+ tools tested" → "3+ years of Enterprise GenAI". */
 const CoreCycle = ({ slides }: { slides: readonly CoreSlide[] }) => {
   const [i, setI] = useState(0);
   const reduceMotion = useReducedMotion();
@@ -106,7 +106,7 @@ export const Achievements = () => {
 
       <div className="container relative z-10">
         <motion.div {...reveal()} className="mb-12 flex items-center gap-3">
-          <span className="text-xs uppercase tracking-[0.18em] text-signal-bright">03 —</span>
+          <span aria-hidden="true" className="h-px w-8 bg-signal-bright" />
           <span className="text-xs uppercase tracking-[0.18em] text-muted-foreground">{a.label}</span>
         </motion.div>
 

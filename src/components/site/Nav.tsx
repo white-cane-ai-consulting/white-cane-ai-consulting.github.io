@@ -41,7 +41,7 @@ export const Nav = () => {
             </a>
           ))}
         </nav>
-        <div className="flex items-center gap-3 sm:gap-4">
+        <div className="flex items-center gap-2 sm:gap-4">
           <div className="flex items-center gap-0.5 text-xs uppercase tracking-[0.14em] bg-card rounded-full p-1">
             {langLinks.map((l) => (
               <Link
@@ -55,11 +55,12 @@ export const Nav = () => {
               </Link>
             ))}
           </div>
+          {/* Visible on phones too: the call is the one action, so it never hides behind the menu. */}
           <a
             href={`${home}#contact`}
-            className="hidden sm:inline-flex group relative items-center gap-2 text-xs uppercase tracking-[0.14em] rounded-full bg-card px-5 py-2.5 hover:bg-signal hover:text-bone transition-colors duration-300"
+            className="inline-flex group relative items-center gap-2 text-[11px] sm:text-xs uppercase tracking-[0.08em] sm:tracking-[0.14em] rounded-full bg-card px-3.5 py-2.5 sm:px-5 hover:bg-signal hover:text-bone transition-colors duration-300"
           >
-            <span className="w-1.5 h-1.5 bg-signal pulse-dot" />
+            <span className="hidden sm:block w-1.5 h-1.5 bg-signal pulse-dot" />
             {t.nav.contact}
           </a>
           <button

@@ -34,12 +34,12 @@ export type ServiceDetail = {
   blocks: DetailBlock[];
 };
 
-export type ServiceId = "A" | "A1" | "A2" | "A3" | "B" | "C" | "D";
+export type ServiceId = "A" | "A1" | "A2" | "A3" | "A4" | "B" | "C" | "D";
 
 const EN: Record<ServiceId, ServiceDetail> = {
   A: {
     code: "A",
-    title: "AI tool set-up",
+    title: "AI Transformation",
     kicker: "Our core service",
     blocks: [
       {
@@ -60,11 +60,12 @@ const EN: Record<ServiceId, ServiceDetail> = {
       },
       {
         kind: "cards",
-        title: "The three levels",
+        title: "The four levels",
         items: [
-          { name: "Enterprise AI platforms", meta: "A1 · Almost every company", body: "ChatGPT, Claude, Gemini or Microsoft Copilot. The everyday tool for the whole team.", link: "A1" },
-          { name: "Local AI", meta: "A2 · When there is sensitive data", body: "Qwen, Llama or Mistral on vLLM, in your office, your server room or a private EU cloud.", link: "A2" },
-          { name: "Specialised tools and connections", meta: "A3 · For specific jobs", body: "ElevenLabs, Lovable, Notion AI, n8n, and the links to your systems.", link: "A3" },
+          { name: "Enterprise AI platforms and tools", meta: "A1 · Almost every company", body: "ChatGPT, Claude, Gemini or Microsoft Copilot for the whole team, plus specialised tools such as ElevenLabs and Notion AI.", link: "A1" },
+          { name: "Workflows and automations", meta: "A2 · For work that repeats", body: "n8n and Make: data moves between email, CRM and ERP on its own.", link: "A2" },
+          { name: "Custom AI applications", meta: "A3 · When nothing ready-made fits", body: "An application built from scratch for your own work.", link: "A3" },
+          { name: "Local LLMs", meta: "A4 · When there is sensitive data", body: "Qwen, Llama or Mistral on vLLM, in your office, your server room or a private EU cloud.", link: "A4" },
         ],
       },
       {
@@ -122,12 +123,12 @@ const EN: Record<ServiceId, ServiceDetail> = {
   },
   A1: {
     code: "A1",
-    title: "Enterprise AI platforms",
-    kicker: "ChatGPT · Claude · Gemini · Microsoft Copilot",
+    title: "Enterprise AI platforms and tools",
+    kicker: "ChatGPT · Claude · Gemini · Microsoft Copilot · specialised tools",
     blocks: [
       {
         kind: "lead",
-        body: "For most companies, AI starts with one of these four platforms, on a business plan, set up for the whole team.",
+        body: "For most companies, AI starts with one of these four platforms, on a business plan, set up for the whole team. Around it go the specialised tools a specific job needs, only after a security check.",
       },
       {
         kind: "cards",
@@ -163,11 +164,134 @@ const EN: Record<ServiceId, ServiceDetail> = {
         title: "The first thing we close.",
         body: "Employees uploading company files to free personal accounts. On those plans, the data may be used to train models.",
       },
+      {
+        kind: "catalog",
+        title: "Specialised tools, by job",
+        groups: [
+          { label: "Voice and audio", body: "Voiceovers, multilingual material, voice assistants.", items: ["ElevenLabs"] },
+          { label: "Meetings", body: "Minutes and action items, without taking notes.", items: ["Copilot in Teams", "Gemini in Meet", "Fireflies", "Granola"] },
+          { label: "Presentations and marketing", body: "In hours instead of days.", items: ["Gamma", "Canva AI"] },
+          { label: "Image and video", body: "Visual material and training videos without a crew.", items: ["Midjourney", "Runway", "HeyGen", "Synthesia"] },
+          { label: "Internal knowledge", body: "Search and summaries over your documentation.", items: ["Notion AI", "NotebookLM"] },
+          { label: "Research", body: "Market research with sources.", items: ["Perplexity"] },
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Connectors and plugins",
+        items: [
+          { name: "Connectors", meta: "Ready-made links", body: "The platforms connect directly to the tools you already use.", chips: ["Google Drive", "SharePoint", "Gmail", "Outlook", "Slack", "Notion", "HubSpot", "Salesforce"] },
+          { name: "MCP servers", meta: "For your own systems", body: "An open standard for connecting AI to your ERP, CRM and databases, where no ready connector exists." },
+          { name: "Plugins and extensions", meta: "Approved only", body: "Only from official sources and only those you approve. A plugin can read whatever the user sees." },
+        ],
+      },
+      {
+        kind: "checks",
+        title: "A tool goes in only if",
+        items: [
+          "It has a business plan with a data processing agreement (DPA).",
+          "It commits in writing not to train on your data.",
+          "We know where it stores data (EU or not) and for how long.",
+          "It supports company sign-in (SSO) and central shut-off.",
+          "It asks only for the rights it needs.",
+          "It holds certifications (SOC 2, ISO 27001) where your industry requires them.",
+          "It performs well in Greek, where the job needs it.",
+        ],
+      },
+      {
+        kind: "callout",
+        tone: "warn",
+        title: "If it fails the check, it stays out.",
+        body: "We propose an alternative, or do the job with a local model (A4).",
+      },
     ],
   },
   A2: {
     code: "A2",
-    title: "Local AI (on-premise)",
+    title: "Workflows and automations",
+    kicker: "n8n · Make",
+    blocks: [
+      {
+        kind: "lead",
+        body: "Work that passes through the same hands every day (quotes, orders, invoices, customer requests) becomes a flow that runs on its own. The automation moves the data between email, files, CRM and ERP, and AI reads, sorts and writes the first draft.",
+      },
+      {
+        kind: "cards",
+        title: "n8n or Make",
+        items: [
+          { name: "n8n", meta: "When you want control", body: "Open source. It can also run on your own infrastructure, so the data does not have to leave the company. For complex flows and agents." },
+          { name: "Make", meta: "When you want a quick start", body: "In the cloud, with a visual editor and ready-made connections to hundreds of apps. Easy for your own team to change." },
+        ],
+      },
+      {
+        kind: "bullets",
+        title: "Example flows",
+        items: [
+          "An order arrives by email → the details go into the ERP → the customer gets a confirmation.",
+          "An invoice arrives as a PDF → amounts and VAT number are extracted → queued for accounts to check.",
+          "A request comes in through the website form → sorted by topic → sent to the right department and logged in the CRM.",
+          "A weekly sales report from the CRM, in management's inbox every Monday.",
+        ],
+      },
+      {
+        kind: "checks",
+        title: "How we build them",
+        items: [
+          "We first measure how long the work takes today.",
+          "Where a decision has consequences, a person approves before anything goes out.",
+          "Every flow logs what it did, and alerts you when something fails.",
+          "Each connection has only the rights it needs.",
+          "Written documentation, so someone else can change the flow later.",
+        ],
+      },
+      {
+        kind: "callout",
+        tone: "info",
+        title: "Agents, when they make sense.",
+        body: "When a job has many steps and clear rules, we add an agent: a model given tools and permission to act. When judgement matters more than speed, we leave it out.",
+      },
+    ],
+  },
+  A3: {
+    code: "A3",
+    title: "Custom AI applications",
+    kicker: "An application built for your own work",
+    blocks: [
+      {
+        kind: "lead",
+        body: "When no ready-made platform does what you need, we build an application from scratch: with your own screens, your own rules, and AI inside the flow of the work.",
+      },
+      {
+        kind: "cards",
+        title: "What it can be (examples)",
+        items: [
+          { name: "Internal tool", meta: "For your team", body: "A portal where the team asks about procedures, contracts or the product catalogue, and gets an answer that cites the source." },
+          { name: "Customer-facing assistant", meta: "On your site or app", body: "Answers customers from your own data, and hands to a person whatever it does not know." },
+          { name: "Document processing", meta: "For high volume", body: "Reads invoices, contracts or applications, extracts the data and checks it against your own rules." },
+          { name: "Prototype", meta: "To test an idea", body: "A working first version, so you can see whether the idea is worth it before investing in a full application.", chips: ["Lovable", "v0", "Cursor", "Claude Code"] },
+        ],
+      },
+      {
+        kind: "bullets",
+        title: "How we work",
+        items: [
+          "We start from the work and the people who will use it, not from the technology.",
+          "We first build a small version that is actually used, then grow it.",
+          "The model stays replaceable: cloud or local (A4), without rewriting the application.",
+          "It connects to the systems you already have (ERP, CRM, files).",
+        ],
+      },
+      {
+        kind: "callout",
+        tone: "info",
+        title: "First we check whether something ready-made exists.",
+        body: "If a platform (A1) or an automation (A2) does the job, we tell you. We build an application when one is really needed.",
+      },
+    ],
+  },
+  A4: {
+    code: "A4",
+    title: "Local LLMs (on-premise)",
     kicker: "vLLM · Qwen · Llama · Mistral",
     blocks: [
       {
@@ -237,59 +361,6 @@ const EN: Record<ServiceId, ServiceDetail> = {
         tone: "info",
         title: "We usually recommend hybrid.",
         body: "Sensitive work stays local, and a cloud platform (A1) handles everything else.",
-      },
-    ],
-  },
-  A3: {
-    code: "A3",
-    title: "Specialised tools and connections",
-    kicker: "Tools for specific jobs",
-    blocks: [
-      {
-        kind: "lead",
-        body: "The big platforms cover most of the work. For some jobs, though, there is a tool built exactly for them. We recommend only those that solve a real need, and only after they pass a security check.",
-      },
-      {
-        kind: "catalog",
-        title: "Tools by job",
-        groups: [
-          { label: "Voice and audio", body: "Voiceovers, multilingual material, voice assistants.", items: ["ElevenLabs"] },
-          { label: "Meetings", body: "Minutes and action items, without taking notes.", items: ["Copilot in Teams", "Gemini in Meet", "Fireflies", "Granola"] },
-          { label: "Presentations and marketing", body: "In hours instead of days.", items: ["Gamma", "Canva AI"] },
-          { label: "Image and video", body: "Visual material and training videos without a crew.", items: ["Midjourney", "Runway", "HeyGen", "Synthesia"] },
-          { label: "Internal knowledge", body: "Search and summaries over your documentation.", items: ["Notion AI", "NotebookLM"] },
-          { label: "Research", body: "Market research with sources.", items: ["Perplexity"] },
-          { label: "Apps and prototypes", body: "Internal tools in days.", items: ["Lovable", "v0", "Cursor", "Claude Code"] },
-          { label: "Automation", body: "Nobody moves data by hand.", items: ["n8n", "Make", "Zapier", "Power Automate"] },
-        ],
-      },
-      {
-        kind: "cards",
-        title: "Connectors and plugins",
-        items: [
-          { name: "Connectors", meta: "Ready-made links", body: "The platforms connect directly to the tools you already use.", chips: ["Google Drive", "SharePoint", "Gmail", "Outlook", "Slack", "Notion", "HubSpot", "Salesforce"] },
-          { name: "MCP servers", meta: "For your own systems", body: "An open standard for connecting AI to your ERP, CRM and databases, where no ready connector exists." },
-          { name: "Plugins and extensions", meta: "Approved only", body: "Only from official sources and only those you approve. A plugin can read whatever the user sees." },
-        ],
-      },
-      {
-        kind: "checks",
-        title: "A tool goes in only if",
-        items: [
-          "It has a business plan with a data processing agreement (DPA).",
-          "It commits in writing not to train on your data.",
-          "We know where it stores data (EU or not) and for how long.",
-          "It supports company sign-in (SSO) and central shut-off.",
-          "It asks only for the rights it needs.",
-          "It holds certifications (SOC 2, ISO 27001) where your industry requires them.",
-          "It performs well in Greek, where the job needs it.",
-        ],
-      },
-      {
-        kind: "callout",
-        tone: "warn",
-        title: "If it fails the check, it stays out.",
-        body: "We propose an alternative, or do the job with a local model (A2).",
       },
     ],
   },
@@ -395,7 +466,7 @@ const EN: Record<ServiceId, ServiceDetail> = {
 const GR: Record<ServiceId, ServiceDetail> = {
   A: {
     code: "A",
-    title: "Στήσιμο εργαλείων AI",
+    title: "AI Transformation",
     kicker: "Η βασική μας υπηρεσία",
     blocks: [
       {
@@ -416,11 +487,12 @@ const GR: Record<ServiceId, ServiceDetail> = {
       },
       {
         kind: "cards",
-        title: "Τα τρία επίπεδα",
+        title: "Τα τέσσερα επίπεδα",
         items: [
-          { name: "Enterprise AI πλατφόρμες", meta: "A1 · Σχεδόν κάθε εταιρεία", body: "ChatGPT, Claude, Gemini ή Microsoft Copilot. Το καθημερινό εργαλείο όλης της ομάδας.", link: "A1" },
-          { name: "Τοπικό AI", meta: "A2 · Όταν υπάρχουν ευαίσθητα δεδομένα", body: "Qwen, Llama ή Mistral πάνω σε vLLM, στο γραφείο, στο server room σας ή σε ιδιωτικό cloud στην ΕΕ.", link: "A2" },
-          { name: "Εξειδικευμένα εργαλεία και συνδέσεις", meta: "A3 · Για συγκεκριμένες δουλειές", body: "ElevenLabs, Lovable, Notion AI, n8n, και οι συνδέσεις με τα συστήματά σας.", link: "A3" },
+          { name: "Enterprise AI πλατφόρμες και εργαλεία", meta: "A1 · Σχεδόν κάθε εταιρεία", body: "ChatGPT, Claude, Gemini ή Microsoft Copilot για όλη την ομάδα, και εξειδικευμένα εργαλεία όπως ElevenLabs και Notion AI.", link: "A1" },
+          { name: "Workflows και αυτοματισμοί", meta: "A2 · Για δουλειές που επαναλαμβάνονται", body: "n8n και Make: τα δεδομένα περνούν μόνα τους ανάμεσα σε email, CRM και ERP.", link: "A2" },
+          { name: "Custom AI εφαρμογές", meta: "A3 · Όταν δεν ταιριάζει κάτι έτοιμο", body: "Εφαρμογή φτιαγμένη από την αρχή για τη δική σας δουλειά.", link: "A3" },
+          { name: "Local LLMs", meta: "A4 · Όταν υπάρχουν ευαίσθητα δεδομένα", body: "Qwen, Llama ή Mistral πάνω σε vLLM, στο γραφείο, στο server room σας ή σε ιδιωτικό cloud στην ΕΕ.", link: "A4" },
         ],
       },
       {
@@ -478,12 +550,12 @@ const GR: Record<ServiceId, ServiceDetail> = {
   },
   A1: {
     code: "A1",
-    title: "Enterprise AI πλατφόρμες",
-    kicker: "ChatGPT · Claude · Gemini · Microsoft Copilot",
+    title: "Enterprise AI πλατφόρμες και εργαλεία",
+    kicker: "ChatGPT · Claude · Gemini · Microsoft Copilot · εξειδικευμένα εργαλεία",
     blocks: [
       {
         kind: "lead",
-        body: "Για τις περισσότερες εταιρείες το AI ξεκινά από μία από αυτές τις τέσσερις πλατφόρμες, σε εταιρικό πλάνο, στημένη για όλη την ομάδα.",
+        body: "Για τις περισσότερες εταιρείες το AI ξεκινά από μία από αυτές τις τέσσερις πλατφόρμες, σε εταιρικό πλάνο, στημένη για όλη την ομάδα. Γύρω της μπαίνουν τα εξειδικευμένα εργαλεία που χρειάζεται μια συγκεκριμένη δουλειά, μόνο αφού περάσουν έλεγχο ασφάλειας.",
       },
       {
         kind: "cards",
@@ -519,11 +591,134 @@ const GR: Record<ServiceId, ServiceDetail> = {
         title: "Το πρώτο που κλείνουμε.",
         body: "Υπάλληλοι που ανεβάζουν εταιρικά αρχεία σε δωρεάν προσωπικούς λογαριασμούς. Σε αυτά τα πλάνα, τα δεδομένα μπορεί να χρησιμοποιηθούν για την εκπαίδευση μοντέλων.",
       },
+      {
+        kind: "catalog",
+        title: "Εξειδικευμένα εργαλεία ανά δουλειά",
+        groups: [
+          { label: "Φωνή και ήχος", body: "Εκφωνήσεις, υλικό σε πολλές γλώσσες, φωνητικοί βοηθοί.", items: ["ElevenLabs"] },
+          { label: "Συναντήσεις", body: "Πρακτικά και εκκρεμότητες, χωρίς σημειώσεις.", items: ["Copilot στο Teams", "Gemini στο Meet", "Fireflies", "Granola"] },
+          { label: "Παρουσιάσεις και marketing", body: "Σε ώρες αντί για μέρες.", items: ["Gamma", "Canva AI"] },
+          { label: "Εικόνα και βίντεο", body: "Οπτικό υλικό και εκπαιδευτικά βίντεο χωρίς συνεργείο.", items: ["Midjourney", "Runway", "HeyGen", "Synthesia"] },
+          { label: "Εσωτερική γνώση", body: "Αναζήτηση και περιλήψεις στην τεκμηρίωσή σας.", items: ["Notion AI", "NotebookLM"] },
+          { label: "Έρευνα", body: "Έρευνα αγοράς με πηγές.", items: ["Perplexity"] },
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Connectors και plugins",
+        items: [
+          { name: "Connectors", meta: "Έτοιμες συνδέσεις", body: "Οι πλατφόρμες συνδέονται απευθείας με τα εργαλεία που ήδη χρησιμοποιείτε.", chips: ["Google Drive", "SharePoint", "Gmail", "Outlook", "Slack", "Notion", "HubSpot", "Salesforce"] },
+          { name: "MCP servers", meta: "Για τα δικά σας συστήματα", body: "Ανοιχτό πρότυπο για να συνδεθεί το AI με ERP, CRM και βάσεις δεδομένων, όπου δεν υπάρχει έτοιμος connector." },
+          { name: "Plugins και extensions", meta: "Μόνο εγκεκριμένα", body: "Μόνο από επίσημες πηγές και μόνο όσα εγκρίνετε. Ένα plugin μπορεί να διαβάσει ό,τι βλέπει ο χρήστης." },
+        ],
+      },
+      {
+        kind: "checks",
+        title: "Ένα εργαλείο μπαίνει μόνο αν",
+        items: [
+          "Έχει business πλάνο με σύμβαση επεξεργασίας δεδομένων (DPA).",
+          "Δεσμεύεται γραπτώς ότι δεν εκπαιδεύεται στα δεδομένα σας.",
+          "Ξέρουμε πού αποθηκεύει τα δεδομένα (ΕΕ ή όχι) και για πόσο.",
+          "Υποστηρίζει εταιρική είσοδο (SSO) και κεντρικό κλείσιμο πρόσβασης.",
+          "Ζητά μόνο τα δικαιώματα που χρειάζεται.",
+          "Έχει πιστοποιήσεις (SOC 2, ISO 27001) όπου τις απαιτεί ο κλάδος σας.",
+          "Αποδίδει καλά στα ελληνικά, όπου η δουλειά το απαιτεί.",
+        ],
+      },
+      {
+        kind: "callout",
+        tone: "warn",
+        title: "Αν δεν περάσει τον έλεγχο, δεν μπαίνει.",
+        body: "Προτείνουμε εναλλακτικό, ή κάνουμε τη δουλειά με τοπικό μοντέλο (A4).",
+      },
     ],
   },
   A2: {
     code: "A2",
-    title: "Τοπικό AI (on-premise)",
+    title: "Workflows και αυτοματισμοί",
+    kicker: "n8n · Make",
+    blocks: [
+      {
+        kind: "lead",
+        body: "Δουλειές που περνούν κάθε μέρα από τα ίδια χέρια (προσφορές, παραγγελίες, τιμολόγια, αιτήματα πελατών) γίνονται ροές που τρέχουν μόνες τους. Ο αυτοματισμός μεταφέρει τα δεδομένα ανάμεσα σε email, αρχεία, CRM και ERP, και το AI διαβάζει, ταξινομεί και γράφει το πρώτο προσχέδιο.",
+      },
+      {
+        kind: "cards",
+        title: "n8n ή Make",
+        items: [
+          { name: "n8n", meta: "Όταν θέλετε έλεγχο", body: "Ανοιχτού κώδικα. Τρέχει και στη δική σας υποδομή, οπότε τα δεδομένα δεν χρειάζεται να βγουν από την εταιρεία. Για σύνθετες ροές και agents." },
+          { name: "Make", meta: "Όταν θέλετε γρήγορη αρχή", body: "Στο cloud, με οπτικό editor και έτοιμες συνδέσεις με εκατοντάδες εφαρμογές. Την αλλάζει εύκολα και η δική σας ομάδα." },
+        ],
+      },
+      {
+        kind: "bullets",
+        title: "Παραδείγματα ροών",
+        items: [
+          "Παραγγελία έρχεται με email → τα στοιχεία περνούν στο ERP → ο πελάτης παίρνει επιβεβαίωση.",
+          "Τιμολόγιο έρχεται σε PDF → εξάγονται ποσά και ΑΦΜ → μπαίνει σε σειρά για έλεγχο από το λογιστήριο.",
+          "Αίτημα από τη φόρμα του site → κατηγοριοποιείται → πάει στο σωστό τμήμα και καταγράφεται στο CRM.",
+          "Εβδομαδιαία αναφορά πωλήσεων από το CRM, στο email της διοίκησης κάθε Δευτέρα.",
+        ],
+      },
+      {
+        kind: "checks",
+        title: "Πώς τις στήνουμε",
+        items: [
+          "Μετράμε πρώτα πόσο χρόνο παίρνει η δουλειά σήμερα.",
+          "Όπου μια απόφαση έχει συνέπειες, ένας άνθρωπος εγκρίνει πριν φύγει οτιδήποτε.",
+          "Κάθε ροή καταγράφει τι έκανε και σας ειδοποιεί όταν κάτι αποτύχει.",
+          "Κάθε σύνδεση έχει μόνο τα δικαιώματα που χρειάζεται.",
+          "Γραπτή τεκμηρίωση, ώστε να μπορεί να αλλάξει τη ροή και κάποιος άλλος.",
+        ],
+      },
+      {
+        kind: "callout",
+        tone: "info",
+        title: "Agents, όταν έχει νόημα.",
+        body: "Όταν μια δουλειά έχει πολλά βήματα και καθαρούς κανόνες, προσθέτουμε agent: ένα μοντέλο με εργαλεία και άδεια να δράσει. Όταν μετράει περισσότερο η κρίση παρά η ταχύτητα, τον αφήνουμε έξω.",
+      },
+    ],
+  },
+  A3: {
+    code: "A3",
+    title: "Custom AI εφαρμογές",
+    kicker: "Εφαρμογή φτιαγμένη για τη δική σας δουλειά",
+    blocks: [
+      {
+        kind: "lead",
+        body: "Όταν καμία έτοιμη πλατφόρμα δεν κάνει αυτό που χρειάζεστε, φτιάχνουμε εφαρμογή από την αρχή: με τις δικές σας οθόνες, τους δικούς σας κανόνες και το AI μέσα στη ροή της δουλειάς.",
+      },
+      {
+        kind: "cards",
+        title: "Τι μπορεί να είναι (παραδείγματα)",
+        items: [
+          { name: "Εσωτερικό εργαλείο", meta: "Για την ομάδα σας", body: "Ένα portal όπου η ομάδα ρωτά για διαδικασίες, συμβάσεις ή τον κατάλογο προϊόντων, και παίρνει απάντηση με παραπομπή στην πηγή." },
+          { name: "Βοηθός για πελάτες", meta: "Στο site ή στην εφαρμογή σας", body: "Απαντά στους πελάτες από τα δικά σας δεδομένα και περνά σε άνθρωπο ό,τι δεν ξέρει." },
+          { name: "Επεξεργασία εγγράφων", meta: "Για μεγάλο όγκο", body: "Διαβάζει τιμολόγια, συμβάσεις ή αιτήσεις, εξάγει τα στοιχεία και τα ελέγχει με τους δικούς σας κανόνες." },
+          { name: "Πρωτότυπο", meta: "Για να δοκιμάσετε μια ιδέα", body: "Μια πρώτη έκδοση που δουλεύει, για να δείτε αν η ιδέα αξίζει πριν επενδύσετε σε ολόκληρη εφαρμογή.", chips: ["Lovable", "v0", "Cursor", "Claude Code"] },
+        ],
+      },
+      {
+        kind: "bullets",
+        title: "Πώς δουλεύουμε",
+        items: [
+          "Ξεκινάμε από τη δουλειά και τους ανθρώπους που θα τη χρησιμοποιούν, όχι από την τεχνολογία.",
+          "Φτιάχνουμε πρώτα μια μικρή έκδοση που χρησιμοποιείται πραγματικά, και μετά τη μεγαλώνουμε.",
+          "Το μοντέλο μένει αντικαταστήσιμο: cloud ή τοπικό (A4), χωρίς να ξαναγραφτεί η εφαρμογή.",
+          "Συνδέεται με τα συστήματα που ήδη έχετε (ERP, CRM, αρχεία).",
+        ],
+      },
+      {
+        kind: "callout",
+        tone: "info",
+        title: "Πρώτα ελέγχουμε αν υπάρχει κάτι έτοιμο.",
+        body: "Αν μια πλατφόρμα (A1) ή ένας αυτοματισμός (A2) κάνει τη δουλειά, σας το λέμε. Εφαρμογή φτιάχνουμε όταν πράγματι χρειάζεται.",
+      },
+    ],
+  },
+  A4: {
+    code: "A4",
+    title: "Local LLMs (on-premise)",
     kicker: "vLLM · Qwen · Llama · Mistral",
     blocks: [
       {
@@ -593,59 +788,6 @@ const GR: Record<ServiceId, ServiceDetail> = {
         tone: "info",
         title: "Συνήθως προτείνουμε υβριδικό.",
         body: "Τοπικά ό,τι είναι ευαίσθητο, και μια cloud πλατφόρμα (A1) για όλα τα υπόλοιπα.",
-      },
-    ],
-  },
-  A3: {
-    code: "A3",
-    title: "Εξειδικευμένα εργαλεία και συνδέσεις",
-    kicker: "Εργαλεία για συγκεκριμένες δουλειές",
-    blocks: [
-      {
-        kind: "lead",
-        body: "Οι μεγάλες πλατφόρμες καλύπτουν το μεγαλύτερο μέρος της δουλειάς. Για κάποιες εργασίες όμως υπάρχει εργαλείο φτιαγμένο ακριβώς γι’ αυτές. Προτείνουμε μόνο όσα λύνουν πραγματική ανάγκη, και μόνο αφού περάσουν έλεγχο ασφάλειας.",
-      },
-      {
-        kind: "catalog",
-        title: "Εργαλεία ανά δουλειά",
-        groups: [
-          { label: "Φωνή και ήχος", body: "Εκφωνήσεις, υλικό σε πολλές γλώσσες, φωνητικοί βοηθοί.", items: ["ElevenLabs"] },
-          { label: "Συναντήσεις", body: "Πρακτικά και εκκρεμότητες, χωρίς σημειώσεις.", items: ["Copilot στο Teams", "Gemini στο Meet", "Fireflies", "Granola"] },
-          { label: "Παρουσιάσεις και marketing", body: "Σε ώρες αντί για μέρες.", items: ["Gamma", "Canva AI"] },
-          { label: "Εικόνα και βίντεο", body: "Οπτικό υλικό και εκπαιδευτικά βίντεο χωρίς συνεργείο.", items: ["Midjourney", "Runway", "HeyGen", "Synthesia"] },
-          { label: "Εσωτερική γνώση", body: "Αναζήτηση και περιλήψεις στην τεκμηρίωσή σας.", items: ["Notion AI", "NotebookLM"] },
-          { label: "Έρευνα", body: "Έρευνα αγοράς με πηγές.", items: ["Perplexity"] },
-          { label: "Εφαρμογές και πρωτότυπα", body: "Εσωτερικά εργαλεία σε μέρες.", items: ["Lovable", "v0", "Cursor", "Claude Code"] },
-          { label: "Αυτοματισμοί", body: "Κανείς δεν μεταφέρει δεδομένα με το χέρι.", items: ["n8n", "Make", "Zapier", "Power Automate"] },
-        ],
-      },
-      {
-        kind: "cards",
-        title: "Connectors και plugins",
-        items: [
-          { name: "Connectors", meta: "Έτοιμες συνδέσεις", body: "Οι πλατφόρμες συνδέονται απευθείας με τα εργαλεία που ήδη χρησιμοποιείτε.", chips: ["Google Drive", "SharePoint", "Gmail", "Outlook", "Slack", "Notion", "HubSpot", "Salesforce"] },
-          { name: "MCP servers", meta: "Για τα δικά σας συστήματα", body: "Ανοιχτό πρότυπο για να συνδεθεί το AI με ERP, CRM και βάσεις δεδομένων, όπου δεν υπάρχει έτοιμος connector." },
-          { name: "Plugins και extensions", meta: "Μόνο εγκεκριμένα", body: "Μόνο από επίσημες πηγές και μόνο όσα εγκρίνετε. Ένα plugin μπορεί να διαβάσει ό,τι βλέπει ο χρήστης." },
-        ],
-      },
-      {
-        kind: "checks",
-        title: "Ένα εργαλείο μπαίνει μόνο αν",
-        items: [
-          "Έχει business πλάνο με σύμβαση επεξεργασίας δεδομένων (DPA).",
-          "Δεσμεύεται γραπτώς ότι δεν εκπαιδεύεται στα δεδομένα σας.",
-          "Ξέρουμε πού αποθηκεύει τα δεδομένα (ΕΕ ή όχι) και για πόσο.",
-          "Υποστηρίζει εταιρική είσοδο (SSO) και κεντρικό κλείσιμο πρόσβασης.",
-          "Ζητά μόνο τα δικαιώματα που χρειάζεται.",
-          "Έχει πιστοποιήσεις (SOC 2, ISO 27001) όπου τις απαιτεί ο κλάδος σας.",
-          "Αποδίδει καλά στα ελληνικά, όπου η δουλειά το απαιτεί.",
-        ],
-      },
-      {
-        kind: "callout",
-        tone: "warn",
-        title: "Αν δεν περάσει τον έλεγχο, δεν μπαίνει.",
-        body: "Προτείνουμε εναλλακτικό, ή κάνουμε τη δουλειά με τοπικό μοντέλο (A2).",
       },
     ],
   },

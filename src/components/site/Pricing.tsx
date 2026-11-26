@@ -89,7 +89,7 @@ export const Pricing = () => {
           transition={{ duration: 0.8, ease }}
           className="flex items-center gap-3 mb-16"
         >
-          <span className="text-xs uppercase tracking-[0.18em] text-signal-bright">04 —</span>
+          <span aria-hidden="true" className="h-px w-8 bg-signal-bright" />
           <span className="text-xs uppercase tracking-[0.18em] text-muted-foreground">{p.label}</span>
         </motion.div>
 

@@ -30,8 +30,8 @@ export const CookieBanner = () => {
   return (
     <AnimatePresence>
       {show && (
-        // From 2xl the note ends level with the hero's "Explore" button (hero sm:pb-20).
-        // Narrower screens put the button under this corner, so there it sits just above it.
+        // Sits in the bottom-right corner, clear of the hero's call button, which is on the left
+        // from sm up. On phones it spans the width until the visitor chooses.
         <motion.div
           role="region"
           aria-label={c.title}

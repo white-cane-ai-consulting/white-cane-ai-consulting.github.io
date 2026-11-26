@@ -35,7 +35,6 @@ export const ContactForm = () => {
     name: z.string().trim().min(2, f.errors.name),
     email: z.string().trim().email(f.errors.email),
     company: z.string().trim().optional(),
-    subject: z.string().trim().min(2, f.errors.subject),
     message: z.string().trim().min(10, f.errors.message),
   });
   type Values = z.infer<typeof schema>;
@@ -49,7 +48,7 @@ export const ContactForm = () => {
     formState: { errors, isSubmitting },
   } = useForm<Values>({
     resolver: zodResolver(schema),
-    defaultValues: { pkg: 0, name: "", email: "", company: "", subject: "", message: "" },
+    defaultValues: { pkg: 0, name: "", email: "", company: "", message: "" },
   });
   const pkg = watch("pkg");
 
@@ -62,7 +61,8 @@ export const ContactForm = () => {
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
           access_key: FORM_KEY,
-          subject: `[${packageName}] ${v.subject}`,
+          // No subject field to fill in: the email subject is built from what the visitor chose.
+          subject: `[${packageName}] ${v.name}${v.company ? ` · ${v.company}` : ""}`,
           from_name: "White Cane website",
           name: v.name,
           email: v.email,
@@ -176,12 +176,6 @@ export const ContactForm = () => {
             <div>
               <label htmlFor="cf-company" className={label}>{f.company} <span className="normal-case tracking-normal text-ink/45">({f.optional})</span></label>
               <input id="cf-company" autoComplete="organization" placeholder={f.companyPlaceholder} className={field} {...register("company")} />
-            </div>
-
-            <div>
-              <label htmlFor="cf-subject" className={label}>{f.subject}<Req /></label>
-              <input id="cf-subject" aria-required="true" placeholder={f.subjectPlaceholder} className={field} aria-invalid={!!errors.subject} {...register("subject")} />
-              {error(errors.subject?.message)}
             </div>
 
             <div>

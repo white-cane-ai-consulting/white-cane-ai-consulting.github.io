@@ -228,18 +228,20 @@ ${entries.join("\n")}
 const llmsServices: Record<"GR" | "EN", Record<string, string>> = {
   GR: {
     A: "Στήνουμε τα εργαλεία AI της εταιρείας ώστε να δουλεύουν πάνω στα δικά της δεδομένα, με εταιρικούς λογαριασμούς και ελεγμένη ασφάλεια, έτσι ώστε η ομάδα να τα χρησιμοποιεί από την πρώτη μέρα.",
-    A1: "ChatGPT, Claude, Gemini και Microsoft Copilot σε εταιρικό πλάνο, στημένα για όλη την ομάδα.",
-    A2: "Μοντέλα (vLLM, Qwen, Llama, Mistral) που τρέχουν στη δική σας υποδομή, όταν ο νόμος, μια σύμβαση ή η πολιτική της εταιρείας δεν επιτρέπει να βγουν δεδομένα έξω.",
-    A3: "Εργαλεία φτιαγμένα για συγκεκριμένες δουλειές, συνδεδεμένα με ERP, CRM και αυτοματισμούς, μόνο όταν λύνουν πραγματική ανάγκη και περνούν έλεγχο ασφάλειας.",
+    A1: "ChatGPT, Claude, Gemini και Microsoft Copilot σε εταιρικό πλάνο, στημένα για όλη την ομάδα, μαζί με εξειδικευμένα εργαλεία για συγκεκριμένες δουλειές που περνούν έλεγχο ασφάλειας.",
+    A2: "Ροές με n8n και Make για δουλειές που επαναλαμβάνονται, ώστε τα δεδομένα να περνούν ανάμεσα σε email, CRM και ERP χωρίς αντιγραφή με το χέρι.",
+    A3: "Εφαρμογές φτιαγμένες από την αρχή για τη δουλειά της εταιρείας, όταν καμία έτοιμη πλατφόρμα δεν κάνει αυτό που χρειάζεται.",
+    A4: "Μοντέλα (vLLM, Qwen, Llama, Mistral) που τρέχουν στη δική σας υποδομή, όταν ο νόμος, μια σύμβαση ή η πολιτική της εταιρείας δεν επιτρέπει να βγουν δεδομένα έξω.",
     B: "Ορίζουμε τι πρέπει να κάνει το εργαλείο, δοκιμάζουμε τους υποψηφίους στα ελληνικά και πάνω στα πραγματικά αρχεία του πελάτη, και παραδίδουμε σύγκριση με τεκμηριωμένη πρόταση.",
     C: "Σεμινάρια, πρακτικά μαθήματα ανά ρόλο και γραπτοί οδηγοί πάνω στη δουλειά της ίδιας της εταιρείας, ώστε τα εργαλεία να χρησιμοποιούνται πραγματικά.",
     D: "Όταν βγαίνουν νέα εργαλεία ή μοντέλα που αφορούν την επιχείρηση, στέλνουμε σύντομη ενημέρωση με συγκεκριμένη πρόταση, όχι newsletter.",
   },
   EN: {
     A: "We set up a company's AI tools to work on its own data, with company accounts and verified security, so the team uses them from day one.",
-    A1: "ChatGPT, Claude, Gemini and Microsoft Copilot on a business plan, set up for the whole team.",
-    A2: "Models (vLLM, Qwen, Llama, Mistral) running on your own infrastructure, when the law, a contract or company policy does not allow data to leave.",
-    A3: "Tools built for specific jobs, connected to ERP, CRM and automations, only when they solve a real need and pass a security check.",
+    A1: "ChatGPT, Claude, Gemini and Microsoft Copilot on a business plan, set up for the whole team, plus specialised tools for specific jobs that pass a security check.",
+    A2: "Flows built with n8n and Make for work that repeats, so data moves between email, CRM and ERP without copying by hand.",
+    A3: "Applications built from scratch for the company's own work, when no ready-made platform does what it needs.",
+    A4: "Models (vLLM, Qwen, Llama, Mistral) running on your own infrastructure, when the law, a contract or company policy does not allow data to leave.",
     B: "We define what the tool must do, test candidates in Greek and on the client's real files, and deliver a comparison with a reasoned recommendation.",
     C: "Seminars, hands-on lessons per role and written guides built on the company's own work, so the tools actually get used.",
     D: "When new tools or models matter to the business, we send a short note with a concrete suggestion, not a newsletter.",
@@ -268,7 +270,7 @@ export const buildLlmsTxt = () => {
 - Τι κάνουμε: στήσιμο εργαλείων AI, έρευνα και αξιολόγηση εργαλείων, εκπαίδευση ομάδων, συνεχής ενημέρωση.
 - Για ποιους: ελληνικές επιχειρήσεις, από μικρές ομάδες 5 ατόμων μέχρι οργανισμούς άνω των 100 ατόμων.
 - Έδρα: Αθήνα. Ιδρύθηκε το 2026. Εργαζόμαστε στα ελληνικά και στα αγγλικά.
-- Εμπειρία (όπως δηλώνεται στο site): 3+ χρόνια σε enterprise Generative AI, 150+ εργαλεία AI που έχουμε δοκιμάσει, 20+ κλάδοι.
+- Εμπειρία (όπως δηλώνεται στο site): 3+ χρόνια σε enterprise Generative AI, 100+ εργαλεία AI που έχουμε δοκιμάσει.
 - Κόστος: δεν δημοσιεύουμε τιμές. Δίνουμε προσφορά ανά έργο, ανάλογα με το μέγεθος της εταιρείας και τα εργαλεία και τις συνδέσεις που χρειάζονται, μετά από μια δωρεάν κλήση 30 λεπτών χωρίς δέσμευση.
 - Κάθε έργο περιλαμβάνει έρευνα εργαλείων, στήσιμο, εκπαίδευση της ομάδας και δύο μήνες υποστήριξης.
 - Πώς ξεκινάτε: δωρεάν κλήση 30 λεπτών μέσω της φόρμας επικοινωνίας ή με email στο ${EMAIL}.

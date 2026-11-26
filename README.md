@@ -16,7 +16,7 @@ We set up AI apps and tools for your team, with research before it and training 
 
 | Service | Description |
 |---|---|
-| **A — AI tool set-up** | The core service: enterprise AI platforms (A1), local AI on your own infrastructure (A2), and specialised tools and connections (A3). |
+| **A — AI Transformation** | The core service: enterprise AI platforms and specialised tools (A1), workflows and automations with n8n and Make (A2), custom AI applications (A3), and local LLMs on your own infrastructure (A4). |
 | **B — Research & Tool Selection** | Before the set-up: we evaluate tools for your industry, including how they perform in Greek. |
 | **C — Training & Enablement** | After the set-up: seminars and practical guides so the team actually uses what was built. |
 | **D — Staying Current** | Ongoing: we tell you when new tools or models become relevant to your business. |

@@ -170,7 +170,9 @@ export const Hero = () => {
               {t.hero.eyebrow}
             </span>
           </motion.span>{" "}
-          <span className="block font-display font-light leading-[0.95] tracking-tight max-w-[12ch] text-balance text-[clamp(1.75rem,6vw,5.25rem)]">
+          {/* Three short lines, so the proposition and the call button below still fit
+              in the first screen of a 1366×768 laptop. */}
+          <span className="block font-display font-light leading-[0.98] tracking-tight max-w-[20ch] text-balance text-[clamp(1.875rem,4.6vw,4.25rem)]">
             {t.hero.lines.map((line, i) => {
               const parts = i === 2 ? line.split(t.hero.lineHighlight) : null;
               return (
@@ -192,29 +194,35 @@ export const Hero = () => {
           </span>
         </h1>
 
-        {/* Sub */}
-        <div className="mt-12 grid md:grid-cols-2 gap-10 max-w-5xl">
+        {/* What we do, then the one action: the free call. The services link is secondary. */}
+        <div className="mt-10 max-w-xl">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 1.2, ease }}
-            className="text-base md:text-lg text-muted-foreground leading-[1.75] max-w-xl"
+            transition={{ duration: 0.9, delay: 1.0, ease }}
+            className="text-base md:text-lg text-foreground/80 leading-[1.7] text-pretty"
           >
-            {t.hero.sub}
+            <span className="text-signal-bright">{t.hero.subAccent}</span> {t.hero.sub}
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 1.35, ease }}
-            className="flex items-end justify-start md:justify-end gap-4"
+            transition={{ duration: 0.9, delay: 1.15, ease }}
+            className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4"
           >
             <a
-              href="#offer"
-              className="group inline-flex items-center gap-2 rounded-full bg-bone text-ink px-8 py-4 text-xs uppercase tracking-[0.14em] font-medium hover:bg-signal hover:text-bone transition-colors duration-500"
+              href="#contact"
+              className="group inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-bone text-ink px-6 sm:px-7 py-4 text-[11px] sm:text-xs uppercase tracking-[0.06em] sm:tracking-[0.14em] font-medium hover:bg-signal hover:text-bone transition-colors duration-500"
             >
               {t.hero.cta}
               <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+            </a>
+            <a
+              href="#offer"
+              className="text-sm text-muted-foreground underline decoration-border underline-offset-[6px] hover:text-foreground hover:decoration-foreground transition-colors duration-300"
+            >
+              {t.hero.ctaSecondary}
             </a>
           </motion.div>
         </div>

@@ -92,7 +92,7 @@
   }
 
   * { @apply border-border; }
-  html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
+  html { scroll-behavior: smooth; scroll-padding-top: 4rem; } /* = the fixed nav's height (h-16), so a section starts right under it */
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter Variable', 'Inter', system-ui, sans-serif;

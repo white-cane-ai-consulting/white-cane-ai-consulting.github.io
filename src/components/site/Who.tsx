@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Quote } from "lucide-react";
 import logo from "@/assets/logo-stacked-color.svg";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { cn } from "@/lib/utils";
@@ -20,7 +21,8 @@ const renderBio = (paragraphs: BioParagraphs, paraClass: string) =>
     <p key={i} className={paraClass}>
       {segs.map((seg, j) =>
         seg.b || seg.s ? (
-          <strong key={j} className={cn("font-semibold", seg.s && "text-signal")}>
+          // Crimson, like the other highlights, at the owner's request (3.9:1 on Soft Silver, below AA for body text).
+          <strong key={j} className={cn("font-semibold", seg.s && "text-signal-bright")}>
             {seg.text}
           </strong>
         ) : (
@@ -40,7 +42,7 @@ export const Who = () => {
 
         {/* Eyebrow — above the grid */}
         <motion.div {...fadeUp(0)} className="flex items-center gap-3 mb-12">
-          <span className="text-xs uppercase tracking-[0.18em] text-signal">02 —</span>
+          <span aria-hidden="true" className="h-px w-8 bg-signal" />
           <span className="text-xs uppercase tracking-[0.18em] text-harbor">{w.label}</span>
         </motion.div>
 
@@ -67,12 +69,13 @@ export const Who = () => {
             >
               {w.h2a}
               <br />
-              <span className="text-sapphire/40">{w.h2b}</span>{" "}
+              <span className="text-sapphire/60">{w.h2b}</span>
+              <br />
               <span className="italic font-normal">{w.h2c}</span>
             </motion.h2>
 
             <motion.div {...fadeUp(0.2)}>
-              <div className="flex flex-col gap-4 border-l-2 border-signal rounded-l-sm pl-5">
+              <div className="flex flex-col gap-4">
                 {renderBio(
                   w.team[0].bio[0] as unknown as BioParagraphs,
                   "text-harbor leading-[1.75] max-w-2xl"
@@ -85,33 +88,36 @@ export const Who = () => {
         {/* Proof strip */}
         <motion.div
           {...fadeUp(0.4)}
-          className="grid grid-cols-1 sm:grid-cols-3 gap-3"
+          className="mx-auto grid max-w-4xl grid-cols-1 gap-3 sm:grid-cols-3"
         >
           {w.proof.map((p) => (
             <div
               key={p.k}
-              className="group rounded-3xl border border-misty/60 bg-white/40 hover:bg-ink hover:border-ink transition-colors duration-500 p-6 cursor-default"
+              className="group rounded-xl bg-signal p-6 text-xl font-semibold leading-[1.4] text-white transition-[transform,background-color] duration-500 ease-expo hover:-translate-y-1.5 hover:bg-ink motion-reduce:transition-colors motion-reduce:hover:translate-y-0 md:p-7"
             >
-              <div className="font-display text-2xl text-signal mb-1 group-hover:text-bone transition-colors duration-500">
-                {p.k}
-              </div>
-              <div className="text-sm text-harbor group-hover:text-bone/80 transition-colors duration-500 leading-[1.65]">
-                {p.v}
-              </div>
+              {/* One size for both lines; at 20px semibold the white on crimson counts as large text for WCAG.
+                  The first line is black on crimson (about 5:1) and turns crimson when the card goes black. */}
+              <div className="text-ink transition-colors duration-500 group-hover:text-signal-bright">{p.k}</div>
+              <div>{p.v}</div>
             </div>
           ))}
         </motion.div>
 
-        {/* Closing insight — appears after credentials */}
-        <motion.div
-          {...fadeUp(0.5)}
-          className="mt-12 flex flex-col gap-2 text-[0.9375rem] text-harbor leading-[1.75]"
-        >
-          {renderBio(
-            w.team[0].bio[1] as unknown as BioParagraphs,
-            ""
-          )}
-        </motion.div>
+        {/* Closing insight, set as a centred quote after the credentials. */}
+        <motion.figure {...fadeUp(0.5)} className="mx-auto mt-24 max-w-3xl text-center md:mt-28">
+          {/* A drawn mark: the fonts' own quotation glyphs read as a chevron (Lilex) or slashes (Inter). */}
+          <Quote aria-hidden className="mx-auto h-10 w-10 text-signal md:h-12 md:w-12" fill="currentColor" strokeWidth={0} />
+          <blockquote className="mt-6flex flex-col gap-2 text-xl font-light leading-[1.55] tracking-[-0.01em] text-ink text-balance md:text-[1.75rem]">
+            {renderBio(
+              w.team[0].bio[1] as unknown as BioParagraphs,
+              ""
+            )}
+          </blockquote>
+          <figcaption className="mt-8 flex items-center justify-center gap-3 text-sm text-harbor">
+            <span aria-hidden className="h-px w-8 bg-signal" />
+            {w.quoteBy}
+          </figcaption>
+        </motion.figure>
 
       </div>
     </section>
